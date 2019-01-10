@@ -11,6 +11,7 @@ import Register from './components/auth/Register';
 import Forgot from './components/auth/Forgot';
 import ResetPass from './components/auth/ResetPass';
 import Dashboard from './components/Dashboard';
+import Error500 from './components/pages/500/Error_500';
 
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route exact path='/register' component={ Register } />
         <Route exact path='/forgot' component={ Forgot } />
         <Route exact path='/password_reset/:token' component={ ResetPass } />
+        <Route exact path='/error' component={ Error500 } />
         <Route exact path='*' component={ Dashboard } />
       </Switch>
     </Router>

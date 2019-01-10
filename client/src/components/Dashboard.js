@@ -70,9 +70,13 @@ class Dashboard extends Component {
 
   render() {
     const { showMobileMenu } = this.state;
-    const {auth, dom:{smallRightBar}} = this.props;
+    const {auth, dom:{smallRightBar}, errors} = this.props;
 
-    if( auth.isAuthenticated !== true ) {
+      // if(errors.global_error) {
+      //     return <Redirect to='/error' />
+      // }
+
+      if( auth.isAuthenticated !== true ) {
       return <Redirect to='/login' />
     }
 
@@ -107,6 +111,7 @@ class Dashboard extends Component {
                   <Route exact path='/profile/:handle' component={ CustomeUserProfile } />
                   <Route exact path='/admin' component={ Admin } />
                   <Route exact path='/gallery/:_id' component={ Gallery } />
+
                   {/* for testing */}
                   <Route exact path='/test' component={ Test } />
 
@@ -122,5 +127,6 @@ class Dashboard extends Component {
 
 export default connect(state => ({
   auth: state.auth,
-  dom: state.dom
+  dom: state.dom,
+  errors: state.errors
 }))(Dashboard);

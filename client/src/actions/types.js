@@ -19,6 +19,7 @@ export const DELETE_POST = 'DELETE_POST';
 export const SET_SMALL_MENU = 'SET_SMALL_MENU';
 export const CHANGE_COLOR = 'CHANGE_COLOR';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const GLOBAL_ERROR = 'GLOBAL_ERROR';
 
 export const SUCCESS_SEND_RESET_PASS = 'SUCCESS_SEND_RESET_PASS';
 

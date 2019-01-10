@@ -8,6 +8,8 @@ import {loginUser, loginUserbyFacebook} from '../../actions/actions';
 import FacebookLogin from 'react-facebook-login';
 import { GoogleLogin } from 'react-google-login';
 import GitHubLogin from 'react-github-login';
+import TwitterLogin from 'react-twitter-auth';
+
 
 import bg from '../../assets/images/matrix.gif';
 import Register from './Register';
@@ -165,10 +167,14 @@ class Login extends Component {
                     />
 
                     <GitHubLogin
-                        clientId="508fe2fae9578d83a039"
+                        clientId="536182cbaae063122e8c"
                         onSuccess={this.responseGithub}
                         onFailure={this.responseGithub}
                     />
+
+                    <TwitterLogin loginUrl="http://localhost:4000/api/v1/auth/twitter"
+                                  onFailure={this.onFailed} onSuccess={this.onSuccess}
+                                  requestTokenUrl="http://localhost:4000/api/v1/auth/twitter/reverse"/>
 
                   </div>
                 </div>

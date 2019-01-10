@@ -6,6 +6,8 @@ import SinglePost from './SinglePost';
 import TextAreaFieldGroup from '../../Form/TextAreaFieldGroup';
 import Comments from '../../Tools/Comments/Comment';
 
+import { Editor } from '@tinymce/tinymce-react';
+
 import {connect} from 'react-redux';
 import {getPost, addComment, deleteComment} from '../../../actions/post-action';
 
@@ -85,6 +87,11 @@ class SinglePostWrap extends Component {
   }
 
 
+  handleEditorChange = (content) => {
+    console.log('Content:', content);
+  }
+
+
 
   render() {
 
@@ -98,6 +105,22 @@ class SinglePostWrap extends Component {
                 <h2>Добавити комментар</h2>
             </div>
             <div className='body m-b-10 user-post'>
+
+              <Editor
+                  apiKey='q2t6fo9i37sej175kuu64vxngrxql8eh0rv5mfrpy8ri8k04'
+                  initialValue="<p>This is the initial content of the editor</p>"
+                  init={{
+                    plugins: [
+                      "emoticons a11ychecker advcode advlist anchor autolink codesample colorpicker contextmenu fullscreen help image imagetools",
+                      " lists link linkchecker media mediaembed noneditable powerpaste preview",
+                      " searchreplace table template textcolor tinymcespellchecker visualblocks wordcount"
+                    ],
+                    toolbar: "emoticons insertfile a11ycheck undo redo | bold italic | forecolor backcolor | template codesample | alignleft aligncenter alignright alignjustify | bullist numlist | link image",
+                  }}
+                  onEditorChange={this.handleEditorChange}
+              />
+
+
                 <form onSubmit={this.onSubmit}>
                     <TextAreaFieldGroup
                         name={'comment'}
@@ -118,6 +141,7 @@ class SinglePostWrap extends Component {
   }
 }
 
+
 SinglePostWrap.propTypes = {
   posts: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
@@ -131,3 +155,8 @@ export default connect(state => ({
   auth: state.auth,
   errors: state.errors
 }), { getPost, addComment, deleteComment})(SinglePostWrap);
+
+
+
+
+{/*<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=q2t6fo9i37sej175kuu64vxngrxql8eh0rv5mfrpy8ri8k04"></script>*/}

@@ -6,7 +6,6 @@ class GalleryList extends Component {
 
     render() {
         const {gallery} = this.props;
-        debugger
 
         return (
             <div className="body p-b-0">

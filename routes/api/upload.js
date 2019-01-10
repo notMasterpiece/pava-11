@@ -31,6 +31,10 @@ router.post('/', upload.single('image'), passport.authenticate('jwt', { session:
 // @access  Private
 router.post('/gallery', upload.array('gallery'), passport.authenticate('jwt', { session: false }), async (req, res) => {
 
+    console.log(req.files);
+    return;
+
+
     // res_promises will be an array of promises
     let res_promises = req.files.map(file => new Promise((resolve, reject) => {
             cloudinary.v2.uploader.upload(file.path, { use_filename: true, unique_filename: false }, function (error, result) {
@@ -54,7 +58,6 @@ router.post('/gallery', upload.array('gallery'), passport.authenticate('jwt', { 
                     const newGalleryItem = {};
                     newGalleryItem.images = result;
 
-                    // Add to gallery array
                     profile.gallery.unshift(newGalleryItem);
 
                     profile

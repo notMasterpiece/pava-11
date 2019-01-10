@@ -691,6 +691,14 @@ body .swiper-pagination-bullet-active {
   padding-right: 6px;
 }
 
+
+.server-error {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 1200px ){
   #leftsidebar {
     left: -300px;

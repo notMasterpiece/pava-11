@@ -1,7 +1,7 @@
-import { GET_ERRORS, CLEAR_ERRORS } from '../actions/types';
+import { GET_ERRORS, CLEAR_ERRORS, GLOBAL_ERROR } from '../actions/types';
 
 const initState = {
-  text: ''
+  text: '',
 };
 
 
@@ -12,6 +12,11 @@ export default function (state = initState, action ) {
     case CLEAR_ERRORS:
       return {
         text: null
+      };
+    case GLOBAL_ERROR:
+      return {
+        ...state,
+        global_error: true
       };
     default:
       return state;

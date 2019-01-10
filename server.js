@@ -42,6 +42,13 @@ app.use('/api/posts', post);
 app.use('/api/admin', admin);
 app.use('/api/upload', upload);
 
+
+// app.use((error, req, res, next) => {
+//     console.log(error);
+//     console.log('моя помилка');
+//     res.status(500).json({global_error: true});
+// });
+
 if(process.env.NODE_ENV === 'production') {
 
     app.use(express.static('client/build'));
