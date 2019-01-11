@@ -7,8 +7,6 @@ import {loginUser, loginUserbyFacebook} from '../../actions/actions';
 
 import FacebookLogin from 'react-facebook-login';
 import { GoogleLogin } from 'react-google-login';
-import GitHubLogin from 'react-github-login';
-import TwitterLogin from 'react-twitter-auth';
 
 
 import bg from '../../assets/images/matrix.gif';
@@ -151,33 +149,32 @@ class Login extends Component {
 
                     <br/>
 
+                    <div className="social-login">
+                      <FacebookLogin
+                          appId="488196955039549"
+                          autoLoad={false}
+                          fields="name,email,picture"
+                          callback={this.responseFacebook}
+                          textButton = "&nbsp;&nbsp;Sign In with Facebook"
+                          cssClass="btnFacebook"
+                          icon={<i className="zmdi zmdi-facebook" />}
+                      />
 
-                    <FacebookLogin
-                        appId="488196955039549"
-                        autoLoad={false}
-                        fields="name,email,picture"
-                        callback={this.responseFacebook}
-                        textButton = "&nbsp;&nbsp;Sign In with Facebook"
-                        cssClass="btnFacebook"
-                        icon={<i className="zmdi zmdi-facebook" />}
-                    />
+                      <GoogleLogin
+                          clientId="320137920290-a7t5q94gd22h0ktkn5k9qeq8n0nq2eo5.apps.googleusercontent.com"
+                          onSuccess={this.responseGoogle}
+                          onFailure={this.responseGoogle}
+                          buttonText="Login"
+                          className={'btnGoogle'}
+                      />
+                    </div>
 
-                    <GoogleLogin
-                        clientId="320137920290-a7t5q94gd22h0ktkn5k9qeq8n0nq2eo5.apps.googleusercontent.com"
-                        buttonText="Login"
-                        onSuccess={this.responseGoogle}
-                        onFailure={this.responseGoogle}
-                    />
-
-                    <GitHubLogin
-                        clientId="536182cbaae063122e8c"
-                        onSuccess={this.responseGithub}
-                        onFailure={this.responseGithub}
-                    />
-
-                    <TwitterLogin loginUrl="http://localhost:4000/api/v1/auth/twitter"
-                                  onFailure={this.onFailed} onSuccess={this.onSuccess}
-                                  requestTokenUrl="http://localhost:4000/api/v1/auth/twitter/reverse"/>
+                    <div className="login-box">
+                      <a href="#" className="social-button" id="facebook-connect"><span>Facebook</span></a>
+                      <a href="#" className="social-button" id="google-connect"> <span>Google</span></a>
+                      <a href="#" className="social-button" id="twitter-connect"> <span>Twitter</span></a>
+                      <a href="#" className="social-button" id="linkedin-connect"><span>LinkedIn</span></a>
+                    </div>
 
                   </div>
                 </div>
