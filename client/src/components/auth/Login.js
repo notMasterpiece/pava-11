@@ -157,6 +157,9 @@ class Login extends Component {
                         autoLoad={false}
                         fields="name,email,picture"
                         callback={this.responseFacebook}
+                        textButton = "&nbsp;&nbsp;Sign In with Facebook"
+                        cssClass="btnFacebook"
+                        icon={<i className="zmdi zmdi-facebook" />}
                     />
 
                     <GoogleLogin
