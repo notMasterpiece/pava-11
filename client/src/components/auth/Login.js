@@ -66,12 +66,30 @@ class Login extends Component {
 
 
   responseFacebook = user => {
-    this.props.loginUserbyFacebook(user);
+
+    const newUser = {
+      name: user.name,
+      email: user.email,
+      avatar: user.picture.data.url,
+      id: user.id,
+      provider: 'facebook'
+    };
+
+    this.props.loginUserbyFacebook(newUser);
   };
 
 
-  responseGithub = response => {
-    console.log(response);
+  responseGoogle = user => {
+
+    const newUser = {
+      name: user.profileObj.name,
+      email: user.profileObj.email,
+      avatar: user.profileObj.imageUrl,
+      id: user.googleId,
+      provider: 'google'
+    };
+
+    this.props.loginUserbyFacebook(newUser);
   };
 
 
@@ -150,7 +168,7 @@ class Login extends Component {
                           autoLoad={false}
                           fields="name,email,picture"
                           callback={this.responseFacebook}
-                          textButton = "&nbsp;&nbsp;Sign In with Facebook"
+                          textButton = "Увійти через Facebook"
                           cssClass="btnFacebook"
                           icon={<i className="zmdi zmdi-facebook" />}
                       />
@@ -159,7 +177,7 @@ class Login extends Component {
                           clientId="320137920290-a7t5q94gd22h0ktkn5k9qeq8n0nq2eo5.apps.googleusercontent.com"
                           onSuccess={this.responseGoogle}
                           onFailure={this.responseGoogle}
-                          buttonText="Login"
+                          buttonText="Увійти через Google"
                           className={'btnGoogle'}
                       />
 
@@ -182,13 +200,6 @@ class Login extends Component {
                           {/*getOAuthToken*/}
                       {/*/>,*/}
                     </div>
-
-                    {/*<div className="login-box">*/}
-                      {/*<a href="#" className="social-button" id="facebook-connect"><span>Facebook</span></a>*/}
-                      {/*<a href="#" className="social-button" id="google-connect"> <span>Google</span></a>*/}
-                      {/*<a href="#" className="social-button" id="twitter-connect"> <span>Twitter</span></a>*/}
-                      {/*<a href="#" className="social-button" id="linkedin-connect"><span>LinkedIn</span></a>*/}
-                    {/*</div>*/}
 
                   </div>
                 </div>

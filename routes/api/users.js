@@ -247,7 +247,9 @@ router.post('/reset-pass/:token' , (req, res) => {
 
 router.post('/login/facebook', (req, res) => {
 
-    const {name, email, picture, id} = req.body;
+    console.log(req.body);
+
+    const {name, email, avatar, id, provider} = req.body;
 
 
     User.findOne({providerID: id})
@@ -258,7 +260,8 @@ router.post('/login/facebook', (req, res) => {
                     id: user._doc._id,
                     name: user._doc.name,
                     email: user._doc.email,
-                    avatar: user._doc.avatar
+                    avatar: user._doc.avatar,
+                    provider: user._doc.provider
                 };
 
                 jwt.sign(payload, keys.secretOrKey, {expiresIn: 3600}, ( err, token ) => {
@@ -273,8 +276,8 @@ router.post('/login/facebook', (req, res) => {
                 const newUser = new User({
                     name,
                     email,
-                    avatar: picture.data.url,
-                    provider: 'facebook',
+                    avatar,
+                    provider,
                     providerID: id
                 });
 
@@ -285,7 +288,8 @@ router.post('/login/facebook', (req, res) => {
                             id: user.id,
                             name,
                             email,
-                            avatar: picture.data.url
+                            provider,
+                            avatar
                         };
 
                         jwt.sign(payload, keys.secretOrKey, {expiresIn: 3600}, ( err, token ) => {
