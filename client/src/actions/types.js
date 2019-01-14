@@ -38,3 +38,8 @@ export const GET_ALL_MESSAGES = 'GET_ALL_MESSAGES';
 
 
 
+// fake
+export const GET_FAKE_USER = 'GET_FAKE_USER';
+
+
+

@@ -18,6 +18,8 @@ import CreateProfile from './pages/create-profile/CreateProfile';
 import AllProfiles from './pages/profiles/AllProfilesIndex';
 import CustomeUserProfile from './pages/custome-user-profile/CustomeUserIndex';
 import Gallery from './pages/Gallery/GalleryIndex';
+
+import FakeIndex from './pages/fake/fakeIndex';
 import Test from './pages/test';
 
 import Content from './pages/profile/Content';
@@ -113,6 +115,7 @@ class Dashboard extends Component {
                   <Route exact path='/gallery/:_id' component={ Gallery } />
 
                   {/* for testing */}
+                  <Route exact path='/fake' component={ FakeIndex } />
                   <Route exact path='/test' component={ Test } />
 
                   <Route path='*' render={ () => <Redirect to='/not-found' /> } />

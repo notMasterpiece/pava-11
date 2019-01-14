@@ -8,7 +8,6 @@ import {loginUser, loginUserbyFacebook} from '../../actions/actions';
 import FacebookLogin from 'react-facebook-login';
 import { GoogleLogin } from 'react-google-login';
 
-
 import bg from '../../assets/images/matrix.gif';
 import Register from './Register';
 
@@ -68,10 +67,6 @@ class Login extends Component {
 
   responseFacebook = user => {
     this.props.loginUserbyFacebook(user);
-  };
-
-  responseGoogle = (response) => {
-    console.log(response);
   };
 
 
@@ -167,14 +162,33 @@ class Login extends Component {
                           buttonText="Login"
                           className={'btnGoogle'}
                       />
+
+                      {/*<LinkedIn*/}
+                          {/*clientId='777cbc1gfof8yk'*/}
+                          {/*callback={this.callbackLinkedIn}*/}
+                          {/*className={'btnLinkedin'}*/}
+                          {/*text='LinkedIn' />*/}
+
+
+                      {/*<LinkedinSDK*/}
+                          {/*clientId="777cbc1gfof8yk"*/}
+                          {/*callBack={this.responseLinkedin}*/}
+                          {/*fields=":(id,num-connections,picture-url)"*/}
+                          {/*className={'className'}*/}
+                          {/*loginButtonText={'Login with Linkedin'}*/}
+                          {/*logoutButtonText={'Logout from Linkedin'}*/}
+                          {/*buttonType={'button'}*/}
+                          {/*// icon={<Icon />}*/}
+                          {/*getOAuthToken*/}
+                      {/*/>,*/}
                     </div>
 
-                    <div className="login-box">
-                      <a href="#" className="social-button" id="facebook-connect"><span>Facebook</span></a>
-                      <a href="#" className="social-button" id="google-connect"> <span>Google</span></a>
-                      <a href="#" className="social-button" id="twitter-connect"> <span>Twitter</span></a>
-                      <a href="#" className="social-button" id="linkedin-connect"><span>LinkedIn</span></a>
-                    </div>
+                    {/*<div className="login-box">*/}
+                      {/*<a href="#" className="social-button" id="facebook-connect"><span>Facebook</span></a>*/}
+                      {/*<a href="#" className="social-button" id="google-connect"> <span>Google</span></a>*/}
+                      {/*<a href="#" className="social-button" id="twitter-connect"> <span>Twitter</span></a>*/}
+                      {/*<a href="#" className="social-button" id="linkedin-connect"><span>LinkedIn</span></a>*/}
+                    {/*</div>*/}
 
                   </div>
                 </div>

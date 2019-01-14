@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@tinymce/tinymce-react": "^2.4.0",
+    "autobind-decorator": "^2.4.0",
     "axios": "^0.18.0",
     "chart.js": "^2.7.3",
     "emoji-mart": "^2.8.1",
@@ -23,6 +24,8 @@
     "react-google-maps": "^9.4.5",
     "react-id-swiper": "^1.6.8",
     "react-images": "^0.5.19",
+    "react-linkedin-login": "^1.0.4",
+    "react-linkedin-sdk": "^1.0.12",
     "react-masonry-component": "^6.2.1",
     "react-moment": "^0.8.2",
     "react-redux": "^5.1.0",

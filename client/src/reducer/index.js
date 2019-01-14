@@ -7,6 +7,7 @@ import domreducer from './dom';
 import postReducer from './post';
 import infoReducer from './info';
 import messagesReducer from './messages';
+import fakeReducer from './fake';
 
 
 export default combineReducers({
@@ -16,5 +17,6 @@ export default combineReducers({
   dom: domreducer,
   posts: postReducer,
   info: infoReducer,
-  messages: messagesReducer
+  messages: messagesReducer,
+  fakeData: fakeReducer
 })

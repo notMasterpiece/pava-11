@@ -180,7 +180,9 @@ class ProfileActions extends Component {
             </div>
           </div>
 
-          <div className="col-sm-3">23</div>
+          <div className="col-sm-3">
+              23
+          </div>
           <div className="col-sm-3">23</div>
 
           <div className="col-sm-3">

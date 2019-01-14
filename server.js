@@ -17,6 +17,7 @@ const profile = require('./routes/api/profile');
 const post = require('./routes/api/post');
 const admin = require('./routes/api/admin');
 const upload = require('./routes/api/upload');
+const fake = require('./routes/api/fake');
 
 
 
@@ -41,6 +42,7 @@ app.use('/api/profile', profile);
 app.use('/api/posts', post);
 app.use('/api/admin', admin);
 app.use('/api/upload', upload);
+app.use('/api/fake', fake);
 
 
 // app.use((error, req, res, next) => {
