@@ -6,7 +6,7 @@ const User = ({user, profile}) => {
     return (
       <div className="user-info m-b-20">
         <div className="image">
-          { profile && profile.image &&  <img src={profile.image} alt={user.name} /> }
+          <img src={user.avatar} alt={user.name} />
         </div>
         <div className="detail">
           <h6>{user.name}</h6>
