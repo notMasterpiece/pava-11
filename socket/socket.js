@@ -4,15 +4,18 @@ module.exports = io => {
     io.on('connect', function (socket) {
         socket.emit('connected', 'You are connected to socket.io');
 
-
         socket.on('getAllMessages', () => {
             Message
                 .find({})
-                .limit(3)
+                .limit(30)
                 .sort({$natural: -1})
                 .sort({_id: -1})
                 .then(messages => {
-                    // console.log(messages);
+
+                    messages.sort((a, b) => {
+                        return new Date((a.date)) - new Date((b.date));
+                    });
+
                     io.emit('history', messages);
                 })
                 .catch(err => {

@@ -3,7 +3,33 @@
   <component name="ChangeListManager">
     <list default="true" id="62560d12-4a06-475d-8577-6752f888d381" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/favicon1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/precache-manifest.bb1c2cdcea8be2b5d92333712ee5d15d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/service-worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.842c6c27.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.842c6c27.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.5794e91b.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.5794e91b.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.88df4d69.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.88df4d69.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.191e1d72.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.191e1d72.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/runtime~main.229c360f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/runtime~main.229c360f.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/media/bg2.5de3e19f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/media/comment.c0c8f32b.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/media/logo.ed577935.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/media/matrix.0a20bc2b.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/media/node2.7dbf4d49.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/media/react1.e85103d0.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/fake.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/fake.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/socket/socket.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,85 +45,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="860">
-              <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/pages/fake/fakeIndex.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="47" column="14" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="340">
+              <caret line="53" column="18" lean-forward="true" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/components/auth/Login.js">
+        <entry file="file://$PROJECT_DIR$/socket/socket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
+            <state relative-caret-position="200">
+              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesIndex.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="36" column="37" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="37" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/actions/actions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#105#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="251" column="57" lean-forward="true" selection-start-line="251" selection-start-column="57" selection-end-line="251" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/assets/styles/my.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="784" column="43" lean-forward="true" selection-start-line="784" selection-start-column="43" selection-end-line="784" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/pages/fake/FakeUser.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/actions/fake-action.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="3" column="48" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,8 +75,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api/fake.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+            <state relative-caret-position="73">
+              <caret line="55" column="12" lean-forward="true" selection-start-line="55" selection-start-column="12" selection-end-line="59" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,20 +144,23 @@
         <option value="$PROJECT_DIR$/client/src/actions/profileActions.js" />
         <option value="$PROJECT_DIR$/client/src/components/pages/profile/profileActions.js" />
         <option value="$PROJECT_DIR$/routes/api/admin.js" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/client/src/components/Dashboard.js" />
         <option value="$PROJECT_DIR$/client/src/actions/info-action.js" />
         <option value="$PROJECT_DIR$/client/src/actions/types.js" />
         <option value="$PROJECT_DIR$/client/src/reducer/fake.js" />
         <option value="$PROJECT_DIR$/client/src/reducer/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/pages/fake/FakeUser.js" />
-        <option value="$PROJECT_DIR$/routes/api/fake.js" />
         <option value="$PROJECT_DIR$/client/src/actions/fake-action.js" />
         <option value="$PROJECT_DIR$/client/src/components/pages/fake/fakeIndex.js" />
         <option value="$PROJECT_DIR$/client/src/assets/styles/my.scss" />
         <option value="$PROJECT_DIR$/client/src/actions/actions.js" />
-        <option value="$PROJECT_DIR$/routes/api/users.js" />
         <option value="$PROJECT_DIR$/client/src/components/auth/Login.js" />
+        <option value="$PROJECT_DIR$/routes/api/users.js" />
+        <option value="$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/routes/api/fake.js" />
+        <option value="$PROJECT_DIR$/client/src/components/pages/messages/MessagesIndex.js" />
+        <option value="$PROJECT_DIR$/socket/socket.js" />
       </list>
     </option>
   </component>
@@ -187,7 +171,7 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="192" />
+    <option name="x" value="190" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
     <option name="height" value="980" />
@@ -224,37 +208,7 @@
               <item name="PAVA" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
@@ -271,12 +225,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="fake" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="messages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
@@ -292,7 +241,7 @@
             <path>
               <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
               <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="start-up" type="462c0819:PsiDirectoryNode" />
+              <item name="socket" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -339,12 +288,14 @@
       <workItem from="1547139110709" duration="11437000" />
       <workItem from="1547226426421" duration="20316000" />
       <workItem from="1547490340698" duration="746000" />
-      <workItem from="1547494299537" duration="3247000" />
+      <workItem from="1547494299537" duration="3937000" />
+      <workItem from="1547574986727" duration="732000" />
+      <workItem from="1547667195626" duration="5723000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80614000" />
+    <option name="totallyTimeSpent" value="87759000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -373,31 +324,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/components/pages/feed/PostFeedIndex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1060">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/pages/posts/AllPosts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/pages/posts/Post.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/auth/Register.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -675,10 +601,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/pages/fake/fakeIndex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+        <state relative-caret-position="840">
+          <caret line="47" column="14" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/assets/styles/my.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15680">
+          <caret line="784" column="43" selection-start-line="784" selection-start-column="43" selection-end-line="784" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -702,33 +638,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api/fake.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/pages/fake/fakeIndex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="47" column="14" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/assets/styles/my.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="784" column="43" lean-forward="true" selection-start-line="784" selection-start-column="43" selection-end-line="784" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/actions/actions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
+        <state relative-caret-position="384">
           <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
           <folding>
             <element signature="e#0#105#0" expanded="true" />
@@ -738,18 +650,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="251" column="57" lean-forward="true" selection-start-line="251" selection-start-column="57" selection-end-line="251" selection-end-column="57" />
+        <state relative-caret-position="164">
+          <caret line="293" column="24" lean-forward="true" selection-start-line="293" selection-start-column="24" selection-end-line="293" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/auth/Login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
+        <state relative-caret-position="-216">
+          <caret line="111" column="39" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="53" column="18" lean-forward="true" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api/fake.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="55" column="12" lean-forward="true" selection-start-line="55" selection-start-column="12" selection-end-line="59" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesIndex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="36" column="37" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket/socket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
         </state>
       </provider>
     </entry>

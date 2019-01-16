@@ -21,7 +21,7 @@ class MessagesList extends Component {
                                             <i className="zmdi zmdi-circle me" />
                                         </div>
                                     <div className="message text-right other-message float-right">
-                                        { Math.random().toFixed(2) } {' '} {m.message}
+                                        {m.message}
                                     </div>
                                 </li>
                             )
