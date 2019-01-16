@@ -45,11 +45,11 @@ app.use('/api/upload', upload);
 app.use('/api/fake', fake);
 
 
-app.use((error, req, res) => {
-    console.log(error);
-    console.log('global error');
-    res.statusCode(500).json({global_error: true, error});
-});
+// app.use((error, req, res) => {
+//     console.log(error);
+//     console.log('global error');
+//     res.statusCode(500).json({global_error: true, error});
+// });
 
 if(process.env.NODE_ENV === 'production') {
 
