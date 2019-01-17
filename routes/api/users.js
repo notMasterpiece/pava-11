@@ -228,26 +228,9 @@ router.post('/reset-pass/:token' , (req, res) => {
 
 });
 
-//
-// // route for facebook authentication and login
-// // different scopes while logging in
-// router.get('/login/facebook',
-//     passport.authenticate('facebook', { scope : 'email' }
-//     ));
-//
-// // handle the callback after facebook has authenticated the user
-// router.get('/login/facebook/callback',
-//     passport.authenticate('facebook', {
-//         successRedirect : '/home',
-//         failureRedirect : '/'
-//     })
-// );
-
 
 
 router.post('/login/facebook', (req, res) => {
-
-    console.log(req.body);
 
     const {name, email, avatar, id, provider} = req.body;
 

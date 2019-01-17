@@ -29,15 +29,9 @@ class MessagesIndex extends Component {
 
     componentDidMount() {
 
-        console.log(1);
-
         const msgContainer = document.querySelector(".chat-history");
 
-        socket.on('connected', msg => {
-            console.log(msg);
-
-            socket.emit('getAllMessages');
-        });
+        socket.emit('getAllMessages');
 
         // get 50 messages on connection
         socket.on('history', messages => {

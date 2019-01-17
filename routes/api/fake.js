@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
+const Message = require('../../models/Message');
 const Fake = require('../../models/FakeData');
 const fakePerPage = 25;
 
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
 
     const page = +req.query.page || 1;
     let totalFake;
@@ -34,9 +35,31 @@ router.get('/', (req, res) => {
                         })
                     })
                     .catch( err => {
-                        console.log(err);
+                        next(err)
                     });
 
+        })
+        .catch(err => {
+            next(err)
+        })
+});
+
+
+
+router.get('/io', (req, res) => {
+    Message
+        .find({})
+        .limit(10)
+        .sort({$natural: -1})
+        .then(messages => {
+
+            const filterMessages = {
+                messages: messages.sort((a, b) => {
+                    return new Date((a.date)) - new Date((b.date));
+                })
+            };
+
+            res.status(200).json(filterMessages);
         })
         .catch(err => {
             console.log(err);
