@@ -19,6 +19,12 @@ import AllProfiles from './pages/profiles/AllProfilesIndex';
 import CustomeUserProfile from './pages/custome-user-profile/CustomeUserIndex';
 import Gallery from './pages/Gallery/GalleryIndex';
 
+
+
+// blog
+import PostCreate from './pages/blog/post-create/PostCreate';
+
+
 import FakeIndex from './pages/fake/fakeIndex';
 import Test from './pages/test';
 
@@ -72,7 +78,7 @@ class Dashboard extends Component {
 
   render() {
     const { showMobileMenu } = this.state;
-    const {auth, dom:{smallRightBar}, errors} = this.props;
+    const {auth, dom:{smallRightBar}} = this.props;
 
       // if(errors.global_error) {
       //     return <Redirect to='/error' />
@@ -113,6 +119,7 @@ class Dashboard extends Component {
                   <Route exact path='/profile/:handle' component={ CustomeUserProfile } />
                   <Route exact path='/admin' component={ Admin } />
                   <Route exact path='/gallery/:_id' component={ Gallery } />
+                  <Route exact path='/blog/post-create' component={ PostCreate } />
 
                   {/* for testing */}
                   <Route exact path='/fake' component={ FakeIndex } />

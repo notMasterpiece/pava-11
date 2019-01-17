@@ -170,6 +170,7 @@ class Login extends Component {
                           callback={this.responseFacebook}
                           textButton = "Увійти через Facebook"
                           cssClass="btnFacebook"
+                          disableMobileRedirect={true}
                           icon={<i className="zmdi zmdi-facebook" />}
                       />
 
@@ -179,6 +180,7 @@ class Login extends Component {
                           onFailure={this.responseGoogle}
                           buttonText="Увійти через Google"
                           className={'btnGoogle'}
+                          disableMobileRedirect={true}
                       />
 
                       {/*<LinkedIn*/}
