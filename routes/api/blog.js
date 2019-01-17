@@ -4,6 +4,52 @@ const upload = require('../../middleware/multer/MulterLocal');
 const validateCreatePost = require('../../validation/create-blog');
 const BlogArticle = require('../../models/BlogArticle');
 
+const loadArticleCount = 8;
+
+
+
+
+// @route GET api/blog
+// @desc GET BLOG ARTICLE
+// @access Private
+router.get('/', (req, res, next) => {
+
+    const page = +req.query.page || 1;
+    let totalArticle;
+
+    BlogArticle
+        .find()
+        .countDocuments()
+        .then( count => {
+
+            totalArticle = count;
+
+            return BlogArticle
+                .find()
+                .skip( (page - 1) * loadArticleCount)
+                .limit( loadArticleCount )
+                .then(article => {
+                    res.json({
+                        totalArticle,
+                        currentPage: page,
+                        hasNextPage: loadArticleCount * page < totalArticle,
+                        hasPreviosPage: page > 1,
+                        nextPage: page + 1,
+                        previosPage: page - 1,
+                        lastPage: Math.ceil(totalArticle / loadArticleCount),
+                        article: article.sort( (a, b) => new Date(b.created_at) - new Date(a.created_at))
+                    })
+                })
+                .catch( err => {
+                    next(err)
+                });
+
+        })
+        .catch(err => {
+            next(err)
+        })
+});
+
 
 router.post('/create', upload.single('image_loader'), (req, res, next) => {
 

@@ -1,5 +1,24 @@
 import axios from 'axios';
-import {GET_ERRORS} from "./types";
+import {GET_ERRORS, GET_ARTICLE} from "./types";
+
+
+
+export const getAllArticles = () => dispatch => {
+    axios
+        .get('/api/blog')
+        .then(res => {
+            dispatch({
+                type: GET_ARTICLE,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        })
+};
 
 export const createPostAction = post => dispatch => {
 

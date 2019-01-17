@@ -28,6 +28,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+app.use('/files', express.static(path.join(__dirname, 'files')));
+
 
 
 require('./socket/socket')(io);
@@ -52,6 +54,10 @@ app.use('/api/fake', fake);
 //     console.log('global error');
 //     res.statusCode(500).json({global_error: true, error});
 // });
+
+
+
+
 
 if(process.env.NODE_ENV === 'production') {
 

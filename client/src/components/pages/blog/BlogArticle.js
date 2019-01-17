@@ -1,18 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
-const BlogArticle = ({title, short_description, full_description, source_link, date, imagePreview, tags}) => {
+const BlogArticle = ({article}) => {
+
+    const {title, short_description, full_description, source_link, created_at, full_page_image, imagePreview} = article;
+
     return (
         <article className="article">
             <a href="/post/1567" className="">
                 <figure>
-                    <img src={imagePreview}
-                         alt=""
+                    {
+                        imagePreview
+                        ? <img src={imagePreview}
+                            className="article-image"/>
+                        : <img src={`http://localhost:8080/${full_page_image}`}
+                            alt={title}
+                            className="article-image"/>
+                    }
+                    <img src={`http://localhost:8080/${full_page_image}`}
+                         alt={title}
                          className="article-image"/>
                 </figure>
                 <div className="article__info">
                     <div className="article__info__container">
-                        <p className="article__time"> { date } </p>
+                        <p className="article__time"> { moment(created_at).fromNow() } </p>
                         <p className="article__name"> { title } </p>
                         <p className="article__lead">{ short_description }</p>
                     </div>

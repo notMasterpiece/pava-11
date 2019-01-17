@@ -192,9 +192,7 @@ class PostCreate extends Component {
                         </div>
                         <div className="col-sm-4">
                             <BlogArticle
-                                title={title}
-                                short_description={short_description}
-                                imagePreview={imagePreview}
+                                article={this.state}
                             />
                         </div>
                     </div>

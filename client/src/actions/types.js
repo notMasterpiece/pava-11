@@ -42,4 +42,7 @@ export const GET_ALL_MESSAGES = 'GET_ALL_MESSAGES';
 export const GET_FAKE_USER = 'GET_FAKE_USER';
 
 
+// blog
+
+export const GET_ARTICLE = 'GET_ARTICLE';
 

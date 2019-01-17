@@ -808,10 +808,11 @@ body .swiper-pagination-bullet-active {
 }
 
 
-//blog
+//blogArticles
 
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100');
 
+.articles-section__title,
 .editing-post__title {
   font-size: 80px;
   color: rgba(0,0,0,.2);
@@ -865,9 +866,10 @@ body .swiper-pagination-bullet-active {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   position: relative;
-  margin-right: 5.37581%;
+  margin-right: 4%;
   transition: .6s;
   transition-timing-function: ease;
+  text-align: left;
 }
 
 .article:nth-of-type(4n+4) {

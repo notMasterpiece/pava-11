@@ -6,7 +6,6 @@ module.exports = multer({
             cb(null, 'files/blog');
         },
         filename: (req, file, cb) => {
-            console.log(file);
             cb(null, file.originalname);
         }
     }),

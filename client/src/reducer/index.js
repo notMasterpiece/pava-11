@@ -8,6 +8,7 @@ import postReducer from './post';
 import infoReducer from './info';
 import messagesReducer from './messages';
 import fakeReducer from './fake';
+import blogReducer from './blog';
 
 
 export default combineReducers({
@@ -18,5 +19,6 @@ export default combineReducers({
   posts: postReducer,
   info: infoReducer,
   messages: messagesReducer,
-  fakeData: fakeReducer
+  fakeData: fakeReducer,
+  blog: blogReducer
 })

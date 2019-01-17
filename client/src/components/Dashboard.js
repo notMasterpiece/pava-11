@@ -21,8 +21,9 @@ import Gallery from './pages/Gallery/GalleryIndex';
 
 
 
-// blog
+// blogArticles
 import PostCreate from './pages/blog/post-create/PostCreate';
+import BlogIndex from './pages/blog/blogArticles/BlogIndex';
 
 
 import FakeIndex from './pages/fake/fakeIndex';
@@ -119,6 +120,7 @@ class Dashboard extends Component {
                   <Route exact path='/profile/:handle' component={ CustomeUserProfile } />
                   <Route exact path='/admin' component={ Admin } />
                   <Route exact path='/gallery/:_id' component={ Gallery } />
+                  <Route exact path='/blog' component={ BlogIndex } />
                   <Route exact path='/blog/post-create' component={ PostCreate } />
 
                   {/* for testing */}
