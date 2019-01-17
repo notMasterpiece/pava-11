@@ -70,6 +70,3 @@ require('./start-up/mongo')();
 
 // post
 require('./start-up/port')(server);
-
-// test
-
