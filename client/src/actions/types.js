@@ -45,4 +45,7 @@ export const GET_FAKE_USER = 'GET_FAKE_USER';
 // blog
 
 export const GET_ARTICLE = 'GET_ARTICLE';
+export const GET_ARTICLES = 'GET_ARTICLES';
+export const ADD_ARTICLE = 'ADD_ARTICLE';
+export const CLEAR_ARTICLE = 'CLEAR_ARTICLE';
 

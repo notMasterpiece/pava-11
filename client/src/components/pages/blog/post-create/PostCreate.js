@@ -6,6 +6,8 @@ import BlogArticle from '../BlogArticle';
 import {createPostAction} from '../../../../actions/blog-action';
 import {connect} from 'react-redux';
 
+import Button from '../../../Tools/LoadingBtn/Button';
+
 class PostCreate extends Component {
 
     state= {
@@ -16,7 +18,8 @@ class PostCreate extends Component {
         full_description: '',
         source_link: '',
         tags: '',
-        errors: {}
+        errors: {},
+        loadingBtn: false
     };
 
 
@@ -57,11 +60,13 @@ class PostCreate extends Component {
 
 
     createPost = () => {
-        this.props.createPostAction(this.state);
+        this.setState({loadingBtn: true});
+        this.props.createPostAction( this.state, this.props.history );
     };
 
 
     componentWillReceiveProps(nextPpops) {
+        this.setState({loadingBtn: false});
         if(nextPpops.errors) {
             this.setState({
                 errors: {...nextPpops.errors}
@@ -72,7 +77,7 @@ class PostCreate extends Component {
 
     render() {
 
-        const { title, short_description, full_description, source_link, tags, imagePreview, errors} = this.state;
+        const { title, short_description, full_description, source_link, tags, errors, loadingBtn} = this.state;
 
         return (
             <section className='editing-post'>
@@ -183,7 +188,10 @@ class PostCreate extends Component {
                                     </div>
 
                                     <div className="editing-post__create">
-                                        <button className='btn btn-primary' onClick={this.createPost}>Створити</button>
+                                        <Button
+                                            onClick={ this.createPost }
+                                            loadingBtn={loadingBtn}
+                                            text={'Створити-New'} />
                                     </div>
 
 

@@ -107,6 +107,23 @@ class RightBar extends Component {
                         <span>Адмін</span>
                     </Link>
                 </li>
+                <li className="header">EXTRA COMPONENTS</li>
+
+                <li>
+                    <Link to={'/blog/post-create'}>
+                        <i className="zmdi zmdi-edit" />
+                        <span> Написати статтю</span>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link to={'/blog'}>
+                        <i className="zmdi zmdi-delicious" />
+                        <span>Статті</span>
+                    </Link>
+                </li>
+
+
 
             </ul>
           </div>
