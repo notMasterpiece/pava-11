@@ -15,7 +15,7 @@ const BlogArticle = ({article}) => {
                         imagePreview
                         ? <img src={imagePreview}
                             className="article-image"/>
-                        : <img src={`http://localhost:8080/${preview_page_image}`}
+                        : <img src={`https://pava-4.herokuapp.com/${preview_page_image}`}
                             alt={title}
                             className="article-image"/>
                     }
