@@ -24,10 +24,12 @@ const BlogArticle = new Schema({
         type: String
     },
     comments_count: {
-        type: String
+        type: Number,
+        default: 0
     },
     views_count: {
-        type: String,
+        type: Number,
+        default: 0
     },
     created_at: {
         type: Date,
@@ -43,7 +45,8 @@ const BlogArticle = new Schema({
         type: [String]
     },
     reading_time: {
-        type: String,
+        type: Number,
+        default: 1
     },
     reading_time_word: {
         type: String
@@ -54,7 +57,10 @@ const BlogArticle = new Schema({
     },
     full_page_image: {
         type: String
-    }
+    },
+    preview_page_image: {
+        type: String
+    },
 
 });
 

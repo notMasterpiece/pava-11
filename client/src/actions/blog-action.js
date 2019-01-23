@@ -1,5 +1,6 @@
 import axios from 'axios';
-import {GET_ERRORS, GET_ARTICLE} from "./types";
+import {GET_ERRORS, GET_ARTICLE, ADD_ARTICLE, GET_ARTICLES, CLEAR_ARTICLE} from "./types";
+import {setLoadingState} from "./post-action";
 
 
 
@@ -8,7 +9,7 @@ export const getAllArticles = () => dispatch => {
         .get('/api/blog')
         .then(res => {
             dispatch({
-                type: GET_ARTICLE,
+                type: GET_ARTICLES,
                 payload: res.data
             })
         })
@@ -20,7 +21,31 @@ export const getAllArticles = () => dispatch => {
         })
 };
 
-export const createPostAction = post => dispatch => {
+
+export const getArticle = id => dispatch => {
+    dispatch(setLoadingState());
+    axios
+        .get(`/api/blog/${id}`)
+        .then(res => {
+            dispatch({
+                type: GET_ARTICLE,
+                payload: res.data
+            })
+        })
+        .catch(() => {
+            dispatch({
+                type: GET_ARTICLE,
+                payload: null
+            })
+        })
+};
+
+
+
+
+
+
+export const createPostAction = (post, history) => dispatch => {
 
     const formData = new FormData();
     const config = { headers: {'content-type': 'multipart/form-data'}};
@@ -35,8 +60,9 @@ export const createPostAction = post => dispatch => {
     axios
         .post('/api/blog/create', formData, config)
         .then(res => {
+            history.push('/blog');
             dispatch({
-                type: '',
+                type: ADD_ARTICLE,
                 payload: res.data
             })
         })
@@ -46,4 +72,12 @@ export const createPostAction = post => dispatch => {
                 payload: err.response.data
             })
         })
+};
+
+
+
+export const clearArticle = () => {
+    return {
+        type: CLEAR_ARTICLE
+    }
 };

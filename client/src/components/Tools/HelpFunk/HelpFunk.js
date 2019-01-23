@@ -6,3 +6,7 @@ export const getRandomColor = () => {
     }
     return color;
 };
+
+
+
+

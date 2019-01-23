@@ -16,8 +16,6 @@ class BlogIndex extends Component {
 
         const {blog} = this.props;
 
-        console.log(blog);
-
         return (
             <section className='articles-section'>
                 <h1 className='articles-section__title'>Статті</h1>
