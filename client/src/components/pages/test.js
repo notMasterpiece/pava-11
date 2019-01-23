@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 
 const sampleComponent = () => {
     return (
-        <p>test</p>
+        <video src="http://localhost:8080/api/test/" controls></video>
     );
 }
 
