@@ -45,7 +45,7 @@ class BlogSingleIndex extends Component {
                             <div className="img-post m-b-15">
 
                                 <img
-                                    src={`http://localhost:8080/${full_page_image}`}
+                                    src={`https://pava-4.herokuapp.com/${full_page_image}`}
                                     alt={title} />
                             </div>
 
