@@ -165,6 +165,102 @@ class ProfileActions extends Component {
                 </div>
         </div>
 
+
+          <div className="card">
+              <div className="header">
+                  <h2>
+                      <strong>Мої задачі</strong>
+                      <div className="add_task">+</div>
+                  </h2>
+              </div>
+              <div className="body project_report">
+                  <div className="table-responsive">
+                      <table className="table m-b-0 table-hover">
+                          <thead>
+                          <tr>
+                              <th>Status</th>
+                              <th>Project</th>
+                              <th>Prograss</th>
+
+                              <th>Action</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>
+                                  <span className="badge badge-success">Active</span>
+                              </td>
+                              <td className="project-title">
+                                  <h6><a href="javascript:void(0);">Alpino 4.1</a></h6>
+                                  <small>Created 14.Mar.2018</small>
+                              </td>
+                              <td>
+                                  <div className="progress">
+                                      <div className="progress-bar l-dark" role="progressbar" aria-valuenow="48"
+                                           aria-valuemin="0" aria-valuemax="100"></div>
+                                  </div>
+                                  <small>Completion with: 48%</small>
+                              </td>
+
+                              <td className="project-actions">
+                                  <a href="javascript:void(0);" className="btn btn-neutral btn-sm"><i
+                                      className="zmdi zmdi-edit"></i></a>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <span className="badge badge-success">Active</span>
+                              </td>
+                              <td className="project-title">
+                                  <h6><a href="javascript:void(0);">Many desktop publishing packages and web</a></h6>
+                                  <small>Created 18.Mar.2018</small>
+                              </td>
+                              <td>
+                                  <div className="progress">
+                                      <div className="progress-bar l-dark" role="progressbar" aria-valuenow="78"
+                                           aria-valuemin="0" aria-valuemax="100"></div>
+                                  </div>
+                                  <small>Completion with: 78%</small>
+                              </td>
+
+                              <td className="project-actions">
+                                  <a href="javascript:void(0);" className="btn btn-neutral btn-sm"><i
+                                      className="zmdi zmdi-eye"></i></a>
+                                  <a href="javascript:void(0);" className="btn btn-neutral btn-sm"><i
+                                      className="zmdi zmdi-edit"></i></a>
+                              </td>
+                          </tr>
+
+
+                          <tr>
+                              <td>
+                                  <span className="badge badge-success">Active</span>
+                              </td>
+                              <td className="project-title">
+                                  <h6><a href="javascript:void(0);">Blazing Saddles Angular 5</a></h6>
+                                  <small>Created 18.Mar.2018</small>
+                              </td>
+                              <td>
+                                  <div className="progress">
+                                      <div className="progress-bar l-dark" role="progressbar" aria-valuenow="23"
+                                           aria-valuemin="0" aria-valuemax="100"></div>
+                                  </div>
+                                  <small>Completion with: 23%</small>
+                              </td>
+
+                              <td className="project-actions">
+                                  <a href="javascript:void(0);" className="btn btn-neutral btn-sm"><i
+                                      className="zmdi zmdi-eye"></i></a>
+                                  <a href="javascript:void(0);" className="btn btn-neutral btn-sm"><i
+                                      className="zmdi zmdi-edit"></i></a>
+                              </td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+
         <div className="row clearfix">
 
           <div className="col-sm-3">
