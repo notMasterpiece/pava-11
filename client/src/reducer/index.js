@@ -9,6 +9,7 @@ import infoReducer from './info';
 import messagesReducer from './messages';
 import fakeReducer from './fake';
 import blogReducer from './blog';
+import taskREducer from './task';
 
 
 export default combineReducers({
@@ -20,5 +21,6 @@ export default combineReducers({
   info: infoReducer,
   messages: messagesReducer,
   fakeData: fakeReducer,
-  blog: blogReducer
+  blog: blogReducer,
+  task: taskREducer
 })

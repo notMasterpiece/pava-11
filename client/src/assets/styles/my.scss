@@ -1386,3 +1386,13 @@ body .swiper-pagination-bullet-active {
 @-moz-keyframes animation-rotate { 100% { -moz-transform: rotate(360deg); } }
 @-o-keyframes animation-rotate { 100% { -o-transform: rotate(360deg); } }
 @keyframes animation-rotate { 100% { transform: rotate(360deg); } }
+
+
+
+.add-task {
+  display: inline-block;
+  margin-left: 20px;
+  .nav-link {
+    cursor: pointer;
+  }
+}

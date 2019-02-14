@@ -49,3 +49,5 @@ export const GET_ARTICLES = 'GET_ARTICLES';
 export const ADD_ARTICLE = 'ADD_ARTICLE';
 export const CLEAR_ARTICLE = 'CLEAR_ARTICLE';
 
+// task
+export const GET_TASKS = 'GET_TASKS';
