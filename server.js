@@ -5,8 +5,13 @@ const express = require('express');
 const app = require('express')();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
+const helmet = require('helmet');
 require('dotenv').config();
 
+
+const graphqlHttp = require('express-graphql');
+const graphqlSchema = require('./graphql/schema');
+const graphqlResolver = require('./graphql/resolves');
 
 
 
@@ -28,8 +33,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.use('/files', express.static(path.join(__dirname, 'files')));
 
+app.use(helmet());
+require('./log/morgan')(app);
+
+
+// static files
+app.use('/files', express.static(path.join(__dirname, 'files')));
 
 
 require('./socket/socket')(io);
@@ -48,6 +58,12 @@ app.use('/api/upload', upload);
 app.use('/api/blog', blog);
 app.use('/api/fake', fake);
 
+
+
+app.use('/graphql', graphqlHttp({
+    schema: graphqlSchema,
+    rootValue: graphqlResolver
+}));
 
 // app.use((error, req, res) => {
 //     console.log(error);
