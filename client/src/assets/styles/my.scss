@@ -6,7 +6,9 @@ $scoreRed: #F44336;
 $scoreYellow: #FFEB3B;
 $scoreGreen: #4CAF50;
 
-
+.container-fluid {
+  overflow: hidden;
+}
 
 .user-info {
   img {

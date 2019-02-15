@@ -161,10 +161,12 @@
 
 .single_post pre {
   background: #eee;
-  padding: 20px;
 }
+
 .single_post pre code {
   line-height: 20px;
+  padding: 20px;
+  display: block;
 }
 
 @media (max-width: 414px) {

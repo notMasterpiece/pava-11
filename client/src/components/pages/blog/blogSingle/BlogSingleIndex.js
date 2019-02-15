@@ -4,25 +4,34 @@ import {connect} from 'react-redux';
 import {getArticle, clearArticle} from '../../../../actions/blog-action';
 import Spinner from '../../../Tools/Spinner/Spinner';
 
-class BlogSingleIndex extends Component {
+import hljs from 'highlight.js';
 
-    // state: {
-    //     blog: this.props.blog
-    // }
+class BlogSingleIndex extends Component {
 
     componentDidMount() {
         const {_id} = this.props.match.params;
         this.props.getArticle(_id);
+
+        hljs.initHighlighting();
     }
 
     componentWillMount() {
         this.props.clearArticle();
+
+        hljs.initHighlighting();
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        hljs.initHighlighting();
     }
 
 
     render() {
 
         if(!this.props.blog.article) return <Spinner />;
+
+
+        hljs.initHighlighting();
 
         const {article:{title, full_page_image, full_description}} = this.props.blog;
 
@@ -45,12 +54,14 @@ class BlogSingleIndex extends Component {
                             <div className="img-post m-b-15">
 
                                 <img
-                                    src={`http://localhost:8080/${full_page_image}`}
+                                    src={`${window.location.origin}/${full_page_image}`}
                                     alt={title} />
                             </div>
 
                             <div className="single_post__content">
-                                <div dangerouslySetInnerHTML={{ __html: full_description }} />
+                                <div
+                                    dangerouslySetInnerHTML = {{__html: full_description}}
+                                />
                             </div>
 
                         </div>

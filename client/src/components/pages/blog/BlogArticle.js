@@ -13,9 +13,11 @@ const BlogArticle = ({article}) => {
                 <figure>
                     {
                         imagePreview
-                        ? <img src={imagePreview}
+                        ? <img
+                            src={imagePreview}
+                            alt={'preview'}
                             className="article-image"/>
-                        : <img src={`http://localhost:8080/${preview_page_image}`}
+                        : <img src={`${window.location.origin}/${preview_page_image}`}
                             alt={title}
                             className="article-image"/>
                     }
@@ -36,15 +38,16 @@ const BlogArticle = ({article}) => {
                         <span>{ views_count }</span>
                     </div>
 
-                    <a href="/post/1567#comments" className="meta-comments">
+                    <div className="meta-comments">
                         <svg id="comment" viewBox="244 244 12 12" width="100%" height="100%"><path d="M255.53 244.837c-.303-.303-.7-.47-1.118-.47h-8.824c-.418 0-.816.167-1.118.47-.303.303-.47.7-.47 1.118v6.066c0 .418.167.816.47 1.118.303.303.7.47 1.118.47h.985v1.353c0 .274.172.525.428.624h.002a.672.672 0 0 0 .735-.175l1.639-1.803h5.035c.418 0 .816-.167 1.118-.47.303-.303.47-.7.47-1.118v-6.066c0-.416-.167-.814-.47-1.117zm-4.863 6.985a.67.67 0 0 0-1.174-.387l-.915 1.063-.666.733v-.291a.67.67 0 0 0-.669-.669h-1.654a.26.26 0 0 1-.25-.25v-6.066a.26.26 0 0 1 .25-.25h8.824a.26.26 0 0 1 .25.25v6.066a.26.26 0 0 1-.25.25h-3.875a.668.668 0 0 0 .129-.449z" /></svg>
                         <span>{ comments_count }</span>
-                    </a>
+                    </div>
 
                     <div className="meta-time">
-                        <span>{ `${reading_time} хв` }</span>
+                        <span>{ `${reading_time || 1 } хв` }</span>
                     </div>
                 </div>
+
                 <button className="article__add-favorite" />
             </div>
         </article>

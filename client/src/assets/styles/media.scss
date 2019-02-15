@@ -1,0 +1,15 @@
+@media screen and (max-width: 992px){
+  .editing-post__form {
+    .col-sm-4 {
+      display: none;
+    }
+    .col-sm-8 {
+      width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  .col-sm-4.editing-post__form-title {
+    display: block;
+  }
+}

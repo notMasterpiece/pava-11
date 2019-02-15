@@ -191,7 +191,7 @@ class PostCreate extends Component {
                                         <Button
                                             onClick={ this.createPost }
                                             loadingBtn={loadingBtn}
-                                            text={'Створити-New'} />
+                                            text={'Створити'} />
                                     </div>
 
 
