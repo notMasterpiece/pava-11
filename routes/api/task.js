@@ -5,9 +5,9 @@ const passport = require('passport');
 const Task = require('../../models/Task');
 
 
-router.get('/', (req, res, next) => {
+router.get('/', passport.authenticate('jwt', { session: false }), (req, res, next) => {
 
-    Task.find({})
+    Task.find({user: req.user.id})
         .then(tasks => {
             res.json(tasks);
         })

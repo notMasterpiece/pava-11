@@ -1396,3 +1396,13 @@ body .swiper-pagination-bullet-active {
     cursor: pointer;
   }
 }
+
+
+.table-responsive .pagination {
+  padding: 20px;
+  justify-content: center;
+}
+
+.pagination li.disabled {
+  display: none;
+}

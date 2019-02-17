@@ -28,6 +28,7 @@
     "react-linkedin-sdk": "^1.0.12",
     "react-masonry-component": "^6.2.1",
     "react-moment": "^0.8.2",
+    "react-paginate": "^6.3.0",
     "react-redux": "^5.1.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.0",
