@@ -132,7 +132,7 @@ class Dashboard extends Component {
                   <Route exact path='/fake' component={ FakeIndex } />
                   <Route exact path='/test' component={ Test } />
 
-                  <Route path='*' render={ () => <Redirect to='/not-found' /> } />
+                  {/*<Route path='*' render={ () => <Redirect to='/not-found' /> } />*/}
               </Switch>
           </div>
         </section>

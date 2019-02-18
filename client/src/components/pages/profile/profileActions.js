@@ -11,6 +11,7 @@ import {Link} from 'react-router-dom';
 import Experience from '../../layout/Experince';
 import Education from '../../layout/Education';
 import UserDescription from './UserDescription';
+import Task from '../../Tools/Task/TaskIndex';
 
 import {deleteAccount} from '../../../actions/profileActions';
 
@@ -164,6 +165,9 @@ class ProfileActions extends Component {
                   </div>
                 </div>
         </div>
+
+
+          <Task />
 
         <div className="row clearfix">
 

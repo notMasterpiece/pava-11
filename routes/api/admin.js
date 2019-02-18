@@ -43,42 +43,42 @@ router.get('/comments', (req,res) => {
 
 router.get('/pdf', (req, res) => {
 
-    const user = {
-        id: "5c3648986b75601f0097114e",
-        name: "Pankiv Vasul",
-        email: "grawdanin@mail.ua"
-    };
-
-    const pdfName = Date.now().toString();
-    const pdfPath = path.join('pdf', pdfName);
-
-    const pdfDoc = new PDFDocument();
-    pdfDoc.info.Title = `[PAVA] - ${pdfName}`;
-
-
-    res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader(
-      'Content-Disposition',
-      'filename="' + pdfName + '"'
-    );
-
-
-    pdfDoc.pipe(fs.createWriteStream(pdfPath));
-    pdfDoc.pipe(res);
-
-    pdfDoc.text('Hello world');
-    pdfDoc
-        .fontSize(20)
-        .text('lorem', {
-            underline: true
-        });
-
-    // # Add another page
-    pdfDoc.addPage()
-        .fontSize(25)
-        .text('...', 100, 100);
-
-    pdfDoc.end();
+    // const user = {
+    //     id: "5c3648986b75601f0097114e",
+    //     name: "Pankiv Vasul",
+    //     email: "grawdanin@mail.ua"
+    // };
+    //
+    // const pdfName = Date.now().toString();
+    // const pdfPath = path.join('pdf', pdfName);
+    //
+    // const pdfDoc = new PDFDocument();
+    // pdfDoc.info.Title = `[PAVA] - ${pdfName}`;
+    //
+    //
+    // res.setHeader('Content-Type', 'application/pdf');
+    // res.setHeader(
+    //   'Content-Disposition',
+    //   'filename="' + pdfName + '"'
+    // );
+    //
+    //
+    // pdfDoc.pipe(fs.createWriteStream(pdfPath));
+    // pdfDoc.pipe(res);
+    //
+    // pdfDoc.text('Hello world');
+    // pdfDoc
+    //     .fontSize(20)
+    //     .text('lorem', {
+    //         underline: true
+    //     });
+    //
+    // // # Add another page
+    // pdfDoc.addPage()
+    //     .fontSize(25)
+    //     .text('...', 100, 100);
+    //
+    // pdfDoc.end();
 
 });
 

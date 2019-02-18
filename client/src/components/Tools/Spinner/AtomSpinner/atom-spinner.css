@@ -1,0 +1,53 @@
+@-webkit-keyframes rotate {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotate {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+/* Variables */
+/* Loading Icon */
+
+.loading-wrap {
+    width: 90%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading {
+    width: 130px;
+    height: 130px;
+}
+.loading__ring {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+}
+.loading__ring:first-child {
+    -webkit-transform: skew(30deg, 20deg);
+    transform: skew(30deg, 20deg);
+}
+.loading__ring:last-child {
+    -webkit-transform: skew(-30deg, -20deg) scale(-1, 1);
+    transform: skew(-30deg, -20deg) scale(-1, 1);
+}
+.loading__ring:last-child svg {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+.loading__ring svg {
+    -webkit-animation: rotate 1s linear infinite;
+    animation: rotate 1s linear infinite;
+    fill: rgba(0, 43, 33, 0.2);
+}
+
+.loading__ring svg path {
+    fill: #313740;
+}

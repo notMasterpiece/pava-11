@@ -7,7 +7,8 @@ import NoProfile from './NoProfile';
 import ProfileActions from './profileActions';
 
 
-import Spinner from '../../Tools/Spinner/Spinner';
+// import Spinner from '../../Tools/Spinner/Spinner';
+import Spinner from '../../Tools/Spinner/AtomSpinner/AtomSpinner';
 
 
 
