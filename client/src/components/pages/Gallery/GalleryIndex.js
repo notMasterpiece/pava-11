@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios/index';
 import {connect} from 'react-redux';
-import {getCurrentProfile} from '../../../actions/profileActions';
-import Spinner from '../../Tools/Spinner/Spinner';
-import moment from 'moment';
-import GalleryList from './GalleryList';
+import {getUserPhoto, deleteUserPhoto, addUserPhoto, downloadPhoto} from '../../../actions/profileActions';
+import GalleryItem from "./GalleryItem";
+import ReactTooltip from 'react-tooltip';
 
 class GalleryIndex extends Component {
 
@@ -14,13 +12,15 @@ class GalleryIndex extends Component {
 
         this.state = {
             files: [],
+            photo: [],
             loading: false,
             galleryTag: '',
             gallery: [],
-            err: null
+            err: null,
+            loadingFile: false,
+            lightboxIsOpen: false,
+            currentImg: ''
         };
-
-        this.props.getCurrentProfile();
     }
 
 
@@ -30,36 +30,23 @@ class GalleryIndex extends Component {
 
 
 
-    loadFototoGallery = e => {
+    loadPhoto = e => {
         e.preventDefault();
+        const {files} = this.state;
 
-        const {galleryTag} = this.state;
+        if( !files.length) return;
+
+        this.setState({ loadingFile: true });
+
         const formData = new FormData();
         const config = { headers: {'content-type': 'multipart/form-data'}};
 
 
         for( let x = 0; x < this.state.files.length; x++) {
-            console.log(this.state.files[x]);
             formData.append('gallery', this.state.files[x]);
         }
-        formData.append('tag', galleryTag);
 
-        this.setState({loading: true});
-        axios.post('/api/upload/gallery', formData, config)
-            .then(gallery => {
-                this.setState({
-                    gallery: gallery.data,
-                    loading: false,
-                    galleryTag: '',
-                    files: []
-                })
-            })
-            .catch(err => {
-                this.setState({
-                    err,
-                    loading: false
-                })
-            })
+        this.props.addUserPhoto(formData, config);
     };
 
     onChange = e => {
@@ -71,56 +58,105 @@ class GalleryIndex extends Component {
 
     componentWillReceiveProps(nextProps) {
 
-        if (nextProps.profile.profile) {
+        if (nextProps.photo) {
+            const {photo} = nextProps.photo;
+
             this.setState({
-                gallery: nextProps.profile.profile.gallery
-            })
+                photo,
+                files: false,
+                loadingFile: false
+            });
         }
     }
 
+    componentDidMount() {
+        this.props.getUserPhoto();
+    }
+
+
+    deletePhoto = id => {
+        this.props.deleteUserPhoto(id);
+        ReactTooltip.rebuild();
+    };
+
+
+    loadPhoto = (link, name) => {
+        var a  = document.createElement('a');
+        a.href = 'http://localhost:3000/files/blog/preview/185675bc828f92d3064cbdd95e0a53b3%20(2)%20(1).jpg';
+        a.download = '185675bc828f92d3064cbdd95e0a53b3%20(2)%20(1).jpg';
+        a.click()
+    };
+
+
+    renderPreviewImg = () => {
+      const {files} = this.state;
+
+        if (files.length) {
+            let filesArray = [];
+
+            for( let i = 0; i < files.length; i++) {
+                filesArray.push(files[i])
+            }
+
+            return filesArray.map(file => {
+
+                const src = URL.createObjectURL(file);
+
+                return (
+                    <li key={file.lastModified} className={'photo-img'}>
+                        <img src={src} alt={file.name}/>
+                    </li>
+                )
+            })
+
+      }
+    };
+
+    openLightbox = img => {
+        this.setState({
+            currentImg: img,
+            lightboxIsOpen: true
+        })
+    };
+    closeLightbox = () => {
+        this.setState({
+            lightboxIsOpen: false,
+            currentImg: ''
+        })
+    };
 
 
     render() {
 
-        const {galleryTag, loading, gallery } = this.state;
-        let now = moment().format('DD-MM-YYYY');
-
-        let formatGallery = {};
-        let imagesLast = [];
-
-        gallery.forEach(i => {
-            now = moment(i.date).format('DD-MM-YYYY');
-
-            if ( formatGallery.hasOwnProperty(now) ) {
-                imagesLast = formatGallery[now]['images'];
-            } else {
-                imagesLast = [];
-            }
-            formatGallery[now] = {'date': now,'images': imagesLast.concat(i.images) };
-        });
+        const {photo, loadingFile, lightboxIsOpen, currentImg} = this.state;
 
 
-        if( loading ) return <Spinner />;
+        // const {galleryTag, loading, gallery } = this.state;
+        // let now = moment().format('DD-MM-YYYY');
+        //
+        // let formatGallery = {};
+        // let imagesLast = [];
+        //
+        // gallery.forEach(i => {
+        //     now = moment(i.date).format('DD-MM-YYYY');
+        //
+        //     if ( formatGallery.hasOwnProperty(now) ) {
+        //         imagesLast = formatGallery[now]['images'];
+        //     } else {
+        //         imagesLast = [];
+        //     }
+        //     formatGallery[now] = {'date': now,'images': imagesLast.concat(i.images) };
+        // });
+        //
+        //
+        // if( loading ) return <Spinner />;
 
         return (
             <div>
                 <div className="block-header">
                     <div className="row clearfix">
-                        <div className="col-lg-5 col-md-5 col-sm-12">
-                            <h2>Image Gallery</h2>
-                            <ul className="breadcrumb padding-0">
-                                <li className="breadcrumb-item"><a href="index.html"><i className="zmdi zmdi-home" /></a></li>
-                                <li className="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
-                                <li className="breadcrumb-item active">Image Gallery</li>
-                            </ul>
-                        </div>
-                        <div className="col-lg-7 col-md-7 col-sm-12">
-                            <div className="input-group mb-0">
-                                <input type="text" className="form-control" placeholder="Пошук по Даті ..." />
-                                    <div className="input-group-append">
-                                        <span className="input-group-text"><i className="zmdi zmdi-search" /></span>
-                                    </div>
-                            </div>
+                        <div className="col-md-12">
+                            <h2> MY Gallery</h2>
                         </div>
                     </div>
                 </div>
@@ -129,28 +165,40 @@ class GalleryIndex extends Component {
 
                 <div className="row">
                     <div className="col-md-12">
-                        <div className="card">
-                            <div className="header">
-                                <h2><strong>Галерея</strong></h2>
+                        <div className="file_manager">
+                            <div className="wrap">
+                                {
+                                    loadingFile ?
+                                        <p>Загружаю ...</p> :
+                                        <form onSubmit={this.loadPhoto}>
+                                            <input
+                                                onChange={e => this.selectFiles(e.target.files)}
+                                                type="file"
+                                                accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"
+                                                name={'gallery'}
+                                                multiple
+                                            />
+                                            <button type='submit' className={'btn btn-primary'}>Відправити</button>
+                                        </form>
+                                }
+
+                                <ul className={'prewiev-img-ul'}>
+                                    { this.renderPreviewImg() }
+                                </ul>
                             </div>
 
-                            <form onSubmit={this.loadFototoGallery}>
-                                <input
-                                    onChange={e => this.selectFiles(e.target.files)}
-                                    type="file"
-                                    name={'gallery'}
-                                    multiple
-                                />
-                                <input
-                                    type="text"
-                                    onChange={this.onChange}
-                                    name={'galleryTag'}
-                                    value={galleryTag}
-                                    placeholder={'enter tags...'}/>
-                                <button type='submit'>Відправити</button>
-                            </form>
-
-                            { Object.values(formatGallery).length > 0 ? <GalleryList gallery={Object.values(formatGallery)  } /> : null }
+                            {
+                                photo.length
+                                    ? <GalleryItem
+                                        loadPhoto={this.loadPhoto}
+                                        currentImg={currentImg}
+                                        openLightbox={this.openLightbox}
+                                        closeLightbox={this.closeLightbox}
+                                        lightboxIsOpen={lightboxIsOpen}
+                                        deletePhoto={this.deletePhoto}
+                                        photo={photo} />
+                                    : null
+                            }
 
                         </div>
                     </div>
@@ -161,9 +209,13 @@ class GalleryIndex extends Component {
 }
 
 GalleryIndex.propTypes = {
-    getCurrentProfile: PropTypes.func.isRequired,
+    getUserPhoto: PropTypes.func.isRequired,
+    downloadPhoto: PropTypes.func.isRequired,
+    deleteUserPhoto: PropTypes.func.isRequired,
+    addUserPhoto: PropTypes.func.isRequired,
+    photo: PropTypes.object.isRequired
 };
 
 export default connect(state => ({
-    profile: state.profile
-}), {getCurrentProfile})(GalleryIndex);
+    photo: state.photo
+}), {getUserPhoto, deleteUserPhoto, addUserPhoto, downloadPhoto})(GalleryIndex);

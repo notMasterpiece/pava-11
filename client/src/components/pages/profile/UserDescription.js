@@ -71,7 +71,7 @@ const UserDescription = ({profile, showGoogleMaps, funcShowGoogleMaps, showUserG
                     </Fragment>
                 }
                 {
-                    showUserGallery && <Link to={`/gallery/${_id}`} > Моя галерея</Link>
+                    showUserGallery && <Link to={'/gallery'} > Моя галерея</Link>
                 }
             </div>
         </div>

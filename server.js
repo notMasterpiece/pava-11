@@ -43,10 +43,8 @@ require('./log/morgan')(app);
 
 // static files
 app.use('/files', express.static(path.join(__dirname, 'files')));
-
-//	Check for HTTPS
-//
-app.use(force_https);
+app.use('/files/blog', express.static(path.join(__dirname, 'files/blog')));
+app.use('/files/blog/*', express.static(path.join(__dirname, 'files/blog/*')));
 
 
 //	Remove the information about what type of framework is the site running on
@@ -87,34 +85,6 @@ app.use('/graphql', graphqlHttp({
 //     console.log('global error');
 //     res.statusCode(500).json({global_error: true, error});
 // });
-
-
-function force_https(req, res, next)
-{
-    //
-    //	1. 	Redirect only in the production environment
-    //
-    if(process.env.NODE_ENV == 'production')
-    {
-        //
-        //	1. 	Check what protocol are we using
-        //
-        if(req.headers['x-forwarded-proto'] !== 'https')
-        {
-            //
-            //	-> 	Redirect the user to the same URL that he requested, but
-            //		with HTTPS instead of HTTP
-            //
-            return res.redirect('https://' + req.get('host') + req.url);
-        }
-    }
-
-    //
-    //	2. 	If the protocol is already HTTPS the, we just keep going.
-    //
-    next();
-}
-
 
 
 

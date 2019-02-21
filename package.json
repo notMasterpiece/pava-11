@@ -42,6 +42,8 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "pdfkit": "^0.8.3",
+    "request": "^2.88.0",
+    "request-progress": "^3.0.0",
     "socket.io": "^2.1.1",
     "uuidv4": "^2.0.0",
     "validator": "^10.2.0"

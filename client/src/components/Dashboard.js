@@ -120,7 +120,7 @@ class Dashboard extends Component {
                   <Route exact path='/profiles' component={ AllProfiles } />
                   <Route exact path='/profile/:handle' component={ CustomeUserProfile } />
                   <Route exact path='/admin' component={ Admin } />
-                  <Route exact path='/gallery/:_id' component={ Gallery } />
+                  <Route exact path='/gallery' component={ Gallery } />
 
                   <Route exact path='/blog' component={ BlogIndex } />
                   <Route exact path='/blog/post-create' component={ PostCreate } />

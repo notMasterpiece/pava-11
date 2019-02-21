@@ -51,3 +51,9 @@ export const CLEAR_ARTICLE = 'CLEAR_ARTICLE';
 
 // task
 export const GET_TASKS = 'GET_TASKS';
+
+
+//gallery
+export const GET_USER_PHOTO = 'GET_USER_PHOTO';
+export const REMOVE_PHOTO = 'REMOVE_PHOTO';
+export const ADD_PHOTO = 'ADD_PHOTO';
