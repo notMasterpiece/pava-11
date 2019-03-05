@@ -18,6 +18,7 @@ import CreateProfile from './pages/create-profile/CreateProfile';
 import AllProfiles from './pages/profiles/AllProfilesIndex';
 import CustomeUserProfile from './pages/custome-user-profile/CustomeUserIndex';
 import Gallery from './pages/Gallery/GalleryIndex';
+import Calendar from './pages/Calendar/Calendar';
 
 
 
@@ -125,6 +126,8 @@ class Dashboard extends Component {
                   <Route exact path='/blog' component={ BlogIndex } />
                   <Route exact path='/blog/post-create' component={ PostCreate } />
                   <Route exact path='/blog/:_id' component={ BlogSingleIndex } />
+
+                  <Route exact path='/calendar' component={ Calendar } />
 
 
 
