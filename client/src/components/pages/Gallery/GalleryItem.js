@@ -29,11 +29,6 @@ class GalleryItem extends React.Component {
                                                 <ReactTooltip />
                                             </span>
                                         </button>
-                                        <button
-                                            onClick={() => loadPhoto(p.image, p.name)}
-                                        >
-                                            <i className="zmdi zmdi-download" data-tip="Загрузити" />
-                                        </button>
                                     </div>
                                     <div className="image" onClick={() => openLightbox(p.image)}>
                                         <img src={p.image} alt={p.name} className="img-fluid" />

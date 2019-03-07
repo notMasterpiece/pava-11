@@ -80,14 +80,6 @@ class GalleryIndex extends Component {
     };
 
 
-    loadPhoto = (link, name) => {
-        var a  = document.createElement('a');
-        a.href = 'http://localhost:3000/files/blog/preview/185675bc828f92d3064cbdd95e0a53b3%20(2)%20(1).jpg';
-        a.download = '185675bc828f92d3064cbdd95e0a53b3%20(2)%20(1).jpg';
-        a.click()
-    };
-
-
     renderPreviewImg = () => {
       const {files} = this.state;
 
@@ -190,7 +182,6 @@ class GalleryIndex extends Component {
                             {
                                 photo.length
                                     ? <GalleryItem
-                                        loadPhoto={this.loadPhoto}
                                         currentImg={currentImg}
                                         openLightbox={this.openLightbox}
                                         closeLightbox={this.closeLightbox}
