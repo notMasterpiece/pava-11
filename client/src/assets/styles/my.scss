@@ -259,18 +259,12 @@ body .card .header .header-dropdown li .dropdown-menu {
 
 
 /*scrollbars */
-#leftsidebar::-webkit-scrollbar, .catalog_table_21 .item .props_wrapper .props_inner::-webkit-scrollbar{width: 8px;height:8px;}
-#leftsidebar::-webkit-scrollbar-track, .catalog_table_21 .item .props_wrapper .props_inner::-webkit-scrollbar-track{box-shadow: inset 0 0 4px rgba(0,0,0,0.15);border-radius: 8px;}
-#leftsidebar::-webkit-scrollbar-thumb, .catalog_table_21 .item .props_wrapper .props_inner::-webkit-scrollbar-thumb{border-radius: 8px;background:#999;border:2px solid #fff;}
-#leftsidebar::-webkit-scrollbar-thumb:window-inactive, .catalog_table_21 .item .props_wrapper .props_inner::-webkit-scrollbar-thumb:window-inactive{background:#999;border:2px solid #fff;}
 
-
-/*scrollbars */
-.emoji-mart-scroll::-webkit-scrollbar, .catalog_table_21 .item .props_wrapper .props_inner::-webkit-scrollbar{width: 8px;height:8px;}
-.emoji-mart-scroll::-webkit-scrollbar-track, .catalog_table_21 .item .props_wrapper .props_inner::-webkit-scrollbar-track{box-shadow: inset 0 0 4px rgba(0,0,0,0.15);border-radius: 8px;}
-.emoji-mart-scroll::-webkit-scrollbar-thumb, .catalog_table_21 .item .props_wrapper .props_inner::-webkit-scrollbar-thumb{border-radius: 8px;background:#999;border:2px solid #fff;}
-.emoji-mart-scroll::-webkit-scrollbar-thumb:window-inactive, .catalog_table_21 .item .props_wrapper .props_inner::-webkit-scrollbar-thumb:window-inactive{background:#999;border:2px solid #fff;}
-
+::-webkit-scrollbar {width: 8px;height:8px;}
+::-webkit-scrollbar-track {box-shadow: inset 0 0 4px rgba(0,0,0,0.15);border-radius: 8px;}
+::-webkit-scrollbar-thumb {border-radius: 8px;background:#999;border:2px solid #fff;}
+::-webkit-scrollbar-thumb:window-inactive
+::-webkit-scrollbar-thumb:window-inactive{background:#999;border:2px solid #fff;}
 
 
 .custome-date {
@@ -1492,6 +1486,13 @@ body .swiper-pagination-bullet-active {
 
 .vp-day {
   text-align: right;
+  cursor: pointer;
+  &:hover {
+    background-color: #f6fffd;
+  }
+  &.selected {
+    background-color: #cfd8dc;
+  }
 }
 
 .fc .vp-day {
@@ -1508,17 +1509,25 @@ body .swiper-pagination-bullet-active {
 }
 
 .add-event {
-  display: none;
-  background-color: #fff;
-  position: absolute;
-  width: 300px;
-  border: 1px solid red;
-  padding: 20px;
-  z-index: 10;
+
+  .zmdi-close-circle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #313740;
+  }
+  label {
+    margin-bottom: 20px;
+  }
+  textarea {
+    min-height: 150px;
+    border-color: #ccc;
+  }
+  textarea,
   label,
   input {
     width: 100%;
-    margin-bottom: 10px;
 
   }
 }

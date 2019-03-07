@@ -1,10 +1,13 @@
 import React, {Component, Fragment} from 'react';
 import moment from 'moment';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
+import PropTypes from 'prop-types';
 
 import Week from './Week';
-import Event from './Event';
+import EventForm from './Event';
+
+import { connect } from 'react-redux';
+import { addEventAction, getAllEvents } from '../../../actions/calendar-action';
+
 
 class CalendarEvent extends React.Component {
     constructor(props) {
@@ -15,10 +18,25 @@ class CalendarEvent extends React.Component {
             selectedMonth: moment(),
             selectedDay: moment().startOf("day"),
             selectedMonthEvents: [],
+            events: [],
             showEvents: false,
-            showAddEvent: false
+            showAddEvent: false,
+            loadingBtn: false
         };
     }
+
+
+    setLoadingBtnTrue = () => {
+        this.setState({
+            loadingBtn: true
+        })
+    };
+
+    setLoadingBtnFalse = () => {
+        this.setState({
+            loadingBtn: false
+        })
+    };
 
 
     renderDaysName = () => {
@@ -41,22 +59,14 @@ class CalendarEvent extends React.Component {
         this.setState({
             selectedMonth: currentMonthView.subtract(1, "month")
         });
-    }
+    };
 
     next = () => {
         const currentMonthView = this.state.selectedMonth;
         this.setState({
             selectedMonth: currentMonthView.add(1, "month")
         });
-    }
-
-
-
-
-    test = el => {
-        console.log(el);
     };
-
 
     select = (day) => {
 
@@ -72,15 +82,7 @@ class CalendarEvent extends React.Component {
         this.setState({
             selectedMonth: moment()
         });
-    }
-
-    showCalendar = () => {
-        this.setState({
-            selectedMonth: this.state.selectedMonth,
-            selectedDay: this.state.selectedDay,
-            showEvents: false
-        });
-    }
+    };
 
     renderMonthLabel = () => {
         const currentMonthView = this.state.selectedMonth;
@@ -89,18 +91,7 @@ class CalendarEvent extends React.Component {
                 <strong> {currentMonthView.format("YYYY")}</strong>
             </span>
         );
-    }
-
-    renderDayLabel = () => {
-        const currentSelectedDay = this.state.selectedDay;
-        console.log(currentSelectedDay.format("DD MMMM YYYY"));
-        return (
-            <span className="box month-label">
-                {currentSelectedDay.format("DD MMMM YYYY")}
-            </span>
-        );
-    }
-
+    };
 
     renderTodayLabel = () => {
         return (
@@ -119,7 +110,7 @@ class CalendarEvent extends React.Component {
         const currentMonthView = this.state.selectedMonth;
         const currentSelectedDay = this.state.selectedDay;
         const monthEvents = this.state.selectedMonthEvents;
-        const {showAddEvent} = this.state;
+        const {showAddEvent, events} = this.state;
 
         let weeks = [];
         let done = false;
@@ -136,6 +127,7 @@ class CalendarEvent extends React.Component {
         while (!done) {
             weeks.push(
                 <Week
+                    events={events}
                     key={previousCurrentNextView._d}
                     previousCurrentNextView={previousCurrentNextView.clone()}
                     currentMonthView={currentMonthView}
@@ -301,25 +293,60 @@ class CalendarEvent extends React.Component {
     }
 
 
+    hideEventForm = () => {
+        this.addEventForm.current.style.display = 'none';
+    };
+
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.calendar) {
+            this.setState({
+                events: nextProps.calendar.calendar
+            }, () => {
+
+
+                this.setLoadingBtnFalse();
+
+
+                this.hideEventForm();
+
+            });
+            return
+        }
+
+        if (nextProps.calendar.eventAdded) {
+            this.hideEventForm();
+            return
+        }
+    }
+
+
+
+
+
     componentDidMount() {
+
+        this.props.getAllEvents();
+
+
         let mounthDays = document.querySelectorAll('.vp-day:not(.vp-day__past)');
 
         [].forEach.call(mounthDays, day => {
             day.addEventListener('click', e => {
-                var box = e.target.getBoundingClientRect();
+                const el = e.target.tagName !== 'td' ? e.target.closest('.vp-day') : e.target;
+                var box = el.getBoundingClientRect();
 
                 let scrollTop = window.pageYOffset,
-                      addEventFormWidth = this.addEventForm.current.offsetWidth || '300',
-                      top = box.top + scrollTop,
-                      left = box.left;
-
-                console.log(+left + +700);
-                console.log(window.innerWidth);
+                    top = box.top + scrollTop,
+                    left = box.left;
 
                 if ( (left + 700) > window.innerWidth ) {
-                    left = box.left - addEventFormWidth;
+                    left = box.left - (340 + e.target.offsetWidth);
                 }
 
+                if((top + e.target.offsetHeight) > window.innerHeight) {
+                    top = box.top + scrollTop - e.target.offsetHeight;
+                }
 
                 this.addEventForm.current.style.display = 'block';
                 this.addEventForm.current.style.top = top - 10 + 'px';
@@ -330,6 +357,8 @@ class CalendarEvent extends React.Component {
 
 
     render() {
+
+        const {selectedDay, loadingBtn} = this.state;
 
         return (
             <div className="card">
@@ -398,26 +427,13 @@ class CalendarEvent extends React.Component {
                             </div>
                         </div>
 
-                        {/**/}
-                        <div
-                            className="add-event"
-                            ref={this.addEventForm}
-                        >
-                            <form action="">
-                                <h2>Add task to calendar</h2>
-                                <label htmlFor="">
-                                    <input type="text"/>
-                                </label>
-                                <label htmlFor="">
-                                    <input type="text"/>
-                                </label>
-                                <label htmlFor="">
-                                    <input type="text"/>
-                                </label>
-                                <button type={'submit'}>Add</button>
-                            </form>
-                        </div>
-                        {/**/}
+                        <EventForm
+                            loadingBtn={loadingBtn}
+                            setLoadingBtnTrue={this.setLoadingBtnTrue}
+                            date={moment(selectedDay).format()}
+                            addEventForm={this.addEventForm}
+                            addEventAction={this.props.addEventAction}
+                            hideEventForm={this.hideEventForm} />
                     </div>
                 </div>
             </div>
@@ -425,6 +441,10 @@ class CalendarEvent extends React.Component {
     }
 }
 
-CalendarEvent.propTypes = {};
+CalendarEvent.propTypes = {
+    addEventAction: PropTypes.func.isRequired,
+};
 
-export default CalendarEvent;
+export default connect(state => ({
+    calendar: state.calendar
+}), {addEventAction, getAllEvents})(CalendarEvent);

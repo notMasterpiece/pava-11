@@ -50,7 +50,6 @@ export const loginUserbyFacebook = user => dispatch => {
     axios
         .post('/api/users/login/facebook', user)
         .then(res => {
-            debugger
             const { token } = res.data;
             localStorage.setItem('jwtToken', token);
 

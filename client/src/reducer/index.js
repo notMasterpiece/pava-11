@@ -11,6 +11,7 @@ import fakeReducer from './fake';
 import blogReducer from './blog';
 import taskReducer from './task';
 import photoReducer from './photo';
+import calendarReducer from './calendar';
 
 
 export default combineReducers({
@@ -24,5 +25,6 @@ export default combineReducers({
   fakeData: fakeReducer,
   blog: blogReducer,
   task: taskReducer,
-  photo: photoReducer
+  photo: photoReducer,
+  calendar: calendarReducer
 })

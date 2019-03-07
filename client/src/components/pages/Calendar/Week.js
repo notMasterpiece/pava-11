@@ -1,20 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import Day from "./Day";
 
-const Week = ({previousCurrentNextView, currentMonthView, selected, select, monthEvents}) => {
+const Week = ({previousCurrentNextView, currentMonthView, selected, select, monthEvents, events}) => {
 
     let days = [];
     let date = previousCurrentNextView;
 
     for (var i = 0; i < 7; i++) {
-        var dayHasEvents = false;
-
-        for (var j = 0; j < monthEvents.length; j++) {
-            if (monthEvents[j].date.isSame(date, "day")) {
-                dayHasEvents = true;
-            }
-        }
 
         let day = {
             name: date.format("dd").substring(0, 1),
@@ -22,8 +16,18 @@ const Week = ({previousCurrentNextView, currentMonthView, selected, select, mont
             isCurrentMonth: date.month() === currentMonthView.month(),
             isToday: date.isSame(new Date(), "day"),
             date: date,
-            hasEvents: dayHasEvents
+            hasEvents: false,
+            events: []
         };
+
+
+        for (var ev = 0; ev < events.length; ev++) {
+            if ( moment(events[ev].date).isSame(date, "day") ) {
+                day.events.push(events[ev]);
+                day.hasEvents = true;
+            }
+        }
+
 
         days.push(
             <Day key={day.number}

@@ -25,6 +25,7 @@ const upload = require('./routes/api/upload');
 const fake = require('./routes/api/fake');
 const blog = require('./routes/api/blog');
 const task = require('./routes/api/task');
+const calendar = require('./routes/api/calendar');
 
 const test = require('./routes/api/test');
 
@@ -70,6 +71,7 @@ app.use('/api/upload', upload);
 app.use('/api/blog', blog);
 app.use('/api/task', task);
 app.use('/api/fake', fake);
+app.use('/api/calendar', calendar);
 
 app.use('/api/test', test);
 
