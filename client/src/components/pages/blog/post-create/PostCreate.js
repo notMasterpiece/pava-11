@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import { Editor } from '@tinymce/tinymce-react';
+import 'jodit';
+import 'jodit/build/jodit.min.css';
+import JoditEditor from "jodit-react";
+
+
+
 import BlogArticle from '../BlogArticle';
 import {createPostAction} from '../../../../actions/blog-action';
 import {connect} from 'react-redux';
@@ -43,7 +48,7 @@ class PostCreate extends Component {
         })
     };
 
-    handleEditorChange = content => {
+    updateContent = content => {
         this.setState({full_description: content})
     };
 
@@ -77,7 +82,7 @@ class PostCreate extends Component {
 
     render() {
 
-        const { title, short_description, full_description, source_link, tags, errors, loadingBtn} = this.state;
+        const { title, short_description, source_link, tags, errors, loadingBtn} = this.state;
 
         return (
             <section className='editing-post'>
@@ -170,18 +175,12 @@ class PostCreate extends Component {
 
                                     <div className='editing-post__content m-b-40'>
 
-                                        <Editor
-                                            apiKey='q2t6fo9i37sej175kuu64vxngrxql8eh0rv5mfrpy8ri8k04'
-                                            initialValue={full_description}
-                                            init={{
-                                                plugins: [
-                                                    "advcode advlist anchor autolink codesample colorpicker contextmenu fullscreen",
-                                                    " lists link linkchecker media mediaembed noneditable powerpaste",
-                                                    " searchreplace table textcolor"
-                                                ],
-                                                toolbar: "emoticons insertfile a11ycheck | bold italic | forecolor backcolor | template codesample | alignleft aligncenter alignright alignjustify | bullist numlist | link image",
-                                            }}
-                                            onEditorChange={this.handleEditorChange}
+
+                                        <JoditEditor
+                                            editorRef={this.setRef}
+                                            value={this.state.content}
+                                            config={this.config}
+                                            onChange={this.updateContent}
                                         />
                                         { errors.full_description && <p className='help-info'>{errors.full_description }</p> }
 

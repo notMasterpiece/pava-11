@@ -14,6 +14,9 @@ import Dashboard from './components/Dashboard';
 import Error500 from './components/pages/500/Error_500';
 
 
+import {pushNotification} from './actions/push-action';
+import {urlBase64ToUint8Array} from './helpers/helpers';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 if(localStorage.color) {
@@ -49,5 +52,36 @@ document.body.addEventListener('click', e => {
         if( elem ) elem.parentNode.removeChild(elem);
     }
 });
+
+
+
+
+
+
+
+//
+// const publicVapidKey = 'BB_V6M62UHo8FJt9mLc8rGSO1hOlfigisc4-ol8EcJSlwSPGgsrphb-k8XLqTw81MaX5DNyr5QHXT1YOhpIHtd4';
+//
+// if ("serviceWorker" in navigator) {
+//     send().catch(err => console.error(err));
+// }
+//
+//
+// async function send() {
+//     // Register Service Worker
+//     const register = await navigator.serviceWorker.register("./worker.js", {
+//         scope: "/"
+//     });
+//
+//     // Register Push
+//     const subscription = await register.pushManager.subscribe({
+//         userVisibleOnly: true,
+//         applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
+//     });
+//
+//     pushNotification( JSON.stringify(subscription));
+// }
+//
+
 
 

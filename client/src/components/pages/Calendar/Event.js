@@ -74,13 +74,8 @@ class Event extends Component {
 
 
     render() {
-
         const {hideEventForm, addEventForm, loadingBtn} = this.props;
         const { name, description, errorDescription, errorName } = this.state;
-
-
-        console.log(description);
-
         return (
             <EventWrap
                 className="add-event"
@@ -102,7 +97,7 @@ class Event extends Component {
                             onChange={this.onChange}
                             placeholder={'Назва події'}
                         />
-                        {errorName && <span className='error'>{errorName}</span>}
+                        { errorName && <span className='error'>{errorName}</span> }
                     </label>
                     <label htmlFor="">
                         <span>Опис</span>
@@ -132,7 +127,6 @@ const EventWrap = styled.div`
   padding: 20px;
   z-index: 10;
   transform: translateY(-20px);
-  margin: 0 20px;
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 `;
 

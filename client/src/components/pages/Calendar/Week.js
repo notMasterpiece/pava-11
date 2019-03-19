@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import Day from "./Day";
 
-const Week = ({previousCurrentNextView, currentMonthView, selected, select, monthEvents, events}) => {
+const Week = ({previousCurrentNextView, currentMonthView, selected, select, monthEvents, events, showEventDescription}) => {
 
     let days = [];
     let date = previousCurrentNextView;
@@ -34,6 +34,8 @@ const Week = ({previousCurrentNextView, currentMonthView, selected, select, mont
                  day={day}
                  selected={selected}
                  select={select}
+                 showEventDescription={showEventDescription}
+
             />
         );
         date = date.clone();

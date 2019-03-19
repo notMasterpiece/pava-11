@@ -808,6 +808,10 @@ body .swiper-pagination-bullet-active {
 
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100');
 
+.articles-section {
+  text-align: center;
+}
+
 .articles-section__title,
 .editing-post__title {
   font-size: 80px;
@@ -817,6 +821,7 @@ body .swiper-pagination-bullet-active {
   letter-spacing: .25em;
   font-weight: 100;
   margin: 0;
+  text-align: left;
 }
 .editing-post__form {
   margin-top: -25px;
@@ -1534,4 +1539,19 @@ body .swiper-pagination-bullet-active {
 
 .add-event h2 {
   font-size: 17px;
+}
+
+
+.fixed-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  text-align: center;
+}
+
+body .jodit_statusbar,
+body .jodit_toolbar {
+  background-color: #fff;
 }

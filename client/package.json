@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@tinymce/tinymce-react": "^2.4.0",
-    "autobind-decorator": "^2.4.0",
     "axios": "^0.18.0",
     "chart.js": "^2.7.3",
     "emoji-mart": "^2.8.1",
     "highlight.js": "^9.13.1",
+    "jodit-react": "^1.0.25",
     "jwt-decode": "^2.2.0",
     "moment": "^2.22.2",
     "moment-range": "^4.0.2",

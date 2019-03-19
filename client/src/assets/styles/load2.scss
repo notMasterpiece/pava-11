@@ -2636,17 +2636,17 @@ body {
   border: 0;
   border-radius: 0;
   color: #fff;
-  padding-top: .9rem;
-  padding-bottom: .9rem;
+  padding-top: .4rem;
+  padding-bottom: .4rem;
   position: relative
 }
 
 .alert.alert-success {
-  background-color: rgba(24,206,15,0.8)
+  background-color: #43a047;
 }
 
 .alert.alert-danger {
-  background-color: rgba(255,54,54,0.8)
+  background-color: #c62828;
 }
 
 .alert.alert-warning {
@@ -14872,7 +14872,7 @@ img {
   left: 0;
   top: 0;
   height: 100%;
-  z-index: 99
+  z-index: 10;
 }
 
 .minileftbar .menu_list {

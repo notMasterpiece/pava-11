@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Day = ({day, selected, select}) => {
+const Day = ({day, selected, select, showEventDescription}) => {
     return (
         <td
             className={
@@ -20,7 +20,11 @@ const Day = ({day, selected, select}) => {
                 <EventUl className='calendar-event-ul'>
                     {
                         day.events.map(day => (
-                            <EventLi key={day._id}>{day.name} ({day.user.name})</EventLi>
+                            <EventLi
+                                onClick={(e) => showEventDescription(day, e)}
+                                key={day._id}>
+                                {day.name} ({day.user.name})
+                            </EventLi>
                         ))
                     }
                 </EventUl>

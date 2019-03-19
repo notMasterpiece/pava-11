@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import { Redirect, Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
+import {Redirect, Switch, Route} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import Navbar from '../components/layout/Navbar';
 import RightBar from '../components/layout/RightBar';
@@ -20,7 +20,8 @@ import CustomeUserProfile from './pages/custome-user-profile/CustomeUserIndex';
 import Gallery from './pages/Gallery/GalleryIndex';
 import Calendar from './pages/Calendar/Calendar';
 
-
+// Error
+import ServerError from './pages/500/Error_500';
 
 // blogArticles
 import PostCreate from './pages/blog/post-create/PostCreate';
@@ -36,25 +37,29 @@ import Admin from './pages/Admin/Admin';
 import store from "../store/store";
 
 import Proggres from './Tools/Progres/Progress';
+import OflineStatus from './Tools/OflineStatus/OflineStatus';
 
 
 import jwt_decode from "jwt-decode";
-import { setAuthToken } from '../helpers/helpers';
-import { setCurrentUser, logoutUser } from '../actions/actions';
-import { clearProfile } from '../actions/profileActions';
+import {setAuthToken} from '../helpers/helpers';
+import {setCurrentUser, logoutUser} from '../actions/actions';
+import {clearProfile} from '../actions/profileActions';
 
 
-if(localStorage.jwtToken) {
+let internetTimeOut;
+
+
+if (localStorage.jwtToken) {
     //Set auth token
     setAuthToken(localStorage.jwtToken);
     //Decode token
     const decode = jwt_decode(localStorage.jwtToken);
     //Set user and isAuthenticated
-    store.dispatch( setCurrentUser( decode ) );
+    store.dispatch(setCurrentUser(decode));
 
     // logout user
     const currentTime = Date.now() / 1000;
-    if(decode.exp < currentTime) {
+    if (decode.exp < currentTime) {
         store.dispatch(logoutUser());
         store.dispatch(clearProfile());
         window.location.href = '/login';
@@ -62,91 +67,142 @@ if(localStorage.jwtToken) {
 }
 
 
-
-
-
 class Dashboard extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            showMobileMenu: false
-        };
-    }
+    state = {
+        showMobileMenu: false,
+        isOffline: false,
+        isOnline: false,
+        serverError: false
+    };
+
 
     funcShowMobileMenu = () => {
-        const { showMobileMenu } = this.state;
+        const {showMobileMenu} = this.state;
         this.setState({showMobileMenu: !showMobileMenu});
     };
 
-  render() {
-    const { showMobileMenu } = this.state;
-    const {auth, dom:{smallRightBar}} = this.props;
 
-      // if(errors.global_error) {
-      //     return <Redirect to='/error' />
-      // }
+    setOffline = () => {
+        clearTimeout(internetTimeOut);
+        this.setState({
+            isOffline: true,
+            isOnline: false
+        })
 
-      if( auth.isAuthenticated !== true ) {
-      return <Redirect to='/login' />
+
+    };
+
+    setOnline = () => {
+        this.setState({
+            isOnline: true,
+            isOffline: false
+        }, () => {
+            internetTimeOut = setTimeout(() => {
+                this.setState({
+                    isOffline: false,
+                    isOnline: false
+                })
+            }, 2000)
+        })
+    };
+
+
+    componentDidMount() {
+        window.addEventListener('online', this.setOnline);
+        window.addEventListener('offline', this.setOffline);
     }
 
-    return (
-
-      <div className={`theme-black ${smallRightBar ? 'menu_sm' : ''}`} >
-        <Proggres />
-        <Navbar
-            funcShowMobileMenu={this.funcShowMobileMenu}
-
-        />
-        <RightBar
-            showMobileMenu={showMobileMenu}
-        />
-
-        <section className="content">
-          <div className="container-fluid">
-              <Switch>
-                  <Route exact path='/' component={ Content } />
-                  <Route exact path='/dashboard' component={ Content } />
-                  <Route exact path='/messages' component={ MessagesIndex } />
-                  <Route exact path='/settings' component={ Settings } />
-                  <Route exact path='/not-found' component={ NotFound } />
-                  <Route exact path='/feed' component={ PostFeedIndex } />
-                  <Route exact path='/posts' component={ AllPosts } />
-                  <Route exact path='/post/:id' component={ SinglePostWrap } />
-                  <Route exact path='/add-education' component={ AddEducation } />
-                  <Route exact path='/add-experience' component={ AddExperiense } />
-                  <Route exact path='/edit-profile' component={ EditProfile } />
-                  <Route exact path='/create-profile' component={ CreateProfile } />
-                  <Route exact path='/profiles' component={ AllProfiles } />
-                  <Route exact path='/profile/:handle' component={ CustomeUserProfile } />
-                  <Route exact path='/admin' component={ Admin } />
-                  <Route exact path='/gallery' component={ Gallery } />
-
-                  <Route exact path='/blog' component={ BlogIndex } />
-                  <Route exact path='/blog/post-create' component={ PostCreate } />
-                  <Route exact path='/blog/:_id' component={ BlogSingleIndex } />
-
-                  <Route exact path='/calendar' component={ Calendar } />
+    componentWillUnmount() {
+        window.removeEventListener('online', this.setOnline);
+        window.removeEventListener('offline', this.setOffline);
+    }
 
 
+    static getDerivedStateFromProps(nextProps, prevState) {
 
-                  {/* for testing */}
-                  <Route exact path='/fake' component={ FakeIndex } />
-                  <Route exact path='/test' component={ Test } />
+        if (nextProps.errors && nextProps.errors.status && nextProps.errors.status === 500) {
+            return {
+                serverError: true
+            };
+        }
 
-                  {/*<Route path='*' render={ () => <Redirect to='/not-found' /> } />*/}
-              </Switch>
-          </div>
-        </section>
+        // Return null to indicate no change to state.
+        return null;
+    }
 
-      </div>
-    );
-  }
+
+    render() {
+
+        const {showMobileMenu, isOffline, isOnline, serverError} = this.state;
+        const {auth, dom: {smallRightBar}} = this.props;
+
+        if (auth.isAuthenticated !== true) {
+            return <Redirect to='/login'/>
+        }
+
+        if (serverError) return <Redirect to='/error'/>;
+
+        return (
+
+            <div className={`theme-black ${smallRightBar ? 'menu_sm' : ''}`}>
+                <OflineStatus
+                    isOnline={isOnline}
+                    isOffline={isOffline}/>
+                <Proggres/>
+                <Navbar
+                    funcShowMobileMenu={this.funcShowMobileMenu}
+
+                />
+                <RightBar
+                    showMobileMenu={showMobileMenu}
+                />
+
+                <section className="content">
+                    <div className="container-fluid">
+                        <Switch>
+                            <Route exact path='/' component={Content}/>
+                            <Route exact path='/dashboard' component={Content}/>
+                            <Route exact path='/messages' component={MessagesIndex}/>
+                            <Route exact path='/settings' component={Settings}/>
+                            <Route exact path='/not-found' component={NotFound}/>
+                            <Route exact path='/feed' component={PostFeedIndex}/>
+                            <Route exact path='/posts' component={AllPosts}/>
+                            <Route exact path='/post/:id' component={SinglePostWrap}/>
+                            <Route exact path='/add-education' component={AddEducation}/>
+                            <Route exact path='/add-experience' component={AddExperiense}/>
+                            <Route exact path='/edit-profile' component={EditProfile}/>
+                            <Route exact path='/create-profile' component={CreateProfile}/>
+                            <Route exact path='/profiles' component={AllProfiles}/>
+                            <Route exact path='/profile/:handle' component={CustomeUserProfile}/>
+                            <Route exact path='/admin' component={Admin}/>
+                            <Route exact path='/gallery' component={Gallery}/>
+
+                            <Route exact path='/blog' component={BlogIndex}/>
+                            <Route exact path='/blog/post-create' component={PostCreate}/>
+                            <Route exact path='/blog/:_id' component={BlogSingleIndex}/>
+
+                            <Route exact path='/calendar' component={Calendar}/>
+
+                            {/* for testing */}
+                            <Route exact path='/fake' component={FakeIndex}/>
+                            <Route exact path='/test' component={Test}/>
+
+                            {/*error*/}
+                            <Route exact path='/error' component={ServerError}/>
+
+                            <Route path='*' render={() => <Redirect to='/not-found'/>}/>
+                        </Switch>
+                    </div>
+                </section>
+
+            </div>
+        );
+    }
 }
 
 export default connect(state => ({
-  auth: state.auth,
-  dom: state.dom,
-  errors: state.errors
+    auth: state.auth,
+    dom: state.dom,
+    errors: state.errors
 }))(Dashboard);

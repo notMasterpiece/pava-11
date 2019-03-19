@@ -26,8 +26,10 @@ const fake = require('./routes/api/fake');
 const blog = require('./routes/api/blog');
 const task = require('./routes/api/task');
 const calendar = require('./routes/api/calendar');
+const notification = require('./routes/api/notification');
 
 const test = require('./routes/api/test');
+
 
 
 
@@ -48,11 +50,6 @@ app.use('/files/blog', express.static(path.join(__dirname, 'files/blog')));
 app.use('/files/blog/*', express.static(path.join(__dirname, 'files/blog/*')));
 
 
-//	Remove the information about what type of framework is the site running on
-app.disable('x-powered-by');
-
-
-
 require('./socket/socket')(io);
 
 
@@ -62,7 +59,11 @@ require('./config/passport')(passport);
 
 
 
-// Use routes
+
+
+
+
+// USE ROUTES
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', post);
@@ -73,22 +74,41 @@ app.use('/api/task', task);
 app.use('/api/fake', fake);
 app.use('/api/calendar', calendar);
 
+
+//test
 app.use('/api/test', test);
-
-
 
 app.use('/graphql', graphqlHttp({
     schema: graphqlSchema,
     rootValue: graphqlResolver
 }));
 
-// app.use((error, req, res) => {
-//     console.log(error);
-//     console.log('global error');
-//     res.statusCode(500).json({global_error: true, error});
-// });
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    const err = new Error('Page Not Found');
+    err.status = 404;
+    next(err);
+});
 
 
+// error handler
+app.use(function(err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+    // render the error page
+    res.status(err.status || 500);
+
+    res.json({
+        name: err.message,
+        status: err.status || 500
+    });
+});
+
+
+//serviceWorker push notification
+// app.use('/api/notification', notification);
 
 if(process.env.NODE_ENV === 'production') {
 
@@ -101,11 +121,14 @@ if(process.env.NODE_ENV === 'production') {
 
 
 
+
+
+
 // mongo
 require('./start-up/mongo')();
 
 // run cron
-// require('./start-up/cron')();
+require('./start-up/cron')();
 
 // post
 require('./start-up/port')(server);

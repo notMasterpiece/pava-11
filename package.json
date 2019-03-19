@@ -46,6 +46,7 @@
     "request-progress": "^3.0.0",
     "socket.io": "^2.1.1",
     "uuidv4": "^2.0.0",
-    "validator": "^10.2.0"
+    "validator": "^10.2.0",
+    "web-push": "^3.3.3"
   }
 }
