@@ -192,13 +192,12 @@ class CalendarEvent extends React.Component {
 
     // EVENTS FUNCTION
     showEventDescription = (day, e) => {
-        const parrent = e.currentTarget.closest('.vp-day');
-        if(!parrent) return;
+        if(!e.currentTarget) return;
 
-        const td = parrent.getBoundingClientRect();
+        const td = e.currentTarget.getBoundingClientRect();
         const pos = {
-            top: td.top + parrent.clientTop,
-            left: td.left + parrent.clientLeft
+            top: td.top + e.currentTarget.clientTop,
+            left: td.left + e.currentTarget.clientLeft
         };
 
         this.setState({
