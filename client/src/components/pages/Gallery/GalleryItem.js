@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 class GalleryItem extends React.Component {
 
     render() {
-        const {photo, deletePhoto, openLightbox, lightboxIsOpen, closeLightbox, currentImg, loadPhoto} = this.props;
+        const {photo, deletePhoto, openLightbox, lightboxIsOpen, closeLightbox, currentImg} = this.props;
 
         return (
             <div className='row'>

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
 import 'jodit';
 import 'jodit/build/jodit.min.css';
@@ -208,8 +207,6 @@ class PostCreate extends Component {
         );
     }
 }
-
-PostCreate.propTypes = {};
 
 export default connect(state => ({
     errors: state.errors

@@ -104,6 +104,17 @@ class GalleryIndex extends Component {
       }
     };
 
+
+    renderNoGallery = () => {
+        const {photo} = this.state;
+
+        if (photo.length <= 0) {
+            return (
+                <p>No item in gallery</p>
+            )
+        }
+    };
+
     openLightbox = img => {
         this.setState({
             currentImg: img,
@@ -121,27 +132,6 @@ class GalleryIndex extends Component {
     render() {
 
         const {photo, loadingFile, lightboxIsOpen, currentImg} = this.state;
-
-
-        // const {galleryTag, loading, gallery } = this.state;
-        // let now = moment().format('DD-MM-YYYY');
-        //
-        // let formatGallery = {};
-        // let imagesLast = [];
-        //
-        // gallery.forEach(i => {
-        //     now = moment(i.date).format('DD-MM-YYYY');
-        //
-        //     if ( formatGallery.hasOwnProperty(now) ) {
-        //         imagesLast = formatGallery[now]['images'];
-        //     } else {
-        //         imagesLast = [];
-        //     }
-        //     formatGallery[now] = {'date': now,'images': imagesLast.concat(i.images) };
-        // });
-        //
-        //
-        // if( loading ) return <Spinner />;
 
         return (
             <div>
@@ -178,6 +168,8 @@ class GalleryIndex extends Component {
                                     { this.renderPreviewImg() }
                                 </ul>
                             </div>
+
+                            { this.renderNoGallery() }
 
                             {
                                 photo.length

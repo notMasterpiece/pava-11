@@ -50,13 +50,13 @@ class Education extends React.Component {
       <div className="header">
         <ul className="header-dropdown">
           <li className="dropdown show">
-            <a className="dropdown-toggle" onClick={this.showMenuFunc}>
-              <i className="zmdi zmdi-more"></i>
-            </a>
+            <button className="dropdown-toggle 123123123" onClick={this.showMenuFunc}>
+              <i className="zmdi zmdi-more" />
+            </button>
             {
               showMenu &&
               <ul className="dropdown-menu show">
-                <li><a className='delete-education' onClick={() => this.deleteEducationClick(_id)}>Видалити</a></li>
+                <li><button className='delete-education' onClick={() => this.deleteEducationClick(_id)}>Видалити</button></li>
               </ul>
             }
 

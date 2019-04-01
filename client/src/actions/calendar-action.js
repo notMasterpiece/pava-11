@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_ALL_CALENDAR_EVENTS, ADD_CALENDAR_EVENT, GET_ERRORS} from "./types";
+import {GET_ALL_CALENDAR_EVENTS, GET_ERRORS} from "./types";
 
 
 

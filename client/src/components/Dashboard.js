@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import {Redirect, Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 
+import SmallChatIndex from './Tools/SmallChat/SmallChatIndex';
+
 import Navbar from '../components/layout/Navbar';
 import RightBar from '../components/layout/RightBar';
 import NotFound from './pages/NotFound/NotFound';
@@ -194,6 +196,9 @@ class Dashboard extends Component {
                             <Route path='*' render={() => <Redirect to='/not-found'/>}/>
                         </Switch>
                     </div>
+
+                    <SmallChatIndex />
+
                 </section>
 
             </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 import Day from "./Day";
 
@@ -55,10 +54,6 @@ const Week = ({previousCurrentNextView, currentMonthView, selected, select, mont
             </div>
         </div>
     );
-};
-
-Week.propTypes = {
-
 };
 
 export default Week;

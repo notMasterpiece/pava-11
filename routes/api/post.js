@@ -3,6 +3,8 @@ const router = express.Router();
 const passport = require('passport');
 
 
+
+
 const Post = require('../../models/Post');
 const Profile = require('../../models/Profile');
 const validatePostInput = require('../../validation/post');
@@ -12,30 +14,22 @@ const validatePostInput = require('../../validation/post');
 // @route GET api/posts
 // @desc GET post
 // @access Public
-router.get('/', (req,res) => {
-    const perPage = 5;
-    const page = req.query.page || 1;
+router.get('/', (req, res, next) => {
+
+    const {page} = req.query;
+
+    const options = {
+        page,
+        limit: 6,
+        sort: {'date': -1}
+    };
 
     Post
-        .find({})
-        .skip((perPage * page) - perPage)
-        .limit(perPage)
-        .sort({date: -1})
-        .exec(function(err, posts) {
-            Post.count().exec(function(err, count) {
-                if (err) return next(err);
-
-                res.json({
-                    'posts': {
-                        posts,
-                        current: page,
-                        pages: Math.ceil(count / perPage)
-                    }
-                })
-
-            })
+        .paginate({}, options)
+        .then(posts => {
+            res.json({posts})
         })
-
+        .catch(err => next(err));
 });
 
 

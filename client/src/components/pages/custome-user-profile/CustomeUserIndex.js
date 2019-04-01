@@ -13,7 +13,8 @@ class CustomeUserIndex extends React.Component {
 
     this.state = {
       github: '',
-      showGoogleMaps: false
+      showGoogleMaps: false,
+      showSmallChat: false
     }
 
   }
@@ -31,7 +32,7 @@ class CustomeUserIndex extends React.Component {
 
   render() {
 
-    const {showGoogleMaps} = this.state;
+    const {showGoogleMaps, showSmallChat} = this.state;
     const {profile, loading} = this.props.profile;
     if( profile === null || loading) return <Spinner />;
 
@@ -39,6 +40,7 @@ class CustomeUserIndex extends React.Component {
       <CustomeUserInfo
           profile={profile}
           showGoogleMaps={showGoogleMaps}
+          showSmallChat={showSmallChat}
           funcShowGoogleMaps={this.funcShowGoogleMaps} />
     );
   }

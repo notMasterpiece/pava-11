@@ -122,14 +122,22 @@ class RightBar extends Component {
                         <span>Статті</span>
                     </Link>
                 </li>
+
+                <li className="header">MY</li>
+
                 <li>
-                    <Link to={'/calendar'}>
-                        <i className="zmdi zmdi-calendar-check" />
-                        <span>Календар</span>
+                    <Link to={'/gallery'}>
+                        <i className="zmdi zmdi-image-alt" />
+                        <span>Моя галерея</span>
                     </Link>
                 </li>
 
-
+                <li>
+                    <Link to={'/calendar'}>
+                        <i className="zmdi zmdi-calendar-check" />
+                        <span>Мій календар</span>
+                    </Link>
+                </li>
 
             </ul>
           </div>

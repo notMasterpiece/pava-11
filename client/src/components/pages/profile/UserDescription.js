@@ -3,14 +3,10 @@ import PropTypes from 'prop-types';
 
 import moment from 'moment';
 import GoogleMaps from '../../Tools/GoogleMaps/GoogleMaps';
-import {Link} from 'react-router-dom';
 
+const UserDescription = ({profile, showGoogleMaps, funcShowGoogleMaps}) => {
 
-const UserDescription = ({profile, showGoogleMaps, funcShowGoogleMaps, showUserGallery}) => {
-    // object to arr
-    // const arr = Object.keys(profile).map((k) => profile[k]);
-
-    const {bio, company, date, location, skills, website, _id} = profile;
+    const {bio, company, date, location, skills, website} = profile;
     return (
         <div className="card">
             <div className="body empty">
@@ -20,16 +16,19 @@ const UserDescription = ({profile, showGoogleMaps, funcShowGoogleMaps, showUserG
                     <Fragment>
                         <small className="text-muted">Місце проживання</small>
                         <p>{location}</p>
-                        <p className='maps-link'><button onClick={funcShowGoogleMaps}>{ !showGoogleMaps ? 'Показати на карті' : 'Приховати карту'}</button></p>
+                        <p className='maps-link'>
+                            <button
+                                onClick={funcShowGoogleMaps}>{!showGoogleMaps ? 'Показати на карті' : 'Приховати карту'}</button>
+                        </p>
                         {
                             showGoogleMaps &&
-                                <GoogleMaps
+                            <GoogleMaps
                                 location={location}
                                 googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZzdhlz8kH-MFnCrbJ_NNOHQTg5M_W__U&language=uk"
-                                loadingElement={<div style={{ height: `100%` }} />}
-                                containerElement={<div style={{ height: `400px` }} />}
-                                mapElement={<div style={{ height: `100%` }} />}
-                                />
+                                loadingElement={<div style={{height: `100%`}}/>}
+                                containerElement={<div style={{height: `400px`}}/>}
+                                mapElement={<div style={{height: `100%`}}/>}
+                            />
                         }
                         <hr/>
                     </Fragment>
@@ -46,8 +45,10 @@ const UserDescription = ({profile, showGoogleMaps, funcShowGoogleMaps, showUserG
                     website &&
                     <Fragment>
                         <small className="text-muted">Сайт</small>
-                        <p><a target='_blank' href={website}><i
-                            className="zmdi zmdi-globe custome-zmdi-globe"/>{website}</a></p>
+                        <p>
+                            <a target='_blank' rel="noopener noreferrer" href={website}>
+                                <i className="zmdi zmdi-globe custome-zmdi-globe"/>{website}</a>
+                        </p>
                         <hr/>
                     </Fragment>
                 }
@@ -69,9 +70,6 @@ const UserDescription = ({profile, showGoogleMaps, funcShowGoogleMaps, showUserG
                         <p>{moment(date).fromNow()}</p>
                         <hr/>
                     </Fragment>
-                }
-                {
-                    showUserGallery && <Link to={'/gallery'} > Моя галерея</Link>
                 }
             </div>
         </div>

@@ -14,10 +14,10 @@ const CalendarEvent = new Schema({
     description: {
         type: String
     },
-    date: {
+        date: {
         type: String,
         required: true
     }
 }, {timestamps: true});
 
-module.exports = Task = mongoose.model('CalendarEvent', CalendarEvent);
+module.exports = Task = mongoose.model('Calendar-Event', CalendarEvent);

@@ -3,6 +3,18 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Day = ({day, selected, select, showEventDescription}) => {
+
+    const selectDay = (day, e) => {
+        if (e.target.tagName !== 'TD') return;
+        const dayObj = {
+            day,
+            node: e.target,
+        };
+
+        select(dayObj);
+    };
+
+
     return (
         <td
             className={
@@ -12,7 +24,7 @@ const Day = ({day, selected, select, showEventDescription}) => {
                 (day.date.isSame(selected) ? " selected" : "") +
                 (day.hasEvents ? " has-events" : "")
             }
-            onClick={() => select(day, 'test')}
+            onClick={e => selectDay(day, e)}
         >
             {day.number}
             {
@@ -23,7 +35,7 @@ const Day = ({day, selected, select, showEventDescription}) => {
                             <EventLi
                                 onClick={(e) => showEventDescription(day, e)}
                                 key={day._id}>
-                                {day.name} ({day.user.name})
+                                {day.name}
                             </EventLi>
                         ))
                     }
@@ -60,6 +72,7 @@ const EventLi = styled.li`
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;  
+  cursor: pointer;
 `;
 
 export default Day;

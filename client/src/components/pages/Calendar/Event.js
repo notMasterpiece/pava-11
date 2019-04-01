@@ -34,7 +34,7 @@ class Event extends Component {
 
     addEventFunc = e => {
         e.preventDefault();
-        const {name, description, errorName, errorDescription} = this.state;
+        const {name, description} = this.state;
         const { date, setLoadingBtnTrue } = this.props;
 
 
@@ -45,24 +45,9 @@ class Event extends Component {
             date
         };
 
-        // if(name.trim().length <= 4) {
-        //     this.setState({
-        //         errorName : 'need to be more 4'
-        //     })
-        // }
-        // if(description.trim().length <= 4) {
-        //     this.setState({
-        //         errorDescription : 'need to be more 4'
-        //     })
-        // }
-        //
-
-
         setLoadingBtnTrue();
         this.props.addEventAction(eventData);
     };
-
-
 
 
     resetEventFormState = () => {
@@ -74,23 +59,25 @@ class Event extends Component {
 
 
     render() {
-        const {hideEventForm, addEventForm, loadingBtn} = this.props;
+        const {addEventForm, loadingBtn, showAddEventInfo:{top, left}, hideAddEventForm} = this.props;
         const { name, description, errorDescription, errorName } = this.state;
+
         return (
             <EventWrap
                 className="add-event"
                 ref={addEventForm}
+                style={{top: `${top}px`, left: `${left}px`}}
             >
-                <i
+                <EventClose
                     className="zmdi zmdi-close-circle"
-                    onClick={ hideEventForm }
+                    onClick={hideAddEventForm}
                 />
                 <form>
                     <h2>Add task to calendar</h2>
                     <label htmlFor="">
                         <span>Подія</span>
                         <input
-                            autoComplete={'new-password'}
+                            autoFocus
                             type="text"
                             value={name}
                             name={'name'}
@@ -121,13 +108,21 @@ class Event extends Component {
 
 const EventWrap = styled.div`
   background-color: #cfd8dc;
-  display: none;
   position: absolute;
   width: 300px;
   padding: 20px;
   z-index: 10;
   transform: translateY(-20px);
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+`;
+
+const EventClose = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #313740;
+  z-index: 1;
 `;
 
 export default Event;

@@ -51,14 +51,13 @@ class Experince extends React.Component {
         <div className="header">
           <ul className="header-dropdown">
             <li className="dropdown show">
-              <a className="dropdown-toggle" onClick={this.showMenuFunc}>
+              <button className="dropdown-toggle" onClick={this.showMenuFunc}>
                 <i className="zmdi zmdi-more" />
-              </a>
+              </button>
               {
                 showMenu &&
                 <ul className="dropdown-menu show">
-                  <li><a href="javascript:void(0);">Action</a></li>
-                  <li><a onClick={() => this.deleteExperienceClick(_id)}>Видалити</a></li>
+                  <li><button onClick={() => this.deleteExperienceClick(_id)}>Видалити</button></li>
                 </ul>
               }
 

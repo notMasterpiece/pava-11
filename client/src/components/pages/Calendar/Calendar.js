@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
@@ -11,6 +11,9 @@ import { connect } from 'react-redux';
 import { addEventAction, getAllEvents } from '../../../actions/calendar-action';
 
 
+import {getCoords} from '../../../helpers/helpers';
+
+
 class CalendarEvent extends React.Component {
     constructor(props) {
         super(props);
@@ -20,11 +23,18 @@ class CalendarEvent extends React.Component {
             selectedMonth: moment(),
             selectedDay: moment().startOf("day"),
             selectedMonthEvents: [],
+
             events: [],
+
             showEventInfo: false,
             singleEventInfo: null,
+
+            showAddEventForm: false,
+            showAddEventInfo: null,
+
             showEvents: false,
             showAddEvent: false,
+
             loadingBtn: false
         };
     }
@@ -61,30 +71,35 @@ class CalendarEvent extends React.Component {
         const currentMonthView = this.state.selectedMonth;
 
         this.setState({
-            selectedMonth: currentMonthView.subtract(1, "month")
+            selectedMonth: currentMonthView.subtract(1, "month"),
+            showAddEventForm: false
         });
     };
 
     next = () => {
         const currentMonthView = this.state.selectedMonth;
         this.setState({
-            selectedMonth: currentMonthView.add(1, "month")
+            selectedMonth: currentMonthView.add(1, "month"),
+            showAddEventForm: false
         });
     };
 
 
+    select = obj => {
+        const {day, node} = obj;
 
+        const pos = getCoords(node);
 
-    select = (day) => {
         this.setState({
             selectedMonth: day.date,
             selectedDay: day.date.clone(),
-            showAddEvent: true
+            showAddEventForm: true,
+            showAddEventInfo: {
+                top: pos.top,
+                left: pos.left - 82
+            }
         });
     };
-
-
-
 
 
 
@@ -92,14 +107,17 @@ class CalendarEvent extends React.Component {
         const momentDay = moment(day);
 
         this.setState({
+            showEventInfo: true,
             selectedMonth: momentDay,
             selectedDay: momentDay,
         });
     };
 
+
     goToCurrentMonthView = () => {
         this.setState({
-            selectedMonth: moment()
+            selectedMonth: moment(),
+            showAddEventForm: false
         });
     };
 
@@ -163,50 +181,49 @@ class CalendarEvent extends React.Component {
         return weeks;
     };
 
-
-    hideEventForm = () => {
-        this.addEventForm.current.style.display = 'none';
-    };
-
-
     componentWillReceiveProps(nextProps) {
         if(nextProps.calendar) {
             this.setState({
                 events: nextProps.calendar.calendar
             }, () => {
 
-                this.setLoadingBtnFalse();
-                this.hideEventForm();
+                this.setState({
+                    loadingBtn: false,
+                    showAddEventForm: false
+                })
 
             });
-            return
-        }
-
-        if (nextProps.calendar.eventAdded) {
-            this.hideEventForm();
-            return
         }
     }
 
 
 
     // EVENTS FUNCTION
+
+    hideAddEventForm = () => {
+        this.setState({
+            showAddEventForm: false
+        })
+    };
+    hideAddEventInfo = () => {
+        this.setState({
+            showEventInfo: false
+        })
+    };
+
     showEventDescription = (day, e) => {
+        console.log(day);
+        console.log(e.currentTarget);
+        this.hideAddEventForm();
         if(!e.currentTarget) return;
 
-        const td = e.currentTarget.getBoundingClientRect();
-        const pos = {
-            top: td.top + e.currentTarget.clientTop,
-            left: td.left + e.currentTarget.clientLeft
-        };
+        const pos = getCoords(e.currentTarget);
 
         this.setState({
             showEventInfo: true,
             singleEventInfo: {
-                position: {
-                    top: pos.top,
-                    left: pos.left
-                },
+                top: pos.top,
+                left: pos.left,
                 name: day.name,
                 description: day.description,
                 createdAt: day.createdAt,
@@ -219,39 +236,13 @@ class CalendarEvent extends React.Component {
 
 
     componentDidMount() {
-
         this.props.getAllEvents();
-
-        // let mounthDays = document.querySelectorAll('.vp-day:not(.vp-day__past)');
-        //
-        // [].forEach.call(mounthDays, day => {
-        //     day.addEventListener('click', e => {
-        //         const el = e.target.tagName !== 'td' ? e.target.closest('.vp-day') : e.target;
-        //         var box = el.getBoundingClientRect();
-        //
-        //         let scrollTop = window.pageYOffset,
-        //             top = box.top + scrollTop,
-        //             left = box.left;
-        //
-        //         if ( (left + 700) > window.innerWidth ) {
-        //             left = box.left - (340 + e.target.offsetWidth);
-        //         }
-        //
-        //         if((top + e.target.offsetHeight) > window.innerHeight) {
-        //             top = box.top + scrollTop - e.target.offsetHeight;
-        //         }
-        //
-        //         this.addEventForm.current.style.display = 'block';
-        //         this.addEventForm.current.style.top = top - 10 + 'px';
-        //         this.addEventForm.current.style.left = left - 85 + 'px';
-        //     })
-        // })
     }
 
 
     render() {
 
-        const {selectedDay, loadingBtn, events, showEventInfo, singleEventInfo} = this.state;
+        const {selectedDay, loadingBtn, events, showEventInfo, singleEventInfo, showAddEventForm, showAddEventInfo} = this.state;
 
         return (
             <div className="card">
@@ -325,18 +316,24 @@ class CalendarEvent extends React.Component {
                             </div>
                         </div>
 
-                        <EventForm
-                            loadingBtn={loadingBtn}
-                            setLoadingBtnTrue={this.setLoadingBtnTrue}
-                            date={moment(selectedDay).format()}
-                            addEventForm={this.addEventForm}
-                            addEventAction={this.props.addEventAction}
-                            hideEventForm={this.hideEventForm} />
+                        {
+                            showAddEventForm &&
+                            <EventForm
+                                loadingBtn={loadingBtn}
+                                setLoadingBtnTrue={this.setLoadingBtnTrue}
+                                date={moment(selectedDay).format()}
+                                addEventForm={this.addEventForm}
+                                showAddEventInfo={showAddEventInfo}
+                                hideAddEventForm={this.hideAddEventForm}
+                                addEventAction={this.props.addEventAction} />
+                        }
+
 
                         {
                             showEventInfo &&
                                 <EventInfo
                                     singleEventInfo={singleEventInfo}
+                                    hideAddEventInfo={this.hideAddEventInfo}
                                 />
                         }
 

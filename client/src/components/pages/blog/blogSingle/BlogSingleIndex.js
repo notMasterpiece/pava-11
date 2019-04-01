@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {getArticle, clearArticle} from '../../../../actions/blog-action';
 import Spinner from '../../../Tools/Spinner/Spinner';
@@ -172,8 +171,6 @@ class BlogSingleIndex extends Component {
         );
     }
 }
-
-BlogSingleIndex.propTypes = {};
 
 export default connect(state => ({
     blog: state.blog

@@ -137,8 +137,3 @@ export default connect(state => ({
   auth: state.auth,
   errors: state.errors
 }), { getPost, addComment, deleteComment})(SinglePostWrap);
-
-
-
-
-{/*<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=q2t6fo9i37sej175kuu64vxngrxql8eh0rv5mfrpy8ri8k04"></script>*/}

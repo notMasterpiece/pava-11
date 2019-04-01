@@ -8,7 +8,6 @@ const io = require('socket.io')(server);
 const helmet = require('helmet');
 require('dotenv').config();
 
-
 const graphqlHttp = require('express-graphql');
 const graphqlSchema = require('./graphql/schema');
 const graphqlResolver = require('./graphql/resolves');
@@ -119,11 +118,6 @@ app.use(function(err, req, res, next) {
 
 //serviceWorker push notification
 // app.use('/api/notification', notification);
-
-
-
-
-
 
 
 // mongo

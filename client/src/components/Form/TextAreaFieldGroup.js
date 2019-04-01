@@ -1,16 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import thinking from '../../assets/images/thinking.png';
 import 'emoji-mart/css/emoji-mart.css'
 import { Picker } from 'emoji-mart'
 
 const TextAreaFieldGroup = ({name, placeholder, value, error, info, onChange, addEmoji, showEmoji, showCount }) => {
-
-
-  const handleShow = () => {
-      showEmoji = !showEmoji
-  };
 
   return (
     <div className="form-group">

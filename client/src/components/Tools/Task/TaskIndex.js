@@ -178,17 +178,17 @@ class TaskIndex extends Component {
                                             <small>Completion with: {t.progres}%</small>
                                         </td>
 
-                                        <td className="project-actions">
-                                            <a href="javascript:void(0);" className="btn btn-neutral btn-sm">
-                                                <i className="zmdi zmdi-edit"/></a>
-                                        </td>
+                                        {/*<td className="project-actions">*/}
+                                            {/*<a href="javascript:void(0);" className="btn btn-neutral btn-sm">*/}
+                                                {/*<i className="zmdi zmdi-edit"/></a>*/}
+                                        {/*</td>*/}
                                     </tr>
                                 ))
                             }
                             </tbody>
                         </table>
 
-                        {task.length > taskSize &&
+                        { task.length > taskSize &&
 
                             <ReactPaginate
                                 previousLabel={'previous'}

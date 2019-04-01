@@ -31,6 +31,8 @@ class Autocomplete extends Component {
                 )
             }
 
+            console.log(filteredOptions);
+
             return (
                 <OptionUl>
                     {
@@ -47,7 +49,7 @@ class Autocomplete extends Component {
                                     {option.description}
                                 </OptionP>
                                 <OptionDate>
-                                    { moment(option.createdAt).format('MM/DD/YYYY') }
+                                    { moment(option.date).format('MM/DD/YYYY') }
                                 </OptionDate>
                             </OptionLi>
                         ))

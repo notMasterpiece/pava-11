@@ -8,8 +8,7 @@ const CalendarEvent = require('../../models/CalendarEvent');
 router.get('/', passport.authenticate('jwt', { session: false }), (req, res, next) => {
 
     CalendarEvent
-        .find({})
-        .populate('user')
+        .find({user: req.user.id})
         .then(tasks => {
             res.json(tasks);
         })
