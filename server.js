@@ -5,6 +5,7 @@ const express = require('express');
 const app = require('express')();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
+const TMClient = require('textmagic-rest-client');
 require('dotenv').config();
 
 
@@ -50,6 +51,14 @@ require('./socket/socket')(io);
 // passport MIDD
 app.use(passport.initialize());
 require('./config/passport')(passport);
+
+
+console.log(44);
+
+var c = new TMClient('username', 'C7XDKZOQZo6HvhJwtUw0MBcslfqwtp4');
+c.Messages.send({text: 'test message', phones:'068332309'}, function(err, res){
+    console.log('Messages.send()', err, res);
+});
 
 
 

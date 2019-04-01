@@ -39,6 +39,7 @@
     "passport-jwt": "^4.0.0",
     "pdfkit": "^0.8.3",
     "socket.io": "^2.1.1",
+    "textmagic-rest-client": "^1.0.10",
     "uuidv4": "^2.0.0",
     "validator": "^10.2.0"
   }

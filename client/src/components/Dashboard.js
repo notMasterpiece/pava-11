@@ -18,6 +18,7 @@ import CreateProfile from './pages/create-profile/CreateProfile';
 import AllProfiles from './pages/profiles/AllProfilesIndex';
 import CustomeUserProfile from './pages/custome-user-profile/CustomeUserIndex';
 import Gallery from './pages/Gallery/GalleryIndex';
+import PRoute from './Tools/ProgressRoute/PRoute';
 
 
 
@@ -105,32 +106,32 @@ class Dashboard extends Component {
         <section className="content">
           <div className="container-fluid">
               <Switch>
-                  <Route exact path='/' component={ Content } />
-                  <Route exact path='/dashboard' component={ Content } />
-                  <Route exact path='/messages' component={ MessagesIndex } />
-                  <Route exact path='/settings' component={ Settings } />
-                  <Route exact path='/not-found' component={ NotFound } />
-                  <Route exact path='/feed' component={ PostFeedIndex } />
-                  <Route exact path='/posts' component={ AllPosts } />
-                  <Route exact path='/post/:id' component={ SinglePostWrap } />
-                  <Route exact path='/add-education' component={ AddEducation } />
-                  <Route exact path='/add-experience' component={ AddExperiense } />
-                  <Route exact path='/edit-profile' component={ EditProfile } />
-                  <Route exact path='/create-profile' component={ CreateProfile } />
-                  <Route exact path='/profiles' component={ AllProfiles } />
-                  <Route exact path='/profile/:handle' component={ CustomeUserProfile } />
-                  <Route exact path='/admin' component={ Admin } />
-                  <Route exact path='/gallery/:_id' component={ Gallery } />
+                  <PRoute exact path='/' component={ Content } />
+                  <PRoute exact path='/dashboard' component={ Content } />
+                  <PRoute exact path='/messages' component={ MessagesIndex } />
+                  <PRoute exact path='/settings' component={ Settings } />
+                  <PRoute exact path='/not-found' component={ NotFound } />
+                  <PRoute exact path='/feed' component={ PostFeedIndex } />
+                  <PRoute exact path='/posts' component={ AllPosts } />
+                  <PRoute exact path='/post/:id' component={ SinglePostWrap } />
+                  <PRoute exact path='/add-education' component={ AddEducation } />
+                  <PRoute exact path='/add-experience' component={ AddExperiense } />
+                  <PRoute exact path='/edit-profile' component={ EditProfile } />
+                  <PRoute exact path='/create-profile' component={ CreateProfile } />
+                  <PRoute exact path='/profiles' component={ AllProfiles } />
+                  <PRoute exact path='/profile/:handle' component={ CustomeUserProfile } />
+                  <PRoute exact path='/admin' component={ Admin } />
+                  <PRoute exact path='/gallery/:_id' component={ Gallery } />
 
-                  <Route exact path='/blog' component={ BlogIndex } />
-                  <Route exact path='/blog/post-create' component={ PostCreate } />
-                  <Route exact path='/blog/:_id' component={ BlogSingleIndex } />
+                  <PRoute exact path='/blog' component={ BlogIndex } />
+                  <PRoute exact path='/blog/post-create' component={ PostCreate } />
+                  <PRoute exact path='/blog/:_id' component={ BlogSingleIndex } />
 
 
 
                   {/* for testing */}
-                  <Route exact path='/fake' component={ FakeIndex } />
-                  <Route exact path='/test' component={ Test } />
+                  <PRoute exact path='/fake' component={ FakeIndex } />
+                  <PRoute path='/test' component={ Test } />
 
                   {/*<Route path='*' render={ () => <Redirect to='/not-found' /> } />*/}
               </Switch>
