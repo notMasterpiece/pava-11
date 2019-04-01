@@ -23,7 +23,7 @@ export const addPost = (post, history) => dispatch => {
 
 
 export const getAllPost = page => dispatch => {
-    dispatch(setLoadingState());
+  dispatch(setLoadingState());
   axios
     .get(`/api/posts?page=${page}`)
     .then(res => {

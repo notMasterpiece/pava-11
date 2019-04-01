@@ -51,3 +51,19 @@ export const CLEAR_ARTICLE = 'CLEAR_ARTICLE';
 
 // task
 export const GET_TASKS = 'GET_TASKS';
+
+
+//gallery
+export const GET_USER_PHOTO = 'GET_USER_PHOTO';
+export const REMOVE_PHOTO = 'REMOVE_PHOTO';
+export const ADD_PHOTO = 'ADD_PHOTO';
+
+
+export const GET_ALL_CALENDAR_EVENTS = 'GET_ALL_CALENDAR_EVENTS';
+export const ADD_CALENDAR_EVENT = 'ADD_CALENDAR_EVENT';
+
+
+
+// chat
+export const SHOW_SMALL_CHAT = 'SHOW_SMALL_CHAT';
+export const HIDE_SMALL_CHAT = 'HIDE_SMALL_CHAT';

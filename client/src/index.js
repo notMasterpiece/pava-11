@@ -13,7 +13,6 @@ import ResetPass from './components/auth/ResetPass';
 import Dashboard from './components/Dashboard';
 import Error500 from './components/pages/500/Error_500';
 
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 if(localStorage.color) {
@@ -43,7 +42,6 @@ ReactDOM.render(
 
 // maybe bed
 document.body.addEventListener('click', e => {
-    // console.log(e.target);
     if( document.body.querySelector('.dropdown-menu.show') && e.target !== document.body.querySelector('.delete-education') ) {
         const elem = document.querySelector('.dropdown-menu.show li');
         if( elem ) elem.parentNode.removeChild(elem);

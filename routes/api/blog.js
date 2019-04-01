@@ -6,7 +6,7 @@ const BlogArticle = require('../../models/BlogArticle');
 const Jimp = require('jimp');
 const path = require('path');
 
-const loadArticleCount = 8;
+const loadArticleCount = 20;
 
 const helpers = require('../../Helpers/helpers');
 
@@ -44,14 +44,10 @@ router.get('/', (req, res, next) => {
                         article: article.sort( (a, b) => new Date(b.created_at) - new Date(a.created_at))
                     })
                 })
-                .catch( err => {
-                    next(err)
-                });
+                .catch(err => next(err));
 
         })
-        .catch(err => {
-            next(err)
-        })
+        .catch(err => next(err));
 });
 
 
@@ -71,10 +67,8 @@ router.get('/:id', (req, res, next) => {
                     res.json(article); 
                 })
 
-
-
         })
-        .catch(err => res.status(404).json(err));
+        .catch(err => next(err));
 });
 
 

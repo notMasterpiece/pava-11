@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {SET_CURRENT_USER, GET_PROFILE, CLEAR_CURRENT_PROFILE, PROFILE_LOADING, GET_ERRORS, GET_ALL_PROFILES, GET_GITHUB_PROFILE, CHANGE_COLOR} from './types';
+import {SET_CURRENT_USER, GET_USER_PHOTO, ADD_PHOTO, REMOVE_PHOTO, GET_PROFILE, CLEAR_CURRENT_PROFILE, PROFILE_LOADING, GET_ERRORS, GET_ALL_PROFILES, GET_GITHUB_PROFILE, CHANGE_COLOR} from './types';
 
 import { setAuthToken } from '../helpers/helpers';
 
@@ -208,5 +208,71 @@ export const changeColor = color =>  {
   }
 };
 
+
+export const addUserPhoto = (formData, config)  => dispatch => {
+    axios.post('/api/upload/gallery', formData, config)
+        .then(res => {
+            dispatch({
+                type: ADD_PHOTO,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        })
+};
+
+
+export const getUserPhoto = () => dispatch => {
+    axios.get('/api/upload')
+        .then(res => {
+            dispatch({
+                type: GET_USER_PHOTO,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        })
+};
+
+
+export const deleteUserPhoto = id => dispatch => {
+    axios.post(`/api/upload/delete/${id}`, id)
+        .then(res => {
+            dispatch({
+                type: REMOVE_PHOTO,
+                payload: res.data.payload
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        })
+};
+
+export const downloadPhoto = (img, name) => dispatch => {
+    axios.post('/api/upload/download/', {img, name})
+        .then(res => {
+            dispatch({
+                type: REMOVE_PHOTO,
+                payload: res.data.payload
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        })
+};
 
 

@@ -1,8 +1,5 @@
-
 import axios from 'axios';
 import {GET_TASKS, GET_ERRORS} from './types';
-import {setCurrentUser} from "./actions";
-
 
 export const getTasks = () => dispatch => {
     axios

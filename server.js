@@ -5,9 +5,12 @@ const express = require('express');
 const app = require('express')();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
-const TMClient = require('textmagic-rest-client');
+const helmet = require('helmet');
 require('dotenv').config();
 
+const graphqlHttp = require('express-graphql');
+const graphqlSchema = require('./graphql/schema');
+const graphqlResolver = require('./graphql/resolves');
 
 
 
@@ -21,8 +24,11 @@ const upload = require('./routes/api/upload');
 const fake = require('./routes/api/fake');
 const blog = require('./routes/api/blog');
 const task = require('./routes/api/task');
+const calendar = require('./routes/api/calendar');
+const notification = require('./routes/api/notification');
 
 const test = require('./routes/api/test');
+
 
 
 
@@ -32,17 +38,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+
+app.use(helmet());
+require('./log/morgan')(app);
+
+
+// static files
 app.use('/files', express.static(path.join(__dirname, 'files')));
-
-
-//	Check for HTTPS
-//
-app.use(force_https);
-
-
-//	Remove the information about what type of framework is the site running on
-app.disable('x-powered-by');
-
+app.use('/files/blog', express.static(path.join(__dirname, 'files/blog')));
+app.use('/files/blog/*', express.static(path.join(__dirname, 'files/blog/*')));
 
 
 require('./socket/socket')(io);
@@ -53,16 +57,7 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 
-console.log(44);
-
-var c = new TMClient('username', 'C7XDKZOQZo6HvhJwtUw0MBcslfqwtp4');
-c.Messages.send({text: 'test message', phones:'068332309'}, function(err, res){
-    console.log('Messages.send()', err, res);
-});
-
-
-
-// Use routes
+// USE ROUTES
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', post);
@@ -71,44 +66,16 @@ app.use('/api/upload', upload);
 app.use('/api/blog', blog);
 app.use('/api/task', task);
 app.use('/api/fake', fake);
+app.use('/api/calendar', calendar);
 
+
+//test
 app.use('/api/test', test);
 
-
-// app.use((error, req, res) => {
-//     console.log(error);
-//     console.log('global error');
-//     res.statusCode(500).json({global_error: true, error});
-// });
-
-
-function force_https(req, res, next)
-{
-    //
-    //	1. 	Redirect only in the production environment
-    //
-    if(process.env.NODE_ENV == 'production')
-    {
-        //
-        //	1. 	Check what protocol are we using
-        //
-        if(req.headers['x-forwarded-proto'] !== 'https')
-        {
-            //
-            //	-> 	Redirect the user to the same URL that he requested, but
-            //		with HTTPS instead of HTTP
-            //
-            return res.redirect('https://' + req.get('host') + req.url);
-        }
-    }
-
-    //
-    //	2. 	If the protocol is already HTTPS the, we just keep going.
-    //
-    next();
-}
-
-
+app.use('/graphql', graphqlHttp({
+    schema: graphqlSchema,
+    rootValue: graphqlResolver
+}));
 
 
 if(process.env.NODE_ENV === 'production') {
@@ -117,16 +84,42 @@ if(process.env.NODE_ENV === 'production') {
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     })
-
 }
 
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    const err = new Error('Page Not Found');
+    err.status = 404;
+    next(err);
+});
+
+
+// error handler
+app.use(function(err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+    // render the error page
+    res.status(err.status || 500);
+
+    res.json({
+        name: err.message,
+        status: err.status || 500
+    });
+});
+
+
+//serviceWorker push notification
+// app.use('/api/notification', notification);
 
 
 // mongo
 require('./start-up/mongo')();
 
 // run cron
-// require('./start-up/cron')();
+require('./start-up/cron')();
 
 // post
 require('./start-up/port')(server);

@@ -42,26 +42,16 @@ class Navbar extends Component {
 
 
     render() {
-    const {funcShowMobileMenu} = this.props;
+      const {funcShowMobileMenu} = this.props;
       return (
         <aside id="minileftbar" className="minileftbar">
           <ul className="menu_list">
-            <li onClick={funcShowMobileMenu}><a className="bars" /></li>
-            <li><a href="javascript:void(0);" className="btn_overlay hidden-sm-down"><i className="zmdi zmdi-search" /></a></li>
+            <li onClick={funcShowMobileMenu}><button className="bars" /></li>
 
             <li onClick={this.resizeRightBar}>
-                <a className="menu-sm"><i className="zmdi zmdi-swap" /></a>
-            </li>
-
-            <li className="menuapp-btn"><a href="javascript:void(0);"><i className="zmdi zmdi-apps"></i></a></li>
-            <li className="notifications badgebit">
-              <a href="javascript:void(0);">
-                <i className="zmdi zmdi-notifications"></i>
-                <div className="notify">
-                  <span className="heartbit"></span>
-                  <span className="point"></span>
-                </div>
-              </a>
+                <button className="menu-sm">
+                  <i className="zmdi zmdi-swap" />
+                </button>
             </li>
 
             <li>
@@ -77,9 +67,9 @@ class Navbar extends Component {
               <Link to={'/settings'} className="js-right-sidebar">
                 <i className="zmdi zmdi-settings zmdi-hc-spin" />
               </Link>
-              <a className='mega-menu' onClick={this.logout}>
+              <button className='mega-menu' onClick={this.logout}>
                 <i className="zmdi zmdi-power" />
-              </a>
+              </button>
             </li>
           </ul>
         </aside>

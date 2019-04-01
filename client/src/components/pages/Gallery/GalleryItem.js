@@ -1,43 +1,71 @@
 import React from 'react';
 import moment from 'moment';
-import Masonry from 'react-masonry-component';
+import ReactTooltip from 'react-tooltip';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
-const masonryOptions = {
-    transitionDuration: 0
-};
+import {bytesToSize} from '../../../helpers/helpers';
+import PropTypes from "prop-types";
 
-const imagesLoadedOptions = { background: '.my-bg-image-el' };
-
-class GalleryItemWrap extends React.Component {
+class GalleryItem extends React.Component {
 
     render() {
-        const {item} = this.props;
-        const {date, images} = item;
-
-        const childElements = images.map(function(element){
-            return (
-                <li className="image-element-class">
-                    <a href={element}><img src={element} /></a>
-                </li>
-            );
-        });
+        const {photo, deletePhoto, openLightbox, lightboxIsOpen, closeLightbox, currentImg} = this.props;
 
         return (
-            <div className='gallery-item'>
-                <time><strong>Дата створення: </strong>{date}</time>
-                <Masonry
-                    className={'my-gallery-class'} // default ''
-                    elementType={'ul'} // default 'div'
-                    options={masonryOptions} // default {}
-                    disableImagesLoaded={false} // default false
-                    updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-                    imagesLoadedOptions={imagesLoadedOptions} // default {}
-                >
-                    {childElements}
-                </Masonry>
+            <div className='row'>
+                {
+                    photo.map(p => (
+                        <div className="col-lg-3 col-md-4 col-sm-12" key={p._id}>
+                            <div className="card">
+                                <div className="file">
+                                    <div className="hover">
+                                        <button
+                                            onClick={() => deletePhoto(p._id)}
+                                            type="button"
+                                            className="btn btn-icon btn-icon-mini btn-round btn-danger">
+                                            <span>
+                                                <i className="zmdi zmdi-delete" data-tip="Видалити" />
+                                                <ReactTooltip />
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div className="image" onClick={() => openLightbox(p.image)}>
+                                        <img src={p.image} alt={p.name} className="img-fluid" />
+                                    </div>
+                                    <div className="file-name">
+                                        <p className="m-b-5 text-muted">{p.name}</p>
+                                        <div className="file-descr">
+                                            <div className="file-size"><small>Size: {bytesToSize(p.size)}</small></div>
+                                            <div className="file-format">{`(${p.width} * ${p.height}) ${p.format}`}</div>
+                                            <div className="file-date">{ moment(p.createdAt).format('DD/MM/YYYY') }</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+                {
+                    ( lightboxIsOpen && currentImg ) &&
+                        <Lightbox
+                            mainSrc={currentImg}
+                            onCloseRequest={closeLightbox}
+                        />
+                }
             </div>
+
         );
     }
 }
 
-export default GalleryItemWrap;
+GalleryItem.propTypes = {
+    photo: PropTypes.array.isRequired,
+    currentImg: PropTypes.string.isRequired,
+    deletePhoto: PropTypes.func.isRequired,
+    openLightbox: PropTypes.func.isRequired,
+    closeLightbox: PropTypes.func.isRequired,
+    lightboxIsOpen: PropTypes.bool.isRequired,
+};
+
+export default GalleryItem;

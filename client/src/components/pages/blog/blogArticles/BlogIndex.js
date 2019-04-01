@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
 import {getAllArticles} from '../../../../actions/blog-action';
 import {connect} from 'react-redux';
@@ -30,8 +29,6 @@ class BlogIndex extends Component {
         );
     }
 }
-
-BlogIndex.propTypes = {};
 
 export default connect(state => ({
     blog: state.blog

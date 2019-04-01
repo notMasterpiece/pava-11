@@ -1,9 +1,9 @@
 import { ADD_POST, GET_POSTS, POST_LOADING, DELETE_POST, GET_POST } from '../actions/types';
 
 const initState = {
-  posts: [],
-  onePost: {},
-  loading: false
+  posts: null,
+  onePost: null,
+  loading: true
 };
 
 export default (state = initState, action ) => {
@@ -17,7 +17,7 @@ export default (state = initState, action ) => {
     case ADD_POST:
       return {
         ...state,
-        posts: [action.payload, ...state.posts]
+        posts: action.payload
       };
 
     case GET_POSTS:

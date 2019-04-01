@@ -35,10 +35,65 @@ export const doScroll = () => {
     let progress = document.getElementById('progress');
 
     if( progress ) progress.style.width = `${scrolled.toFixed()}%`;
-
-
 };
 
+
+export const bytesToSize = bytes => {
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes === 0) return '0 Byte';
+    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+};
+
+
+
+export const urlBase64ToUint8Array = base64String => {
+    const padding = "=".repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding)
+        .replace(/\-/g, "+")
+        .replace(/_/g, "/");
+
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+
+    for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+}
+
+
+export const getCoords = elem =>  {
+
+    let box = elem.getBoundingClientRect();
+
+    let body = document.body;
+    let docEl = document.documentElement;
+
+    let scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+    let scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+    let clientTop = docEl.clientTop || body.clientTop || 0;
+    let clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+    let top = box.top + scrollTop - clientTop;
+    let left = box.left + scrollLeft - clientLeft;
+
+    return {
+        top: top,
+        left: left
+    };
+};
+
+
+
+export const arrayRange = (start, end) => {
+    var foo = [];
+    for (var i = start; i <= end; i++) {
+        foo.push(i);
+    }
+    return foo;
+};
 
 
 

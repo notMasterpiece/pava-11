@@ -25,7 +25,6 @@ class Forgot extends Component {
         e.preventDefault();
 
         const { email } = this.state;
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (!validateEmail(email) ) {
             return this.setState({
@@ -65,7 +64,6 @@ class Forgot extends Component {
     render() {
 
         const { email, errors } = this.state;
-        const { success_send_reset_pass } = this.props;
 
 
         return (
