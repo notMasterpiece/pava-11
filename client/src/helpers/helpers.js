@@ -97,3 +97,8 @@ export const arrayRange = (start, end) => {
 
 
 
+export const gotoBottom = selector => {
+    selector.scrollTop = selector.scrollHeight - selector.clientHeight;
+};
+
+

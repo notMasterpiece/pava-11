@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {getUserPhoto, deleteUserPhoto, addUserPhoto, downloadPhoto} from '../../../actions/profileActions';
 import GalleryItem from "./GalleryItem";
 import ReactTooltip from 'react-tooltip';
+import './Gallery.scss';
 
 class GalleryIndex extends Component {
 

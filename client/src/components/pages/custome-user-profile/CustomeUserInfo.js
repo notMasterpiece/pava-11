@@ -5,16 +5,16 @@ import UserDescription from '../profile/UserDescription';
 import avatar from '../../../assets/images/avatar.png';
 
 
-function renderUserImg(image) {
-    if(!image || image.length <= 10 ) {
-        return avatar
-    }
-    return image;
-}
+// function renderUserImg(image) {
+//     if(!image || image.length <= 10 ) {
+//         return avatar
+//     }
+//     return image;
+// }
 
 
-const CustomeUserInfo = ({profile, funcShowGoogleMaps, showGoogleMaps, showSmallChat}) => {
-  const {status, user, github, image} = profile;
+const CustomeUserInfo = ({profile, funcShowGoogleMaps, showGoogleMaps, createChatToUser}) => {
+  const {status, user, github} = profile;
   return (
     <div className="row clearfix profile-page custome-profile-page">
       <div className="col-lg-12 col-md-12">
@@ -22,11 +22,17 @@ const CustomeUserInfo = ({profile, funcShowGoogleMaps, showGoogleMaps, showSmall
           <div className="body bg-dark profile-header">
             <div className="row">
               <div className="col-lg-10 col-md-12">
-                <img src={renderUserImg(image)} className="user_pic rounded img-raised" alt={user.name} />
+                <img src={avatar} className="user_pic rounded img-raised" alt={''} />
                   <div className="detail">
                     <div className="u_name">
                       <h4><strong>{user.name}</strong></h4>
-                      <span>{status}</span>
+                      <span>{status}</span> <br/>
+                      <button
+                          className='btn'
+                          onClick={createChatToUser}
+                        >
+                          Write message
+                      </button>
                     </div>
                   </div>
               </div>

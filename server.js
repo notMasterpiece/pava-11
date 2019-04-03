@@ -26,6 +26,7 @@ const blog = require('./routes/api/blog');
 const task = require('./routes/api/task');
 const calendar = require('./routes/api/calendar');
 const notification = require('./routes/api/notification');
+const chat = require('./routes/api/chat');
 
 const test = require('./routes/api/test');
 
@@ -72,6 +73,7 @@ app.use('/api/blog', blog);
 app.use('/api/task', task);
 app.use('/api/fake', fake);
 app.use('/api/calendar', calendar);
+app.use('/api/chat', chat);
 
 
 //test
@@ -105,6 +107,8 @@ app.use(function(err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+    console.log(err.message);
 
     // render the error page
     res.status(err.status || 500);

@@ -12,6 +12,7 @@ import blogReducer from './blog';
 import taskReducer from './task';
 import photoReducer from './photo';
 import calendarReducer from './calendar';
+import chatReducer from './small-chat';
 
 
 export default combineReducers({
@@ -26,5 +27,6 @@ export default combineReducers({
   blog: blogReducer,
   task: taskReducer,
   photo: photoReducer,
-  calendar: calendarReducer
+  calendar: calendarReducer,
+  chat: chatReducer
 })

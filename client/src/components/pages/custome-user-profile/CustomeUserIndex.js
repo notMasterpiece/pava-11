@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
 import {getProfileByHangle, getGithubByHangle} from '../../../actions/profileActions';
+import { createChatToUser } from '../../../actions/small-chat';
 
 import CustomeUserInfo from './CustomeUserInfo';
 import Spinner from '../../Tools/Spinner/Spinner';
@@ -30,6 +31,12 @@ class CustomeUserIndex extends React.Component {
   }
 
 
+  createChatFunc = () => {
+    const {profile} = this.props.profile;
+    this.props.createChatToUser(profile.user._id);
+  };
+
+
   render() {
 
     const {showGoogleMaps, showSmallChat} = this.state;
@@ -38,6 +45,7 @@ class CustomeUserIndex extends React.Component {
 
     return (
       <CustomeUserInfo
+          createChatToUser={this.createChatFunc}
           profile={profile}
           showGoogleMaps={showGoogleMaps}
           showSmallChat={showSmallChat}
@@ -54,7 +62,7 @@ CustomeUserIndex.propTypes = {
 
 export default connect(state => ({
   profile: state.profile
-}), {getProfileByHangle, getGithubByHangle})(CustomeUserIndex);
+}), {getProfileByHangle, getGithubByHangle, createChatToUser})(CustomeUserIndex);
 
 
 

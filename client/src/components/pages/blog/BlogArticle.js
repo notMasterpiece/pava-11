@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 
+import './blog.scss';
+
 const BlogArticle = ({article}) => {
 
     const {title, short_description, created_at, imagePreview, preview_page_image, _id, views_count, comments_count, reading_time} = article;

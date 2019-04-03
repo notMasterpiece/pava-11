@@ -1,16 +1,107 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import io from 'socket.io-client';
+import './SmallChat.scss';
+
+import { gotoBottom } from '../../../helpers/helpers';
+
+const socketUrl = 'http://localhost:8080';
+const socket = io.connect(socketUrl);
 
 class SmallChatIndex extends Component {
+
+    constructor(props) {
+        super(props);
+        this.messagesContainer = React.createRef();
+
+        this.state = {
+            message: '',
+            messages: [],
+
+        };
+    }
+
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log(nextProps, 'nextProps');
+        console.log(prevState, 'prevState');
+        return null;
+    }
+
+
+
+    sendMessage = e => {
+        e.preventDefault();
+        const {message} = this.state;
+        const {chat, myId} = this.props;
+
+        const newMessage = {
+            room: chat.chatRoom._id,
+            message,
+            user: myId
+        };
+
+        socket.emit('add-message', newMessage);
+        this.setState({message: ''})
+
+    };
+
+
+    socketFunc = (() => {
+        socket.on('added-message', message => {
+            const newMessages = [...this.state.messages, message];
+            this.setState({ messages: newMessages }, ()=> {
+                gotoBottom(this.messagesContainer.current);
+            })
+        });
+        socket.on('SET_ALL_MESSAGES', messages => {
+            const newMessages = [...this.state.messages, ...messages];
+            this.setState({ messages: newMessages }, ()=> {
+                gotoBottom(this.messagesContainer.current);
+            })
+        })
+    })();
+
+
+
+
+    renderMessages = () => {
+        const {myId} = this.props;
+        const {messages} = this.state;
+
+        return messages.map(m => {
+            return (
+              <div
+                  className={`message ${m.user === myId ? 'self' : ''}`}
+                  key={m._id}
+              >
+                  <div className="message-content">
+                      {m.message}
+                  </div>
+              </div>
+          )
+        })
+    };
+
+
+    componentDidMount() {
+        const {chat} = this.props;
+        console.log('componentDidMount');
+        socket.emit('GET_ALL_MESSAGES', chat.chatRoom); 
+    }
+
+
     render() {
-        // const {showSmallChat} = this.props;
-        // const {status, user, image} = this.props.profile;
+        const {message} = this.state;
+        const {chat} = this.props;
 
         return (
             <div className="floated-chat-w active">
                 <div className="floated-chat-i">
                     <div className="chat-close">
-                        <i className="zmdi zmdi-close" />
+                        <i className="zmdi zmdi-close"
+                           onClick={this.props.closeSmallchat}
+                        />
                     </div>
                     <div className="chat-head">
                         <div className="user-w with-status status-green">
@@ -21,6 +112,7 @@ class SmallChatIndex extends Component {
                             </div>
                             <div className="user-name">
                                 <h6 className="user-title">
+
                                     {/*{user.name}*/}
                                 </h6>
                                 <div className="user-role">
@@ -29,9 +121,13 @@ class SmallChatIndex extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="chat-messages ps ps--theme_default">
+                    <div className="chat-messages ps ps--theme_default" ref={this.messagesContainer}>
+
                         <div className="date-break">
                             Mon 10:20am
+                        </div>
+                        <div className="date-break">
+                            id {chat.chatRoom._id}
                         </div>
                         <div className="message">
                             <div className="message-content">
@@ -44,93 +140,23 @@ class SmallChatIndex extends Component {
                             </div>
                         </div>
 
-                        <div className="date-break">
-                            Mon 10:20am
-                        </div>
-                        <div className="message">
-                            <div className="message-content">
-                                Hi, my name is Mike, I will be happy to assist you
-                            </div>
-                        </div>
-                        <div className="message self">
-                            <div className="message-content">
-                                Hi, I tried ordering this product and it keeps showing me error code.
-                            </div>
-                        </div>
+                        { this.renderMessages() }
 
-                        <div className="date-break">
-                            Mon 10:20am
-                        </div>
-                        <div className="message">
-                            <div className="message-content">
-                                Hi, my name is Mike, I will be happy to assist you
-                            </div>
-                        </div>
-                        <div className="message self">
-                            <div className="message-content">
-                                Hi, I tried ordering this product and it keeps showing me error code.
-                            </div>
-                        </div>
-
-                        <div className="date-break">
-                            Mon 10:20am
-                        </div>
-                        <div className="message">
-                            <div className="message-content">
-                                Hi, my name is Mike, I will be happy to assist you
-                            </div>
-                        </div>
-                        <div className="message self">
-                            <div className="message-content">
-                                Hi, I tried ordering this product and it keeps showing me error code.
-                            </div>
-                        </div>
-
-                        <div className="date-break">
-                            Mon 10:20am
-                        </div>
-                        <div className="message">
-                            <div className="message-content">
-                                Hi, my name is Mike, I will be happy to assist you
-                            </div>
-                        </div>
-                        <div className="message self">
-                            <div className="message-content">
-                                Hi, I tried ordering this product and it keeps showing me error code.
-                            </div>
-                        </div>
-
-                        <div className="date-break">
-                            Mon 10:20am
-                        </div>
-                        <div className="message">
-                            <div className="message-content">
-                                Hi, my name is Mike, I will be happy to assist you
-                            </div>
-                        </div>
-                        <div className="message self">
-                            <div className="message-content">
-                                Hi, I tried ordering this product and it keeps showing me error code.
-                            </div>
-                        </div>
-
-                        <div className="date-break">
-                            Mon 10:20am
-                        </div>
-                        <div className="message">
-                            <div className="message-content">
-                                Hi, my name is Mike, I will be happy to assist you
-                            </div>
-                        </div>
-                        <div className="message self">
-                            <div className="message-content">
-                                Hi, I tried ordering this product and it keeps showing me error code.
-                            </div>
-                        </div>
                     </div>
-                    <div className="chat-controls">
-                        <input className="message-input" placeholder="Type your message here..." type="text" />
-                    </div>
+
+                    <form
+                        className="chat-controls"
+                        onSubmit={this.sendMessage}
+                    >
+                        <input
+                            autoFocus
+                            className="message-input"
+                            placeholder="Type your message here..."
+                            type="text"
+                            value={message}
+                            onChange={e => this.setState({message: e.target.value})}
+                        />
+                    </form>
                 </div>
             </div>
         );
@@ -138,7 +164,7 @@ class SmallChatIndex extends Component {
 }
 
 SmallChatIndex.propTypes = {
-    profile: PropTypes.object.isRequired,
+    chat: PropTypes.object.isRequired
 };
 
 

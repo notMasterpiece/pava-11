@@ -62,3 +62,14 @@ export const ADD_PHOTO = 'ADD_PHOTO';
 export const GET_ALL_CALENDAR_EVENTS = 'GET_ALL_CALENDAR_EVENTS';
 export const ADD_CALENDAR_EVENT = 'ADD_CALENDAR_EVENT';
 
+
+
+
+//chat
+
+export const GET_CHAT_ROOM = 'GET_CHAT_ROOM';
+export const CLOSE_SMALL_CHAT = 'CLOSE_SMALL_CHAT';
+
+
+
+
