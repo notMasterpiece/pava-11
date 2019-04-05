@@ -16,6 +16,7 @@ import './Messages.scss';
 
 // socket
 import io from 'socket.io-client';
+import MessagesUser from "./MessagesUser";
 const socketUrl = 'http://localhost:8080';
 const socket = io.connect(socketUrl);
 
@@ -188,19 +189,10 @@ class MessagesIndex extends Component {
                                                 >
                                                     {
                                                         users.map(user => (
-                                                            <li
+                                                            <MessagesUser
+                                                                user={user}
                                                                 key={user._id}
-                                                                className="clearfix">
-                                                                <img src={user.avatar} alt={user.name} />
-                                                                <div className="about">
-                                                                    <div className="name">{user.name}</div>
-                                                                    <div className="status">
-                                                                        <i
-                                                                            className={`zmdi zmdi-circle ${user.online ? ' online' : 'offline'}`} />
-
-                                                                    </div>
-                                                                </div>
-                                                            </li>
+                                                            />
                                                         ))
                                                     }
                                                 </ul>
