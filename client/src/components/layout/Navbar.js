@@ -16,7 +16,10 @@ class Navbar extends Component {
 
 
   logout = () => {
-    this.props.logoutUser();
+    const {auth} = this.props;
+    const {id} = auth.user;
+
+    this.props.logoutUser(id);
     this.props.clearProfile();
     this.props.history.push('/login');
   };

@@ -15,8 +15,8 @@ class MessagesList extends Component {
                         messages.map(m => {
                             return (
                                 <li className="clearfix" key={m.date}>
-                                    <div className="message-data text-right"><span
-                                        className="message-data-time">{moment(m.date).fromNow()}</span>
+                                    <div className="message-data text-right">
+                                        <span className="message-data-time">{moment(m.date).fromNow()}</span>
                                         <span className="message-data-name">{m.userName}</span>
                                             <i className="zmdi zmdi-circle me" />
                                         </div>

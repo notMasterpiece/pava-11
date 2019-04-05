@@ -30,6 +30,8 @@ router.get('/', (req, res) => {
 });
 
 
+
+
 // @route GET api/users/register
 // @desc Test users route
 // @access Public
@@ -288,6 +290,25 @@ router.post('/login/facebook', (req, res) => {
             }
         })
 });
+
+
+
+
+// @route POST api/logout/
+// @desc logout user
+// @access Public
+router.post('/logout', (req, res, next) => {
+    const {id} = req.body;
+
+    User.findByIdAndUpdate(id,
+        {
+            $set: { online: false }
+        })
+        .then(() => { res.json({logout: true}) })
+        .catch( err => next(err))
+
+});
+
 
 
 

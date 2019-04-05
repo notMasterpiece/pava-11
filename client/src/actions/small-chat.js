@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_ERRORS, GET_CHAT_ROOM, CLOSE_SMALL_CHAT} from './types';
+import {GET_ERRORS, GET_CHAT_ROOM, CLOSE_SMALL_CHAT, SOCKET_INIT} from './types';
 
 export const createChatToUser = user => dispatch => {
     axios
@@ -21,5 +21,13 @@ export const createChatToUser = user => dispatch => {
 export const closeSmallchat = () => {
     return {
         type: CLOSE_SMALL_CHAT
+    }
+};
+
+
+
+export const socketInit = () => {
+    return {
+        type: SOCKET_INIT
     }
 };

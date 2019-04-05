@@ -19,8 +19,16 @@ import jwt_decode from "jwt-decode";
 import {setAuthToken} from '../helpers/helpers';
 import {setCurrentUser, logoutUser} from '../actions/actions';
 import {clearProfile} from '../actions/profileActions';
+import {socketInit} from '../actions/small-chat';
 
 import Proggres from './Tools/Progres/Progress';
+
+
+
+
+
+
+
 
 let internetTimeOut;
 
@@ -84,9 +92,24 @@ class Dashboard extends Component {
     };
 
 
+    socketConnect = () => {
+        // socket.on('connect', () => {
+        //     console.log('user connect');
+        //     console.log(socket);
+        //
+        //     this.props.socketInit(socket);
+        //
+        // })
+    };
+
+
     componentDidMount() {
         window.addEventListener('online', this.setOnline);
         window.addEventListener('offline', this.setOffline);
+
+
+        this.socketConnect();
+
     }
 
     componentWillUnmount() {
@@ -155,13 +178,15 @@ class Dashboard extends Component {
 
 
 
-                    { chat.showSmallChat &&
+                    {   chat.showSmallChat &&
                         <SmallChatIndex
                             closeSmallchat={this.props.closeSmallchat}
                             chat={chat}
                             myId={auth.user.id}
+                            // socket={socket}
                         />
                     }
+
 
                 </section>
 
@@ -175,4 +200,4 @@ export default connect(state => ({
     dom: state.dom,
     errors: state.errors,
     chat: state.chat
-}), {closeSmallchat})(Dashboard);
+}), {closeSmallchat, socketInit})(Dashboard);

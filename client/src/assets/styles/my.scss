@@ -19,6 +19,11 @@ $scoreGreen: #4CAF50;
 a:visited {
   color: #fff;
 }
+
+.chat-app a:visited {
+  color: #000;
+}
+
 .user-post a:visited {
   color: #609;
 }
@@ -1552,8 +1557,4 @@ body .jodit_toolbar {
 .dropdown-toggle {
   background: transparent;
   border: 0;
-}
-
-.content > .container-fluid {
-  height: 100vh;
 }

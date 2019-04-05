@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import io from 'socket.io-client';
 import './SmallChat.scss';
-
-import { gotoBottom } from '../../../helpers/helpers';
-
-const socketUrl = 'http://localhost:8080';
-const socket = io.connect(socketUrl);
 
 class SmallChatIndex extends Component {
 
@@ -23,17 +17,18 @@ class SmallChatIndex extends Component {
 
 
     static getDerivedStateFromProps(nextProps, prevState) {
-        console.log(nextProps, 'nextProps');
-        console.log(prevState, 'prevState');
+        // console.log(nextProps, 'nextProps');
+        // console.log(prevState, 'prevState');
         return null;
     }
+
 
 
 
     sendMessage = e => {
         e.preventDefault();
         const {message} = this.state;
-        const {chat, myId} = this.props;
+        const {chat, myId, socket} = this.props;
 
         const newMessage = {
             room: chat.chatRoom._id,
@@ -41,26 +36,25 @@ class SmallChatIndex extends Component {
             user: myId
         };
 
-        socket.emit('add-message', newMessage);
+        socket.emit('CREATE_SMALL_CHAT_MSG', newMessage);
         this.setState({message: ''})
-
     };
 
 
-    socketFunc = (() => {
-        socket.on('added-message', message => {
-            const newMessages = [...this.state.messages, message];
-            this.setState({ messages: newMessages }, ()=> {
-                gotoBottom(this.messagesContainer.current);
-            })
-        });
-        socket.on('SET_ALL_MESSAGES', messages => {
-            const newMessages = [...this.state.messages, ...messages];
-            this.setState({ messages: newMessages }, ()=> {
-                gotoBottom(this.messagesContainer.current);
-            })
-        })
-    })();
+    // socketFunc = (() => {
+    //     socket.on('added-message', message => {
+    //         const newMessages = [...this.state.messages, message];
+    //         this.setState({ messages: newMessages }, ()=> {
+    //             gotoBottom(this.messagesContainer.current);
+    //         })
+    //     });
+    //     socket.on('SET_ALL_MESSAGES', messages => {
+    //         const newMessages = [...this.state.messages, ...messages];
+    //         this.setState({ messages: newMessages }, ()=> {
+    //             gotoBottom(this.messagesContainer.current);
+    //         })
+    //     })
+    // })();
 
 
 
@@ -85,9 +79,29 @@ class SmallChatIndex extends Component {
 
 
     componentDidMount() {
-        const {chat} = this.props;
-        console.log('componentDidMount');
-        socket.emit('GET_ALL_MESSAGES', chat.chatRoom); 
+        // const {chat} = this.props;
+        // console.log('componentDidMount');
+        // socket.emit('GET_ALL_MESSAGES', chat.chatRoom);
+
+
+
+        const {socket, chat} = this.props;
+        const room = chat.chatRoom._id;
+
+
+
+        socket.emit('JOIN_ROOM', {room}, () => {
+            console.log(`user join to room ${room}`);
+        });
+
+
+        socket.on('NEW_SMALL_CHAT_MSG', message => {
+            console.log(message);
+        })
+
+
+
+
     }
 
 
@@ -127,17 +141,8 @@ class SmallChatIndex extends Component {
                             Mon 10:20am
                         </div>
                         <div className="date-break">
-                            id {chat.chatRoom._id}
-                        </div>
-                        <div className="message">
-                            <div className="message-content">
-                                Hi, my name is Mike, I will be happy to assist you
-                            </div>
-                        </div>
-                        <div className="message self">
-                            <div className="message-content">
-                                Hi, I tried ordering this product and it keeps showing me error code.
-                            </div>
+                             { (chat && chat.chatRoom ) ? chat.chatRoom._id : null } <br/>
+                            { Math.random() * 100 }
                         </div>
 
                         { this.renderMessages() }

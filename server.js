@@ -1,10 +1,11 @@
+const express = require('express');
+const http = require('http');
+const socketIO = require('socket.io');
+
+
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
-const express = require('express');
-const app = require('express')();
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
 const helmet = require('helmet');
 require('dotenv').config();
 
@@ -31,7 +32,9 @@ const chat = require('./routes/api/chat');
 const test = require('./routes/api/test');
 
 
-
+const app = express();
+const server = http.createServer(app);
+const io = socketIO(server);
 
 // bodyParser MIDD
 // parse application/x-www-form-urlencoded
@@ -50,7 +53,7 @@ app.use('/files/blog', express.static(path.join(__dirname, 'files/blog')));
 app.use('/files/blog/*', express.static(path.join(__dirname, 'files/blog/*')));
 
 
-require('./socket/socket')(io);
+require('./socket/groupChat')(io);
 
 
 // passport MIDD

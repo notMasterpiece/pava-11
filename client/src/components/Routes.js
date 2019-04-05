@@ -37,6 +37,10 @@ const Routes = [
         component: MessagesIndex,
     },
     {
+        path: '/messages/:id',
+        component: MessagesIndex,
+    },
+    {
         path: '/settings',
         component: Settings,
     },
