@@ -4,120 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/server.js" description="const app = require('express')();&#10;const server = r..." line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62560d12-4a06-475d-8577-6752f888d381" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/build/precache-manifest.33de71bf1cbe585a672a17ffdddbabc8.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/css/1.4dcb0ee3.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/css/1.4dcb0ee3.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/css/main.fa2426b8.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/css/main.fa2426b8.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/1.754cdda3.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/1.754cdda3.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/main.3600a323.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/main.3600a323.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/worker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/worker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/actions/calendar-action.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/actions/chat-action.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/actions/push-action.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/styles/hljs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/styles/media.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Tools/Autocomplete/Autocomplete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Tools/OflineStatus/OflineStatus.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Tools/Paginate/Paginate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/pages/Calendar/Calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/pages/Calendar/Day.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/pages/Calendar/Event.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/pages/Calendar/EventInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/pages/Calendar/Week.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/reducer/calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/reducer/chat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/reducer/photo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/185675bc828f92d3064cbdd95e0a53b3 (2) (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/b3baab8129.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/client-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/preview/185675bc828f92d3064cbdd95e0a53b3 (2) (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/preview/b3baab8129.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/preview/client-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/js/hightlight/codepen-embed.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/js/hightlight/highlight.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/static/185675bc828f92d3064cbdd95e0a53b3 (3).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graphql/resolves.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graphql/schema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/access.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/morgan.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/SMS/sms.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/CalendarEvent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Images.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/api/calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/api/notification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Factories.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocketManager.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/precache-manifest.e857ef3775b036e3343f08db1b361d5e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.8313d729.chunk.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.8313d729.chunk.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.45ea9564.chunk.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.45ea9564.chunk.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.e3db9bde.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.e3db9bde.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.3b708f34.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.3b708f34.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/media/logo.e4da9d78.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/static/media/logo.ed577935.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/media/node2.aca8b54d.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/static/media/node2.7dbf4d49.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/media/react1.31e1fb04.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/static/media/react1.e85103d0.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/post-action.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/post-action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/profileActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/profileActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/task-action.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/task-action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/blog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/blog.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/load.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/load2.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/load2.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/my.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/my.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/skins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/skins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Form/TextAreaFieldGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Form/TextAreaFieldGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Tools/Task/TaskIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Tools/Task/TaskIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/auth/Forgot.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/auth/Forgot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Education.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Education.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Experince.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Experince.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layout/RightBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/RightBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/500/Error_500.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/500/Error_500.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/Gallery/GalleryIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/Gallery/GalleryIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/Gallery/GalleryItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/Gallery/GalleryItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/Gallery/GalleryList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/blog/BlogArticle.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/blog/BlogArticle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/blog/blogArticles/BlogIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/blog/blogArticles/BlogIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/blog/blogSingle/BlogSingleIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/blog/blogSingle/BlogSingleIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/blog/post-create/PostCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/blog/post-create/PostCreate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessageHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessageHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/posts/AllPosts.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/posts/AllPosts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/posts/SinglePostWrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/posts/SinglePostWrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/profile/UserDescription.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/profile/UserDescription.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/helpers/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/helpers/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reducer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reducer/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducer/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/blog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/upload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-up/cron.js" beforeDir="false" afterPath="$PROJECT_DIR$/start-up/cron.js" afterDir="false" />
-    </list>
+    <list default="true" id="62560d12-4a06-475d-8577-6752f888d381" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -129,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/Dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="200" column="48" selection-start-line="200" selection-start-column="48" selection-end-line="200" selection-end-column="48" />
+            <state relative-caret-position="80">
+              <caret line="193" column="88" lean-forward="true" selection-start-line="193" selection-start-column="88" selection-end-line="193" selection-end-column="88" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#1252#1313#0" expanded="true" />
@@ -151,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/Tools/SmallChat/SmallChatIndex.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="26" column="88" selection-start-line="26" selection-start-column="88" selection-end-line="26" selection-end-column="88" />
+            <state relative-caret-position="-242">
+              <caret line="26" column="87" selection-start-line="26" selection-start-column="87" selection-end-line="26" selection-end-column="87" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -472,18 +359,17 @@
       <workItem from="1551127712516" duration="143000" />
       <workItem from="1553722817445" duration="779000" />
       <workItem from="1554140818727" duration="94000" />
-      <workItem from="1554143221717" duration="4067000" />
+      <workItem from="1554143221717" duration="6413000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153752000" />
+    <option name="totallyTimeSpent" value="156098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2214144" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2214144" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -495,7 +381,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.33569404" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.33569404" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -917,23 +803,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Dashboard.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/Tools/SmallChat/SmallChatIndex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="200" column="48" selection-start-line="200" selection-start-column="48" selection-end-line="200" selection-end-column="48" />
+        <state relative-caret-position="-242">
+          <caret line="26" column="87" selection-start-line="26" selection-start-column="87" selection-end-line="26" selection-end-column="87" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#1252#1313#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Tools/SmallChat/SmallChatIndex.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/Dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="26" column="88" selection-start-line="26" selection-start-column="88" selection-end-line="26" selection-end-column="88" />
+        <state relative-caret-position="80">
+          <caret line="193" column="88" lean-forward="true" selection-start-line="193" selection-start-column="88" selection-end-line="193" selection-end-column="88" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#1252#1313#0" expanded="true" />
           </folding>
         </state>
       </provider>
