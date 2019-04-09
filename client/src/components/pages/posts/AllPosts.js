@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
-import ReactPaginate from 'react-paginate';
 import Paginate from '../../Tools/Paginate/Paginate';
 
 import Spinner from '../../Tools/Spinner/Spinner';
@@ -85,24 +84,6 @@ class AllPosts extends Component {
                   currentPage={this.state.currentPage}
               />
             }
-            {/*
-              posts.docs &&
-              <ReactPaginate
-                  previousLabel={null}
-                  nextLabel={null}
-                  breakLabel={'...'}
-                  breakClassName={'break-me'}
-                  pageCount={ posts.totalDocs / 6 }
-                  marginPagesDisplayed={2}
-                  pageRangeDisplayed={2}
-                  onPageChange={this.handlePageClick}
-                  containerClassName={'pagination pagination-primary'}
-                  subContainerClassName={'pages pagination'}
-                  activeClassName={'active'}
-                  pageClassName={'page-item'}
-                  pageLinkClassName={'page-link'}
-              />
-            */}
           </div>
       );
   }

@@ -16,7 +16,10 @@ class Navbar extends Component {
 
 
   logout = () => {
-    this.props.logoutUser();
+    const {auth} = this.props;
+    const {id} = auth.user;
+
+    this.props.logoutUser(id);
     this.props.clearProfile();
     this.props.history.push('/login');
   };
@@ -55,7 +58,7 @@ class Navbar extends Component {
             </li>
 
             <li>
-              <Link to={'/messages'}>
+              <Link to={'/chat'}>
                 <i className="zmdi zmdi-email" />
               </Link>
             </li>

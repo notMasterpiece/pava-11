@@ -1,0 +1,67 @@
+.file_manager .file {
+  border-radius: .55rem;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2)
+}
+
+.file_manager .file:hover {
+  box-shadow: 0 2px 20px 0 rgba(0,0,0,0.1);
+  transition: all 0.2s ease-in-out
+}
+
+.file_manager .file:hover .hover {
+  transition: all 0.2s ease-in-out
+}
+
+.file_manager .file .image,.file_manager .file .icon {
+  height: 150px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: top
+}
+
+.file_manager .file .hover {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: none;
+  transition: all 0.2s ease-in-out
+}
+
+.file_manager .file .icon {
+  padding: 15px 10px;
+  display: table;
+  width: 100%
+}
+
+.file_manager .file .icon i {
+  display: table-cell;
+  font-size: 30px;
+  vertical-align: middle;
+  color: #757575
+}
+
+.file_manager .file .file-name {
+  padding: 10px;
+  border-top: 1px solid #eceff1
+}
+
+.file_manager .file-name p {
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.file_manager .file .file-name small .date {
+  float: right
+}
+
+.file-descr {
+  display: flex;
+  justify-content: space-between;
+  color: #6c757d;
+  font-size: 14px;
+}

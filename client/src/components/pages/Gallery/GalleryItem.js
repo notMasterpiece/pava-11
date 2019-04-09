@@ -17,6 +17,9 @@ class GalleryItem extends React.Component {
                 {
                     photo.map(p => (
                         <div className="col-lg-3 col-md-4 col-sm-12" key={p._id}>
+                            <ReactTooltip
+                                id={p._id}
+                            />
                             <div className="card">
                                 <div className="file">
                                     <div className="hover">
@@ -25,8 +28,7 @@ class GalleryItem extends React.Component {
                                             type="button"
                                             className="btn btn-icon btn-icon-mini btn-round btn-danger">
                                             <span>
-                                                <i className="zmdi zmdi-delete" data-tip="Видалити" />
-                                                <ReactTooltip />
+                                                <i className="zmdi zmdi-delete" data-tip="Видалити" data-for={p._id} />
                                             </span>
                                         </button>
                                     </div>
@@ -34,7 +36,7 @@ class GalleryItem extends React.Component {
                                         <img src={p.image} alt={p.name} className="img-fluid" />
                                     </div>
                                     <div className="file-name">
-                                        <p className="m-b-5 text-muted">{p.name}</p>
+                                        <p className="m-b-5 text-muted" title={p.name}>{p.name}</p>
                                         <div className="file-descr">
                                             <div className="file-size"><small>Size: {bytesToSize(p.size)}</small></div>
                                             <div className="file-format">{`(${p.width} * ${p.height}) ${p.format}`}</div>

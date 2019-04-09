@@ -1,10 +1,11 @@
+const express = require('express');
+const http = require('http');
+const socketIO = require('socket.io');
+
+
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
-const express = require('express');
-const app = require('express')();
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
 const helmet = require('helmet');
 require('dotenv').config();
 
@@ -26,11 +27,15 @@ const blog = require('./routes/api/blog');
 const task = require('./routes/api/task');
 const calendar = require('./routes/api/calendar');
 const notification = require('./routes/api/notification');
+const chat = require('./routes/api/chat');
 
 const test = require('./routes/api/test');
 
 
-
+const app = express();
+app.locals.user = null;
+const server = http.createServer(app);
+const io = socketIO(server);
 
 // bodyParser MIDD
 // parse application/x-www-form-urlencoded
@@ -49,7 +54,7 @@ app.use('/files/blog', express.static(path.join(__dirname, 'files/blog')));
 app.use('/files/blog/*', express.static(path.join(__dirname, 'files/blog/*')));
 
 
-require('./socket/socket')(io);
+require('./socket/groupChat')(io);
 
 
 // passport MIDD
@@ -67,6 +72,7 @@ app.use('/api/blog', blog);
 app.use('/api/task', task);
 app.use('/api/fake', fake);
 app.use('/api/calendar', calendar);
+app.use('/api/chat', chat);
 
 
 //test
@@ -100,6 +106,8 @@ app.use(function(err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+    console.log(err.message);
 
     // render the error page
     res.status(err.status || 500);

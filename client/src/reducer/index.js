@@ -12,7 +12,7 @@ import blogReducer from './blog';
 import taskReducer from './task';
 import photoReducer from './photo';
 import calendarReducer from './calendar';
-import chatReducer from './chat';
+import chatReducer from './small-chat';
 
 
 export default combineReducers({

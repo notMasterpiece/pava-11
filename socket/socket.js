@@ -1,4 +1,6 @@
 const Message = require('../models/Message');
+const Room = require('../models/ChatRoom');
+const passport = require('passport');
 
 module.exports = io => {
     io.on('connect', function (socket) {
@@ -39,6 +41,49 @@ module.exports = io => {
                 });
 
         })
+
+
+
+
+        // small chat
+        socket.on('GET_ALL_MESSAGES', data => {
+            const {_id} = data;
+            console.log(_id, 'this is id');
+
+            Message
+                .find({room: _id})
+                .then(messages => {
+                    socket.emit('SET_ALL_MESSAGES', messages)
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+
+
+
+        });
+
+        socket.on('add-message', data => {
+            const {message, room, user} = data;
+
+            const newMessage = new Message({
+                message,
+                room,
+                user
+            });
+
+            // console.log(newMessage);
+
+            newMessage.save()
+                .then(res => {
+                    io.emit('added-message', res);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+
+        })
+
 
     });
 };

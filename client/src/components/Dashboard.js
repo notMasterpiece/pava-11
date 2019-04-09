@@ -1,50 +1,33 @@
 import React, {Component} from 'react';
-
 import {Redirect, Switch, Route} from 'react-router-dom';
-import {connect} from 'react-redux';
 
+import {connect} from 'react-redux';
+import store from "../store/store";
+
+import Routes from './Routes';
+
+//chat
 import SmallChatIndex from './Tools/SmallChat/SmallChatIndex';
+import {closeSmallchat} from '../actions/small-chat';
 
 import Navbar from '../components/layout/Navbar';
 import RightBar from '../components/layout/RightBar';
-import NotFound from './pages/NotFound/NotFound';
-import Settings from './pages/Settings/Settings';
-import MessagesIndex from './pages/messages/MessagesIndex';
-import PostFeedIndex from './pages/feed/PostFeedIndex';
-import AllPosts from './pages/posts/AllPosts';
-import SinglePostWrap from './pages/posts/SinglePostWrap';
-import AddEducation from './pages/add-education/AddEducation';
-import AddExperiense from './pages/add-experiense/AddExperiense';
-import EditProfile from './pages/edit-profile/EditProfile';
-import CreateProfile from './pages/create-profile/CreateProfile';
-import AllProfiles from './pages/profiles/AllProfilesIndex';
-import CustomeUserProfile from './pages/custome-user-profile/CustomeUserIndex';
-import Gallery from './pages/Gallery/GalleryIndex';
-import Calendar from './pages/Calendar/Calendar';
-// Error
-import ServerError from './pages/500/Error_500';
 
-// blogArticles
-import PostCreate from './pages/blog/post-create/PostCreate';
-import BlogIndex from './pages/blog/blogArticles/BlogIndex';
-import BlogSingleIndex from './pages/blog/blogSingle/BlogSingleIndex';
-
-
-import FakeIndex from './pages/fake/fakeIndex';
-import Test from './pages/test';
-
-import Content from './pages/profile/Content';
-import Admin from './pages/Admin/Admin';
-import store from "../store/store";
-
-import Proggres from './Tools/Progres/Progress';
 import OflineStatus from './Tools/OflineStatus/OflineStatus';
-
 
 import jwt_decode from "jwt-decode";
 import {setAuthToken} from '../helpers/helpers';
 import {setCurrentUser, logoutUser} from '../actions/actions';
 import {clearProfile} from '../actions/profileActions';
+import {socketInit} from '../actions/small-chat';
+
+import Proggres from './Tools/Progres/Progress';
+
+
+
+
+
+
 
 
 let internetTimeOut;
@@ -109,9 +92,24 @@ class Dashboard extends Component {
     };
 
 
+    socketConnect = () => {
+        // socket.on('connect', () => {
+        //     console.log('user connect');
+        //     console.log(socket);
+        //
+        //     this.props.socketInit(socket);
+        //
+        // })
+    };
+
+
     componentDidMount() {
         window.addEventListener('online', this.setOnline);
         window.addEventListener('offline', this.setOffline);
+
+
+        this.socketConnect();
+
     }
 
     componentWillUnmount() {
@@ -127,15 +125,27 @@ class Dashboard extends Component {
                 serverError: true
             };
         }
-
         return null;
     }
+
+
+
+    renderRoutes = () => {
+        return Routes.map(route => (
+            <Route
+                exact
+                key={route.path}
+                path={route.path}
+                component={route.component}
+            />
+        ))
+    };
+
 
     render() {
 
         const {showMobileMenu, isOffline, isOnline, serverError} = this.state;
         const {auth, dom: {smallRightBar}, chat} = this.props;
-        const {profile} = this.props.profile;
 
         if (auth.isAuthenticated !== true) {
             return <Redirect to='/login'/>
@@ -146,61 +156,37 @@ class Dashboard extends Component {
         return (
 
             <div className={`theme-black ${smallRightBar ? 'menu_sm' : ''}`}>
+
                 <OflineStatus
                     isOnline={isOnline}
                     isOffline={isOffline}/>
-                <Proggres/>
-                <Navbar
-                    funcShowMobileMenu={this.funcShowMobileMenu}
 
-                />
-                <RightBar
-                    showMobileMenu={showMobileMenu}
-                />
+                {/*<Proggres/>*/}
+
+                <Navbar funcShowMobileMenu={this.funcShowMobileMenu} />
+
+                <RightBar showMobileMenu={showMobileMenu} />
 
                 <section className="content">
                     <div className="container-fluid">
+
                         <Switch>
-                            <Route exact path='/' component={Content}/>
-                            <Route exact path='/dashboard' component={Content}/>
-                            <Route exact path='/messages' component={MessagesIndex}/>
-                            <Route exact path='/settings' component={Settings}/>
-                            <Route exact path='/not-found' component={NotFound}/>
-                            <Route exact path='/feed' component={PostFeedIndex}/>
-                            <Route exact path='/posts' component={AllPosts}/>
-                            <Route exact path='/post/:id' component={SinglePostWrap}/>
-                            <Route exact path='/add-education' component={AddEducation}/>
-                            <Route exact path='/add-experience' component={AddExperiense}/>
-                            <Route exact path='/edit-profile' component={EditProfile}/>
-                            <Route exact path='/create-profile' component={CreateProfile}/>
-                            <Route exact path='/profiles' component={AllProfiles}/>
-                            <Route exact path='/profile/:handle' component={CustomeUserProfile}/>
-                            <Route exact path='/admin' component={Admin}/>
-                            <Route exact path='/gallery' component={Gallery}/>
-
-                            <Route exact path='/blog' component={BlogIndex}/>
-                            <Route exact path='/blog/post-create' component={PostCreate}/>
-                            <Route exact path='/blog/:_id' component={BlogSingleIndex}/>
-
-                            <Route exact path='/calendar' component={Calendar}/>
-
-                            {/* for testing */}
-                            <Route exact path='/fake' component={FakeIndex}/>
-                            <Route exact path='/test' component={Test}/>
-
-                            {/*error*/}
-                            <Route exact path='/error' component={ServerError}/>
-
+                            { this.renderRoutes() }
                             <Route path='*' render={() => <Redirect to='/not-found'/>}/>
                         </Switch>
                     </div>
 
-                    {
-                        chat && chat.showSmallChat &&
-                            <SmallChatIndex
-                                profile={profile}
-                            />
+
+
+                    {   chat.showSmallChat &&
+                    <SmallChatIndex
+                        closeSmallchat={this.props.closeSmallchat}
+                        chat={chat}
+                        myId={auth.user.id}
+                        // socket={socket}
+                    />
                     }
+
 
                 </section>
 
@@ -213,6 +199,5 @@ export default connect(state => ({
     auth: state.auth,
     dom: state.dom,
     errors: state.errors,
-    chat: state.chat,
-    profile: state.profile
-}))(Dashboard);
+    chat: state.chat
+}), {closeSmallchat, socketInit})(Dashboard);

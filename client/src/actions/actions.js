@@ -62,7 +62,6 @@ export const loginUserbyFacebook = user => dispatch => {
 
         })
         .catch(err => {
-            debugger
             dispatch({
                 type: GET_ERRORS,
                 payload: err.response.data
@@ -115,12 +114,24 @@ export const setCurrentUser = decode => {
 
 
 // User log out
-export const logoutUser = () => dispatch => {
-  // remove token from localStorage
-  localStorage.removeItem('jwtToken');
-  setAuthToken(false);
-  // set isAuthenticated to false
-  dispatch(setCurrentUser({}));
+export const logoutUser = id => dispatch => {
+
+    axios
+        .post('/api/users/logout', {id})
+        .then(() => {
+            // remove token from localStorage
+            localStorage.removeItem('jwtToken');
+            setAuthToken(false);
+            // set isAuthenticated to false
+            dispatch(setCurrentUser({}));
+
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        })
 };
 
 
