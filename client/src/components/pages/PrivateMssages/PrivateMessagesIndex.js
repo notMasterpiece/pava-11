@@ -60,6 +60,22 @@ class PrivateMessagesIndex extends Component {
 
     componentDidMount() {
 
+
+        const obj1 = {
+            name: 'vasa',
+            age: 26
+        };
+
+        const obj2 = {...obj1};
+
+        console.log(obj2);
+        obj2.age = 27;
+
+
+        console.log(obj2);
+        console.log(obj1);
+
+
         const userId = this.props.match.params.id;
         const {auth} = this.props;
 

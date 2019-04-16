@@ -5,70 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62560d12-4a06-475d-8577-6752f888d381" name="Default Changelist" comment="Merge branch 'master' of https://github.com/notMasterpiece/pava-11&#10;&#10;# Conflicts:&#10;#&#9;client/src/actions/types.js&#10;#&#9;client/src/components/Dashboard.js&#10;#&#9;client/src/components/Tools/SmallChat/SmallChatIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserInfo.js&#10;#&#9;client/src/reducer/index.js&#10;#&#9;log/access.log">
-      <change afterPath="$PROJECT_DIR$/client/build/static/css/1.46159ff4.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/css/main.5301b658.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/css/main.5301b658.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/1.d34ec7b4.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/1.d34ec7b4.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/main.8d31e089.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/main.8d31e089.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/actions/small-chat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/styles/remove.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Tools/SmallChat/SmallChat.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/pages/Gallery/Gallery.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/pages/messages/Messages.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesUser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/reducer/small-chat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/ChatRoom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/PrivateMessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/api/chat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket/groupChat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/precache-manifest.33de71bf1cbe585a672a17ffdddbabc8.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/precache-manifest.a17a40f8fec0e233ebf71756149678be.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.4dcb0ee3.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/static/css/1.46159ff4.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.4dcb0ee3.chunk.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.fa2426b8.chunk.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.fa2426b8.chunk.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.754cdda3.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.754cdda3.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.3600a323.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.3600a323.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/media/node2.7dbf4d49.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/media/react1.e85103d0.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/_reset.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/blog.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/blog/blog.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/load2.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/load2.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/my.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/my.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Tools/SmallChat/SmallChatIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Tools/SmallChat/SmallChatIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/Gallery/GalleryIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/Gallery/GalleryIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/Gallery/GalleryItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/Gallery/GalleryItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/blog/BlogArticle.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/blog/BlogArticle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/posts/AllPosts.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/posts/AllPosts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/helpers/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/helpers/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reducer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducer/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/access.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Task.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Task.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/socket/socket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket/groupChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/socket/groupChat.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -81,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1360">
-              <caret line="75" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="180">
+              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#128#162#0" expanded="true" />
@@ -160,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/socket/groupChat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="74" column="37" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="37" />
+            <state relative-caret-position="420">
+              <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -257,10 +196,10 @@
         <option value="$PROJECT_DIR$/models/Message.js" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/models/Task.js" />
-        <option value="$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js" />
         <option value="$PROJECT_DIR$/models/PrivateMessage.js" />
         <option value="$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js" />
         <option value="$PROJECT_DIR$/socket/groupChat.js" />
+        <option value="$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js" />
       </list>
     </option>
   </component>
@@ -271,9 +210,9 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="21" />
+    <option name="y" value="20" />
     <option name="width" value="1920" />
-    <option name="height" value="1059" />
+    <option name="height" value="1060" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -283,7 +222,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -311,6 +249,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -378,16 +317,20 @@
       <workItem from="1554563150390" duration="210000" />
       <workItem from="1554563526364" duration="8364000" />
       <workItem from="1554628950622" duration="16000" />
+      <workItem from="1554835362630" duration="681000" />
+      <workItem from="1555002523543" duration="120000" />
+      <workItem from="1555002754222" duration="365000" />
+      <workItem from="1555233162671" duration="4913000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184886000" />
+    <option name="totallyTimeSpent" value="190965000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18175809" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17977528" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -399,8 +342,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.407932" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49966952" visible="true" weight="0.44050992" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50033045" side_tool="true" weight="0.44050992" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -771,35 +714,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#128#162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/PrivateMessage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/Users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="16" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Task.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -843,8 +761,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/socket/groupChat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="74" column="37" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="37" />
+        <state relative-caret-position="420">
+          <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/PrivateMessage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Task.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#128#162#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

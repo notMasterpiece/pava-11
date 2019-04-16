@@ -8,10 +8,6 @@ module.exports = io => {
     io.on('connection', socket => {
         console.log('User connected');
 
-        let findBoolean = false,
-            findRoom = null;
-
-
 
         socket.on('USER_CONNECT', user => {
             console.log('CONNECT USER BY ID', user);
@@ -87,6 +83,7 @@ module.exports = io => {
 
 
         socket.on('NEW_PRIVATE_MESSAGE', data => {
+
             const newPrivateMessage = new PMessage({
                 message: data.message,
                 sender: data.sender,
