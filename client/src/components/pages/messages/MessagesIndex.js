@@ -16,7 +16,7 @@ import './Messages.scss';
 // socket
 import io from 'socket.io-client';
 import MessagesUser from "./MessagesUser";
-const socketUrl = 'http://localhost:8080';
+const socketUrl = window.location.origin;
 let socket;
 
 
