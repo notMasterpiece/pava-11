@@ -21,6 +21,8 @@ import FakeIndex from './pages/fake/fakeIndex';
 import Test from './pages/test';
 import ServerError from './pages/500/Error_500';
 
+import PrivateMessagesIndex from './pages/PrivateMssages/PrivateMessagesIndex';
+
 
 
 const Routes = [
@@ -33,12 +35,16 @@ const Routes = [
         component: Content,
     },
     {
-        path: '/messages',
+        path: '/chat',
         component: MessagesIndex,
     },
     {
-        path: '/messages/:id',
+        path: '/chat/:id',
         component: MessagesIndex,
+    },
+    {
+        path: '/messages/t/:id',
+        component: PrivateMessagesIndex,
     },
     {
         path: '/settings',

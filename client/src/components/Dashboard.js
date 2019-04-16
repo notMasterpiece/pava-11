@@ -21,15 +21,6 @@ import {setCurrentUser, logoutUser} from '../actions/actions';
 import {clearProfile} from '../actions/profileActions';
 import {socketInit} from '../actions/small-chat';
 
-import Proggres from './Tools/Progres/Progress';
-
-
-
-
-
-
-
-
 let internetTimeOut;
 
 
@@ -179,12 +170,12 @@ class Dashboard extends Component {
 
 
                     {   chat.showSmallChat &&
-                        <SmallChatIndex
-                            closeSmallchat={this.props.closeSmallchat}
-                            chat={chat}
-                            myId={auth.user.id}
-                            // socket={socket}
-                        />
+                    <SmallChatIndex
+                        closeSmallchat={this.props.closeSmallchat}
+                        chat={chat}
+                        myId={auth.user.id}
+                        // socket={socket}
+                    />
                     }
 
 

@@ -64,13 +64,11 @@ export const ADD_CALENDAR_EVENT = 'ADD_CALENDAR_EVENT';
 
 
 
-
+// chat
+export const SHOW_SMALL_CHAT = 'SHOW_SMALL_CHAT';
+export const HIDE_SMALL_CHAT = 'HIDE_SMALL_CHAT';
 //chat
 
 export const SOCKET_INIT = 'SOCKET_INIT';
 export const GET_CHAT_ROOM = 'GET_CHAT_ROOM';
 export const CLOSE_SMALL_CHAT = 'CLOSE_SMALL_CHAT';
-
-
-
-

@@ -65,15 +65,15 @@ class SmallChatIndex extends Component {
 
         return messages.map(m => {
             return (
-              <div
-                  className={`message ${m.user === myId ? 'self' : ''}`}
-                  key={m._id}
-              >
-                  <div className="message-content">
-                      {m.message}
-                  </div>
-              </div>
-          )
+                <div
+                    className={`message ${m.user === myId ? 'self' : ''}`}
+                    key={m._id}
+                >
+                    <div className="message-content">
+                        {m.message}
+                    </div>
+                </div>
+            )
         })
     };
 
@@ -141,7 +141,7 @@ class SmallChatIndex extends Component {
                             Mon 10:20am
                         </div>
                         <div className="date-break">
-                             { (chat && chat.chatRoom ) ? chat.chatRoom._id : null } <br/>
+                            { (chat && chat.chatRoom ) ? chat.chatRoom._id : null } <br/>
                             { Math.random() * 100 }
                         </div>
 

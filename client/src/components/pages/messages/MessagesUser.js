@@ -15,7 +15,9 @@ const MessagesUser = ({user}) => {
                     data
                 </div>
                 <ul className="description">
-                    <li><a href="">Add to Friend</a></li>
+                    <li>
+                        <Link to={`/messages/t/${user._id}`}>Write</Link>
+                    </li>
                     <li>
                         <Link to={`/profile/${user._id}`}>Go to profile</Link>
                     </li>

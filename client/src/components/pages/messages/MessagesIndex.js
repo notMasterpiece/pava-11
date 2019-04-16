@@ -7,7 +7,6 @@ import MessageHeader from './MessageHeader';
 import {connect} from 'react-redux';
 import {getAllMessages} from '../../../actions/messages';
 
-import defaultImg from '../../../assets/images/noImg.png';
 import {gotoBottom} from '../../../helpers/helpers';
 
 import './Messages.scss';
@@ -18,7 +17,7 @@ import './Messages.scss';
 import io from 'socket.io-client';
 import MessagesUser from "./MessagesUser";
 const socketUrl = 'http://localhost:8080';
-const socket = io.connect(socketUrl);
+let socket;
 
 
 
@@ -31,7 +30,6 @@ class MessagesIndex extends Component {
         this.chatListContainer = React.createRef();
 
         this.state = {
-            windowHeight: 0,
             socket: null,
             message: '',
             messages: [],
@@ -42,15 +40,17 @@ class MessagesIndex extends Component {
 
 
     onChange = e => {
+        this.actionForm = e.target.value;
         this.setState({
             [e.target.name]: e.target.value
-        })
+        }); 
     };
 
 
 
     //create new Message
     sendMessage = e => {
+        console.log(this.actionForm);
         e.preventDefault();
 
         const {message}= this.state;
@@ -74,50 +74,25 @@ class MessagesIndex extends Component {
 
     componentDidMount() {
 
-        const windowHeight = window.innerHeight;
-        this.setState({windowHeight});
+        socket = io.connect(socketUrl);
 
         const chatContainer = document.body.querySelector('.chat-history');
         const {id} = this.props.auth.user;
-
-        // const msgContainer = document.querySelector(".chat-history");
-
-        // socket.emit('getAllMessages');
-        //
-        // // get 50 messages on connection
-        // socket.on('history', messages => {
-        //     this.setState({ messages }, () => {
-        //         msgContainer.scrollTop = msgContainer.scrollHeight;
-        //     });
-        // });
-        //
-        //
-        // socket.on('message', message => {
-        //
-        //     this.state.messages.push(message);
-        //     this.setState({messages: this.state.messages}, () => {
-        //         msgContainer.scrollTop = msgContainer.scrollHeight;
-        //     });
-        //
-        // });
 
         socket.on('connect', () => {
             console.log('user connect');
 
             socket.emit('USER_CONNECT', id);
 
-
-
-
             const room = this.props.match.params.id || 'general';
 
             socket.emit('JOIN_ROOM', room, () => {
-                console.log(`user join to room ${room}`);
+                // console.log(`user join to room ${room}`);
             });
 
 
             socket.on('SERVER_NEW_CHAT_MSG', message => {
-                console.log(message, 'get from server');
+                // console.log(message, 'get from server');
                 const newMessages = [...this.state.messages, message];
                 this.setState({ messages: newMessages }, ()=> {
                     gotoBottom(chatContainer);
@@ -130,16 +105,17 @@ class MessagesIndex extends Component {
             })
 
         });
-
-
-
-
     };
+
+    componentWillUnmount() {
+        socket.disconnect();
+    }
 
 
     render() {
+        const {message, messages, users} = this.state;
 
-        const {message, messages, users, windowHeight} = this.state;
+        const height = window.innerHeight - 60;
 
 
         return (
@@ -148,17 +124,11 @@ class MessagesIndex extends Component {
                         <div className="col-lg-8 col-md-7">
                             <div className="card">
                                 <div className="body overflowhidden">
-                                    <div className="chat">
+                                    <div className="chat" style={{height: height }}>
 
                                         <MessageHeader />
 
-                                        <hr />
-
-                                        <MessagesList
-                                            messages={messages}
-                                        />
-
-                                        <hr />
+                                        <MessagesList messages={messages} />
 
                                         <MessagesForm
                                             message={message}
@@ -169,20 +139,13 @@ class MessagesIndex extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-5">
+                        <div className="col-lg-4 col-md-5 people-list-wrap">
                             <div className="card">
                                 <div className="body">
-                                    <div id="plist" className="people-list">
+                                    <div className="people-list" style={{height: height, overflow: 'auto' }}>
 
-                                        <div className="tab-content m-t-20">
+                                        <div className="tab-content">
                                             <div className="tab-pane active">
-
-                                                { users.length ?
-                                                    <div className="block-header">
-                                                         <h2>Користувачів { users.length }</h2>
-                                                    </div> : null
-                                                }
-
                                                 <ul
                                                     className="chat-list list-unstyled m-b-0"
                                                     ref={this.chatListContainer}

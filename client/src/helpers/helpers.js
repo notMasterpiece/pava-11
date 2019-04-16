@@ -101,4 +101,13 @@ export const gotoBottom = selector => {
     selector.scrollTop = selector.scrollHeight - selector.clientHeight;
 };
 
+export const smoothScroll = selector => {
+    let i = selector.scrollTop;
+    let int = setInterval(function() {
+        selector.scrollTop = i;
+        i += 16;
+        if (i >= selector.scrollHeight) clearInterval(int);
+    }, 16);
+};
+
 

@@ -33,6 +33,7 @@ const test = require('./routes/api/test');
 
 
 const app = express();
+app.locals.user = null;
 const server = http.createServer(app);
 const io = socketIO(server);
 
@@ -59,11 +60,6 @@ require('./socket/groupChat')(io);
 // passport MIDD
 app.use(passport.initialize());
 require('./config/passport')(passport);
-
-
-
-
-
 
 
 // USE ROUTES

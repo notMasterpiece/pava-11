@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 const MessageSchema = new Schema({
     room: {
-        type: String
+        type: String,
+        required: true
     },
     user: {
         type: Schema.Types.ObjectId,

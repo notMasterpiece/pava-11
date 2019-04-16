@@ -21,7 +21,7 @@
 }
 
 .people-list .chat-list {
-  height: 585px
+  height: 100%;
 }
 
 .people-list .chat-list li {
@@ -82,28 +82,45 @@
 }
 
 .chat .chat-header img {
-  float: left;
+  display: inline-block;
   border-radius: 50%;
   width: 45px
 }
 
-.chat .chat-header .chat-about {
-  float: left;
-  padding-left: 10px
-}
-
 .chat .chat-header .chat-with {
   font-weight: bold;
-  font-size: 16px
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+  text-transform: uppercase;
 }
 
 .chat .chat-header .chat-num-messages {
-  color: 434651
+  color: #434651;
+}
+
+
+.chat-header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(90, 100, 110, 0.35);
+  margin-bottom: 20px;
 }
 
 .chat .chat-history {
-  height: 425px;
+  height: calc(100% - 160px);
   overflow-x: auto
+}
+.chat {
+  position: relative;
+}
+
+
+.chat-message {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .chat .chat-history ul {
@@ -213,6 +230,20 @@
   height: 0
 }
 
+
+.people-list-wrap {
+  .card {
+    margin: 0;
+  }
+}
+
+
+.chat-app {
+  .card {
+    margin: 0;
+  }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .chat-app {
     margin:0
@@ -220,11 +251,6 @@
 
   .chat-app .chat-list {
     height: 650px;
-    overflow-x: auto
-  }
-
-  .chat-app .chat-history {
-    height: 490px;
     overflow-x: auto
   }
 }
@@ -236,11 +262,6 @@
 
   .chat-app .chat-list {
     height: 520px;
-    overflow-x: auto
-  }
-
-  .chat-app .chat-history {
-    height: 360px;
     overflow-x: auto
   }
 }

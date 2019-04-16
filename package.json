@@ -35,6 +35,7 @@
     "moment": "^2.22.2",
     "moment-range": "^4.0.1",
     "mongoose": "^5.1.3",
+    "mongoose-autopopulate": "^0.9.1",
     "mongoose-paginate-v2": "^1.0.24",
     "morgan": "^1.9.1",
     "multer": "^1.4.1",
@@ -47,6 +48,7 @@
     "request": "^2.88.0",
     "request-progress": "^3.0.0",
     "socket.io": "^2.1.1",
+    "textmagic-rest-client": "^1.0.10",
     "uuidv4": "^2.0.0",
     "validator": "^10.2.0",
     "web-push": "^3.3.3"
