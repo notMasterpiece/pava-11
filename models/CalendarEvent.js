@@ -18,6 +18,21 @@ const CalendarEvent = new Schema({
         type: String,
         required: true
     }
-}, {timestamps: true});
+}, {timestamps: true} );
+
+
+
+CalendarEvent.pre('save', next => {
+    console.log('pre save callback');
+    next();
+});
+
+CalendarEvent.post('save', (event, next) => {
+    console.log(event, 'this is an event');
+    next();
+});
+
+
+
 
 module.exports = Task = mongoose.model('Calendar-Event', CalendarEvent);

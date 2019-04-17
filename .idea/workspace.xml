@@ -5,8 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62560d12-4a06-475d-8577-6752f888d381" name="Default Changelist" comment="Merge branch 'master' of https://github.com/notMasterpiece/pava-11&#10;&#10;# Conflicts:&#10;#&#9;client/src/actions/types.js&#10;#&#9;client/src/components/Dashboard.js&#10;#&#9;client/src/components/Tools/SmallChat/SmallChatIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserInfo.js&#10;#&#9;client/src/reducer/index.js&#10;#&#9;log/access.log">
+      <change afterPath="$PROJECT_DIR$/client/build/static/css/main.6944d7aa.chunk.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/build/static/js/1.d4aea063.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/build/static/js/1.d4aea063.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/build/static/js/main.f8b37743.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/build/static/js/main.f8b37743.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Tools/Sceleton/Chat/Chat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Tools/Sceleton/Chat/Chat.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/precache-manifest.a17a40f8fec0e233ebf71756149678be.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/precache-manifest.a0e3ffd11a242954a3e75ef6ac362a47.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/service-worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.46159ff4.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/static/css/1.ed20a094.chunk.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.46159ff4.chunk.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/static/css/1.ed20a094.chunk.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.5301b658.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/static/css/main.6944d7aa.chunk.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.5301b658.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.d34ec7b4.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.d34ec7b4.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.8d31e089.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.8d31e089.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/actions/blog-action.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/blog-action.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/chat.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/chat.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/my.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/my.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/layout/RightBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/RightBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessageHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessageHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/Messages.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/Messages.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesIndex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/helpers/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/helpers/helpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/access.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/CalendarEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/CalendarEvent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ChatRoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/ChatRoom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PrivateMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/PrivateMessage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socket/groupChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/socket/groupChat.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,81 +57,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#128#162#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/PrivateMessage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Task.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="22" selection-start-column="22" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Profile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="20" selection-start-line="7" selection-start-column="8" selection-end-line="8" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api/profile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="23" column="44" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+            <state relative-caret-position="680">
+              <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1120">
-              <caret line="56" column="32" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -102,17 +72,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/socket/groupChat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
+            <state relative-caret-position="200">
+              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api/post.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
+            <state relative-caret-position="314">
+              <caret line="176" column="26" selection-start-line="176" selection-start-column="23" selection-end-line="176" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,7 +114,11 @@
       <find>onDeleteAcount</find>
       <find>populate</find>
       <find>p</find>
+      <find>movieItems</find>
     </findStrings>
+    <replaceStrings>
+      <replace>messageArray</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -197,9 +174,9 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/models/Task.js" />
         <option value="$PROJECT_DIR$/models/PrivateMessage.js" />
-        <option value="$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js" />
         <option value="$PROJECT_DIR$/socket/groupChat.js" />
         <option value="$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js" />
+        <option value="$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js" />
       </list>
     </option>
   </component>
@@ -232,6 +209,50 @@
             <path>
               <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
               <item name="PAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="messages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="PrivateMssages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -244,6 +265,11 @@
               <item name="PAVA" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="socket" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -258,7 +284,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../VismaStroy-master" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -321,14 +347,18 @@
       <workItem from="1555002523543" duration="120000" />
       <workItem from="1555002754222" duration="365000" />
       <workItem from="1555233162671" duration="4913000" />
+      <workItem from="1555443285095" duration="2220000" />
+      <workItem from="1555522401532" duration="2783000" />
+      <workItem from="1555525206637" duration="4562000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190965000" />
+    <option name="totallyTimeSpent" value="200530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17977528" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -342,7 +372,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49966952" visible="true" weight="0.44050992" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49966952" visible="true" weight="0.34560907" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50033045" side_tool="true" weight="0.44050992" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -714,10 +744,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/PrivateMessage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/Users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="16" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Task.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -730,63 +774,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api/profile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
+        <state relative-caret-position="307">
           <caret line="23" column="44" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
+        <state relative-caret-position="307">
           <caret line="56" column="32" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api/post.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
+        <state relative-caret-position="307">
           <caret line="63" column="20" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/socket/groupChat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/PrivateMessage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Task.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="680">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#128#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket/groupChat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="176" column="26" selection-start-line="176" selection-start-column="23" selection-end-line="176" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>

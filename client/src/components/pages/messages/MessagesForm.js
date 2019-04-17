@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MessagesForm = ({message, onChange, sendMessage}) => {
+const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing}) => {
     return (
         <div className="chat-message clearfix">
+            { typing && <div className="typing-indicator"><div>Jony typing</div><span /><span /><span /></div> }
             <form className="input-group mb-0 " onSubmit={e => sendMessage(e)}>
                 <input
+                    autoComplete="off"
+                    autoFocus={true}
                     type="text"
-                    className="form-control datetimepicker"
+                    className="form-control"
                     placeholder="Введіть повідомлення..."
                     name={'message'}
                     value={message}
                     onChange={onChange}
+                    onKeyUp={onKeyUp}
                 />
                 <button type={'submit'} className="input-group-append">
                     <span className="input-group-text"><i className="zmdi zmdi-mail-send"/></span>

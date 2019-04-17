@@ -4,7 +4,6 @@ import {setLoadingState} from "./post-action";
 import nprogress from 'nprogress'
 
 
-
 export const getAllArticles = () => dispatch => {
     nprogress.start();
     axios

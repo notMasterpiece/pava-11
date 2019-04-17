@@ -21,15 +21,6 @@ import {setCurrentUser, logoutUser} from '../actions/actions';
 import {clearProfile} from '../actions/profileActions';
 import {socketInit} from '../actions/small-chat';
 
-import Proggres from './Tools/Progres/Progress';
-
-
-
-
-
-
-
-
 let internetTimeOut;
 
 

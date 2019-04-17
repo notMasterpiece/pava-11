@@ -19,7 +19,8 @@ const UserSchema = new Schema({
         type: String
     },
     avatar: {
-        type: String
+        type: String,
+        default: 'https://www.growthengineering.co.uk/wp-content/uploads/2014/05/Interaction-design-user-experience.png'
     },
     date: {
         type: Date,

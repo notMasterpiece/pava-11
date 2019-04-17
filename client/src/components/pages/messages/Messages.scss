@@ -1,3 +1,60 @@
 .chat-list {
   overflow: auto;
 }
+
+.chat-num-messages {
+  font-size: 12px;
+  text-transform: none;
+}
+
+
+
+
+
+.typing-indicator {
+  will-change: transform;
+  width: auto;
+  border-radius: 50px;
+  position: relative;
+  margin-left: 50px;
+  margin-bottom: 5px;
+  animation: 2s bulge infinite ease-out;
+  display: flex;
+  align-items: center;
+  div {
+    margin-right: 5px;
+  }
+  &::after {
+    height: 10px;
+    width: 10px;
+    left: -10px;
+    bottom: -10px;
+  }
+  span {
+    height: 7px;
+    width: 7px;
+    float: left;
+    margin: 0 1px;
+    background-color: #9E9EA1;
+    display: block;
+    border-radius: 50%;
+    opacity: 0.4;
+    @for $i from 1 through 3 {
+      &:nth-of-type(#{$i}) {
+        animation: 1s blink infinite ($i * .3333s);
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes bulge {
+  50% {
+    transform: scale(1.05);
+  }
+}

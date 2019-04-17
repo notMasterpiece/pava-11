@@ -139,6 +139,13 @@ class RightBar extends Component {
                     </Link>
                 </li>
 
+                <li>
+                    <Link to={'/chat'}>
+                        <i className="zmdi zmdi-email"/>
+                        <span>Мої повідомлення</span>
+                    </Link>
+                </li>
+
             </ul>
           </div>
         </div>

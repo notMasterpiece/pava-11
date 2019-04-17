@@ -1,6 +1,7 @@
 import React from 'react';
 import Github from '../../Tools/Github/Github';
 import UserDescription from '../profile/UserDescription';
+import {Link} from 'react-router-dom';
 
 import avatar from '../../../assets/images/avatar.png';
 
@@ -14,7 +15,7 @@ import avatar from '../../../assets/images/avatar.png';
 
 
 const CustomeUserInfo = ({profile, funcShowGoogleMaps, showGoogleMaps, createChatToUser}) => {
-    const {status, user, github} = profile;
+    const {status, user, github, _id} = profile;
     return (
         <div className="row clearfix profile-page custome-profile-page">
             <div className="col-lg-12 col-md-12">
@@ -27,12 +28,12 @@ const CustomeUserInfo = ({profile, funcShowGoogleMaps, showGoogleMaps, createCha
                                     <div className="u_name">
                                         <h4><strong>{user.name}</strong></h4>
                                         <span>{status}</span> <br/>
-                                        <button
+                                        <Link to={`/messages/t/${_id}`}
                                             className='btn'
-                                            onClick={createChatToUser}
+                                            // onClick={createChatToUser} for open small chat
                                         >
                                             Write message
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

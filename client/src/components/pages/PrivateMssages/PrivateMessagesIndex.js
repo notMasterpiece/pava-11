@@ -1,30 +1,28 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-
 import {connect} from 'react-redux';
-
-
-
 
 // socket
 import io from 'socket.io-client';
-import Spinner from "../../Tools/Spinner/Spinner";
 import MessagesForm from "../messages/MessagesForm";
 import MessagesList from "../messages/MessagesList";
-import {gotoBottom} from "../../../helpers/helpers";
-const socketUrl = 'http://localhost:8080';
-const socket = io.connect(socketUrl);
+import {gotoBottom, smoothScroll} from "../../../helpers/helpers";
 
 
+import Sceleton from '../../Tools/Sceleton/Chat/Chat';
+
+const socketUrl = window.location.origin;
+let typing;
+let socket;
 
 class PrivateMessagesIndex extends Component {
 
 
     state = {
         message: '',
-        user: this.props.match.params.id,
-        room: null,
-        messages: []
+        user: null,
+        messages: [],
+        isFirst: false,
+        typing: false
     };
 
 
@@ -35,23 +33,25 @@ class PrivateMessagesIndex extends Component {
     };
 
 
+    onKeyUp = () => {
+        socket.emit('TYPING');
+    };
+
 
     //create new Message
     sendMessage = e => {
         e.preventDefault();
 
-        const receiver = this.props.match.params.id;
-        const {message}= this.state;
+        const {message} = this.state;
         const {auth} = this.props;
 
         const newMessage = {
             message,
-            sender: auth.user.id,
-            receiver
+            user: auth.user.id,
         };
 
 
-        if( message.trim() ) {
+        if (message.trim()) {
             socket.emit('NEW_PRIVATE_MESSAGE', newMessage);
             this.setState({message: ''});
         }
@@ -60,30 +60,16 @@ class PrivateMessagesIndex extends Component {
 
     componentDidMount() {
 
-
-        const obj1 = {
-            name: 'vasa',
-            age: 26
-        };
-
-        const obj2 = {...obj1};
-
-        console.log(obj2);
-        obj2.age = 27;
-
-
-        console.log(obj2);
-        console.log(obj1);
-
+        socket = io.connect(socketUrl);
 
         const userId = this.props.match.params.id;
         const {auth} = this.props;
 
         socket.on('connect', () => {
-            console.log('user connect');
+            // console.log('user connect');
 
             const users = {
-                myId : auth.user.id,
+                myId: auth.user.id,
                 userId
             };
 
@@ -97,24 +83,63 @@ class PrivateMessagesIndex extends Component {
                 })
             });
 
+
+
+
+
+
+            // new
+
+            socket.on('SET_PRIVATE_USER_INFO', user => {
+                // console.log('SET_PRIVATE_USER_INFO', user);
+                this.setState({user});
+            });
+
+            socket.on('SET_PRIVATE_ROOM_NO_MESSAGES', () => {
+                // console.log('SET_PRIVATE_ROOM_NO_MESSAGES');
+                this.setState({
+                    isFirst: true
+                })
+            });
+
             socket.on('SET_PRIVATE_MESSAGE', message => {
-                console.log(message);
+                // console.log('SET_PRIVATE_MESSAGE', message);
                 const newMessages = [...this.state.messages, message];
-                this.setState({ messages: newMessages }, ()=> {
+                this.setState({
+                    messages: newMessages,
+                    isFirst: false
+                }, () => {
                     const chatContainer = document.body.querySelector('.chat-history');
-                    gotoBottom(chatContainer);
+                    if (chatContainer) {
+                        smoothScroll(chatContainer);
+                    }
+                })
+            });
+
+
+            socket.on('SET_FIRST_MESSAGES', messages => {
+                // console.log('SET_FIRST_MESSAGES', messages);
+                this.setState({messages}, () => {
+                    const chatContainer = document.body.querySelector('.chat-history');
+                    if (chatContainer) {
+                        gotoBottom(chatContainer);
+                    }
+
                 })
             });
 
 
 
-            socket.on('SET_FIRST_MESSAGES', messages => {
-                console.log(messages);
-                this.setState({ messages }, ()=> {
-                    const chatContainer = document.body.querySelector('.chat-history');
-                    // gotoBottom(chatContainer);
+
+            socket.on('SERVER_TYPING', () => {
+                clearTimeout(typing);
+                this.setState({typing: true}, () => {
+                    typing = setTimeout(() => {
+                        this.setState({typing: false})
+                    }, 2000)
                 })
             })
+
 
 
         });
@@ -122,42 +147,46 @@ class PrivateMessagesIndex extends Component {
     }
 
 
+    componentWillUnmount() {
+        socket.disconnect();
+    }
+
+
     render() {
 
-        const {user, message, messages} = this.state;
+        const height = window.innerHeight - 60;
 
-        if (!user) return <Spinner />;
+        const {message, messages, user, isFirst, typing} = this.state;
+        const {auth} = this.props;
+
+        if (!user || !auth) return <Sceleton />;
 
         return (
             <section className="chat-app">
                 <div className="row clearfix">
-                    <div className="col-lg-8 col-md-7">
-                        <div className="card">
+                    <div className="col-lg-12 col-md-12">
+                        <div className="card m-0">
                             <div className="body overflowhidden">
-                                <div className="chat">
+                                <div className="chat" style={{height: height}}>
                                     <div className="chat-header clearfix">
-                                        <a className="btn-detail" href="/">
-                                            <img
-                                                src={user.avatar}
-                                                alt="avatar"/>
-                                        <div className="chat-about">
-                                            <div className="chat-with">{user.name}</div>
-                                            <div className="chat-num-messages">already {messages.length} messages</div>
+                                        <img src={user.avatar} alt="chat room"/>
+                                        <div className="chat-with">
+                                            {user.name}
+                                            <div className="chat-num-messages"> {messages.length} messages</div>
                                         </div>
-                                    </a></div>
-                                    <hr />
-
+                                    </div>
 
                                     <MessagesList
+                                        user={auth.user.id}
+                                        isFirst={isFirst}
                                         messages={messages}
                                     />
 
-
-                                    <hr />
-
                                     <MessagesForm
+                                        typing={typing}
                                         message={message}
                                         onChange={this.onChange}
+                                        onKeyUp={this.onKeyUp}
                                         sendMessage={this.sendMessage}
                                     />
 
@@ -170,8 +199,6 @@ class PrivateMessagesIndex extends Component {
         );
     }
 }
-
-PrivateMessagesIndex.propTypes = {};
 
 export default connect(state => ({
     auth: state.auth

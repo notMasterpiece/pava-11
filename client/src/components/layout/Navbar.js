@@ -57,12 +57,6 @@ class Navbar extends Component {
                 </button>
             </li>
 
-            <li>
-              <Link to={'/chat'}>
-                <i className="zmdi zmdi-email" />
-              </Link>
-            </li>
-
             <Screenfull />
 
             {/*bottom*/}
