@@ -48,7 +48,7 @@ export const loginUser = user => dispatch => {
 // Login user by facebook
 export const loginUserbyFacebook = user => dispatch => {
     axios
-        .post('/api/users/login/facebook', user)
+        .post('/api/users/login/provider', user)
         .then(res => {
             const { token } = res.data;
             localStorage.setItem('jwtToken', token);
