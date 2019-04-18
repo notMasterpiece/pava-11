@@ -3,8 +3,6 @@ const ChatRoom = require('../models/ChatRoom');
 const Message = require('../models/Message');
 const PMessage = require('../models/PrivateMessage');
 
-
-
 let globalRoom;
 
 
@@ -94,6 +92,7 @@ module.exports = io => {
                             .find({room: globalRoom._id})
                             .populate('user', ['avatar'])
                             .select('message user createdAt _id')
+                            .sort('createdAt')
                             .then(messages => {
 
                                 if( !messages.length ) return io.to(globalRoom._id).emit('SET_PRIVATE_ROOM_NO_MESSAGES');

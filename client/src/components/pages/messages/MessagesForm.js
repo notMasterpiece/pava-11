@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import smile from '../../../assets/images/smile.svg';
+
 const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing}) => {
     return (
         <div className="chat-message clearfix">
-            { typing && <div className="typing-indicator"><div>Jony typing</div><span /><span /><span /></div> }
+            {typing &&
+            <div className="typing-indicator">
+                <div>Jony typing</div>
+                <span/><span/><span/>
+            </div>
+            }
             <form className="input-group mb-0 " onSubmit={e => sendMessage(e)}>
                 <input
                     autoComplete="off"
@@ -17,6 +24,9 @@ const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing}) => {
                     onChange={onChange}
                     onKeyUp={onKeyUp}
                 />
+                <button>
+                    <img src={smile} alt='emoji'/>
+                </button>
                 <button type={'submit'} className="input-group-append">
                     <span className="input-group-text"><i className="zmdi zmdi-mail-send"/></span>
                 </button>

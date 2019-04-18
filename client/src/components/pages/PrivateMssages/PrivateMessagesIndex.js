@@ -21,8 +21,8 @@ class PrivateMessagesIndex extends Component {
         message: '',
         user: null,
         messages: [],
-        isFirst: false,
-        typing: false
+        typing: false,
+        isFirst: false
     };
 
 
@@ -40,7 +40,6 @@ class PrivateMessagesIndex extends Component {
 
     //create new Message
     sendMessage = e => {
-        console.log(e);
         e.preventDefault();
 
         const {message} = this.state;
@@ -157,7 +156,7 @@ class PrivateMessagesIndex extends Component {
 
         const height = window.innerHeight - 60;
 
-        const {message, messages, user, isFirst, typing} = this.state;
+        const {message, messages, user, typing, isFirst} = this.state;
         const {auth} = this.props;
 
         if (!user || !auth) return <Sceleton />;
@@ -178,8 +177,8 @@ class PrivateMessagesIndex extends Component {
                                     </div>
 
                                     <MessagesList
-                                        user={auth.user.id}
                                         isFirst={isFirst}
+                                        user={auth.user.id}
                                         messages={messages}
                                     />
 
