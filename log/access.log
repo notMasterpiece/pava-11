@@ -12016,3 +12016,4 @@
 ::ffff:127.0.0.1 - - [17/Apr/2019:20:18:06 +0000] "GET /api/profile/all HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
 ::ffff:127.0.0.1 - - [17/Apr/2019:20:18:06 +0000] "GET /api/profile HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
 ::ffff:127.0.0.1 - - [17/Apr/2019:20:18:07 +0000] "GET /api/task HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+::ffff:127.0.0.1 - - [17/Apr/2019:20:20:51 +0000] "GET /api/profile/all HTTP/1.1" 200 42168 "http://localhost:3000/messages/t/5c3648986b75601f0097114e" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"

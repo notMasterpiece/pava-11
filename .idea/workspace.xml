@@ -5,46 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62560d12-4a06-475d-8577-6752f888d381" name="Default Changelist" comment="Merge branch 'master' of https://github.com/notMasterpiece/pava-11&#10;&#10;# Conflicts:&#10;#&#9;client/src/actions/types.js&#10;#&#9;client/src/components/Dashboard.js&#10;#&#9;client/src/components/Tools/SmallChat/SmallChatIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserInfo.js&#10;#&#9;client/src/reducer/index.js&#10;#&#9;log/access.log">
-      <change afterPath="$PROJECT_DIR$/client/build/static/css/main.6944d7aa.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/1.d4aea063.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/1.d4aea063.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/main.f8b37743.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/main.f8b37743.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Tools/Sceleton/Chat/Chat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Tools/Sceleton/Chat/Chat.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/precache-manifest.a17a40f8fec0e233ebf71756149678be.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/precache-manifest.a0e3ffd11a242954a3e75ef6ac362a47.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.46159ff4.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/static/css/1.ed20a094.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.46159ff4.chunk.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/static/css/1.ed20a094.chunk.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.5301b658.chunk.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/static/css/main.6944d7aa.chunk.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.5301b658.chunk.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.d34ec7b4.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.d34ec7b4.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.8d31e089.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.8d31e089.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/blog-action.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/blog-action.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/chat.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/chat.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/my.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/my.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layout/RightBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/RightBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessageHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessageHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/Messages.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/Messages.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/helpers/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/helpers/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/favicon1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/precache-manifest.a0e3ffd11a242954a3e75ef6ac362a47.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/service-worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.ed20a094.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.ed20a094.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.6944d7aa.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.6944d7aa.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.d4aea063.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.d4aea063.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.f8b37743.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.f8b37743.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/runtime~main.229c360f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/js/runtime~main.229c360f.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/media/bg2.5de3e19f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/media/comment.c0c8f32b.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/media/logo.ed577935.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/build/static/media/matrix.0a20bc2b.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/access.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/CalendarEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/CalendarEvent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/ChatRoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/ChatRoom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/PrivateMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/PrivateMessage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket/groupChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/socket/groupChat.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -58,36 +41,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/socket/groupChat.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="176" column="26" selection-start-line="176" selection-start-column="23" selection-end-line="176" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -199,6 +159,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -206,85 +167,20 @@
               <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
               <item name="PAVA" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="messages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="PrivateMssages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="socket" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="11.6.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../VismaStroy-master" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -349,20 +245,23 @@
       <workItem from="1555233162671" duration="4913000" />
       <workItem from="1555443285095" duration="2220000" />
       <workItem from="1555522401532" duration="2783000" />
-      <workItem from="1555525206637" duration="4562000" />
+      <workItem from="1555525206637" duration="5488000" />
+      <workItem from="1555533352748" duration="420000" />
+      <workItem from="1555534148589" duration="250000" />
+      <workItem from="1555700863860" duration="3000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200530000" />
+    <option name="totallyTimeSpent" value="202129000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17977528" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -372,7 +271,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49966952" visible="true" weight="0.34560907" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49966952" visible="true" weight="0.14872521" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50033045" side_tool="true" weight="0.44050992" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -406,13 +305,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/notMasterpiece/pava-11&#10;&#10;# Conflicts:&#10;#&#9;client/src/actions/types.js&#10;#&#9;client/src/components/Dashboard.js&#10;#&#9;client/src/components/Tools/SmallChat/SmallChatIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserInfo.js&#10;#&#9;client/src/reducer/index.js&#10;#&#9;log/access.log" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/socket/socket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Tools/Spinner/Spinner.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -717,9 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api/chat.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="940">
@@ -734,13 +623,6 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -779,13 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="56" column="32" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api/post.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
@@ -793,12 +668,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js">
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        <state relative-caret-position="2200">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="251" column="30" lean-forward="true" selection-start-line="251" selection-start-column="30" selection-end-line="251" selection-end-column="30" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -810,15 +699,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="176" column="26" selection-start-line="176" selection-start-column="23" selection-end-line="176" selection-end-column="26" />
+        <state relative-caret-position="240">
+          <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#88#122#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
