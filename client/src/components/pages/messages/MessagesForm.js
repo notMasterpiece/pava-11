@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import smile from '../../../assets/images/smile.svg';
+import like from '../../../assets/images/like.svg';
 
 const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing}) => {
     return (
@@ -24,9 +26,14 @@ const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing}) => {
                     onChange={onChange}
                     onKeyUp={onKeyUp}
                 />
-                <button>
+                <AddLike>
+                    <img src={like} alt=""/>
+                </AddLike>
+                <AddEmojiBtn
+                    className='add_emoji'
+                >
                     <img src={smile} alt='emoji'/>
-                </button>
+                </AddEmojiBtn>
                 <button type={'submit'} className="input-group-append">
                     <span className="input-group-text"><i className="zmdi zmdi-mail-send"/></span>
                 </button>
@@ -34,6 +41,36 @@ const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing}) => {
         </div>
     );
 };
+
+
+
+const AddEmojiBtn = styled.button` 
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  right: 40px;
+  width: 50px;
+  border: 0;
+  cursor: pointer; 
+  img {
+    width: 20px;
+    height: 20px;
+  }
+`;
+
+const AddLike = styled.button` 
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  right: 80px;
+  width: 50px;
+  border: 0;
+  cursor: pointer; 
+  img {
+    width: 20px;
+    height: 20px;
+  }
+`;
 
 MessagesForm.propTypes = {
     message: PropTypes.string,

@@ -58,6 +58,23 @@ class PrivateMessagesIndex extends Component {
     };
 
 
+    //create new Message
+    sendEmoji = id => {
+
+        const {auth} = this.props;
+
+        const newMessage = {
+            icon: id,
+            user: auth.user.id,
+        };
+
+        if (id) {
+            socket.emit('ADD_IMAGE', newMessage);
+        }
+
+    };
+
+
     componentDidMount() {
 
         socket = io.connect(socketUrl);
@@ -103,7 +120,7 @@ class PrivateMessagesIndex extends Component {
             });
 
             socket.on('SET_PRIVATE_MESSAGE', message => {
-                // console.log('SET_PRIVATE_MESSAGE', message);
+                console.log('SET_PRIVATE_MESSAGE', message);
                 const newMessages = [...this.state.messages, message];
                 this.setState({
                     messages: newMessages,
@@ -118,7 +135,7 @@ class PrivateMessagesIndex extends Component {
 
 
             socket.on('SET_FIRST_MESSAGES', messages => {
-                // console.log('SET_FIRST_MESSAGES', messages);
+                console.log('SET_FIRST_MESSAGES', messages);
                 this.setState({messages}, () => {
                     const chatContainer = document.body.querySelector('.chat-history');
                     if (chatContainer) {
@@ -180,6 +197,7 @@ class PrivateMessagesIndex extends Component {
                                         isFirst={isFirst}
                                         user={auth.user.id}
                                         messages={messages}
+                                        sendEmoji={this.sendEmoji}
                                     />
 
                                     <MessagesForm

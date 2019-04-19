@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import styled from 'styled-components';
 
+
+import Emoji from '../../Tools/MyEmoji/Emoji';
+
 const today = moment().startOf('day');
 
 class MessagesList extends PureComponent {
@@ -21,6 +24,7 @@ class MessagesList extends PureComponent {
     };
 
 
+
     renderMessageDay = i => {
 
         const {messages} = this.props;
@@ -28,11 +32,8 @@ class MessagesList extends PureComponent {
         if (moment(messages[i + 1].createdAt).isAfter(moment(messages[i].createdAt), 'd')) {
 
             if (moment(messages[i + 1].createdAt).isSame(today, 'd')) {
-                console.log('same');
                 return <ChatDay><span>Сьогодні</span></ChatDay>
             }
-
-            console.log('no same');
             return <ChatDay><span>{moment(messages[i + 1].createdAt).format('LL')}</span></ChatDay>
 
         }
@@ -50,6 +51,14 @@ class MessagesList extends PureComponent {
         const messageArray = [];
 
         for (let i = 0; i < messages.length; i++) {
+
+
+            if (!messages[i].message.length && messages[i].icon.length) {
+
+                messageArray.push(
+                    <p>this is icon</p>
+                );
+            }
 
             if (messages[i + 1]) {
 
@@ -99,6 +108,7 @@ class MessagesList extends PureComponent {
                         {this.renderMessageDay(i)}
                         {/*check same day*/}
 
+
                     </ChatContent>
                 )
 
@@ -144,10 +154,15 @@ class MessagesList extends PureComponent {
 
     render() {
 
+        const {sendEmoji} = this.props;
+
         return (
             <div className="chat-history">
 
                 {this.renderMessages()}
+
+
+                <Emoji sendEmoji={sendEmoji} />
 
             </div>
         );
