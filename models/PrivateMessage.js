@@ -8,8 +8,11 @@ const PrivateMessageSchema = new Schema({
         ref: 'chat-rooms'
     },
     message: {
+        type: String
+    },
+    icon: {
         type: String,
-        required: true
+        default: ''
     },
     user: {
         type: Schema.Types.ObjectId,

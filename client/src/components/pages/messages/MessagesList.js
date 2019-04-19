@@ -3,127 +3,148 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import styled from 'styled-components';
 
+
+import Emoji from '../../Tools/MyEmoji/Emoji';
+
+const today = moment().startOf('day');
+
 class MessagesList extends PureComponent {
-
-
-    renderFistMessageDay = i => {
-
-        const {messages} = this.props;
-
-        if (i === 0) {
-            return (
-                <ChatDay><span>{moment(messages[i].createdAt).format('LL')}</span></ChatDay>
-            )
-        }
-
-    };
-
-
 
     renderMessages = () => {
 
-        const {messages, user} = this.props;
+        const {messages, user, isFirst} = this.props;
+
+
+
+        if (isFirst) {
+            return <p style={{textAlign: 'center'}}>You don't speak yet, write your first messages</p>
+        }
+
+        if (!messages.length) return;
 
 
         const messageArray = [];
 
-        for( let i = 0; i < messages.length; i++) {
-
-            if (messages[i + 1] ) {
-
-                messageArray.push(
-
-                    <ChatContent
-                        key={messages[i].createdAt}
-                        className={messages[i].user._id === user ? 'self' : ''}
-                    >
-
-                        {/*first day*/}
-
-                            { this.renderFistMessageDay(i) }
-
-                        {/*first day*/}
+            {/*first day*/}
+                // messageArray.push(<ChatDay key={moment(messages[0].createdAt)}><span>{moment(messages[0].createdAt).format('LL')}</span></ChatDay>)
+            {/*first day*/}
 
 
+        for (let i = 0; i < messages.length; i++) {
 
-                        {/*check same day*/}
-                            {
-                                moment(messages[i].createdAt).isSame(moment(messages[i + 1].createdAt), 'day')
-                                ?
-                                    null
-                                :
-                                    <ChatDay><span>{moment(messages[i + 1].createdAt).format('LL')}</span></ChatDay>
-                            }
-                        {/*check same day*/}
-
-
-
-                        {
-                            messages[i].user._id === messages[i + 1].user._id
-                                ?
-                                <ChatMessage>
-                                    <div className="chat-message-content-w">
-                                        <ChatMessageContent>
-                                            {messages[i].message}
-                                        </ChatMessageContent>
-                                    </div>
-                                    <ChatMessageDate>
-                                        {moment(messages[i].createdAt).format('HH.mm')}
-                                    </ChatMessageDate>
-                                </ChatMessage>
-                                :
-                                <ChatMessage>
-                                    <div className="chat-message-content-w">
-                                        <ChatMessageContent>
-                                            {messages[i].message}
-                                        </ChatMessageContent>
-                                    </div>
-                                    <ChatMessageAvatar>
-                                        <Img alt="" src={messages[i].user.avatar} />
-                                    </ChatMessageAvatar>
-                                    <ChatMessageDate>
-                                        {moment(messages[i].createdAt).format('HH.mm')}
-                                    </ChatMessageDate>
-                                </ChatMessage>
-                        }
-                    </ChatContent>
-                )
-
-
-
-            } else {
-
+            if (messages[i].icon.length) {
 
                 messageArray.push(
-
                     <ChatContent
-                        key={messages[i].createdAt}
+                        key={messages[i]._id}
                         className={messages[i].user._id === user ? 'self' : ''}
                     >
-
-                        {/*first day*/}
-
-                        { this.renderFistMessageDay(i) }
-
-                        {/*first day*/}
-
-                        <ChatMessage>
-                            <div className="chat-message-content-w">
-                                <ChatMessageContent>
-                                    {messages[i].message}
-                                </ChatMessageContent>
-                            </div>
-                            <ChatMessageAvatar>
-                                <Img alt="" src={messages[i].user.avatar} />
-                            </ChatMessageAvatar>
+                        <ChatMessageFlex>
+                            <ChatIcon>
+                                <img
+                                    src={`${window.location.origin}/files/emoji/${messages[i].icon}.gif`}
+                                    alt={`${messages[i].icon}`}
+                                />
+                            </ChatIcon>
                             <ChatMessageDate>
                                 {moment(messages[i].createdAt).format('HH.mm')}
                             </ChatMessageDate>
-                        </ChatMessage>
+                        </ChatMessageFlex>
                     </ChatContent>
-                )
+                );
+                // continue;
+            } else {
+
+
+                if (messages[i + 1]) {
+
+                    messageArray.push(
+                        <ChatContent
+                            key={messages[i]._id}
+                            className={messages[i].user._id === user ? 'self' : ''}
+                        >
+
+                            {
+                                messages[i].user._id === messages[i + 1].user._id
+                                    ?
+                                    <ChatMessage>
+                                        <div>
+                                            <ChatMessageContent>
+                                                {messages[i].message}
+                                            </ChatMessageContent>
+                                        </div>
+                                        <ChatMessageDate>
+                                            {moment(messages[i].createdAt).format('HH.mm')}
+                                        </ChatMessageDate>
+                                    </ChatMessage>
+                                    :
+                                    <ChatMessage>
+                                        <div>
+                                            <ChatMessageContent>
+                                                {messages[i].message}
+                                            </ChatMessageContent>
+                                        </div>
+                                        <ChatMessageAvatar>
+                                            <Img alt="" src={messages[i].user.avatar}/>
+                                        </ChatMessageAvatar>
+                                        <ChatMessageDate>
+                                            {moment(messages[i].createdAt).format('HH.mm')}
+                                        </ChatMessageDate>
+                                    </ChatMessage>
+                            }
+
+
+                        </ChatContent>
+                    )
+
+
+                } else {
+
+                    messageArray.push(
+                        <ChatContent
+                            key={messages[i]._id}
+                            className={messages[i].user._id === user ? 'self' : ''}
+                        >
+                            <ChatMessage>
+                                <div>
+                                    <ChatMessageContent>
+                                        {messages[i].message}
+                                    </ChatMessageContent>
+                                </div>
+                                <ChatMessageAvatar>
+                                    <Img alt="" src={messages[i].user.avatar}/>
+                                </ChatMessageAvatar>
+                                <ChatMessageDate>
+                                    {moment(messages[i].createdAt).format('HH.mm')}
+                                </ChatMessageDate>
+                            </ChatMessage>
+                        </ChatContent>
+                    )
+
+                }
 
             }
+
+
+            {/*check same day*/}
+
+            if(messages[i + 1]) {
+
+                if (moment(messages[i + 1].createdAt).isAfter(moment(messages[i].createdAt), 'd')) {
+
+                    if (moment(messages[i + 1].createdAt).isSame(today, 'd')) {
+                        messageArray.push(<ChatDay key={messages[i].createdAt}><span>Сьогодні</span></ChatDay>)
+                    } else {
+                        messageArray.push(<ChatDay key={messages[i].createdAt}><span>{moment(messages[i + 1].createdAt).format('LL')}</span></ChatDay>)
+                    }
+                }
+            }
+
+            {/*check same day*/}
+
+
+
+
         }
 
         return messageArray;
@@ -131,18 +152,17 @@ class MessagesList extends PureComponent {
     };
 
 
-
-
     render() {
 
-        const {isFirst} = this.props;
+        const {sendEmoji, showEmoji} = this.props;
 
         return (
             <div className="chat-history">
 
-                { isFirst && <p style={{textAlign: 'center'}}>You don't speak yet, write your first messages</p> }
+                {this.renderMessages()}
 
-                { this.renderMessages() }
+
+                {showEmoji && <Emoji sendEmoji={sendEmoji} />}
 
             </div>
         );
@@ -167,7 +187,6 @@ const ChatMessage = styled.div`
   margin-top: 20px; 
   position: relative;
 `;
-
 
 
 const ChatMessageAvatar = styled.div`
@@ -198,7 +217,18 @@ const ChatMessageDate = styled.div`
     top: -15px;
 `;
 
+const ChatMessageFlex = styled.div`
+  display: flex;
+  align-self: flex-end;
+  position: relative;
+  margin: 20px 0 0 0;
+  padding: 2px 20px;
+`;
 
+
+const ChatMessageAvatarFlex = styled.div`
+  margin-left: 11px;
+`;
 
 const ChatContent = styled.div`
   padding: 0 20px 5px 20px;
@@ -219,6 +249,9 @@ const ChatContent = styled.div`
         margin-left: 0;
         border-radius: 11px 0 11px 11px;
     }
+    ${ChatMessageFlex} {
+      justify-content: flex-end;
+    }
   }
 `;
 
@@ -226,6 +259,7 @@ const ChatContent = styled.div`
 const ChatDay = styled.div`
   text-align: center;
   position: relative;
+  margin-top: 20px;
   span {
     font-size: 15px;
     display: inline-block;
@@ -243,6 +277,11 @@ const ChatDay = styled.div`
     background-color: #eee;
     
   }
+`;
+
+
+const ChatIcon = styled.div`
+  
 `;
 
 

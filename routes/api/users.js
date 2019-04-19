@@ -232,7 +232,7 @@ router.post('/reset-pass/:token' , (req, res) => {
 
 
 
-router.post('/login/facebook', (req, res) => {
+router.post('/login/provider', (req, res) => {
 
     const {name, email, avatar, id, provider} = req.body;
 
@@ -241,20 +241,30 @@ router.post('/login/facebook', (req, res) => {
         .then( user => {
             if( user ) {
 
-                const payload = {
-                    id: user._doc._id,
-                    name: user._doc.name,
-                    email: user._doc.email,
-                    avatar: user._doc.avatar,
-                    provider: user._doc.provider
-                };
 
-                jwt.sign(payload, keys.secretOrKey, {expiresIn: 3600}, ( err, token ) => {
-                    return res.status(200).json({
-                        success: true,
-                        token: `Bearer ${token}`
+                user.name = name;
+                user.email = email;
+                user.avatar = avatar;
+                user.save()
+                    .then(user => {
+
+                        const payload = {
+                            id: user._doc._id,
+                            name: user._doc.name,
+                            email: user._doc.email,
+                            avatar: user._doc.avatar,
+                            provider: user._doc.provider
+                        };
+
+                        jwt.sign(payload, keys.secretOrKey, {expiresIn: 3600}, ( err, token ) => {
+                            return res.status(200).json({
+                                success: true,
+                                token: `Bearer ${token}`
+                            })
+                        });
+
                     })
-                });
+                    .catch(err => console.log(err));
 
             } else {
 

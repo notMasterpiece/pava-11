@@ -164,6 +164,7 @@ class Login extends Component {
 
                     <div className="social-login">
                       <FacebookLogin
+                          size={'metro'}
                           appId="488196955039549"
                           autoLoad={false}
                           fields="name,email,picture"

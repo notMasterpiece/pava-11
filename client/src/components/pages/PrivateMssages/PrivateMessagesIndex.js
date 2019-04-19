@@ -21,8 +21,9 @@ class PrivateMessagesIndex extends Component {
         message: '',
         user: null,
         messages: [],
+        typing: false,
         isFirst: false,
-        typing: false
+        showEmoji: false
     };
 
 
@@ -55,6 +56,28 @@ class PrivateMessagesIndex extends Component {
             socket.emit('NEW_PRIVATE_MESSAGE', newMessage);
             this.setState({message: ''});
         }
+    };
+
+
+    //create new Message
+    sendEmoji = id => {
+
+        const {auth} = this.props;
+
+        const newMessage = {
+            icon: id,
+            user: auth.user.id,
+        };
+
+        if (id) {
+            socket.emit('ADD_IMAGE', newMessage);
+        }
+
+    };
+
+
+    renderEmoji = () => {
+        this.setState({showEmoji: !this.state.showEmoji})
     };
 
 
@@ -103,7 +126,7 @@ class PrivateMessagesIndex extends Component {
             });
 
             socket.on('SET_PRIVATE_MESSAGE', message => {
-                // console.log('SET_PRIVATE_MESSAGE', message);
+                console.log('SET_PRIVATE_MESSAGE', message);
                 const newMessages = [...this.state.messages, message];
                 this.setState({
                     messages: newMessages,
@@ -118,7 +141,7 @@ class PrivateMessagesIndex extends Component {
 
 
             socket.on('SET_FIRST_MESSAGES', messages => {
-                // console.log('SET_FIRST_MESSAGES', messages);
+                console.log('SET_FIRST_MESSAGES', messages);
                 this.setState({messages}, () => {
                     const chatContainer = document.body.querySelector('.chat-history');
                     if (chatContainer) {
@@ -156,7 +179,7 @@ class PrivateMessagesIndex extends Component {
 
         const height = window.innerHeight - 60;
 
-        const {message, messages, user, isFirst, typing} = this.state;
+        const {message, messages, user, typing, isFirst, showEmoji} = this.state;
         const {auth} = this.props;
 
         if (!user || !auth) return <Sceleton />;
@@ -177,9 +200,11 @@ class PrivateMessagesIndex extends Component {
                                     </div>
 
                                     <MessagesList
-                                        user={auth.user.id}
                                         isFirst={isFirst}
+                                        user={auth.user.id}
                                         messages={messages}
+                                        sendEmoji={this.sendEmoji}
+                                        showEmoji={showEmoji}
                                     />
 
                                     <MessagesForm
@@ -188,6 +213,7 @@ class PrivateMessagesIndex extends Component {
                                         onChange={this.onChange}
                                         onKeyUp={this.onKeyUp}
                                         sendMessage={this.sendMessage}
+                                        renderEmoji={this.renderEmoji}
                                     />
 
                                 </div>

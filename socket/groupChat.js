@@ -91,7 +91,8 @@ module.exports = io => {
                         PMessage
                             .find({room: globalRoom._id})
                             .populate('user', ['avatar'])
-                            .select('message user createdAt _id')
+                            .select('message user icon createdAt _id')
+                            .sort('createdAt')
                             .then(messages => {
 
                                 if( !messages.length ) return io.to(globalRoom._id).emit('SET_PRIVATE_ROOM_NO_MESSAGES');
@@ -133,7 +134,7 @@ module.exports = io => {
                                 PMessage
                                     .find({room: globalRoom._id})
                                     .populate('user', ['avatar'])
-                                    .select('message user createdAt _id')
+                                    .select('message user icon createdAt _id')
                                     .then(messages => {
 
                                         if( !messages.length ) return io.to(globalRoom._id).emit('SET_PRIVATE_ROOM_NO_MESSAGES');
@@ -169,11 +170,11 @@ module.exports = io => {
                     PMessage
                         .findById(message._id)
                         .populate('user', ['avatar'])
-                        .select('message user createdAt _id')
+                        .select('message user icon createdAt _id')
                         // .exec()
-                        .then(messages => {
+                        .then(message => {
                             // console.log(messages);
-                            io.to(globalRoom._id).emit('SET_PRIVATE_MESSAGE', messages);
+                            io.to(globalRoom._id).emit('SET_PRIVATE_MESSAGE', message);
                         })
                 })
                 .catch(err => {
@@ -185,6 +186,39 @@ module.exports = io => {
 
         socket.on('TYPING', () => {
             socket.broadcast.emit('SERVER_TYPING');
+        });
+
+
+
+        socket.on('ADD_IMAGE', data => {
+
+            const newPrivateMessage = new PMessage({
+                message: '',
+                icon: data.icon,
+                user: data.user,
+                room: globalRoom._id
+            });
+
+            console.log(newPrivateMessage);
+
+
+            newPrivateMessage
+                .save()
+                .then(message => {
+                    PMessage
+                        .findById(message._id)
+                        .populate('user', ['avatar'])
+                        .select('message user icon createdAt _id')
+                        // .exec()
+                        .then(message => {
+                            // console.log(message, 'icon');
+                            io.to(globalRoom._id).emit('SET_PRIVATE_MESSAGE', message);
+                        })
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+
         });
 
 
