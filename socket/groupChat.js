@@ -199,9 +199,6 @@ module.exports = io => {
                 room: globalRoom._id
             });
 
-            console.log(newPrivateMessage);
-
-
             newPrivateMessage
                 .save()
                 .then(message => {

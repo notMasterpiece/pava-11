@@ -71,6 +71,7 @@ class PrivateMessagesIndex extends Component {
 
         if (id) {
             socket.emit('ADD_IMAGE', newMessage);
+            this.setState({showEmoji: false})
         }
 
     };
@@ -141,7 +142,7 @@ class PrivateMessagesIndex extends Component {
 
 
             socket.on('SET_FIRST_MESSAGES', messages => {
-                console.log('SET_FIRST_MESSAGES', messages);
+                // console.log('SET_FIRST_MESSAGES', messages);
                 this.setState({messages}, () => {
                     const chatContainer = document.body.querySelector('.chat-history');
                     if (chatContainer) {

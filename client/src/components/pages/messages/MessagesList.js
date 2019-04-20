@@ -1,16 +1,25 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import styled from 'styled-components';
-
-
+import styled from 'styled-components'
 import Emoji from '../../Tools/MyEmoji/Emoji';
 
+
+let t0,
+    t1;
 const today = moment().startOf('day');
 
 class MessagesList extends PureComponent {
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        t1 = performance.now();
+        console.log("RENDER TIME " + (t1 - t0).toFixed(3) + " milliseconds.");
+        console.log('Update');
+    }
+
     renderMessages = () => {
+        t0 = performance.now();
+        console.log('renderMessage');
 
         const {messages, user, isFirst} = this.props;
 
@@ -25,9 +34,9 @@ class MessagesList extends PureComponent {
 
         const messageArray = [];
 
-            {/*first day*/}
-                // messageArray.push(<ChatDay key={moment(messages[0].createdAt)}><span>{moment(messages[0].createdAt).format('LL')}</span></ChatDay>)
-            {/*first day*/}
+            // first day
+            //     messageArray.push(<ChatDay key={moment(messages[0].createdAt)}><span>{moment(messages[0].createdAt).format('LL')}</span></ChatDay>)
+            // first day
 
 
         for (let i = 0; i < messages.length; i++) {
@@ -63,7 +72,6 @@ class MessagesList extends PureComponent {
                             key={messages[i]._id}
                             className={messages[i].user._id === user ? 'self' : ''}
                         >
-
                             {
                                 messages[i].user._id === messages[i + 1].user._id
                                     ?
@@ -153,14 +161,14 @@ class MessagesList extends PureComponent {
 
 
     render() {
+        t0 = performance.now();
 
-        const {sendEmoji, showEmoji} = this.props;
+        const {sendEmoji, showEmoji, messages} = this.props;
 
         return (
             <div className="chat-history">
 
                 {this.renderMessages()}
-
 
                 {showEmoji && <Emoji sendEmoji={sendEmoji} />}
 
@@ -171,8 +179,8 @@ class MessagesList extends PureComponent {
 
 const ChatMessageContent = styled.div`
     padding: 15px 35px; 
-    background-color: #fff9f0;
-    color: #594939;
+    background-color: #ffa000; 
+    color: white;
     max-width: 400px;
     display: inline-block;
     margin-left: 20px;
@@ -225,11 +233,6 @@ const ChatMessageFlex = styled.div`
   padding: 2px 20px;
 `;
 
-
-const ChatMessageAvatarFlex = styled.div`
-  margin-left: 11px;
-`;
-
 const ChatContent = styled.div`
   padding: 0 20px 5px 20px;
   &.self {
@@ -243,8 +246,7 @@ const ChatContent = styled.div`
       right: 0;
     }
     ${ChatMessageContent} {
-        background-color: #f0f9ff;
-        color: #2A4E7F;
+        background-color: #0288d1;
         margin-right: 20px;
         margin-left: 0;
         border-radius: 11px 0 11px 11px;

@@ -6236,17 +6236,6 @@ section small {
   z-index: 99
 }
 
-.authentication::before {
-  background-image: url("../../assets/images/logo.svg");
-  content: '';
-  position: absolute;
-  z-index: 1;
-  background-repeat: no-repeat;
-  opacity: 0.02;
-  width: 100%;
-  height: 100%
-}
-
 .authentication .company_detail {
   color: #fff
 }

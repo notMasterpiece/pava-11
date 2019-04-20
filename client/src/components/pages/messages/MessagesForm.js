@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import smile from '../../../assets/images/smile.svg';
-import like from '../../../assets/images/like.svg';
+import image from '../../../assets/images/image.svg';
 
 const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing, renderEmoji}) => {
     return (
@@ -26,10 +26,11 @@ const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing, renderEm
                     onChange={onChange}
                     onKeyUp={onKeyUp}
                 />
-                <EmojiBtn
+                <AddImageBtn
                 >
-                    <img src={like} alt=""/>
-                </EmojiBtn>
+                    <img src={image} alt=""/>
+                    <input type="file"/>
+                </AddImageBtn>
                 <AddEmojiBtn
                     className='add_emoji'
                     onClick={renderEmoji}
@@ -60,7 +61,7 @@ const AddEmojiBtn = styled.button`
   }
 `;
 
-const EmojiBtn = styled.button` 
+const AddImageBtn = styled.button` 
   position: absolute;
   top: 1px;
   bottom: 1px;

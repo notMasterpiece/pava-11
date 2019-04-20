@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 
 import icons from './list';
@@ -17,6 +16,7 @@ const Emoji = ({sendEmoji}) => {
                             key={i.id}
                         >
                             <img
+                                title={i.id}
                                 src={`${window.location.origin}/files/emoji/${i.id}.gif`} alt={i.id}/>
                         </EmojiWrapLi>
                     ))
@@ -34,7 +34,7 @@ const EmojiWrap = styled.div`
     border: 1px solid #ccc;
     border-radius: 6px;
     box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 1px 10px rgba(0,0,0,.35);
-    left: 20%;
+    right: 15px;
     bottom: 65px;
     background: #fff;
     z-index: 1;
