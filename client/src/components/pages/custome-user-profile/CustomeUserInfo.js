@@ -3,19 +3,9 @@ import Github from '../../Tools/Github/Github';
 import UserDescription from '../profile/UserDescription';
 import {Link} from 'react-router-dom';
 
-import avatar from '../../../assets/images/avatar.png';
-
-
-// function renderUserImg(image) {
-//     if(!image || image.length <= 10 ) {
-//         return avatar
-//     }
-//     return image;
-// }
-
-
-const CustomeUserInfo = ({profile, funcShowGoogleMaps, showGoogleMaps, createChatToUser}) => {
+const CustomeUserInfo = ({profile, funcShowGoogleMaps, showGoogleMaps}) => {
     const {status, user, github, _id} = profile;
+
     return (
         <div className="row clearfix profile-page custome-profile-page">
             <div className="col-lg-12 col-md-12">
@@ -23,14 +13,14 @@ const CustomeUserInfo = ({profile, funcShowGoogleMaps, showGoogleMaps, createCha
                     <div className="body bg-dark profile-header">
                         <div className="row">
                             <div className="col-lg-10 col-md-12">
-                                <img src={avatar} className="user_pic rounded img-raised" alt={''} />
+                                <img src={user.avatar} className="user_pic rounded img-raised" alt={user.name} />
                                 <div className="detail">
                                     <div className="u_name">
                                         <h4><strong>{user.name}</strong></h4>
                                         <span>{status}</span> <br/>
-                                        <Link to={`/messages/t/${_id}`}
+                                        <Link
+                                            to={`/messages/t/${_id}`}
                                             className='btn'
-                                            // onClick={createChatToUser} for open small chat
                                         >
                                             Write message
                                         </Link>

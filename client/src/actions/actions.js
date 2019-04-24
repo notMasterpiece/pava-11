@@ -19,7 +19,8 @@ export const goToLogin = (user, history) => dispatch => {
 
 // Login user, get user token
 export const loginUser = user => dispatch => {
-  axios
+    console.log(user);
+    axios
     .post('/api/users/login', user)
       .then(res => {
         const { token } = res.data;
@@ -106,7 +107,7 @@ export const getNewPass = (newPassData, history) => dispatch => {
 
 
 export const setCurrentUser = decode => {
-  return {
+    return {
     type: SET_CURRENT_USER,
     payload: decode
   }

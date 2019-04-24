@@ -1,12 +1,11 @@
 import React from 'react';
 
-
-
-const sampleComponent = () => {
+const Test = props => {
     return (
-        <video src="http://localhost:8080/api/test/" controls></video>
+        <div>
+            this is test
+        </div>
     );
-}
+};
 
-
-export default sampleComponent;
+export default Test;

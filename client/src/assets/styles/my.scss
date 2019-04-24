@@ -20,17 +20,8 @@ a:visited {
   color: #fff;
 }
 
-.chat-app a:visited {
-  color: #000;
-}
-
 .user-post a:visited {
   color: #609;
-}
-
-.authentication::before {
-  opacity: 0.91;
-  background: #313740;
 }
 
 .breadcrumb-item .zmdi-home {
@@ -1554,4 +1545,13 @@ body .jodit_toolbar {
 .dropdown-toggle {
   background: transparent;
   border: 0;
+}
+
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

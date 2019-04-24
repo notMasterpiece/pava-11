@@ -1,7 +1,20 @@
 import axios from 'axios';
-import {SET_CURRENT_USER, GET_USER_PHOTO, ADD_PHOTO, REMOVE_PHOTO, GET_PROFILE, CLEAR_CURRENT_PROFILE, PROFILE_LOADING, GET_ERRORS, GET_ALL_PROFILES, GET_GITHUB_PROFILE, CHANGE_COLOR} from './types';
+import {
+    SET_CURRENT_USER,
+    GET_USER_PHOTO,
+    ADD_PHOTO,
+    REMOVE_PHOTO,
+    GET_PROFILE,
+    CLEAR_CURRENT_PROFILE,
+    PROFILE_LOADING,
+    GET_ERRORS,
+    GET_ALL_PROFILES,
+    GET_GITHUB_PROFILE,
+    CHANGE_COLOR
+} from './types';
 
 import { setAuthToken } from '../helpers/helpers';
+import nprogress from "nprogress";
 
 export const getCurrentProfile = () => dispatch => {
     dispatch( setProfileLoading() );
@@ -21,10 +34,10 @@ export const getCurrentProfile = () => dispatch => {
 };
 
 
-// get profile by Hangle
-export const getProfileByHangle = handle => dispatch => {
+// get profile by id
+export const getProfileById = id => dispatch => {
   dispatch( setProfileLoading() );
-  axios.get(`/api/profile/handle/${handle}`)
+  axios.get(`/api/profile/user/${id}`)
     .then(profile => {
       dispatch({
         type: GET_PROFILE,
@@ -37,6 +50,28 @@ export const getProfileByHangle = handle => dispatch => {
         payload: {}
       })
     })
+};
+
+
+
+
+
+// get profile by Hangle
+export const getProfileByHangle = handle => dispatch => {
+    dispatch( setProfileLoading() );
+    axios.get(`/api/profile/handle/${handle}`)
+        .then(profile => {
+            dispatch({
+                type: GET_PROFILE,
+                payload: profile.data
+            })
+        })
+        .catch(() => {
+            dispatch({
+                type: GET_PROFILE,
+                payload: {}
+            })
+        })
 };
 
 
@@ -83,11 +118,34 @@ export const clearProfile = () => {
 
 // Create profile
 export const createProfile = (profileData, history) => dispatch => {
-  axios.post('/api/profile', profileData)
+  nprogress.start();
+  const formData = new FormData();
+  const config = { headers: {'content-type': 'multipart/form-data'}};
+
+  formData.append('avatar', profileData.avatar);
+
+  formData.append('handle', profileData.handle);
+  formData.append('company', profileData.company);
+  formData.append('website', profileData.website);
+  formData.append('location', profileData.location);
+  formData.append('status', profileData.status);
+  formData.append('skills', profileData.skills);
+  formData.append('bio', profileData.bio);
+  formData.append('github', profileData.github);
+  formData.append('experience', profileData.experience);
+  formData.append('youtube', profileData.youtube);
+  formData.append('twitter', profileData.twitter);
+  formData.append('facebook', profileData.facebook);
+  formData.append('linkedin', profileData.linkedin);
+
+
+  axios.post('/api/profile', formData, config)
     .then(() => {
-        history.push('/dashboard')
+        history.push('/dashboard');
+        nprogress.done();
     })
     .catch(err => {
+      nprogress.done();
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data

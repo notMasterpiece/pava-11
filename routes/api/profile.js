@@ -8,6 +8,12 @@ const User = require('../../models/Users');
 
 
 
+const upload = require('../../middleware/multer/MulterLocal');
+const cloudinary = require('cloudinary');
+require('../../start-up/cloudinary');
+
+
+
 // load input validation
 const validateProfileInput = require('../../validation/profile');
 const validateExperienceInput = require('../../validation/experience');
@@ -40,15 +46,13 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
 // @route   POST api/profile
 // @desc    Create user profile
 // @access  Private
-router.post('/',  passport.authenticate('jwt', { session: false }), (req, res) => {
+router.post('/', passport.authenticate('jwt', { session: false }), upload.single('avatar'), (req, res) => {
 
     const { errors, isValid } = validateProfileInput(req.body);
 
     if(!isValid) {
         return res.status(404).json(errors);
     }
-
-
 
     const profileFields = {};
 
@@ -76,21 +80,47 @@ router.post('/',  passport.authenticate('jwt', { session: false }), (req, res) =
     if(req.body.linkedin) profileFields.social.linkedin = req.body.linkedin;
 
 
-
     Profile.findOne({user: req.user.id})
         .populate('user', ['name', 'avatar'])
         .then( profile => {
             if( profile ) {
-                // Update profile
-                Profile.findOneAndUpdate({user: req.user.id}, {$set: profileFields}, {new: true})
-                    .then(profile => {
-                        res.json(profile)
-                    })
-                    .catch(err => console.log(err));
+
+
+
+                if (req.file) {
+                    User
+                        .findById(profile.user._id)
+                        .then(user => {
+                            cloudinary.v2.uploader.upload(req.file.path)
+                                .then( image => {
+                                    user.avatar = image.secure_url;
+                                    user
+                                        .save()
+                                        .then( () => {
+                                            // Update profile
+                                            Profile.findOneAndUpdate({user: req.user.id}, {$set: profileFields})
+                                                .then(profile => {
+                                                    res.json(profile)
+                                                })
+                                                .catch(err => console.log(err));
+
+                                        })
+                                })
+                        });
+                } else {
+                    // Update profile
+                    Profile.findOneAndUpdate({user: req.user.id}, {$set: profileFields})
+                        .then(profile => {
+                            res.json(profile)
+                        })
+                        .catch(err => console.log(err));
+                }
+
+
+
+
             } else {
                 // Create profile
-
-
                 // check if handlee exist
                 Profile.findOne({ handle: profileFields.handle })
                     .then(handle => {
@@ -148,12 +178,11 @@ router.get('/handle/:handle', (req,res) => {
 // @route   GET api/profile/user/user_id
 // @desc    Get profile by user_id
 // @access  Public
-router.get('/user/:user_id', (req,res) => {
-
+router.get('/user/:user_id', (req, res, next) => {
     const errors = {};
-
-    Profile.findOne({handle: req.params.user_id})
-        .populate('users', ['name', 'avatar'])
+    Profile
+        .findById(req.params.user_id)
+        .populate('user')
         .then(profile => {
             if(!profile) {
                 errors.noprofile = 'there are no profile for this users';
@@ -161,10 +190,7 @@ router.get('/user/:user_id', (req,res) => {
             }
             res.json(profile);
         })
-        .catch(err => {
-            res.status(404).json(err);
-            console.log(err);
-        });
+        .catch(err => next(err));
 });
 
 

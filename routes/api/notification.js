@@ -12,10 +12,6 @@ webpush.setVapidDetails('mailto:test@test.com', publicVapidKey, privateVapidKey)
 router.post('/', (req, res) => {
     const suscription = req.body;
 
-
-    console.log(suscription);
-
-
     res
         .status(201)
         .json({});

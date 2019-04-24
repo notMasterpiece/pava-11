@@ -22,7 +22,8 @@ class PrivateMessagesIndex extends Component {
         user: null,
         messages: [],
         typing: false,
-        isFirst: false
+        isFirst: false,
+        showEmoji: false
     };
 
 
@@ -70,8 +71,14 @@ class PrivateMessagesIndex extends Component {
 
         if (id) {
             socket.emit('ADD_IMAGE', newMessage);
+            this.setState({showEmoji: false})
         }
 
+    };
+
+
+    renderEmoji = () => {
+        this.setState({showEmoji: !this.state.showEmoji})
     };
 
 
@@ -135,7 +142,7 @@ class PrivateMessagesIndex extends Component {
 
 
             socket.on('SET_FIRST_MESSAGES', messages => {
-                console.log('SET_FIRST_MESSAGES', messages);
+                // console.log('SET_FIRST_MESSAGES', messages);
                 this.setState({messages}, () => {
                     const chatContainer = document.body.querySelector('.chat-history');
                     if (chatContainer) {
@@ -173,7 +180,7 @@ class PrivateMessagesIndex extends Component {
 
         const height = window.innerHeight - 60;
 
-        const {message, messages, user, typing, isFirst} = this.state;
+        const {message, messages, user, typing, isFirst, showEmoji} = this.state;
         const {auth} = this.props;
 
         if (!user || !auth) return <Sceleton />;
@@ -198,6 +205,7 @@ class PrivateMessagesIndex extends Component {
                                         user={auth.user.id}
                                         messages={messages}
                                         sendEmoji={this.sendEmoji}
+                                        showEmoji={showEmoji}
                                     />
 
                                     <MessagesForm
@@ -206,6 +214,7 @@ class PrivateMessagesIndex extends Component {
                                         onChange={this.onChange}
                                         onKeyUp={this.onKeyUp}
                                         sendMessage={this.sendMessage}
+                                        renderEmoji={this.renderEmoji}
                                     />
 
                                 </div>

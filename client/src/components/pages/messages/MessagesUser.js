@@ -1,34 +1,67 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import styled from 'styled-components';
 
-const MessagesUser = ({user}) => {
+const MessagesUser = ({profile}) => {
     return (
-        <li
-            className="clearfix">
-            <img src={user.avatar} alt={user.name} />
-            <div className="about">
-                <div className="name">{user.name}</div>
-                <div className="status">
-                    <i
-                        className={`zmdi zmdi-circle ${user.online ? ' online' : 'offline'}`} />
-                    data
+        <UserLi>
+            <Link to={`/messages/t/${profile.user._id}`}>
+                <UserImg src={profile.user.avatar} alt={profile.user.name} />
+                <div className="about">
+                    <UserName>{profile.user.name}</UserName>
+                    <div className="status">
+                        <i className={`zmdi zmdi-circle ${profile.user.online ? ' online' : 'offline'}`} />
+                        { profile.user.online ? 'online' : 'offline' }
+                    </div>
                 </div>
-                <ul className="description">
-                    <li>
-                        <Link to={`/messages/t/${user._id}`}>Write</Link>
-                    </li>
-                    <li>
-                        <Link to={`/profile/${user._id}`}>Go to profile</Link>
-                    </li>
-                </ul>
-            </div>
-        </li>
+            </Link>
+            <UserBtn className="description">
+                 <Link to={`/profile/${profile._id}`}>Go to profile</Link>
+            </UserBtn>
+        </UserLi>
     );
 };
 
+const UserName = styled.div`
+  color: #313740;
+`;
+
+const UserBtn = styled.div`
+  color: #9A9A9A;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  margin-left: auto; 
+  transform: scale(0);
+  transition: transform 300ms ease;  
+`;
+
+const UserImg = styled.img`
+  width: 45px;
+  height: 45px;
+`;
+
+const UserLi = styled.div`
+    padding: 10px 15px;
+    list-style: none;
+    border-radius: 3px; 
+    display: flex;
+    a {
+      color: #313740;
+      display: block;
+      cursor: pointer; 
+    }
+    &:hover {
+      background-color: #efefef;
+      ${UserBtn} { 
+        transform: scale(1);
+      }
+    }
+`;
+
 MessagesUser.propTypes = {
-    user: PropTypes.object.isRequired,
+    profile: PropTypes.object.isRequired,
 };
 
 export default MessagesUser;

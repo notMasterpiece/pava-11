@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import smile from '../../../assets/images/smile.svg';
-import like from '../../../assets/images/like.svg';
+import image from '../../../assets/images/image.svg';
 
-const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing}) => {
+const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing, renderEmoji}) => {
     return (
         <div className="chat-message clearfix">
             {typing &&
@@ -26,11 +26,14 @@ const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing}) => {
                     onChange={onChange}
                     onKeyUp={onKeyUp}
                 />
-                <AddLike>
-                    <img src={like} alt=""/>
-                </AddLike>
+                <AddImageBtn
+                >
+                    <img src={image} alt=""/>
+                    {/*<input type="file"/>*/}
+                </AddImageBtn>
                 <AddEmojiBtn
                     className='add_emoji'
+                    onClick={renderEmoji}
                 >
                     <img src={smile} alt='emoji'/>
                 </AddEmojiBtn>
@@ -58,7 +61,7 @@ const AddEmojiBtn = styled.button`
   }
 `;
 
-const AddLike = styled.button` 
+const AddImageBtn = styled.button` 
   position: absolute;
   top: 1px;
   bottom: 1px;

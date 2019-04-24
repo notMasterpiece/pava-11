@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {getArticle, clearArticle} from '../../../../actions/blog-action';
 import Spinner from '../../../Tools/Spinner/Spinner';
 
-import hljs from 'highlight.js';
+// import hljs from 'highlight.js';
 
 class BlogSingleIndex extends Component {
 
@@ -11,17 +11,17 @@ class BlogSingleIndex extends Component {
         const {_id} = this.props.match.params;
         this.props.getArticle(_id);
 
-        hljs.initHighlighting();
+        // hljs.initHighlighting();
     }
 
     componentWillMount() {
         this.props.clearArticle();
 
-        hljs.initHighlighting();
+        // hljs.initHighlighting();
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        hljs.initHighlighting();
+        // hljs.initHighlighting();
     }
 
 
@@ -30,7 +30,7 @@ class BlogSingleIndex extends Component {
         if(!this.props.blog.article) return <Spinner />;
 
 
-        hljs.initHighlighting();
+        // hljs.initHighlighting();
 
         const {article:{title, full_page_image, full_description}} = this.props.blog;
 

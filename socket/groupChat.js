@@ -1,4 +1,5 @@
 const User = require('../models/Users');
+const Profile = require('../models/Profile');
 const ChatRoom = require('../models/ChatRoom');
 const Message = require('../models/Message');
 const PMessage = require('../models/PrivateMessage');
@@ -27,11 +28,13 @@ module.exports = io => {
             socket.join(room);
             console.log(`user join to room ${room}`);
 
-            User
+            Profile
                 .find()
-                .sort({online: -1})
-                .then(users => {
-                    io.to(room).emit('SERVER_ALL_USERS', users);
+                .populate('user', ['avatar', 'name', '_id', 'online'])
+                .select('_id user')
+                .then(profiles => {
+                    profiles.sort((a, b) => b.user.online - a.user.online);
+                    io.to(room).emit('SERVER_ALL_USERS', profiles);
                 });
 
 
@@ -83,7 +86,6 @@ module.exports = io => {
                             .findById(userId)
                             .then(user => {
                                 if(!user) return;
-
                                 // io.to(globalRoom._id).emit('SET_PRIVATE_USER_INFO', user);
                                 io.to(`${socket.id}`).emit('SET_PRIVATE_USER_INFO', user);
                             });
@@ -198,9 +200,6 @@ module.exports = io => {
                 user: data.user,
                 room: globalRoom._id
             });
-
-            console.log(newPrivateMessage);
-
 
             newPrivateMessage
                 .save()

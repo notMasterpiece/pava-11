@@ -79,24 +79,18 @@ class SmallChatIndex extends Component {
 
 
     componentDidMount() {
-        // const {chat} = this.props;
-        // console.log('componentDidMount');
-        // socket.emit('GET_ALL_MESSAGES', chat.chatRoom);
-
-
-
         const {socket, chat} = this.props;
         const room = chat.chatRoom._id;
 
 
 
         socket.emit('JOIN_ROOM', {room}, () => {
-            console.log(`user join to room ${room}`);
+            // console.log(`user join to room ${room}`);
         });
 
 
         socket.on('NEW_SMALL_CHAT_MSG', message => {
-            console.log(message);
+            // console.log(message);
         })
 
 

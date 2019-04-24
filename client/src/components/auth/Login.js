@@ -8,7 +8,7 @@ import {loginUser, loginUserbyFacebook} from '../../actions/actions';
 import FacebookLogin from 'react-facebook-login';
 import { GoogleLogin } from 'react-google-login';
 
-import bg from '../../assets/images/matrix.gif';
+import MatrixRein from '../Tools/MatrixReain';
 import Register from './Register';
 
 class Login extends Component {
@@ -43,8 +43,20 @@ class Login extends Component {
     this.props.loginUser(user);
   };
 
+  componentWillUnmount() {
+      window.removeEventListener('resize', this.runMatrixRain);
+  }
+
+  runMatrixRain = () => {
+      const canvas = new MatrixRein(document.querySelector('#matixRain'));
+      canvas.init()
+  };
+
 
   componentDidMount() {
+    window.addEventListener('resize', this.runMatrixRain);
+    this.runMatrixRain();
+
     if(this.props.auth.isAuthenticated) {
       this.props.history.push('/dashboard');
     }
@@ -100,8 +112,8 @@ class Login extends Component {
 
     return (
       <div className="theme-black">
-
-        <div className="authentication" style={{backgroundImage: `url(${bg})`}}>
+        <div className="authentication">
+          <canvas id="matixRain" className="u-matrix-rain" />
           <div className="container">
             <div className="col-md-12 content-center">
               <div className="row row-center">

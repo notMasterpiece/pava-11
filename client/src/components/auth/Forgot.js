@@ -10,6 +10,12 @@ import { validateEmail } from '../../helpers/helpers';
 
 class Forgot extends Component {
 
+    static propTypes = {
+        resetPassword: PropTypes.func.isRequired,
+        auth: PropTypes.object.isRequired,
+        errors: PropTypes.object.isRequired
+    };
+
     state = {
         email: '',
         errors: null
@@ -120,13 +126,6 @@ class Forgot extends Component {
     }
 }
 
-
-
-Forgot.PropTypes = {
-    resetPassword: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
-};
 
 
 export default connect(state => ({
