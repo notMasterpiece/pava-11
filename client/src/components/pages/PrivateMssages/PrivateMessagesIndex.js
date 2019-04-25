@@ -23,7 +23,8 @@ class PrivateMessagesIndex extends Component {
         messages: [],
         typing: false,
         isFirst: false,
-        showEmoji: false
+        showEmoji: false,
+        files: []
     };
 
 
@@ -74,6 +75,33 @@ class PrivateMessagesIndex extends Component {
             this.setState({showEmoji: false})
         }
 
+    };
+
+
+    AddCoolIcon = () => {
+        const {auth} = this.props;
+
+        const newMessage = {
+            coll: true,
+            user: auth.user.id,
+        };
+
+        socket.emit('ADD_COOL', newMessage);
+    };
+
+
+
+    AddFile = file => {
+        const files = Array.from(file);
+        this.setState({files});
+    };
+
+
+    removePrewievFile = file => {
+        console.log(file);
+        this.setState({
+            files: this.state.files.filter(f => f !== file)
+        });
     };
 
 
@@ -180,7 +208,7 @@ class PrivateMessagesIndex extends Component {
 
         const height = window.innerHeight - 60;
 
-        const {message, messages, user, typing, isFirst, showEmoji} = this.state;
+        const {message, messages, user, typing, isFirst, showEmoji, files} = this.state;
         const {auth} = this.props;
 
         if (!user || !auth) return <Sceleton />;
@@ -206,6 +234,9 @@ class PrivateMessagesIndex extends Component {
                                         messages={messages}
                                         sendEmoji={this.sendEmoji}
                                         showEmoji={showEmoji}
+                                        files={files}
+                                        removePrewievFile={this.removePrewievFile}
+
                                     />
 
                                     <MessagesForm
@@ -215,6 +246,9 @@ class PrivateMessagesIndex extends Component {
                                         onKeyUp={this.onKeyUp}
                                         sendMessage={this.sendMessage}
                                         renderEmoji={this.renderEmoji}
+                                        AddCoolIcon={this.AddCoolIcon}
+                                        AddFile={this.AddFile}
+                                        files={files}
                                     />
 
                                 </div>

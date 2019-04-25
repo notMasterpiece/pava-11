@@ -14,6 +14,10 @@ const PrivateMessageSchema = new Schema({
         type: String,
         default: ''
     },
+    cool: {
+        type: Boolean,
+        default: false
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'users'

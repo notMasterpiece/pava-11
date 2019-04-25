@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62560d12-4a06-475d-8577-6752f888d381" name="Default Changelist" comment="Merge branch 'master' of https://github.com/notMasterpiece/pava-11&#10;&#10;# Conflicts:&#10;#&#9;client/src/actions/types.js&#10;#&#9;client/src/components/Dashboard.js&#10;#&#9;client/src/components/Tools/SmallChat/SmallChatIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserInfo.js&#10;#&#9;client/src/reducer/index.js&#10;#&#9;log/access.log">
-      <change afterPath="$PROJECT_DIR$/client/src/assets/images/image.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/images/cool.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/pages/messages/oldRender.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Tools/MyEmoji/Emoji.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Tools/MyEmoji/Emoji.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/access.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/PrivateMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/PrivateMessage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socket/groupChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/socket/groupChat.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -29,24 +26,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="171" selection-start-line="171" selection-end-line="171" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="40">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/pages/Gallery/GalleryIndex.js">
+        <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/oldRender.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1680">
+            <state relative-caret-position="2600">
+              <caret line="131" column="8" selection-start-line="131" selection-start-column="8" selection-end-line="138" selection-end-column="9" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesForm.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="620">
-              <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+              <caret line="111" column="28" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -65,78 +60,32 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/pages/test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="21" selection-start-line="21" selection-end-line="28" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/assets/styles/my.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/assets/styles/load2.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="6236" column="1" selection-start-line="6236" selection-start-column="1" selection-end-line="6236" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Tools/MatrixReain.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="94" column="26" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/auth/Login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="114" column="38" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/Dashboard.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="96" column="3" selection-start-line="96" selection-start-column="3" selection-end-line="109" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#212#274#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="130" column="38" selection-start-line="130" selection-start-column="38" selection-end-line="130" selection-end-column="38" />
+            <state relative-caret-position="2900">
+              <caret line="152" column="26" selection-start-line="152" selection-start-column="26" selection-end-line="152" selection-end-column="26" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#88#122#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socket/groupChat.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3860">
+              <caret line="260" column="2" selection-start-line="260" selection-start-column="2" selection-end-line="260" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/PrivateMessage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -190,9 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/components/pages/blog/blog/BlogIndex.js" />
-        <option value="$PROJECT_DIR$/client/src/reducer/blog.js" />
-        <option value="$PROJECT_DIR$/client/src/components/pages/blog/post-create/PostCreate.js" />
         <option value="$PROJECT_DIR$/middleware/multer/MulterLocal.js" />
         <option value="$PROJECT_DIR$/client/src/components/pages/blog/blogArticles/BlogIndex.js" />
         <option value="$PROJECT_DIR$/routes/api/blog.js" />
@@ -229,18 +175,21 @@
         <option value="$PROJECT_DIR$/models/Message.js" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/models/Task.js" />
-        <option value="$PROJECT_DIR$/models/PrivateMessage.js" />
         <option value="$PROJECT_DIR$/client/src/components/Tools/MyEmoji/list.js" />
         <option value="$PROJECT_DIR$/client/src/components/Tools/MyEmoji/Emoji.js" />
-        <option value="$PROJECT_DIR$/socket/groupChat.js" />
-        <option value="$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js" />
-        <option value="$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js" />
-        <option value="$PROJECT_DIR$/client/src/components/pages/messages/MessagesForm.js" />
         <option value="$PROJECT_DIR$/client/src/components/Tools/MatrixReain.js" />
         <option value="$PROJECT_DIR$/client/src/components/pages/test.js" />
         <option value="$PROJECT_DIR$/client/src/components/auth/Login.js" />
         <option value="$PROJECT_DIR$/client/src/assets/styles/my.scss" />
         <option value="$PROJECT_DIR$/client/src/assets/styles/load2.scss" />
+        <option value="$PROJECT_DIR$/client/src/assets/images/coll.svg" />
+        <option value="$PROJECT_DIR$/client/src/assets/images/cool.svg" />
+        <option value="$PROJECT_DIR$/models/PrivateMessage.js" />
+        <option value="$PROJECT_DIR$/socket/groupChat.js" />
+        <option value="$PROJECT_DIR$/client/src/components/pages/messages/oldRender.js" />
+        <option value="$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js" />
+        <option value="$PROJECT_DIR$/client/src/components/pages/messages/MessagesForm.js" />
+        <option value="$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js" />
       </list>
     </option>
   </component>
@@ -251,10 +200,10 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="7" />
-    <option name="y" value="2" />
-    <option name="width" value="1920" />
-    <option name="height" value="1060" />
+    <option name="x" value="190" />
+    <option name="y" value="25" />
+    <option name="width" value="1750" />
+    <option name="height" value="980" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -264,6 +213,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -288,6 +238,14 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
@@ -326,7 +284,30 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="messages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="PrivateMssages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
@@ -337,14 +318,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="11.6.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../VismaStroy-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DOM" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
@@ -416,18 +396,19 @@
       <workItem from="1555533352748" duration="420000" />
       <workItem from="1555534148589" duration="250000" />
       <workItem from="1555700863860" duration="3000" />
-      <workItem from="1555700882914" duration="36121000" />
+      <workItem from="1555700882914" duration="36954000" />
+      <workItem from="1555839595567" duration="14705000" />
+      <workItem from="1556134652769" duration="56000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238250000" />
+    <option name="totallyTimeSpent" value="253844000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15135492" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19365498" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -440,14 +421,14 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49966952" weight="0.32152975" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49966952" visible="true" weight="0.33002833" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50033045" side_tool="true" weight="0.44050992" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15135492" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19365498" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -460,7 +441,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49966952" weight="0.32152975" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49966952" visible="true" weight="0.32152975" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50033045" side_tool="true" weight="0.44050992" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -475,33 +456,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/notMasterpiece/pava-11&#10;&#10;# Conflicts:&#10;#&#9;client/src/actions/types.js&#10;#&#9;client/src/components/Dashboard.js&#10;#&#9;client/src/components/Tools/SmallChat/SmallChatIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserInfo.js&#10;#&#9;client/src/reducer/index.js&#10;#&#9;log/access.log" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/reducer/task.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/reducer/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/task-action.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-          <folding>
-            <element signature="e#1#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Tools/Task/TaskIndex.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -676,13 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/PrivateMessage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/Users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -779,81 +726,22 @@
         <state relative-caret-position="-429" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/socket/groupChat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="130" column="38" selection-start-line="130" selection-start-column="38" selection-end-line="130" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#88#122#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/pages/Gallery/GalleryIndex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1680">
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/assets/images/image.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/pages/Gallery/GalleryIndex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="171" selection-start-line="171" selection-end-line="171" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="96" column="3" selection-start-line="96" selection-start-column="3" selection-end-line="109" />
+        <state>
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#212#274#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/pages/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
+        <state relative-caret-position="400">
           <caret line="21" selection-start-line="21" selection-end-line="28" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/auth/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="114" column="38" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="38" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -862,22 +750,101 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/assets/styles/my.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="560">
           <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/assets/styles/load2.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
+        <state relative-caret-position="124720">
           <caret line="6236" column="1" selection-start-line="6236" selection-start-column="1" selection-end-line="6236" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/auth/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2060">
+          <caret line="114" column="38" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1560">
+          <caret line="96" column="3" selection-start-line="96" selection-start-column="3" selection-end-line="109" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#212#274#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Tools/MatrixReain.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="94" column="26" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
+        <state relative-caret-position="340">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/assets/images/d.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/assets/images/cool.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/oldRender.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2600">
+          <caret line="131" column="8" selection-start-line="131" selection-start-column="8" selection-end-line="138" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/pages/messages/MessagesForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="111" column="28" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/pages/PrivateMssages/PrivateMessagesIndex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2900">
+          <caret line="152" column="26" selection-start-line="152" selection-start-column="26" selection-end-line="152" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#88#122#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket/groupChat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3860">
+          <caret line="260" column="2" selection-start-line="260" selection-start-column="2" selection-end-line="260" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/PrivateMessage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
         </state>
       </provider>
     </entry>
