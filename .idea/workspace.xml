@@ -4,77 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/server.js" description="const app = require('express')();&#10;const server = r..." line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62560d12-4a06-475d-8577-6752f888d381" name="Default Changelist" comment="Merge branch 'master' of https://github.com/notMasterpiece/pava-11&#10;&#10;# Conflicts:&#10;#&#9;client/src/actions/types.js&#10;#&#9;client/src/components/Dashboard.js&#10;#&#9;client/src/components/Tools/SmallChat/SmallChatIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserInfo.js&#10;#&#9;client/src/reducer/index.js&#10;#&#9;log/access.log">
-      <change afterPath="$PROJECT_DIR$/client/build/static/css/1.f33517b8.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/css/1.f33517b8.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/css/main.12fcea26.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/css/main.12fcea26.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/1.ed9c2b9b.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/1.ed9c2b9b.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/main.02819b9f.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/build/static/js/main.02819b9f.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Tools/Dropzone/MyDropzone.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/19_1500x_1500517803.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/22.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/5c47095522038.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/bjGx (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/blog/завантаження.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/precache-manifest.e4c14ab54e635f013264af03ec18ea3e.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/precache-manifest.5848751f7c90568d53238726f7012000.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.fcd41a5a.chunk.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/1.fcd41a5a.chunk.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.105e88d8.chunk.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.105e88d8.chunk.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.ef5f5d78.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/1.ef5f5d78.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.cc2b3f5b.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.cc2b3f5b.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/media/smile.a033267f.svg" beforeDir="false" afterPath="$PROJECT_DIR$/client/build/static/media/smile.52f2ab1d.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/profileActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/profileActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/bootstrap.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/bootstrap.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/my.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/styles/my.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Form/InputGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Form/InputGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Form/SelectListGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Form/SelectListGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Tools/SmallChat/SmallChatIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Tools/SmallChat/SmallChatIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/auth/Forgot.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/auth/Forgot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/auth/ResetPass.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/auth/ResetPass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/blog/blogSingle/BlogSingleIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/blog/blogSingle/BlogSingleIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/custome-user-profile/CustomeUserInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/edit-profile/EditProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/edit-profile/EditProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/messages/MessagesUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/profile/profileActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/profile/profileActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/profiles/AllProfilesIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/profiles/AllProfilesIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/profiles/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/profiles/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/pages/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/js/hightlight/codepen-embed.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/js/hightlight/highlight.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/static/185675bc828f92d3064cbdd95e0a53b3 (3).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/video/toystory.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/access.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/notification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/upload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket/groupChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/socket/groupChat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/socket/socket.js" afterDir="false" />
-    </list>
+    <list default="true" id="62560d12-4a06-475d-8577-6752f888d381" name="Default Changelist" comment="Merge branch 'master' of https://github.com/notMasterpiece/pava-11&#10;&#10;# Conflicts:&#10;#&#9;client/src/actions/types.js&#10;#&#9;client/src/components/Dashboard.js&#10;#&#9;client/src/components/Tools/SmallChat/SmallChatIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserIndex.js&#10;#&#9;client/src/components/pages/custome-user-profile/CustomeUserInfo.js&#10;#&#9;client/src/reducer/index.js&#10;#&#9;log/access.log" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -246,50 +176,6 @@
             <path>
               <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
               <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="messages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PAVA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PAVA" type="462c0819:PsiDirectoryNode" />
               <item name="socket" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -378,16 +264,15 @@
       <workItem from="1555700882914" duration="36954000" />
       <workItem from="1555839595567" duration="14705000" />
       <workItem from="1556134652769" duration="56000" />
-      <workItem from="1556217503618" duration="8257000" />
+      <workItem from="1556217503618" duration="8591000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="262101000" />
+    <option name="totallyTimeSpent" value="262435000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19365498" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
