@@ -1,28 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import avatar from '../../../assets/images/avatar.png';
 
 import { Link } from 'react-router-dom';
 
-
-function renderUserImg(image) {
-    if(!image || image.length <= 10 ) {
-      return avatar
-    }
-    return image;
-}
-
 const Profile = ({profile}) => {
-  const {user, bio, company, handle, location, status, website, skills, github, image } = profile;
+  const {user, _id, bio, company, handle, location, status, website, skills, github } = profile;
 
   return (
     <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12 user-profile">
       <div className="card">
         <div className="body min-h-275">
-          <Link to={`/profile/${handle}`}><img className='round-img' src={renderUserImg(image)} title={user.name} alt={user.name}/></Link>
+          <Link to={`/profile/${_id}`}><img className='round-img' src={user.avatar} title={user.name} alt={user.name}/></Link>
           <h6 className="m-b-15 team-info m-t-7">
-            <Link to={`/profile/${handle}`} >{user.name}</Link>
-            {/*<span className="badge badge-success float-right">New</span>*/}
+            <Link to={`/profile/${_id}`} >{user.name}</Link>
           </h6>
 
           <div className="row m-t-25">

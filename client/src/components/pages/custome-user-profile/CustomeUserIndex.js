@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
-import {getProfileByHangle, getGithubByHangle} from '../../../actions/profileActions';
+import {getProfileById, getGithubByHangle} from '../../../actions/profileActions';
 import { createChatToUser } from '../../../actions/small-chat';
 
 import CustomeUserInfo from './CustomeUserInfo';
@@ -27,7 +27,7 @@ class CustomeUserIndex extends React.Component {
 
     componentDidMount() {
         const { handle } = this.props.match.params;
-        if( handle ) this.props.getProfileByHangle(handle);
+        if( handle ) this.props.getProfileById(handle);
     }
 
 
@@ -43,6 +43,10 @@ class CustomeUserIndex extends React.Component {
         const {profile, loading} = this.props.profile;
         if( profile === null || loading) return <Spinner />;
 
+        if( !Object.keys(profile).length ) {
+            return <p>No profile</p>
+        }
+
         return (
             <CustomeUserInfo
                 createChatToUser={this.createChatFunc}
@@ -56,12 +60,12 @@ class CustomeUserIndex extends React.Component {
 
 CustomeUserIndex.propTypes = {
     profile: PropTypes.object.isRequired,
-    getProfileByHangle: PropTypes.func.isRequired,
+    getProfileById: PropTypes.func.isRequired,
     getGithubByHangle: PropTypes.func.isRequired
 };
 
 export default connect(state => ({
     profile: state.profile
-}), {getProfileByHangle, getGithubByHangle, createChatToUser})(CustomeUserIndex);
+}), {getProfileById, getGithubByHangle, createChatToUser})(CustomeUserIndex);
 
 

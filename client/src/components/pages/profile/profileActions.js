@@ -15,19 +15,6 @@ import Task from '../../Tools/Task/TaskIndex';
 
 import {deleteAccount} from '../../../actions/profileActions';
 
-
-import avatar from '../../../assets/images/avatar.png';
-
-
-
-function renderUserImg(image) {
-    if(!image || image.length <= 10 ) {
-        return avatar
-    }
-    return image;
-}
-
-
 class ProfileActions extends Component {
     constructor(props) {
         super(props);
@@ -70,8 +57,8 @@ class ProfileActions extends Component {
   render() {
     const {showGoogleMaps, showUserGallery} = this.state;
     const { profile } = this.props.profile;
-    const { status, experience, education, image } = this.props.profile.profile;
-    const { name, email } = this.props.auth.user;
+    const { status, experience, education } = this.props.profile.profile;
+    const { name, email, avatar } = this.props.auth.user;
 
 
     return (
@@ -93,7 +80,8 @@ class ProfileActions extends Component {
                 <div className="row">
 
                   <div className="col-lg-10 col-md-12">
-                    <img src={renderUserImg(image)} className="user_pic rounded img-raised" alt={name} />
+                    <img src={avatar} className="user_pic rounded img-raised" alt={name} />
+
                       <div className="detail">
                         <div className="u_name">
                           <h4><strong>{name}</strong></h4>
@@ -104,7 +92,6 @@ class ProfileActions extends Component {
                             { (profile && profile.social && profile.social.facebook  ) && <Link to={profile.social.facebook}><i className="zmdi zmdi-facebook" /></Link> }
                             { (profile && profile.social && profile.social.twitter ) && <Link to={profile.social.twitter}><i className="zmdi zmdi-twitter" /></Link> }
                             { (profile && profile.social && profile.social.youtube ) && <Link to={profile.social.youtube}><i className="zmdi zmdi-youtube-play" /></Link> }
-
                           </div>
                         </div>
                       </div>
@@ -184,10 +171,8 @@ class ProfileActions extends Component {
             </div>
           </div>
 
-          <div className="col-sm-3">
-              23
-          </div>
-          <div className="col-sm-3">23</div>
+          <div className="col-sm-3" />
+          <div className="col-sm-3" />
 
           <div className="col-sm-3">
             <div className="card">

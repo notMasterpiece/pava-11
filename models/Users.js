@@ -20,11 +20,7 @@ const UserSchema = new Schema({
     },
     avatar: {
         type: String,
-        default: 'https://www.growthengineering.co.uk/wp-content/uploads/2014/05/Interaction-design-user-experience.png'
-    },
-    date: {
-        type: Date,
-        default: Date.now()
+        default: 'http://www.gravatar.com/avatar/e88f429b969571eefabad6f357289dba?s=250&r=pg&d=mm'
     },
     resetToken: {
         type: String
@@ -38,6 +34,9 @@ const UserSchema = new Schema({
     providerID: {
         type: String
     }
+}, {
+    versionKey: false,
+    timestamps: true
 });
 
 

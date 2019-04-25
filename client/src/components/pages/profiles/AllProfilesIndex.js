@@ -22,7 +22,6 @@ class AllProfilesIndex extends Component {
       return <Spinner />
     } else {
       if(all_profiles.length > 0) {
-
         const filterProfile = all_profiles.filter(profile => profile.user._id !== id);
         return <AllProfiles profiles={filterProfile}/>
 

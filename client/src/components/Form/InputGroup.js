@@ -14,8 +14,10 @@ const InputGroup = ({name, placeholder, value, error, icon, type, onChange}) => 
         value={value}
         onChange={onChange}
          />
-        <span className="input-group-addon" style={{paddingBottom: '7px'}}>
-            <i className={`zmdi ${icon}`}></i>
+        <span className="input-group-append">
+            <span className="input-group-text">
+              <i className={`zmdi ${icon}`} />
+            </span>
         </span>
         {error && <div className="invalid-feedback">{error}</div>}
     </div>

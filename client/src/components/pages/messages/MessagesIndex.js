@@ -33,7 +33,7 @@ class MessagesIndex extends Component {
             socket: null,
             message: '',
             messages: [],
-            users: []
+            profiles: []
         }
 
     }
@@ -100,8 +100,8 @@ class MessagesIndex extends Component {
             });
 
 
-            socket.on('SERVER_ALL_USERS', users => {
-                this.setState({ users });
+            socket.on('SERVER_ALL_USERS', profiles => {
+                this.setState({ profiles });
             })
 
         });
@@ -113,7 +113,7 @@ class MessagesIndex extends Component {
 
 
     render() {
-        const {message, messages, users} = this.state;
+        const {message, messages, profiles} = this.state;
 
         const height = window.innerHeight - 60;
 
@@ -150,11 +150,12 @@ class MessagesIndex extends Component {
                                                     className="chat-list list-unstyled m-b-0"
                                                     ref={this.chatListContainer}
                                                 >
+                                                    <h6>Users: {profiles.length}</h6>
                                                     {
-                                                        users.map(user => (
+                                                        profiles.map(profile => (
                                                             <MessagesUser
-                                                                user={user}
-                                                                key={user._id}
+                                                                profile={profile}
+                                                                key={profile._id}
                                                             />
                                                         ))
                                                     }

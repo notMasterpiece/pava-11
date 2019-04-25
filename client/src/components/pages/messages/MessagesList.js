@@ -247,7 +247,8 @@ const ChatMessageAvatar = styled.div`
 
 const Img = styled.img`
     width: 40px;
-    height: auto;
+    height: 40px;
+    object-fit: cover;
     border-radius: 30px;
     display: inline-block;
     box-shadow: 0 0 0 10px #fff; 

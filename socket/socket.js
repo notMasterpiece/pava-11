@@ -48,7 +48,6 @@ module.exports = io => {
         // small chat
         socket.on('GET_ALL_MESSAGES', data => {
             const {_id} = data;
-            console.log(_id, 'this is id');
 
             Message
                 .find({room: _id})

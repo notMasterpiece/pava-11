@@ -9,6 +9,11 @@ import bg from '../../assets/images/matrix.gif';
 
 class PasswordReset extends Component {
 
+    static propTypes = {
+        errors: PropTypes.object.isRequired
+    };
+
+
     state = {
         r_email: '',
         rc_email: ''
@@ -107,11 +112,8 @@ class PasswordReset extends Component {
 
 
 
-PasswordReset.PropTypes = {
-    resetPassword: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
-};
+
+
 
 
 export default connect(state => ({

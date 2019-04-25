@@ -1,20 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon1.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <title>PAVA - NETWORK</title>
+</head>
+<body>
+<noscript>
+    You need to enable JavaScript to run this app.
+</noscript>
+<div id="root"></div>
+</body>
+<script src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-  </body>
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '488196955039549',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v3.2'
+            });
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        };
+
+
+        function statusChangeCallback(response) {
+            if (response.status === 'connected') {
+                FB.api('/me', 'GET', {fields: 'name, id, email, age_range'}, res => {
+                    console.log(res);
+                    FB.api(
+                        `/${res.id}/picture`,
+                        'GET',
+                        {"redirect":"false", "height": "500"},
+                        function(response) {
+                            console.log(response);
+                        }
+                    );
+                })
+            } else {
+                console.log('no login');
+            }
+        }
+
+        document.querySelector('#facebook').addEventListener('click', function () {
+            FB.getLoginStatus(function (response) {
+                if (response.status === 'connected') {
+
+                    FB.api('/me', 'GET', {height: 1000}, res => {
+                        console.log(res);
+                    })
+
+                } else {
+                    FB.login(function () {
+
+                        FB.api('/me', res => {
+                            console.log(res);
+                            FB.api(`${res.id}/picture`, {height: 1000}, res => {
+                                console.log(res);
+                            })
+                        })
+
+
+                    });
+                }
+            });
+        })
+    })
+</script>
 </html>

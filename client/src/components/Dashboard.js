@@ -6,10 +6,6 @@ import store from "../store/store";
 
 import Routes from './Routes';
 
-//chat
-import SmallChatIndex from './Tools/SmallChat/SmallChatIndex';
-import {closeSmallchat} from '../actions/small-chat';
-
 import Navbar from '../components/layout/Navbar';
 import RightBar from '../components/layout/RightBar';
 
@@ -19,7 +15,6 @@ import jwt_decode from "jwt-decode";
 import {setAuthToken} from '../helpers/helpers';
 import {setCurrentUser, logoutUser} from '../actions/actions';
 import {clearProfile} from '../actions/profileActions';
-import {socketInit} from '../actions/small-chat';
 
 let internetTimeOut;
 
@@ -83,24 +78,9 @@ class Dashboard extends Component {
     };
 
 
-    socketConnect = () => {
-        // socket.on('connect', () => {
-        //     console.log('user connect');
-        //     console.log(socket);
-        //
-        //     this.props.socketInit(socket);
-        //
-        // })
-    };
-
-
     componentDidMount() {
         window.addEventListener('online', this.setOnline);
         window.addEventListener('offline', this.setOffline);
-
-
-        this.socketConnect();
-
     }
 
     componentWillUnmount() {
@@ -136,7 +116,7 @@ class Dashboard extends Component {
     render() {
 
         const {showMobileMenu, isOffline, isOnline, serverError} = this.state;
-        const {auth, dom: {smallRightBar}, chat} = this.props;
+        const {auth, dom: {smallRightBar}} = this.props;
 
         if (auth.isAuthenticated !== true) {
             return <Redirect to='/login'/>
@@ -166,19 +146,6 @@ class Dashboard extends Component {
                             <Route path='*' render={() => <Redirect to='/not-found'/>}/>
                         </Switch>
                     </div>
-
-
-
-                    {   chat.showSmallChat &&
-                    <SmallChatIndex
-                        closeSmallchat={this.props.closeSmallchat}
-                        chat={chat}
-                        myId={auth.user.id}
-                        // socket={socket}
-                    />
-                    }
-
-
                 </section>
 
             </div>
@@ -190,5 +157,4 @@ export default connect(state => ({
     auth: state.auth,
     dom: state.dom,
     errors: state.errors,
-    chat: state.chat
-}), {closeSmallchat, socketInit})(Dashboard);
+}))(Dashboard);
