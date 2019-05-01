@@ -5583,9 +5583,8 @@ section small {
   border-top: none
 }
 
-.table td,.table th {
-  vertical-align: middle;
-  white-space: nowrap
+.table td:not(:first-child), .table th:not(:first-child) {
+  width: 25%;
 }
 
 .modal-open {

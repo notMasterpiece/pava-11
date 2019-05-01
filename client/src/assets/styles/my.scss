@@ -16,10 +16,6 @@ $scoreGreen: #4CAF50;
   }
 }
 
-a:visited {
-  color: #fff;
-}
-
 .user-post a:visited {
   color: #609;
 }
@@ -1547,6 +1543,11 @@ body .jodit_toolbar {
   border: 0;
 }
 
+
+.table-responsive th,
+.table-responsive td {
+  vertical-align: top;
+}
 
 canvas {
   position: fixed;

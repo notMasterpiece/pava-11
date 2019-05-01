@@ -28,6 +28,7 @@ const task = require('./routes/api/task');
 const calendar = require('./routes/api/calendar');
 const notification = require('./routes/api/notification');
 const chat = require('./routes/api/chat');
+const pass = require('./routes/api/pass');
 
 const test = require('./routes/api/test');
 
@@ -73,7 +74,7 @@ app.use('/api/task', task);
 app.use('/api/fake', fake);
 app.use('/api/calendar', calendar);
 app.use('/api/chat', chat);
-
+app.use('/api/pass', pass);
 
 //test
 app.use('/api/test', test);

@@ -3,6 +3,7 @@ const router = express.Router();
 const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const CryptoJS = require("crypto-js");
 
 const transporter = require('../../middleware/mail/mailTransport');
 const resetPassTemplate = require('../../middleware/mail/resetPassword');

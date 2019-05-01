@@ -22,6 +22,7 @@ import Test from './pages/test';
 import ServerError from './pages/500/Error_500';
 
 import PrivateMessagesIndex from './pages/PrivateMssages/PrivateMessagesIndex';
+import MyPass from "./pages/MyPass/MyPass";
 
 
 
@@ -118,6 +119,10 @@ const Routes = [
     {
         path: '/test',
         component: Test,
+    },
+    {
+        path: '/my-pass',
+        component: MyPass,
     },
     {
         path: '/error',

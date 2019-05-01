@@ -126,6 +126,13 @@ class RightBar extends Component {
                 <li className="header">MY</li>
 
                 <li>
+                    <Link to={'/my-pass'}>
+                        <i className="zmdi zmdi-shield-security" />
+                        <span>Мої паролі</span>
+                    </Link>
+                </li>
+
+                <li>
                     <Link to={'/gallery'}>
                         <i className="zmdi zmdi-image-alt" />
                         <span>Моя галерея</span>
