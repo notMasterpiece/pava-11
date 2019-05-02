@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 import {getAllMessages} from '../../../actions/messages';
 
 import {gotoBottom} from '../../../helpers/helpers';
-
+import { Scrollbars } from 'react-custom-scrollbars';
 import './Messages.scss';
 
 
@@ -142,7 +142,7 @@ class MessagesIndex extends Component {
                         <div className="col-lg-4 col-md-5 people-list-wrap">
                             <div className="card">
                                 <div className="body">
-                                    <div className="people-list" style={{height: height, overflow: 'auto' }}>
+                                    <Scrollbars className="people-list" style={{height: height}}>
 
                                         <div className="tab-content">
                                             <div className="tab-pane active">
@@ -163,7 +163,7 @@ class MessagesIndex extends Component {
 
                                             </div>
                                         </div>
-                                    </div>
+                                    </Scrollbars>
                                 </div>
                             </div>
                         </div>
