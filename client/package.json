@@ -19,8 +19,6 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-datepicker": "^1.7.0",
     "react-dom": "^16.6.0",
-    "react-facebook-login": "^4.1.1",
-    "react-google-login": "^4.0.1",
     "react-google-maps": "^9.4.5",
     "react-image-lightbox": "^5.1.0",
     "react-moment": "^0.9.2",

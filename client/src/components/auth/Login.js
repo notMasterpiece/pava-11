@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {loginUser, loginUserbyFacebook} from '../../actions/actions';
-
-// import FacebookLogin from 'react-facebook-login';
-import {GoogleLogin} from 'react-google-login';
+import {loginUser, loginUserbyFacebook, loginUserBySocial} from '../../actions/actions';
 
 import MatrixRein from '../Tools/MatrixReain';
 import Register from './Register';
 
+import Social from './Social';
 
+// const providers = ['twitter', 'google', 'facebook', 'github', 'linkedin'];
+const providers = ['google', 'facebook', 'github', 'linkedin'];
 
 
 class Login extends Component {
@@ -56,9 +56,6 @@ class Login extends Component {
     };
 
 
-
-
-
     componentDidMount() {
 
         window.addEventListener('resize', this.runMatrixRain);
@@ -82,35 +79,6 @@ class Login extends Component {
             })
         }
     }
-
-
-    // responseFacebook = user => {
-    //
-    //     const newUser = {
-    //         name: user.name,
-    //         email: user.email,
-    //         avatar: user.picture.data.url,
-    //         id: user.id,
-    //         provider: 'facebook'
-    //     };
-    //
-    //     this.props.loginUserbyFacebook(newUser);
-    // };
-
-
-    responseGoogle = user => {
-
-        const newUser = {
-            name: user.profileObj.name,
-            email: user.profileObj.email,
-            avatar: user.profileObj.imageUrl,
-            id: user.googleId,
-            provider: 'google'
-        };
-
-        this.props.loginUserbyFacebook(newUser);
-    };
-
 
     render() {
 
@@ -184,55 +152,18 @@ class Login extends Component {
                                         </div>
                                         <NavLink to='forgot' className="link">Забули пароль</NavLink>
 
-                                        <br/>
-
-
-                                        <button
-                                            id='facebook'
-                                        >facebook</button>
-
-                                        <div className="social-login">
-                                            {/*<FacebookLogin*/}
-                                            {/*    size={'metro'}*/}
-                                            {/*    appId="488196955039549"*/}
-                                            {/*    autoLoad={false}*/}
-                                            {/*    fields="name,email,picture"*/}
-                                            {/*    callback={this.responseFacebook}*/}
-                                            {/*    textButton="Увійти через Facebook"*/}
-                                            {/*    cssClass="btnFacebook"*/}
-                                            {/*    disableMobileRedirect={true}*/}
-                                            {/*    icon={<i className="zmdi zmdi-facebook"/>}*/}
-                                            {/*/>*/}
-
-                                            <GoogleLogin
-                                                clientId="320137920290-a7t5q94gd22h0ktkn5k9qeq8n0nq2eo5.apps.googleusercontent.com"
-                                                onSuccess={this.responseGoogle}
-                                                onFailure={this.responseGoogle}
-                                                buttonText="Увійти через Google"
-                                                className={'btnGoogle'}
-                                                disableMobileRedirect={true}
-                                            />
-
-                                            {/*<LinkedIn*/}
-                                            {/*clientId='777cbc1gfof8yk'*/}
-                                            {/*callback={this.callbackLinkedIn}*/}
-                                            {/*className={'btnLinkedin'}*/}
-                                            {/*text='LinkedIn' />*/}
-
-
-                                            {/*<LinkedinSDK*/}
-                                            {/*clientId="777cbc1gfof8yk"*/}
-                                            {/*callBack={this.responseLinkedin}*/}
-                                            {/*fields=":(id,num-connections,picture-url)"*/}
-                                            {/*className={'className'}*/}
-                                            {/*loginButtonText={'Login with Linkedin'}*/}
-                                            {/*logoutButtonText={'Logout from Linkedin'}*/}
-                                            {/*buttonType={'button'}*/}
-                                            {/*// icon={<Icon />}*/}
-                                            {/*getOAuthToken*/}
-                                            {/*/>,*/}
+                                        <div className="social">
+                                            <div className="social_title">Через социальные сети</div>
+                                            <div className="social_btn">
+                                                {providers.map(provider =>
+                                                    <Social
+                                                        provider={provider}
+                                                        loginUserBySocial={this.props.loginUserBySocial}
+                                                        key={provider}
+                                                    />
+                                                )}
+                                            </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -255,4 +186,4 @@ Register.PropTypes = {
 export default connect(state => ({
     auth: state.auth,
     errors: state.errors
-}), {loginUser, loginUserbyFacebook})(Login);
+}), {loginUser, loginUserbyFacebook, loginUserBySocial})(Login);

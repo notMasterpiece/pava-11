@@ -19,9 +19,13 @@ export const goToLogin = (user, history) => dispatch => {
 
 // Login user, get user token
 export const loginUser = user => dispatch => {
-    console.log(user);
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
     axios
-    .post('/api/users/login', user)
+    .post('/api/users/login', user, config)
       .then(res => {
         const { token } = res.data;
 
@@ -42,6 +46,13 @@ export const loginUser = user => dispatch => {
         })
       })
 
+};
+
+export const loginUserBySocial = token => dispatch => {
+    localStorage.setItem('jwtToken', token);
+    setAuthToken(token);
+    const decode = jwt_decode(token);
+    dispatch(setCurrentUser(decode));
 };
 
 

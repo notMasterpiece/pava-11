@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
@@ -7,7 +8,8 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
 const helmet = require('helmet');
-require('dotenv').config();
+const session = require('express-session');
+
 
 const graphqlHttp = require('express-graphql');
 const graphqlSchema = require('./graphql/schema');
@@ -26,7 +28,6 @@ const fake = require('./routes/api/fake');
 const blog = require('./routes/api/blog');
 const task = require('./routes/api/task');
 const calendar = require('./routes/api/calendar');
-const notification = require('./routes/api/notification');
 const chat = require('./routes/api/chat');
 const pass = require('./routes/api/pass');
 
@@ -34,9 +35,9 @@ const test = require('./routes/api/test');
 
 
 const app = express();
-app.locals.user = null;
 const server = http.createServer(app);
 const io = socketIO(server);
+app.set('io', io);
 
 // bodyParser MIDD
 // parse application/x-www-form-urlencoded
@@ -48,7 +49,6 @@ app.use(bodyParser.json());
 app.use(helmet());
 require('./log/morgan')(app);
 
-
 // static files
 app.use('/files', express.static(path.join(__dirname, 'files')));
 app.use('/files/blog', express.static(path.join(__dirname, 'files/blog')));
@@ -57,10 +57,16 @@ app.use('/files/blog/*', express.static(path.join(__dirname, 'files/blog/*')));
 
 require('./socket/groupChat')(io);
 
-
 // passport MIDD
 app.use(passport.initialize());
 require('./config/passport')(passport);
+
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true
+}));
 
 
 // USE ROUTES
@@ -116,11 +122,6 @@ app.use(function(err, req, res, next) {
         status: err.status || 500
     });
 });
-
-
-//serviceWorker push notification
-// app.use('/api/notification', notification);
-
 
 // mongo
 require('./start-up/mongo')();

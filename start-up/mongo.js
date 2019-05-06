@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const keys = require('../config/keys');
 
 module.exports = () => {
-    mongoose.connect( keys.mongoURI, { useNewUrlParser: true })
+    mongoose.connect( keys.mongoURI, {
+        useNewUrlParser: true,
+        useCreateIndex: true
+    })
         .then( ()=> console.log('MongoDB connected') )
         .catch( err => {
             const error = new Error(err);
