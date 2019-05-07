@@ -15,6 +15,10 @@ import Error500 from './components/pages/500/Error_500';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+
+import moment from 'moment';
+moment.locale('ua');
+
 if(localStorage.color) {
   document.body.style.backgroundColor = localStorage.color;
 }
@@ -47,5 +51,3 @@ document.body.addEventListener('click', e => {
         if( elem ) elem.parentNode.removeChild(elem);
     }
 });
-
-

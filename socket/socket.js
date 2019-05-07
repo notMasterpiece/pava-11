@@ -30,7 +30,7 @@ module.exports = io => {
 
             Profile
                 .find()
-                .populate('user', ['avatar', 'name', '_id', 'online'])
+                .populate('user', ['avatar', 'name', '_id', 'online, updatedAt'])
                 .select('_id user')
                 .then(profiles => {
                     profiles.sort((a, b) => b.user.online - a.user.online);

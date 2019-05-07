@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
@@ -7,7 +8,6 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
 const helmet = require('helmet');
-require('dotenv').config();
 
 const graphqlHttp = require('express-graphql');
 const graphqlSchema = require('./graphql/schema');
@@ -54,7 +54,7 @@ app.use('/files/blog', express.static(path.join(__dirname, 'files/blog')));
 app.use('/files/blog/*', express.static(path.join(__dirname, 'files/blog/*')));
 
 
-require('./socket/groupChat')(io);
+require('./socket/socket')(io); 
 
 
 // passport MIDD

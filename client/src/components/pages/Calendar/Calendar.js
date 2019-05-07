@@ -1,6 +1,8 @@
 import React from 'react';
-import moment from 'moment';
 import PropTypes from 'prop-types';
+
+import moment from 'moment';
+import 'moment/locale/ru';
 
 import Week from './Week';
 import EventForm from './Event';
@@ -9,10 +11,7 @@ import Autocomplete from '../../Tools/Autocomplete/Autocomplete';
 
 import { connect } from 'react-redux';
 import { addEventAction, getAllEvents } from '../../../actions/calendar-action';
-
-
 import {getCoords} from '../../../helpers/helpers';
-
 
 class CalendarEvent extends React.Component {
     constructor(props) {
@@ -55,6 +54,8 @@ class CalendarEvent extends React.Component {
 
     renderDaysName = () => {
         const weekdays = moment.weekdays(true);
+
+        console.log(weekdays);
 
         return weekdays.map(day => (
             <th

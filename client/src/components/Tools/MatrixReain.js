@@ -50,6 +50,7 @@ class MatrixRein {
 
         for (let index = 0; index < this.gStreams; index++) {
             let text = String.fromCharCode(33 + Math.random() * 32);
+
             let x = index * this.font;
             let y = this.gY[index];
             this.ctx.fillText(text, x, y);

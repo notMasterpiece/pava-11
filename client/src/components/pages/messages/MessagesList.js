@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 import moment from 'moment';
 import styled from 'styled-components'
 import Emoji from '../../Tools/MyEmoji/Emoji';
