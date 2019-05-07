@@ -5583,9 +5583,8 @@ section small {
   border-top: none
 }
 
-.table td,.table th {
-  vertical-align: middle;
-  white-space: nowrap
+.table td:not(:first-child), .table th:not(:first-child) {
+  width: 25%;
 }
 
 .modal-open {
@@ -6390,4 +6389,11 @@ section small {
     margin-top: 0;
     width: 100%
   }
+}
+
+
+.social_btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

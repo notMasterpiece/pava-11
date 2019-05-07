@@ -14,7 +14,7 @@ import TextAreaFieldGroup from '../../Form/TextAreaFieldGroup';
 import InputGroup from '../../Form/InputGroup';
 
 
-import { createProfile } from '../../../actions/profileActions';
+import { createProfile } from '../../../actions/profile-action';
 
 
 

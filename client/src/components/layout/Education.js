@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Moment from 'react-moment';
 
-import {deleteEdu} from '../../actions/profileActions';
+import {deleteEdu} from '../../actions/profile-action';
 
 import { connect } from 'react-redux';
 

@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import Spinner from '../../Tools/Spinner/Spinner';
 import AllProfiles from './AllProfiles';
 
-import { getAllProfiles } from '../../../actions/profileActions'
+import { getAllProfiles } from '../../../actions/profile-action'
 
 class AllProfilesIndex extends Component {
 

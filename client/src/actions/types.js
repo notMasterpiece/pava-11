@@ -3,7 +3,7 @@ export const GET_ERRORS = 'GET_ERRORS';
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 
 
-export const GET_PROFILE = 'GET_PROFFILE';
+
 export const GET_GITHUB_PROFILE = 'GET_GITHUB_PROFILE';
 export const PROFILE_LOADING = 'PROFILE_LOADING';
 export const CLEAR_CURRENT_PROFILE = 'CLEAR_CURRENT_PROFILE';
@@ -72,3 +72,20 @@ export const HIDE_SMALL_CHAT = 'HIDE_SMALL_CHAT';
 export const SOCKET_INIT = 'SOCKET_INIT';
 export const GET_CHAT_ROOM = 'GET_CHAT_ROOM';
 export const CLOSE_SMALL_CHAT = 'CLOSE_SMALL_CHAT';
+
+
+// auth v2
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_FAIL = 'REGISTER_FAIL';
+export const USER_LOADED = 'USER_LOADED';
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGOUT = 'LOGOUT';
+
+export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+export const PROFILE_ERROR = 'PROFILE_ERROR';
+export const GET_PROFILE = 'GET_PROFFILE';
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const GET_PROFILES = 'GET_PROFILES';
+export const GET_REPOS = 'GET_REPOS';

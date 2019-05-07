@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
-import {getProfileById, getGithubByHangle} from '../../../actions/profileActions';
+import {getProfileById, getGithubByHangle} from '../../../actions/profile-action';
 import { createChatToUser } from '../../../actions/small-chat';
 
 import CustomeUserInfo from './CustomeUserInfo';

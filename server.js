@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
 const helmet = require('helmet');
+const session = require('express-session');
 
 const graphqlHttp = require('express-graphql');
 const graphqlSchema = require('./graphql/schema');
@@ -17,6 +18,7 @@ const graphqlResolver = require('./graphql/resolves');
 
 
 //load routes
+const auth = require('./routes/api/auth');
 const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 const post = require('./routes/api/post');
@@ -26,16 +28,16 @@ const fake = require('./routes/api/fake');
 const blog = require('./routes/api/blog');
 const task = require('./routes/api/task');
 const calendar = require('./routes/api/calendar');
-const notification = require('./routes/api/notification');
 const chat = require('./routes/api/chat');
+const pass = require('./routes/api/pass');
 
 const test = require('./routes/api/test');
 
 
 const app = express();
-app.locals.user = null;
 const server = http.createServer(app);
 const io = socketIO(server);
+app.set('io', io);
 
 // bodyParser MIDD
 // parse application/x-www-form-urlencoded
@@ -47,22 +49,29 @@ app.use(bodyParser.json());
 app.use(helmet());
 require('./log/morgan')(app);
 
-
 // static files
 app.use('/files', express.static(path.join(__dirname, 'files')));
 app.use('/files/blog', express.static(path.join(__dirname, 'files/blog')));
 app.use('/files/blog/*', express.static(path.join(__dirname, 'files/blog/*')));
 
 
+// socket 
 require('./socket/socket')(io); 
-
 
 // passport MIDD
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
 
+app.use(session({
+    secret: process.env.AUTH_SEKRET,
+    resave: true,
+    saveUninitialized: true
+}));
+
+
 // USE ROUTES
+app.use('/api/auth', auth);
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', post);
@@ -73,6 +82,7 @@ app.use('/api/task', task);
 app.use('/api/fake', fake);
 app.use('/api/calendar', calendar);
 app.use('/api/chat', chat);
+app.use('/api/pass', pass);
 
 
 //test
@@ -115,11 +125,6 @@ app.use(function(err, req, res, next) {
         status: err.status || 500
     });
 });
-
-
-//serviceWorker push notification
-// app.use('/api/notification', notification);
-
 
 // mongo
 require('./start-up/mongo')();

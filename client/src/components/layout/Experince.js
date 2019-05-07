@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 
 import {connect} from 'react-redux';
-import {deleteExp} from '../../actions/profileActions';
+import {deleteExp} from '../../actions/profile-action';
 
 class Experince extends React.Component {
   constructor(props) {

@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { logoutUser, showSmallMenu } from '../../actions/actions';
-import { clearProfile } from '../../actions/profileActions';
-
+import {showSmallMenu } from '../../actions/actions';
+import { logout } from '../../actions/auth-action';
 
 import Screenfull from '../Tools/Fullscreen';
 
@@ -16,11 +15,7 @@ class Navbar extends Component {
 
 
   logout = () => {
-    const {auth} = this.props;
-    const {id} = auth.user;
-
-    this.props.logoutUser(id);
-    this.props.clearProfile();
+    this.props.logout();
     this.props.history.push('/login');
   };
 
@@ -75,11 +70,11 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
   showSmallMenu: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
 
 export default connect(state => ({
   auth: state.auth
-}), {logoutUser, clearProfile, showSmallMenu})(withRouter(Navbar));
+}), {logout, showSmallMenu})(withRouter(Navbar));

@@ -1,7 +1,6 @@
 const User = require('../models/Users');
 const Profile = require('../models/Profile');
 const ChatRoom = require('../models/ChatRoom');
-const Message = require('../models/Message');
 const PMessage = require('../models/PrivateMessage');
 
 let globalRoom;

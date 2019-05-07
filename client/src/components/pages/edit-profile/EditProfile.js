@@ -20,7 +20,7 @@ import {isEmpty} from '../../../helpers/helpers';
 import VDropzone from  '../../Tools/Dropzone/MyDropzone';
 
 
-import {createProfile, getCurrentProfile} from '../../../actions/profileActions'
+import {createProfile, getCurrentProfile} from '../../../actions/profile-action'
 
 class CreateProfile extends Component {
     constructor(props) {

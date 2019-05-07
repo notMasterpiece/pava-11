@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import TextFieldGroup from '../../Form/TextFieldGroup';
 import TextAreaFieldGroup from '../../Form/TextAreaFieldGroup';
 
-import {addExperiense} from '../../../actions/profileActions';
+import {addExperiense} from '../../../actions/profile-action';
 
 class AddExperiense extends Component {
   constructor(props) {

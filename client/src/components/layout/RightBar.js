@@ -3,16 +3,10 @@ import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { getAllProfiles } from '../../actions/profileActions';
 
 import User from './User';
-import Spinner from '../Tools/Spinner/Spinner';
 
 class RightBar extends Component {
-
-  componentDidMount() {
-    this.props.getAllProfiles();
-  }
 
   renderPostsCount = () => {
     const {posts} = this.props.posts;
@@ -39,16 +33,13 @@ class RightBar extends Component {
   };
 
 
-  componentWillReceiveProps () {
-
-  }
-
-
   renderUser = () => {
       const { user } = this.props.auth;
       const { profile } = this.props.profile;
       const {url} = this.props.match;
+      if (!user) return;
       return url !== '/' &&
+
           <li>
               <User
                   user={ user }
@@ -60,7 +51,6 @@ class RightBar extends Component {
 
   render() {
       const {showMobileMenu} = this.props;
-    const { all_profiles } = this.props.profile;
 
       return (
       <aside className="right_menu">
@@ -98,7 +88,6 @@ class RightBar extends Component {
                   >
                   <i className="zmdi zmdi-delicious" />
                   <span>Профілі</span>
-                  { !all_profiles ? <Spinner /> : <span className="badge badge-default float-right">{all_profiles.length - 1}</span> }
                 </Link>
               </li>
                 <li>
@@ -124,6 +113,13 @@ class RightBar extends Component {
                 </li>
 
                 <li className="header">MY</li>
+
+                <li>
+                    <Link to={'/my-pass'}>
+                        <i className="zmdi zmdi-shield-security" />
+                        <span>Мої паролі</span>
+                    </Link>
+                </li>
 
                 <li>
                     <Link to={'/gallery'}>
@@ -165,4 +161,4 @@ export default connect(state => ({
   profile: state.profile,
   all_profiles : state.profile,
   posts: state.posts
-}), {getAllProfiles})(withRouter(RightBar));
+}))(withRouter(RightBar));

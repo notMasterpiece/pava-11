@@ -12,7 +12,7 @@ const Image = require('../../models/Images');
 // @route   GET api/upload
 // @desc    Get all image by current user
 // @access  Private
-router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get('/', passport.authenticate(['jwt', 'facebook'], { session: false }), (req, res) => {
 
     Image
         .find({user: req.user.id})

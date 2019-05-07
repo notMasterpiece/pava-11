@@ -1,43 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon1.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-    <title>PAVA - NETWORK</title>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-  </body>
-
-
-    <script>
-      //Load the JavaScript SDK asynchronously
-      (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-
-
-      window.fbAsyncInit = function () {
-        //FB JavaScript SDK configuration and setup
-        FB.init({
-          appId: '488196955039549', //FB App ID
-          cookie: true,  //enable cookies to allow the server to access the session
-          xfbml: true,  //parse social plugins on this page
-          version: 'v3.2' //use this graph api version 3.2
-        });
-      }
-    </script>
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="%PUBLIC_URL%/favicon1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="theme-color" content="#000000">
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+        <title>PAVA - NETWORK</title>
+    </head>
+    <body>
+        <noscript>
+            You need to enable JavaScript to run this app.
+        </noscript>
+        <div id="root"></div>
+    </body>
 </html>

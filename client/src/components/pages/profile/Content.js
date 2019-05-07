@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { getCurrentProfile } from '../../../actions/profileActions';
+import { getCurrentProfile } from '../../../actions/profile-action';
 import NoProfile from './NoProfile';
 import ProfileActions from './profileActions';
 
 
-// import Spinner from '../../Tools/Spinner/Spinner';
-import Spinner from '../../Tools/Spinner/AtomSpinner/AtomSpinner';
+import Spinner from '../../Tools/Spinner/Spinner';
 
 
 
@@ -19,15 +17,11 @@ class Content extends Component {
     const { user } = this.props.auth;
     const {profile, loading} = this.props.profile;
 
-    if (profile === null || loading) {
-      return <Spinner />
-    } else {
-      if (Object.keys(profile).length > 0) {
-        return <ProfileActions />
-      } else {
-        return <NoProfile user={user} />
-      }
-    }
+    if ( profile === null || loading ) return <Spinner />;
+
+    if (Object.keys(profile).length > 0) return <ProfileActions />;
+
+    return <NoProfile user={user} />
   };
 
   componentDidMount() {
@@ -39,7 +33,6 @@ class Content extends Component {
   }
 }
 
-// Content.propTypes = {};
 export default connect(state => ({
   auth: state.auth,
   profile: state.profile

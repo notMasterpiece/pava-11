@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import TextFieldGroup from '../../Form/TextFieldGroup';
 import TextAreaFieldGroup from '../../Form/TextAreaFieldGroup';
 
-import {addEducation} from '../../../actions/profileActions';
+import {addEducation} from '../../../actions/profile-action';
 
 class AddEducation extends Component {
   constructor(props) {

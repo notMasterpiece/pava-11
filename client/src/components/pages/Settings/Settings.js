@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import SketchPicker  from 'react-color'
 
 import {connect} from 'react-redux';
-import {changeColor} from '../../../actions/profileActions'
+import {changeColor} from '../../../actions/profile-action'
 
 class Settings extends Component {
     constructor(props){

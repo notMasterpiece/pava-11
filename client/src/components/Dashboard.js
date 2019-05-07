@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Redirect, Switch, Route} from 'react-router-dom';
 
 import {connect} from 'react-redux';
-import store from "../store/store";
 
 import Routes from './Routes';
 
@@ -11,31 +10,7 @@ import RightBar from '../components/layout/RightBar';
 
 import OflineStatus from './Tools/OflineStatus/OflineStatus';
 
-import jwt_decode from "jwt-decode";
-import {setAuthToken} from '../helpers/helpers';
-import {setCurrentUser, logoutUser} from '../actions/actions';
-import {clearProfile} from '../actions/profileActions';
-
 let internetTimeOut;
-
-
-if (localStorage.jwtToken) {
-    //Set auth token
-    setAuthToken(localStorage.jwtToken);
-    //Decode token
-    const decode = jwt_decode(localStorage.jwtToken);
-    //Set user and isAuthenticated
-    store.dispatch(setCurrentUser(decode));
-
-    // logout user
-    const currentTime = Date.now() / 1000;
-    if (decode.exp < currentTime) {
-        store.dispatch(logoutUser());
-        store.dispatch(clearProfile());
-        window.location.href = '/login';
-    }
-}
-
 
 class Dashboard extends Component {
 
@@ -59,8 +34,6 @@ class Dashboard extends Component {
             isOffline: true,
             isOnline: false
         })
-
-
     };
 
     setOnline = () => {
@@ -116,11 +89,7 @@ class Dashboard extends Component {
     render() {
 
         const {showMobileMenu, isOffline, isOnline, serverError} = this.state;
-        const {auth, dom: {smallRightBar}} = this.props;
-
-        if (auth.isAuthenticated !== true) {
-            return <Redirect to='/login'/>
-        }
+        const {dom: {smallRightBar}} = this.props;
 
         if (serverError) return <Redirect to='/error'/>;
 
@@ -157,4 +126,5 @@ export default connect(state => ({
     auth: state.auth,
     dom: state.dom,
     errors: state.errors,
+    profile: state.profile
 }))(Dashboard);

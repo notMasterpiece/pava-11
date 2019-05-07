@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getUserPhoto, deleteUserPhoto, addUserPhoto, downloadPhoto} from '../../../actions/profileActions';
+import {getUserPhoto, deleteUserPhoto, addUserPhoto, downloadPhoto} from '../../../actions/profile-action';
 import GalleryItem from "./GalleryItem";
 import ReactTooltip from 'react-tooltip';
 import './Gallery.scss';
