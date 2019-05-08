@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
+const auth = require('../../middleware/auth/auth');
 
 const CalendarEvent = require('../../models/CalendarEvent');
 
 
-router.get('/', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+router.get('/', auth, (req, res, next) => {
 
     CalendarEvent
         .find({user: req.user.id})
@@ -17,7 +17,7 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res, nex
 
 });
 
-router.post('/', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+router.post('/', auth, (req, res, next) => {
 
     const { name, description, date } = req.body;
 

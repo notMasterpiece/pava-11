@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
+const auth = require('../../middleware/auth/auth');
+
 const upload = require('../../start-up/multer');
 const cloudinary = require('cloudinary');
 require('../../start-up/cloudinary');
+
+
 const Profile = require('../../models/Profile');
 const Image = require('../../models/Images');
 
@@ -12,7 +15,7 @@ const Image = require('../../models/Images');
 // @route   GET api/upload
 // @desc    Get all image by current user
 // @access  Private
-router.get('/', passport.authenticate(['jwt', 'facebook'], { session: false }), (req, res) => {
+router.get('/', auth, (req, res) => {
 
     Image
         .find({user: req.user.id})
@@ -30,7 +33,7 @@ router.get('/', passport.authenticate(['jwt', 'facebook'], { session: false }), 
 // @route   POST api/profile
 // @desc    Create user profile
 // @access  Private
-router.post('/', upload.single('image'), passport.authenticate('jwt', { session: false }), async (req, res) => {
+router.post('/', upload.single('image'), auth, async (req, res) => {
 
     const result = await cloudinary.v2.uploader.upload(req.file.path);
 
@@ -46,7 +49,7 @@ router.post('/', upload.single('image'), passport.authenticate('jwt', { session:
 // @route   POST api/gallery
 // @desc    Add images to gallery
 // @access  Private
-router.post('/gallery', upload.array('gallery'), passport.authenticate('jwt', { session: false }), (req, res) => {
+router.post('/gallery', upload.array('gallery'), auth, (req, res) => {
 
     let res_promises = req.files.map(file => {
         return new Promise((resolve, reject) => {
@@ -107,7 +110,7 @@ router.post('/gallery', upload.array('gallery'), passport.authenticate('jwt', { 
 // @route   GET api/upload
 // @desc    Delete image by image ID
 // @access  Private
-router.post('/delete/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.post('/delete/:id', auth, (req, res) => {
 
     Image.findByIdAndRemove(req.params.id)
         .then(() => {

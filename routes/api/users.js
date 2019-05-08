@@ -219,9 +219,6 @@ router.get('/login/github/callback', passport.authenticate('github'), (req, res)
 });
 
 
-router.get('/login/google', passport.authenticate('google', {scope: ['profile']}));
-router.get('/login/google/callback', passport.authenticate('google', {scope: ['profile']}));
-
 
 router.get('/login/linkedin', passport.authenticate('linkedin'));
 router.get('/login/linkedin/callback', passport.authenticate('linkedin'));

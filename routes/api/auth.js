@@ -64,7 +64,7 @@ router.post(
 
             const payload = {
                 user: {
-                    id: user.id
+                    _id: user._id
                 }
             };
 
@@ -103,6 +103,20 @@ router.get('/facebook/callback', passport.authenticate('facebook'), req => {
         io.in(req.session.socketId).emit('facebook', {token});
     });
 
+});
+
+
+// @route    GET api/auth/google
+// @desc     Authenticate user by google
+// @access   Public
+router.get('/google', addSocketIdtoSession, passport.authenticate('google', {scope: ['profile']}));
+router.get('/google/callback', passport.authenticate('google', {scope: ['profile']} ), async (req, res, next) => {
+    const io = req.app.get('io');
+    jwt.sign(req.user, process.env.AUTH_SEKRET, {expiresIn: 36000}, (err, token) => {
+        if (err) throw err;
+        io.in(req.session.socketId).emit('google', {token});
+        next();
+    });
 });
 
 

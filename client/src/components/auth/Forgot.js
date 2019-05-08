@@ -37,42 +37,14 @@ class Forgot extends Component {
         }
         const user = {
             email
-        }
+        };
         this.setState({errors: null});
         this.props.resetPassword(user);
 
     };
 
 
-    loadFbLoginApi() {
-
-        window.fbAsyncInit = function() {
-            console.log(1);
-            window.FB.init({
-                appId: '100035900420838', //FB App ID
-                autoLogAppEvents : true,
-                xfbml            : true,
-                version: 'v3.2' //use this graph api version 3.2
-            });
-        };
-
-        console.log("Loading fb api");
-        // Load the SDK asynchronously
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    }
-
-
     componentDidMount() {
-
-        this.loadFbLoginApi();
-
-
         if(this.props.auth.isAuthenticated) {
             this.props.history.push('/dashboard');
         }
@@ -91,114 +63,6 @@ class Forgot extends Component {
             })
         }
     }
-
-
-    testAPI = () => {
-        console.log('Welcome!  Fetching your information.... ');
-        window.FB.api('/me', function(response) {
-            console.log('Successful login for: ' + response.name);
-
-            window.FB.api(
-                '/me/friends',
-                {scope: 'user_friends'},
-                function (response) {
-                    if (response && !response.error) {
-                        /* handle the result */
-                        console.log(response);
-                    }
-                },
-            );
-
-
-            window.FB.getLoginStatus(function(response) {
-                if (response.status === 'connected') {
-                    // The user is logged in and has authenticated your
-                    // app, and response.authResponse supplies
-                    // the user's ID, a valid access token, a signed
-                    // request, and the time the access token
-                    // and signed request each expire.
-                    var uid = response.authResponse.userID;
-                    var accessToken = response.authResponse.accessToken;
-
-                    console.log(accessToken);
-
-                } else if (response.status === 'not_authorized') {
-                    // The user hasn't authorized your application.  They
-                    // must click the Login button, or you must call FB.login
-                    // in response to a user gesture, to launch a login dialog.
-                } else {
-                    // The user isn't logged in to Facebook. You can launch a
-                    // login dialog with a user gesture, but the user may have
-                    // to log in to Facebook before authorizing your application.
-                }
-            });
-        });
-    }
-
-    statusChangeCallback = (response) => {
-        console.log('statusChangeCallback');
-        console.log(response);
-        if (response.status === 'connected') {
-            this.testAPI();
-        } else if (response.status === 'not_authorized') {
-            console.log("Please log into this app.");
-        } else {
-            console.log("Please log into this facebook.");
-        }
-    }
-
-    checkLoginState = () => {
-        window.FB.getLoginStatus(function(response) {
-            this.statusChangeCallback(response);
-        }.bind(this));
-    };
-
-    handleFBLogin = () => {
-        window.FB.login(this.checkLoginState());
-    };
-
-
-    FB = () => {
-        window.FB.login( response => {
-            if (response.authResponse) {
-                // Get and display the user profile data
-                window.FB.api('/me',
-                    'GET',
-                    {
-                        locale: 'en_US',
-                        fields: 'id,first_name,last_name,email,link,gender,locale,picture',
-                        'height': 500
-                    },
-                        res => {
-                            console.log(res);
-                            window.FB.api(
-                                `/${res.id}/picture`,
-                                'GET',
-                                {
-                                    "redirect":"false",
-                                    "height": "500"
-                                },
-                                function(response) {
-                                    console.log(response);
-                                    // Insert your code here
-                                }
-                            );
-                            window.FB.api(
-                                `/${res.id}/friends`,
-                                'GET',
-                                {},
-                                function(response) {
-                                    console.log(response);
-                                    // Insert your code here
-                                }
-                            );
-                })
-            } else {
-                console.log('cansel');
-            }
-        }, {scope: 'email, public_profile'});
-    };
-
 
     render() {
 

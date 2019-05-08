@@ -52,9 +52,10 @@ class Social extends Component {
         const socketUrl = window.location.origin;
         socket = io.connect(socketUrl);
 
-        socket.on('facebook', user => {
+        socket.on('google', token => {
             popup.close();
-            this.props.loginUserBySocial(user);
+            console.log(token);
+            this.props.loginSocial(token);
         })
 
     }

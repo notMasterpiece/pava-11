@@ -1,6 +1,4 @@
-import {SET_CURRENT_USER, SUCCESS_SEND_RESET_PASS, USER_LOADED, REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_FAIL, AUTH_ERROR, LOGIN_SUCCESS, LOGOUT} from '../actions/types';
-
-import { isEmpty } from '../helpers/helpers';
+import {SUCCESS_SEND_RESET_PASS, USER_LOADED, REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_FAIL, AUTH_ERROR, LOGIN_SUCCESS, LOGOUT} from '../actions/types';
 
 const initState = {
   token: localStorage.getItem('token'),
@@ -34,7 +32,7 @@ export default (state = initState, action ) => {
       };
 
     case REGISTER_FAIL:
-    case AUTH_ERROR:
+    // case AUTH_ERROR:
     case LOGIN_FAIL:
     case LOGOUT:
       localStorage.removeItem('token');
@@ -43,14 +41,6 @@ export default (state = initState, action ) => {
         token: null,
         isAuthenticated: null,
         loading: true
-      };
-
-
-    case SET_CURRENT_USER:
-      return {
-        ...state,
-        isAuthenticated: !isEmpty(action.payload),
-        user: action.payload
       };
     case SUCCESS_SEND_RESET_PASS:
       return {

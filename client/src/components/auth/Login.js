@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {login, loginUserBySocial} from '../../actions/auth-action';
+import {login, loginSocial} from '../../actions/auth-action';
 
 
 import MatrixRein from '../Tools/MatrixReain';
@@ -143,6 +143,7 @@ class Login extends Component {
                                             <div className="social_btn">
                                                 {providers.map(provider =>
                                                     <Social
+                                                        loginSocial={this.props.loginSocial}
                                                         provider={provider}
                                                         loginUserBySocial={this.props.loginUserBySocial}
                                                         key={provider}
@@ -172,4 +173,4 @@ Register.PropTypes = {
 export default connect(state => ({
     auth: state.auth,
     errors: state.errors
-}), {login, loginUserBySocial})(Login);
+}), {login, loginSocial})(Login);

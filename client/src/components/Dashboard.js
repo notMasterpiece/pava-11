@@ -9,6 +9,7 @@ import Navbar from '../components/layout/Navbar';
 import RightBar from '../components/layout/RightBar';
 
 import OflineStatus from './Tools/OflineStatus/OflineStatus';
+import Spinner from "./Tools/Spinner/Spinner";
 
 let internetTimeOut;
 
@@ -73,7 +74,6 @@ class Dashboard extends Component {
     }
 
 
-
     renderRoutes = () => {
         return Routes.map(route => (
             <Route
@@ -89,7 +89,9 @@ class Dashboard extends Component {
     render() {
 
         const {showMobileMenu, isOffline, isOnline, serverError} = this.state;
-        const {dom: {smallRightBar}} = this.props;
+        const {dom: {smallRightBar}, auth} = this.props;
+
+        console.log(this.props, 'in dashboard');
 
         if (serverError) return <Redirect to='/error'/>;
 
@@ -99,19 +101,18 @@ class Dashboard extends Component {
 
                 <OflineStatus
                     isOnline={isOnline}
-                    isOffline={isOffline}/>
+                    isOffline={isOffline}
+                />
 
-                {/*<Proggres/>*/}
+                <Navbar funcShowMobileMenu={this.funcShowMobileMenu}/>
 
-                <Navbar funcShowMobileMenu={this.funcShowMobileMenu} />
-
-                <RightBar showMobileMenu={showMobileMenu} />
+                <RightBar showMobileMenu={showMobileMenu}/>
 
                 <section className="content">
                     <div className="container-fluid">
 
                         <Switch>
-                            { this.renderRoutes() }
+                            {this.renderRoutes()}
                             <Route path='*' render={() => <Redirect to='/not-found'/>}/>
                         </Switch>
                     </div>
@@ -119,6 +120,7 @@ class Dashboard extends Component {
 
             </div>
         );
+
     }
 }
 

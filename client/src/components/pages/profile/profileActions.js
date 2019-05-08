@@ -62,6 +62,7 @@ class ProfileActions extends Component {
         const {showGoogleMaps, showUserGallery} = this.state;
         const {profile} = this.props.profile;
         const {status, experience, education} = this.props.profile.profile;
+
         const {name, email, avatar} = this.props.auth.user;
 
 

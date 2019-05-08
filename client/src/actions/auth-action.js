@@ -11,7 +11,6 @@ export const loadUser = () => async dispatch => {
 
     try {
         const res = await axios.get('/api/auth');
-
         dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -55,16 +54,24 @@ export const login = (email, password) => async dispatch => {
 
 
 
+// Login User
+export const loginSocial = token => async dispatch => {
+    try {
+        dispatch({
+            type: LOGIN_SUCCESS,
+            payload: token
+        });
 
-export const loginUserBySocial = token => dispatch => {
-    // localStorage.setItem('jwtToken', token);
-    // setAuthToken(token);
-    // const decode = jwt_decode(token);
-    // dispatch(setCurrentUser(decode));
-    return {
-
+        dispatch(loadUser());
+    } catch (err) {
+        const errors = err.response.data.errors;
+        dispatch({
+            type: LOGIN_FAIL,
+            payload: errors
+        });
     }
 };
+
 
 
 

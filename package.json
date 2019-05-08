@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "mac" : "HTTPS=true&&npm start --prefix client",
     "client": "set HTTPS=true&&npm start --prefix client",
     "server": "nodemon server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",

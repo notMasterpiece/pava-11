@@ -14,7 +14,7 @@ import Error500 from './components/pages/500/Error_500';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import {loadUser} from "./actions/actions";
+import {loadUser} from "./actions/auth-action";
 import {setAuthToken} from './helpers/helpers';
 
 import moment from 'moment';
