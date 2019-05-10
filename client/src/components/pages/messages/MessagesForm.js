@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import smile from '../../../assets/images/smile.svg';
-import image from '../../../assets/images/image.svg';
+// import image from '../../../assets/images/image.svg';
 
 const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing, renderEmoji, AddCoolIcon, AddFile, files}) => {
     console.log(files);
@@ -15,22 +15,21 @@ const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing, renderEm
                 <span/><span/><span/>
             </div>
             }
-            <form className="input-group mb-0 " onSubmit={e => sendMessage(e)}>
-                <input
+            <MForm onSubmit={e => sendMessage(e)}>
+                <Input
                     autoComplete="off"
                     autoFocus={true}
                     type="text"
-                    className="form-control"
                     placeholder="Введіть повідомлення..."
                     name={'message'}
                     value={message}
                     onChange={onChange}
                     onKeyUp={onKeyUp}
                 />
-                <button type={'submit'} className="input-group-append">
+                <MButton type={'submit'} className="input-group-append">
                     <span className="input-group-text"><i className="zmdi zmdi-mail-send"/></span>
-                </button>
-            </form>
+                </MButton>
+            </MForm>
             <div className="icons">
                 <AddLikeBtn onClick={AddCoolIcon}>
                     <svg aria-labelledby="js_il" role="img" height="100%" width="100%" version="1.1"
@@ -50,15 +49,15 @@ const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing, renderEm
                         </g>
                     </svg>
                 </AddLikeBtn>
-                <AddImageBtn>
-                    <img src={image} alt='file'/>
-                    <input
-                        type="file"
-                        multiple
-                        onChange={e => AddFile(e.target.files)}
-                    />
-                    <img src={image} alt=""/>
-                </AddImageBtn>
+                {/*<AddImageBtn>*/}
+                {/*    <img src={image} alt='file'/>*/}
+                {/*    <input*/}
+                {/*        type="file"*/}
+                {/*        multiple*/}
+                {/*        onChange={e => AddFile(e.target.files)}*/}
+                {/*    />*/}
+                {/*    <img src={image} alt=""/>*/}
+                {/*</AddImageBtn>*/}
                 <AddEmojiBtn
                     className='add_emoji'
                     onClick={renderEmoji}
@@ -70,12 +69,21 @@ const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing, renderEm
     );
 };
 
+const MForm = styled.form`
+    height: 60px;
+    position: relative;
+    width: 100%;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+`;
+const MButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+`;
 
 const AddLikeBtn = styled.button` 
-  position: absolute;
-  top: 1px;
-  bottom: 1px;
-  right: 120px;
+  height: 50px;
   width: 50px;
   border: 0;
   cursor: pointer; 
@@ -85,10 +93,7 @@ const AddLikeBtn = styled.button`
   }
 `;
 const AddEmojiBtn = styled.button` 
-  position: absolute;
-  top: 1px;
-  bottom: 1px;
-  right: 40px;
+  height: 50px;
   width: 50px;
   border: 0;
   cursor: pointer; 
@@ -96,6 +101,13 @@ const AddEmojiBtn = styled.button`
     width: 20px;
     height: 20px;
   }
+`;
+
+
+const Input = styled.input`
+  height: 55px;
+  width: calc(100% - 150px);
+  border: 0;
 `;
 
 const AddImageBtn = styled.button` 

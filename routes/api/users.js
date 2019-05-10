@@ -3,20 +3,12 @@ const router = express.Router();
 const crypto = require('crypto');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-
 const transporter = require('../../middleware/mail/mailTransport');
 const resetPassTemplate = require('../../middleware/mail/resetPassword');
 
 
 // load input validation
 const validateRegisterInput = require('../../validation/register');
-const validateLoginInput = require('../../validation/login');
-
-
-const keys = require('../../config/keys_dev');
-
-
 const User = require('../../models/Users');
 
 
@@ -72,53 +64,53 @@ router.post('/register', (req, res) => {
 
 
 
-// @route   GET api/users/login
-// @desc    login user / JWT
-// @access  Public
-router.post('/login', (req, res) => {
-
-    const {errors, isValid} = validateLoginInput(req.body);
-
-    // Check validation
-    if (!isValid) {
-        return res.status(400).json(errors);
-    }
-
-
-    const email = req.body.email;
-    const password = req.body.password;
-
-    // Find user by email
-
-    User.findOne({email: email})
-        .then(user => {
-            // check for users
-            if (!user) {
-                errors.email = 'User not found (((';
-                return res.status(404).json(errors) // 404 not found
-            }
-            // Check password
-            bcrypt.compare(password, user.password)
-                .then(isMatch => {
-                    if (isMatch) {
-                        const payload = {
-                            user: {
-                                _id: user._id
-                            }
-                        };
-                        // User Matched
-                        jwt.sign(payload, process.env.AUTH_SEKRET, {expiresIn: 36000}, (err, token) => {
-                            if (err) throw err;
-                            res.json({token})
-                        });
-                    } else {
-                        errors.password = 'Password incorrect';
-                        return res.status(404).json(errors);
-                    }
-                })
-        })
-
-});
+// // @route   GET api/users/login
+// // @desc    login user / JWT
+// // @access  Public
+// router.post('/login', (req, res) => {
+//
+//     const {errors, isValid} = validateLoginInput(req.body);
+//
+//     // Check validation
+//     if (!isValid) {
+//         return res.status(400).json(errors);
+//     }
+//
+//
+//     const email = req.body.email;
+//     const password = req.body.password;
+//
+//     // Find user by email
+//
+//     User.findOne({email: email})
+//         .then(user => {
+//             // check for users
+//             if (!user) {
+//                 errors.email = 'User not found (((';
+//                 return res.status(404).json(errors) // 404 not found
+//             }
+//             // Check password
+//             bcrypt.compare(password, user.password)
+//                 .then(isMatch => {
+//                     if (isMatch) {
+//                         const payload = {
+//                             user: {
+//                                 _id: user._id
+//                             }
+//                         };
+//                         // User Matched
+//                         jwt.sign(payload, process.env.AUTH_SEKRET, {expiresIn: 36000}, (err, token) => {
+//                             if (err) throw err;
+//                             res.json({token})
+//                         });
+//                     } else {
+//                         errors.password = 'Password incorrect';
+//                         return res.status(404).json(errors);
+//                     }
+//                 })
+//         })
+//
+// });
 
 
 // @route POST api/users/reset password
@@ -211,19 +203,6 @@ router.post('/reset-pass/:token', (req, res) => {
 
 });
 
-
-router.get('/login/github', passport.authenticate('github'));
-router.get('/login/github/callback', passport.authenticate('github'), (req, res) => {
-
-
-});
-
-
-
-router.get('/login/linkedin', passport.authenticate('linkedin'));
-router.get('/login/linkedin/callback', passport.authenticate('linkedin'));
-
-
 //
 //
 // router.post('/login/provider', (req, res) => {
@@ -299,19 +278,19 @@ router.get('/login/linkedin/callback', passport.authenticate('linkedin'));
 // @route POST api/logout/
 // @desc logout user
 // @access Public
-router.post('/logout', (req, res, next) => {
-    const {id} = req.body;
-
-    User.findByIdAndUpdate(id,
-        {
-            $set: {online: false}
-        })
-        .then(() => {
-            res.json({logout: true})
-        })
-        .catch(err => next(err))
-
-});
+// router.post('/logout', (req, res, next) => {
+//     const {id} = req.body;
+//
+//     User.findByIdAndUpdate(id,
+//         {
+//             $set: {online: false}
+//         })
+//         .then(() => {
+//             res.json({logout: true})
+//         })
+//         .catch(err => next(err))
+//
+// });
 
 
 module.exports = router;

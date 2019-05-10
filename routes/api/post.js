@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
+const auth = require('../../middleware/auth/auth');
 
 
 
@@ -51,7 +51,7 @@ router.get('/:id', (req,res) => {
 // @route POST api/posts
 // @desc Create post
 // @access Private
-router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.post('/', auth, (req, res) => {
     const { errors, isValid } = validatePostInput(req.body);
 
     if(!isValid) {
@@ -79,7 +79,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 // @route DELETE api/posts/:id
 // @desc DELETE post
 // @access Private
-router.delete('/:id', passport.authenticate('jwt', { session: false }), (req,res) => {
+router.delete('/:id', auth, (req,res) => {
     Profile.findOne({user: req.user.id})
         .then( () => {
             Post.findById(req.params.id)
@@ -101,7 +101,7 @@ router.delete('/:id', passport.authenticate('jwt', { session: false }), (req,res
 // @route POST api/posts/like/:id
 // @desc POST like
 // @access Private
-router.post('/like/:id', passport.authenticate('jwt', { session: false }), (req,res) => {
+router.post('/like/:id', auth, (req,res) => {
     Profile.findOne({user: req.user.id})
         .then(profile => {
             Post.findById(req.params.id)
@@ -124,7 +124,7 @@ router.post('/like/:id', passport.authenticate('jwt', { session: false }), (req,
 // @route POST api/posts/unlike/:id
 // @desc POST unlike
 // @access Private
-router.post('/unlike/:id', passport.authenticate('jwt', { session: false }), (req,res) => {
+router.post('/unlike/:id', auth, (req,res) => {
 
     Profile.findOne({user: req.user.id})
         .then(profile => {
@@ -156,7 +156,7 @@ router.post('/unlike/:id', passport.authenticate('jwt', { session: false }), (re
 // @route POST api/posts/comments/:id
 // @desc POST comments
 // @access Private
-router.post('/comments/:id', passport.authenticate('jwt', { session: false }), (req,res) => {
+router.post('/comments/:id', auth, (req,res) => {
 
     const { errors, isValid } = validatePostInput(req.body);
 
@@ -186,7 +186,7 @@ router.post('/comments/:id', passport.authenticate('jwt', { session: false }), (
 // @route DELETE api/posts/comments/:id/:comments_id
 // @desc DELETE comments
 // @access Private
-router.delete('/uncomments/:id/:comment_id', passport.authenticate('jwt', { session: false }), (req,res) => {
+router.delete('/uncomments/:id/:comment_id', auth, (req,res) => {
 
     Post.findById(req.params.id)
         .then(post => {

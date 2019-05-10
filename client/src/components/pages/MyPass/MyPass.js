@@ -23,6 +23,7 @@ class MyPass extends Component {
 
     componentDidMount() {
 
+
         axios
             .get('/api/pass')
             .then(res => {

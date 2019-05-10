@@ -8,7 +8,14 @@
 }
 
 
+.chat-message {
+  display: flex;
+}
 
+.chat-message .icons {
+  position: absolute;
+  right: 40px;
+}
 
 
 .typing-indicator {

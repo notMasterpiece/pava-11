@@ -15,17 +15,15 @@ const Image = require('../../models/Images');
 // @route   GET api/upload
 // @desc    Get all image by current user
 // @access  Private
-router.get('/', auth, (req, res) => {
+router.get('/', auth, async (req, res) => {
 
-    Image
-        .find({user: req.user.id})
-        .populate('user')
-        .then( images => {
-            res.json(images)
-        })
-        .catch(err => {
-            console.log(err);
-        })
+    try {
+        const photo = await Image.find({user: req.user._id}).populate('user');
+        res.json(photo);
+
+    } catch (err) {
+        console.log(err);
+    }
 
 });
 
@@ -67,12 +65,11 @@ router.post('/gallery', upload.array('gallery'), auth, (req, res) => {
 
     Promise.all(res_promises)
         .then(result => {
-
             const imgPromises = result.map( img => {
                 return new Promise((resolve, reject) => {
 
                     const image = new Image({
-                        user: req.user.id,
+                        user: req.user._id,
                         image: img.result.secure_url,
                         name: img.file.originalname,
                         format: img.result.format,

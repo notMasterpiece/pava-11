@@ -1,12 +1,11 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
-
-import Spinner from '../../Tools/Spinner/Spinner';
 import AllProfiles from './AllProfiles';
 
-import { getAllProfiles } from '../../../actions/profile-action'
+import { getAllProfiles } from '../../../actions/profile-action';
+import Spinner from '../../Tools/Spinner/Spinner';
 
 class AllProfilesIndex extends Component {
 
@@ -14,30 +13,21 @@ class AllProfilesIndex extends Component {
     this.props.getAllProfiles();
   }
 
-  showProfile = () => {
-    const id = this.props.auth.user.id;
-    const {loading, all_profiles} = this.props.profile;
-
-    if(all_profiles === null || loading) {
-      return <Spinner />
-    } else {
-      if(all_profiles.length > 0) {
-        const filterProfile = all_profiles.filter(profile => profile.user._id !== id);
-        return <AllProfiles profiles={filterProfile}/>
-
-      } else {
-        return <p>Користувачів не знайдено ...</p>
-      }
-    }
-  };
-
   render() {
+    const {loading, profiles} = this.props.profile;
+    const id = '123';
 
-    return (
-      <Fragment>
-        {this.showProfile()}
-      </Fragment>
-    );
+    if (loading) return <Spinner />;
+
+    if (profiles) {
+      const filterProfile = profiles.filter(profile => profile.user._id !== id);
+      return <AllProfiles profiles={filterProfile}/>
+    }
+
+    return <p>Користувачів не знайдено ...</p>;
+
+
+
   }
 }
 

@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
-const keys = require('../config/keys');
-
-module.exports = () => {
-    mongoose.connect( keys.mongoURI, {
-        useNewUrlParser: true,
-        useCreateIndex: true
-    })
-        .then( ()=> console.log('MongoDB connected') )
-        .catch( err => {
-            const error = new Error(err);
-            error.httpStatusCode = 500;
-            return next(error);
+module.exports = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useCreateIndex: true,
+            useFindAndModify: false
         });
+
+        console.log('MongoDB Connected...');
+    } catch (err) {
+        console.error(err.message);
+        process.exit(1);
+    }
 };

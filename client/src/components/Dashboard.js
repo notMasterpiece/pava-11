@@ -9,7 +9,8 @@ import Navbar from '../components/layout/Navbar';
 import RightBar from '../components/layout/RightBar';
 
 import OflineStatus from './Tools/OflineStatus/OflineStatus';
-import Spinner from "./Tools/Spinner/Spinner";
+import {loadUser} from "../actions/auth-action";
+import { getCurrentProfile } from '../actions/profile-action';
 
 let internetTimeOut;
 
@@ -53,6 +54,11 @@ class Dashboard extends Component {
 
 
     componentDidMount() {
+
+        this.props.loadUser();
+        this.props.getCurrentProfile();
+
+
         window.addEventListener('online', this.setOnline);
         window.addEventListener('offline', this.setOffline);
     }
@@ -63,7 +69,7 @@ class Dashboard extends Component {
     }
 
 
-    static getDerivedStateFromProps(nextProps, prevState) {
+    static getDerivedStateFromProps(nextProps) {
 
         if (nextProps.errors && nextProps.errors.status && nextProps.errors.status === 500) {
             return {
@@ -89,9 +95,7 @@ class Dashboard extends Component {
     render() {
 
         const {showMobileMenu, isOffline, isOnline, serverError} = this.state;
-        const {dom: {smallRightBar}, auth} = this.props;
-
-        console.log(this.props, 'in dashboard');
+        const {dom: {smallRightBar}} = this.props;
 
         if (serverError) return <Redirect to='/error'/>;
 
@@ -129,4 +133,4 @@ export default connect(state => ({
     dom: state.dom,
     errors: state.errors,
     profile: state.profile
-}))(Dashboard);
+}),{getCurrentProfile, loadUser} )(Dashboard);

@@ -50,6 +50,8 @@ class GalleryIndex extends Component {
         this.props.addUserPhoto(formData, config);
     };
 
+
+
     onChange = e => {
         this.setState({
             [e.target.name] : e.target.value
@@ -134,12 +136,13 @@ class GalleryIndex extends Component {
 
         const {photo, loadingFile, lightboxIsOpen, currentImg} = this.state;
 
+
         return (
             <div>
                 <div className="block-header">
                     <div className="row clearfix">
                         <div className="col-md-12">
-                            <h2> MY Gallery</h2>
+                            <h2> My Gallery</h2>
                         </div>
                     </div>
                 </div>

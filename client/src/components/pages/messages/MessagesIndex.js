@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import MessagesForm from './MessagesForm';
 import MessagesList from './MessagesList';
 import MessageHeader from './MessageHeader';
-
 import {connect} from 'react-redux';
 import {getAllMessages} from '../../../actions/messages';
 
@@ -74,15 +73,16 @@ class MessagesIndex extends Component {
 
     componentDidMount() {
 
+        console.log(this.props.auth.user, 'this.props.auth.user');
         socket = io.connect(socketUrl);
-
         const chatContainer = document.body.querySelector('.chat-history');
-        const {id} = this.props.auth.user;
+        const {_id} = this.props.auth.user;
+        console.log(_id);
 
         socket.on('connect', () => {
             console.log('user connect');
 
-            socket.emit('USER_CONNECT', id);
+            socket.emit('USER_CONNECT', _id);
 
             const room = this.props.match.params.id || 'general';
 

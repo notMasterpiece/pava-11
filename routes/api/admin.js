@@ -15,8 +15,6 @@ const fs = require('fs');
 const path = require('path');
 
 
-
-
 // @route GET api/posts
 // @desc GET post
 // @access Public

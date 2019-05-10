@@ -23,6 +23,7 @@ class MessagesList extends PureComponent {
 
         const {messages, user, isFirst} = this.props;
 
+        console.log(messages);
 
 
         if (isFirst) {

@@ -8,6 +8,8 @@ const User = require('../../models/Users');
 const { check, validationResult } = require('express-validator/check');
 
 const auth = require('../../middleware/auth/auth');
+
+
 const addSocketIdtoSession = (req, res, next) => {
     req.session.socketId = req.query.socketId;
     next();
@@ -18,8 +20,9 @@ const addSocketIdtoSession = (req, res, next) => {
 // @desc     Test route
 // @access   Public
 router.get('/', auth, async (req, res, next) => {
+    console.log(req.user, 'user');
     try {
-        const user = await User.findById(req.user.id).select('-password');
+        const user = await User.findById(req.user._id).select('-password');
         res.json(user);
     } catch (err) {
         next(err);
@@ -67,6 +70,7 @@ router.post(
                     _id: user._id
                 }
             };
+            console.log(payload, 'payload');
 
             jwt.sign(
                 payload,
@@ -86,21 +90,18 @@ router.post(
 
 
 
-
+// @route    GET api/auth/facebook
+// @desc     Authenticate user by facebook
+// @access   Public
 router.get('/facebook', addSocketIdtoSession, passport.authenticate('facebook'));
-
-router.get('/facebook/callback', passport.authenticate('facebook'), req => {
+router.get('/facebook/callback', passport.authenticate('facebook'), (req, res) => {
+    console.log(req.user);
+    console.log(req.session.socketId);
     const io = req.app.get('io');
-
-    const payload = {
-        user: {
-            _id: user._id
-        }
-    };
-    // User Matched
-    jwt.sign(payload, process.env.AUTH_SEKRET, {expiresIn: 36000}, (err, token) => {
+    jwt.sign(req.user, process.env.AUTH_SEKRET, {expiresIn: 36000}, (err, token) => {
         if (err) throw err;
         io.in(req.session.socketId).emit('facebook', {token});
+        res.end();
     });
 
 });
@@ -110,14 +111,52 @@ router.get('/facebook/callback', passport.authenticate('facebook'), req => {
 // @desc     Authenticate user by google
 // @access   Public
 router.get('/google', addSocketIdtoSession, passport.authenticate('google', {scope: ['profile']}));
-router.get('/google/callback', passport.authenticate('google', {scope: ['profile']} ), async (req, res, next) => {
+router.get('/google/callback', passport.authenticate('google', {scope: ['profile']} ), async (req, res) => {
     const io = req.app.get('io');
     jwt.sign(req.user, process.env.AUTH_SEKRET, {expiresIn: 36000}, (err, token) => {
         if (err) throw err;
         io.in(req.session.socketId).emit('google', {token});
-        next();
+        res.end();
     });
 });
+
+
+
+// @route    GET api/auth/github
+// @desc     Authenticate user by github
+// @access   Public
+router.get('/github', addSocketIdtoSession, passport.authenticate('github'));
+router.get('/github/callback', passport.authenticate('github'), (req, res) => {
+    console.log(req.session.socketId);
+    console.log(req.user);
+
+    const io = req.app.get('io');
+    jwt.sign(req.user, process.env.AUTH_SEKRET, {expiresIn: 36000}, (err, token) => {
+        if (err) throw err;
+        io.in(req.session.socketId).emit('github', {token});
+        res.end();
+    });
+});
+
+
+
+
+// @route    GET api/auth/linkedin
+// @desc     Authenticate user by linkedin
+// @access   Public
+router.get('/linkedin', addSocketIdtoSession, passport.authenticate('linkedin'));
+router.get('/linkedin/callback', passport.authenticate('linkedin'), (req, res) => {
+    console.log(req.session.socketId);
+    console.log(req.user);
+
+    const io = req.app.get('io');
+    jwt.sign(req.user, process.env.AUTH_SEKRET, {expiresIn: 36000}, (err, token) => {
+        if (err) throw err;
+        io.in(req.session.socketId).emit('linkedin', {token});
+        res.end();
+    });
+});
+
 
 
 module.exports = router;

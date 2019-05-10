@@ -1,6 +1,7 @@
 import {GET_USER_PHOTO, ADD_PHOTO, REMOVE_PHOTO} from '../actions/types';
 
 const initState = {
+    loading: true,
     photo: []
 };
 

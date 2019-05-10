@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
+const auth = require('../../middleware/auth/auth');
 
 const Task = require('../../models/Task');
 
 
-router.get('/', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+router.get('/', auth, (req, res, next) => {
 
     Task.find({user: req.user.id})
         .then(tasks => {
@@ -14,7 +14,7 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res, nex
 
 });
 
-router.post('/', passport.authenticate('jwt', { session: false }), (req, res, next) => {
+router.post('/', auth, (req, res, next) => {
 
     const newTask = new Task({
         text: req.body.task,

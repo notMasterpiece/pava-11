@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import io from 'socket.io-client';
+
 let socket,
     popup;
 
@@ -15,10 +16,10 @@ class Social extends Component {
 
     checkPopup() {
         const check = setInterval(() => {
-            const { popup } = this;
+            const {popup} = this;
             if (!popup || popup.closed || popup.closed === undefined) {
                 clearInterval(check);
-                this.setState({ disabled: ''})
+                this.setState({disabled: ''})
             }
         }, 1000)
     }
@@ -38,7 +39,6 @@ class Social extends Component {
     };
 
 
-
     startAuth = provider => {
         if (!this.state.disabled) {
             popup = this.openPopup(provider);
@@ -47,17 +47,34 @@ class Social extends Component {
         }
     };
 
+    socketCallback = token => {
+        popup.close();
+        this.props.loginSocial(token);
+    };
+
 
     componentDidMount() {
+
         const socketUrl = window.location.origin;
         socket = io.connect(socketUrl);
 
         socket.on('google', token => {
-            popup.close();
-            console.log(token);
-            this.props.loginSocial(token);
-        })
+            this.socketCallback(token)
+        });
+        socket.on('facebook', token => {
+            this.socketCallback(token)
+        });
+        socket.on('github', token => {
+            this.socketCallback(token)
+        });
+        socket.on('linkedin', token => {
+            this.socketCallback(token)
+        });
+    }
 
+
+    componentWillUnmount() {
+        socket.disconnect();
     }
 
 
@@ -66,9 +83,9 @@ class Social extends Component {
         const {provider} = this.props;
 
         return (
-            <Button
-                onClick={() => this.startAuth(provider)}
-            >{provider}</Button>
+            <Button onClick={() => this.startAuth(provider)} >
+                {provider}
+            </Button>
         );
     }
 }

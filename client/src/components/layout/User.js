@@ -1,12 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
+
+const renderProvider = provider => {
+    switch (provider) {
+        case 'facebook':
+            return (
+                <p>facebook</p>
+            )
+            break;
+        case 'google':
+            return (
+                <p>facebook</p>
+            )
+            break;
+        default:
+            alert('not');
+    }
+};
+
 // const User = ({user, profile}) => {
 const User = ({user, profile}) => {
+    console.log(user);
     return (
       <div className="user-info m-b-20">
         <div className="image">
           <img src={user.avatar} alt={user.name} />
+          {renderProvider(user.provider)}
         </div>
         <div className="detail">
           <h6>{user.name}</h6>

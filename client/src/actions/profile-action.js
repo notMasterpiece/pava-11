@@ -9,7 +9,7 @@ import {
     CLEAR_CURRENT_PROFILE,
     PROFILE_LOADING,
     GET_ERRORS,
-    GET_ALL_PROFILES,
+    GET_PROFILES,
     GET_GITHUB_PROFILE,
     CHANGE_COLOR
 } from './types';
@@ -21,6 +21,7 @@ import nprogress from "nprogress";
 export const getCurrentProfile = () => async dispatch => {
     try {
         const res = await axios.get('/api/profile/me');
+        console.log(res.data);
         dispatch({
             type: GET_PROFILE,
             payload: res.data
@@ -238,22 +239,19 @@ export const deleteEdu = (id) => dispatch => {
 
 
 
-// get All Profiles
-export const getAllProfiles = () => dispatch => {
-  dispatch( setProfileLoading());
-  axios.get('/api/profile/all')
-    .then(res => {
-      dispatch({
-        type: GET_ALL_PROFILES,
-        payload: res.data
-      })
-    })
-    .catch(() => {
-      dispatch({
-        type: GET_ALL_PROFILES,
-        payload: null
-      })
-    })
+export const getAllProfiles = () => async dispatch => {
+    try {
+        const res = await axios.get('/api/profile');
+        dispatch({
+            type: GET_PROFILES,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        });
+    }
 };
 
 

@@ -10,7 +10,6 @@ const auth = require('../../middleware/auth/auth');
 // @desc get all passwords
 // @access PRIVATE
 router.get('/', auth, async (req, res, next) => {
-
     try {
         const pass = await Password.find({user: req.user._id});
         pass.map(p => {
@@ -32,11 +31,12 @@ router.get('/', auth, async (req, res, next) => {
 // @access PRIVATE
 router.post('/', auth, async (req, res, next) => {
     const {site, login, pass, other, _id} = req.body;
+    console.log(req.body);
     let saved;
-
     try {
 
         if (_id) {
+            console.log('id');
             const set = {
                 site: CryptoJS.AES.encrypt(site.toString(), process.env.CRYPTO_PASS).toString(),
                 login: CryptoJS.AES.encrypt(login.toString(), process.env.CRYPTO_PASS).toString(),
@@ -47,18 +47,20 @@ router.post('/', auth, async (req, res, next) => {
             saved = await Password.findByIdAndUpdate(_id, set,{new: true});
 
         } else {
+            console.log('no id');
             const newPass = new Password({
-                user: req.user.id,
+                user: req.user._id,
                 site: CryptoJS.AES.encrypt(site.toString(), process.env.CRYPTO_PASS.toString()),
                 login: CryptoJS.AES.encrypt(login.toString(), process.env.CRYPTO_PASS.toString()),
                 pass: CryptoJS.AES.encrypt(pass.toString(), process.env.CRYPTO_PASS.toString()),
                 other: CryptoJS.AES.encrypt(other.toString(), process.env.CRYPTO_PASS.toString()),
             });
 
+            console.log(newPass);
+
             saved = await newPass.save();
 
         }
-
 
         const result = {
             _id: saved._id,
@@ -71,6 +73,7 @@ router.post('/', auth, async (req, res, next) => {
         res.json(result);
 
     } catch (err) {
+        console.log(err);
         next(err);
     }
 });
@@ -79,7 +82,7 @@ router.post('/', auth, async (req, res, next) => {
 // @route POST api/pass
 // @desc delete password
 // @access PRIVATE
-router.post('/delete/:id', passport.authenticate('jwt', {session: false}), async (req, res, next) => {
+router.post('/delete/:id', auth, async (req, res, next) => {
     try {
         const pass = await Password.findById(req.params.id);
 
@@ -88,7 +91,7 @@ router.post('/delete/:id', passport.authenticate('jwt', {session: false}), async
         }
 
         // Check user
-        if (pass.user.toString() !== req.user.id) {
+        if (pass.user.toString() !== req.user._id) {
             return res.status(401).json({msg: 'User not authorized'});
         }
 

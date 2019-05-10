@@ -67,7 +67,7 @@ class PrivateMessagesIndex extends Component {
 
         const newMessage = {
             icon: id,
-            user: auth.user.id,
+            user: auth.user._id,
         };
 
         if (id) {
@@ -83,7 +83,7 @@ class PrivateMessagesIndex extends Component {
 
         const newMessage = {
             coll: true,
-            user: auth.user.id,
+            user: auth.user._id,
         };
 
         socket.emit('ADD_COOL', newMessage);
@@ -113,7 +113,6 @@ class PrivateMessagesIndex extends Component {
     componentDidMount() {
 
         socket = io.connect(socketUrl);
-
         const userId = this.props.match.params.id;
         const {auth} = this.props;
 
@@ -121,7 +120,7 @@ class PrivateMessagesIndex extends Component {
             // console.log('user connect');
 
             const users = {
-                myId: auth.user.id,
+                myId: auth.user._id,
                 userId
             };
 

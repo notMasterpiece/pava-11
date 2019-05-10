@@ -28,7 +28,6 @@ const fake = require('./routes/api/fake');
 const blog = require('./routes/api/blog');
 const task = require('./routes/api/task');
 const calendar = require('./routes/api/calendar');
-const chat = require('./routes/api/chat');
 const pass = require('./routes/api/pass');
 
 const test = require('./routes/api/test');
@@ -60,7 +59,7 @@ require('./socket/socket')(io);
 
 // passport MIDD
 app.use(passport.initialize());
-require('./config/passport')(passport);
+require('./middleware/auth/passport')(passport);
 
 
 app.use(session({
@@ -81,7 +80,6 @@ app.use('/api/blog', blog);
 app.use('/api/task', task);
 app.use('/api/fake', fake);
 app.use('/api/calendar', calendar);
-app.use('/api/chat', chat);
 app.use('/api/pass', pass);
 
 
@@ -120,6 +118,7 @@ app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
 
+    console.log(err.message);
     res.json({
         name: err.message,
         status: err.status || 500

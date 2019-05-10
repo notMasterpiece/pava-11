@@ -1,5 +1,5 @@
 import './assets/styles/main.scss';
-import React, {useEffect} from 'react';
+import React from 'react';
 
 //redux
 import { Provider } from 'react-redux';
@@ -13,8 +13,6 @@ import Dashboard from './components/Dashboard';
 import Error500 from './components/pages/500/Error_500';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import {loadUser} from "./actions/auth-action";
 import {setAuthToken} from './helpers/helpers';
 
 import moment from 'moment';
@@ -29,10 +27,6 @@ if (localStorage.token) {
 }
 
 const App = () => {
-
-    useEffect(() => {
-        store.dispatch(loadUser())
-    }, []);
 
     return (
         <Provider store={ store }>
