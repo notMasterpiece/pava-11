@@ -10,7 +10,10 @@ import RightBar from '../components/layout/RightBar';
 
 import OflineStatus from './Tools/OflineStatus/OflineStatus';
 import {loadUser} from "../actions/auth-action";
-import { getCurrentProfile } from '../actions/profile-action';
+
+import moment from 'moment';
+moment.locale('ua');
+
 
 let internetTimeOut;
 
@@ -54,10 +57,7 @@ class Dashboard extends Component {
 
 
     componentDidMount() {
-
         this.props.loadUser();
-        this.props.getCurrentProfile();
-
 
         window.addEventListener('online', this.setOnline);
         window.addEventListener('offline', this.setOffline);
@@ -133,4 +133,4 @@ export default connect(state => ({
     dom: state.dom,
     errors: state.errors,
     profile: state.profile
-}),{getCurrentProfile, loadUser} )(Dashboard);
+}),{loadUser} )(Dashboard);

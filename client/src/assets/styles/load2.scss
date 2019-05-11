@@ -3474,21 +3474,6 @@ img {
   font-weight: 700
 }
 
-.sidebar .menu .list .header {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 8px 12px;
-  position: relative;
-  color: #616161
-}
-
-.sidebar .menu .list .header:before {
-  content: "--";
-  position: absolute;
-  left: 0;
-  top: 7px
-}
-
 .sidebar .menu .list .menu-toggle:after,.sidebar .menu .list .menu-toggle:before {
   position: absolute;
   top: calc(50% - 11px);
@@ -4401,10 +4386,6 @@ img {
 
 .m-l-15,.navbar-nav.navbar-left .dropdown-menu ul.menu .media .media-body {
   margin-left: 15px
-}
-
-.m-t-15,.sidebar .menu .list .header {
-  margin-top: 15px
 }
 
 .m-r-15,.right_menu .menu-app .menu a i {

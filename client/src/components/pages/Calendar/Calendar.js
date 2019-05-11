@@ -54,9 +54,6 @@ class CalendarEvent extends React.Component {
 
     renderDaysName = () => {
         const weekdays = moment.weekdays(true);
-
-        console.log(weekdays);
-
         return weekdays.map(day => (
             <th
                 key={day}

@@ -1,45 +1,19 @@
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import {connect} from 'react-redux';
-
+import navlink from '../navlink';
+import MenuLink from '../Tools/Menu/MenuLink';
 import User from './User';
 
 class RightBar extends Component {
-
-    renderPostsCount = () => {
-        const {posts} = this.props.posts;
-        if (posts && posts.length) return <span className="badge badge-default float-right">{posts.length}</span>;
-        return false;
-    };
-
-
-    renderGoToProfile = () => {
-        const {url} = this.props.match;
-        if (url !== '/') {
-            return (
-                <Link to={'/'}><i className="zmdi zmdi-home"/>
-                    <span>Профіль</span>
-                </Link>
-            )
-        } else {
-            return (
-                <button><i className="zmdi zmdi-home"/>
-                    <span>Профіль</span>
-                </button>
-            )
-        }
-    };
-
-
     renderUser = () => {
         const {user} = this.props.auth;
         const {profile} = this.props.profile;
         const {url} = this.props.match;
         if (!user) return;
         return url !== '/' &&
-
             <li>
                 <User
                     user={user}
@@ -58,84 +32,14 @@ class RightBar extends Component {
                 <div id="leftsidebar" className={`sidebar ${showMobileMenu ? 'show-mobile' : ''}`}>
                     <div className="menu">
                         <ul className="list">
-
                             {this.renderUser()}
 
-                            <li className="header">MAIN</li>
-
-                            <li className="active open">
-                                {this.renderGoToProfile()}
-                            </li>
-
-                            <li>
-                                <Link to={'/feed'} className="menu-toggle">
-                                    <i className="zmdi zmdi-edit"/>
-                                    <span>Написати</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to={'/posts?page=1'} className="menu-toggle">
-                                    <i className="zmdi zmdi-swap-alt"/>
-                                    <span>Пости</span>
-                                    {this.renderPostsCount()}
-                                </Link>
-                            </li>
-                            <li className="header">EXTRA COMPONENTS</li>
-                            <li>
-                                <Link
-                                    to={'/profiles'}
-                                    className="menu-toggle"
-                                >
-                                    <i className="zmdi zmdi-delicious"/>
-                                    <span>Профілі</span>
-                                </Link>
-                            </li>
-                            <li className="header">EXTRA COMPONENTS</li>
-
-                            <li>
-                                <Link to={'/blog/post-create'}>
-                                    <i className="zmdi zmdi-edit"/>
-                                    <span> Написати статтю</span>
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link to={'/blog'}>
-                                    <i className="zmdi zmdi-delicious"/>
-                                    <span>Статті</span>
-                                </Link>
-                            </li>
-
-                            <li className="header">MY</li>
-
-                            <li>
-                                <Link to={'/my-pass'}>
-                                    <i className="zmdi zmdi-shield-security"/>
-                                    <span>Мої паролі</span>
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link to={'/gallery'}>
-                                    <i className="zmdi zmdi-image-alt"/>
-                                    <span>Моя галерея</span>
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link to={'/calendar'}>
-                                    <i className="zmdi zmdi-calendar-check"/>
-                                    <span>Мій календар</span>
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link to={'/chat'}>
-                                    <i className="zmdi zmdi-email"/>
-                                    <span>Мої повідомлення</span>
-                                </Link>
-                            </li>
-
+                            {navlink.map((link, key) => (
+                                <MenuLink
+                                    link={link}
+                                    key={key}
+                                />
+                            ))}
                         </ul>
                     </div>
                 </div>

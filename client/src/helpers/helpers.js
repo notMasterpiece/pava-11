@@ -1,4 +1,6 @@
 import axios from 'axios';
+import React from "react";
+import './helpers.scss';
 
 export const isEmpty = value => {
   return (
@@ -107,3 +109,18 @@ export const setAuthToken = token => {
     }
 };
 
+
+export const renderProvider = provider => {
+    switch (provider) {
+        case 'facebook':
+            return <i title={`login by ${provider}`} className="zmdi zmdi-facebook"/>;
+        case 'google':
+            return <i title={`login by ${provider}`} className="zmdi zmdi-google"/>;
+        case 'github':
+            return <i title={`login by ${provider}`} className="zmdi zmdi-github-alt"/>;
+        case 'linkedin':
+            return <i title={`login by ${provider}`} className="zmdi zmdi-linkedin"/>;
+        default:
+            return null;
+    }
+};

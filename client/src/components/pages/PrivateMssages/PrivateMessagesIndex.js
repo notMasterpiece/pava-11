@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 // socket
 import io from 'socket.io-client';
@@ -49,7 +50,7 @@ class PrivateMessagesIndex extends Component {
 
         const newMessage = {
             message,
-            user: auth.user.id,
+            user: auth.user._id,
         };
 
 
@@ -117,7 +118,6 @@ class PrivateMessagesIndex extends Component {
         const {auth} = this.props;
 
         socket.on('connect', () => {
-            // console.log('user connect');
 
             const users = {
                 myId: auth.user._id,
@@ -133,9 +133,6 @@ class PrivateMessagesIndex extends Component {
                     room: userInfo.room
                 })
             });
-
-
-
 
 
 
@@ -190,9 +187,6 @@ class PrivateMessagesIndex extends Component {
                     }, 2000)
                 })
             })
-
-
-
         });
 
     }
@@ -229,7 +223,7 @@ class PrivateMessagesIndex extends Component {
 
                                     <MessagesList
                                         isFirst={isFirst}
-                                        user={auth.user.id}
+                                        user={auth.user._id}
                                         messages={messages}
                                         sendEmoji={this.sendEmoji}
                                         showEmoji={showEmoji}
@@ -260,6 +254,4 @@ class PrivateMessagesIndex extends Component {
     }
 }
 
-export default connect(state => ({
-    auth: state.auth
-}))(PrivateMessagesIndex);
+export default withRouter(PrivateMessagesIndex);

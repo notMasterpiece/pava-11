@@ -1,10 +1,6 @@
 import './assets/styles/main.scss';
 import React from 'react';
 
-//redux
-import { Provider } from 'react-redux';
-import store from './store/store';
-
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Forgot from './components/auth/Forgot';
@@ -15,8 +11,8 @@ import Error500 from './components/pages/500/Error_500';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {setAuthToken} from './helpers/helpers';
 
-import moment from 'moment';
-moment.locale('ua');
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 if(localStorage.color) {
     document.body.style.backgroundColor = localStorage.color;

@@ -1,6 +1,7 @@
 import {USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, CLEAR_PROFILE, LOGOUT} from './types';
 
 import axios from 'axios';
+import {getCurrentProfile} from './profile-action';
 import {setAuthToken} from '../helpers/helpers';
 
 
@@ -16,7 +17,13 @@ export const loadUser = () => async dispatch => {
             type: USER_LOADED,
             payload: res.data
         });
+
+
+        dispatch(getCurrentProfile());
+
+
     } catch (err) {
+        console.log(err);
         dispatch({
             type: AUTH_ERROR
         });
@@ -24,8 +31,6 @@ export const loadUser = () => async dispatch => {
 };
 
 
-
-// Login User
 export const login = (email, password) => async dispatch => {
     const config = {
         headers: {
@@ -55,8 +60,6 @@ export const login = (email, password) => async dispatch => {
 };
 
 
-
-// Login User
 export const loginSocial = token => async dispatch => {
     try {
         dispatch({

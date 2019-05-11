@@ -19,15 +19,12 @@ class MessagesList extends PureComponent {
 
     renderMessages = () => {
         t0 = performance.now();
-        console.log('renderMessage');
 
         const {messages, user, isFirst} = this.props;
-
-        console.log(messages);
-
+        console.log(this.props);
 
         if (isFirst) {
-            return <p style={{textAlign: 'center'}}>You don't speak yet, write your first messages</p>
+            return <p style={{textAlign: 'center'}}>You don't speak yet, write your first messages :)</p>
         }
 
         if (!messages.length) return;
@@ -219,8 +216,8 @@ class MessagesList extends PureComponent {
 }
 
 const ChatMessageContent = styled.div`
-    padding: 15px 35px; 
-    background-color: #ffa000; 
+    padding: 15px 35px;   
+    background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
     color: white;
     max-width: 400px;
     display: inline-block;
@@ -288,7 +285,7 @@ const ChatContent = styled.div`
       right: 0;
     }
     ${ChatMessageContent} {
-        background-color: #0288d1;
+        background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
         margin-right: 20px;
         margin-left: 0;
         border-radius: 11px 0 11px 11px;

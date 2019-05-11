@@ -1,6 +1,6 @@
 import NotFound from './pages/NotFound/NotFound';
 import Settings from './pages/Settings/Settings';
-import MessagesIndex from './pages/messages/MessagesIndex';
+import MessagesWrap from './pages/messages/MessagesWrap';
 import PostFeedIndex from './pages/feed/PostFeedIndex';
 import AllPosts from './pages/posts/AllPosts';
 import SinglePostWrap from './pages/posts/SinglePostWrap';
@@ -20,8 +20,7 @@ import BlogSingleIndex from './pages/blog/blogSingle/BlogSingleIndex';
 import FakeIndex from './pages/fake/fakeIndex';
 import Test from './pages/test';
 import ServerError from './pages/500/Error_500';
-
-import PrivateMessagesIndex from './pages/PrivateMssages/PrivateMessagesIndex';
+import PrivateMessagesWrap from './pages/PrivateMssages/PrivateMessageWrap';
 import MyPass from "./pages/MyPass/MyPass";
 
 
@@ -37,15 +36,15 @@ const Routes = [
     },
     {
         path: '/chat',
-        component: MessagesIndex,
+        component: MessagesWrap,
     },
     {
         path: '/chat/:id',
-        component: MessagesIndex,
+        component: MessagesWrap,
     },
     {
         path: '/messages/t/:id',
-        component: PrivateMessagesIndex,
+        component: PrivateMessagesWrap,
     },
     {
         path: '/settings',

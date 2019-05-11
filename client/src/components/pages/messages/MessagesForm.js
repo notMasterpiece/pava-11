@@ -6,7 +6,6 @@ import smile from '../../../assets/images/smile.svg';
 // import image from '../../../assets/images/image.svg';
 
 const MessagesForm = ({message, onChange, sendMessage, onKeyUp, typing, renderEmoji, AddCoolIcon, AddFile, files}) => {
-    console.log(files);
     return (
         <div className="chat-message clearfix">
             {typing &&
@@ -110,19 +109,19 @@ const Input = styled.input`
   border: 0;
 `;
 
-const AddImageBtn = styled.button` 
-  position: absolute;
-  top: 1px;
-  bottom: 1px;
-  right: 80px;
-  width: 150px;
-  border: 0;
-  cursor: pointer; 
-  img {
-    width: 20px;
-    height: 20px;
-  }
-`;
+// const AddImageBtn = styled.button`
+//   position: absolute;
+//   top: 1px;
+//   bottom: 1px;
+//   right: 80px;
+//   width: 150px;
+//   border: 0;
+//   cursor: pointer;
+//   img {
+//     width: 20px;
+//     height: 20px;
+//   }
+// `;
 
 MessagesForm.propTypes = {
     message: PropTypes.string,

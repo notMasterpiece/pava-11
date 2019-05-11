@@ -15,24 +15,6 @@ const graphqlSchema = require('./graphql/schema');
 const graphqlResolver = require('./graphql/resolves');
 
 
-
-
-//load routes
-const auth = require('./routes/api/auth');
-const users = require('./routes/api/users');
-const profile = require('./routes/api/profile');
-const post = require('./routes/api/post');
-const admin = require('./routes/api/admin');
-const upload = require('./routes/api/upload');
-const fake = require('./routes/api/fake');
-const blog = require('./routes/api/blog');
-const task = require('./routes/api/task');
-const calendar = require('./routes/api/calendar');
-const pass = require('./routes/api/pass');
-
-const test = require('./routes/api/test');
-
-
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
@@ -68,23 +50,8 @@ app.use(session({
     saveUninitialized: true
 }));
 
-
-// USE ROUTES
-app.use('/api/auth', auth);
-app.use('/api/users', users);
-app.use('/api/profile', profile);
-app.use('/api/posts', post);
-app.use('/api/admin', admin);
-app.use('/api/upload', upload);
-app.use('/api/blog', blog);
-app.use('/api/task', task);
-app.use('/api/fake', fake);
-app.use('/api/calendar', calendar);
-app.use('/api/pass', pass);
-
-
-//test
-app.use('/api/test', test);
+// ALL ROUTES
+require('./start-up/routes')(app);
 
 app.use('/graphql', graphqlHttp({
     schema: graphqlSchema,
@@ -103,6 +70,7 @@ if(process.env.NODE_ENV === 'production') {
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+    console.log('catch page not fount');
     const err = new Error('Page Not Found');
     err.status = 404;
     next(err);

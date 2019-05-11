@@ -94,7 +94,7 @@ class PostFeedIndex extends Component {
                     <div className="header">
                         <h2><strong>Скажіть щось ...</strong></h2>
                     </div>
-                    <div className="body">
+                    <div className="body" style={{marginBottom: '300px'}}>
                         <div className="row clearfix">
                             <div className="col-sm-12">
 

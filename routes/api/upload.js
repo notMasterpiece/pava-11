@@ -35,7 +35,7 @@ router.post('/', upload.single('image'), auth, async (req, res) => {
 
     const result = await cloudinary.v2.uploader.upload(req.file.path);
 
-    Profile.findOneAndUpdate({user: req.user.id}, {$set: {image: result.secure_url}}, {new: true})
+    Profile.findOneAndUpdate({user: req.user._id}, {$set: {image: result.secure_url}}, {new: true})
         .then(profile => {
             res.json(profile)
         })

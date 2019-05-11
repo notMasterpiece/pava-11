@@ -15,8 +15,15 @@ const User = require('../../models/Users');
 // @route GET api/users/
 // @desc Test users route
 // @access Public
-router.get('/', (req, res) => {
-    res.send('users');
+router.get('/', async (req, res, next) => {
+    try {
+        const posts = await User.find().sort({ date: -1 });
+        console.log(posts);
+        res.json(posts);
+    } catch (e) {
+        console.log(e);
+        next(e);
+    }
 });
 
 

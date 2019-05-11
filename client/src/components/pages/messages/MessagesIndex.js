@@ -32,7 +32,10 @@ class MessagesIndex extends Component {
             socket: null,
             message: '',
             messages: [],
-            profiles: []
+            profiles: [],
+            typing: false,
+            showEmoji: false,
+            files: []
         }
 
     }
@@ -54,11 +57,11 @@ class MessagesIndex extends Component {
 
         const {message}= this.state;
         const {auth} = this.props;
-        const room = this.props.match.params.id || 'general';
+        const room = 'general';
 
         const newMessage = {
             message,
-            user: auth.user.id,
+            user: auth.user._id,
             room
 
         };
@@ -71,20 +74,19 @@ class MessagesIndex extends Component {
     };
 
 
+
     componentDidMount() {
 
-        console.log(this.props.auth.user, 'this.props.auth.user');
         socket = io.connect(socketUrl);
         const chatContainer = document.body.querySelector('.chat-history');
         const {_id} = this.props.auth.user;
-        console.log(_id);
 
         socket.on('connect', () => {
             console.log('user connect');
 
             socket.emit('USER_CONNECT', _id);
 
-            const room = this.props.match.params.id || 'general';
+            const room = 'general';
 
             socket.emit('JOIN_ROOM', room, () => {
                 // console.log(`user join to room ${room}`);
@@ -94,9 +96,7 @@ class MessagesIndex extends Component {
             socket.on('SERVER_NEW_CHAT_MSG', message => {
                 // console.log(message, 'get from server');
                 const newMessages = [...this.state.messages, message];
-                this.setState({ messages: newMessages }, ()=> {
-                    gotoBottom(chatContainer);
-                })
+                this.setState({ messages: newMessages });
             });
 
 
@@ -113,12 +113,14 @@ class MessagesIndex extends Component {
 
 
     render() {
-        const {message, messages, profiles} = this.state;
+        const {message,typing, files, messages, profiles} = this.state;
 
         const height = window.innerHeight - 60;
 
 
         return (
+
+
             <section className="chat-app">
                     <div className="row clearfix">
                         <div className="col-lg-8 col-md-7">
@@ -128,7 +130,17 @@ class MessagesIndex extends Component {
 
                                         <MessageHeader />
 
-                                        <MessagesList messages={messages} />
+                                        <MessagesForm
+                                            typing={typing}
+                                            message={message}
+                                            onChange={this.onChange}
+                                            onKeyUp={this.onKeyUp}
+                                            sendMessage={this.sendMessage}
+                                            renderEmoji={this.renderEmoji}
+                                            AddCoolIcon={this.AddCoolIcon}
+                                            AddFile={this.AddFile}
+                                            files={files}
+                                        />
 
                                         <MessagesForm
                                             message={message}

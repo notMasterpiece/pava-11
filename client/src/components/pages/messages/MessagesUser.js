@@ -2,17 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-
+import Sceleton from '../../Tools/Sceleton/Chat/Chat';
 const MessagesUser = ({profile}) => {
+
+    const {user} = profile;
+
+    if( !user) return <Sceleton />;
+
     return (
         <UserLi>
-            <Link to={`/messages/t/${profile.user._id}`}>
-                <UserImg src={profile.user.avatar} alt={profile.user.name} />
+            <Link to={`/messages/t/${user._id}`}>
+                <UserImg src={user.avatar} alt={user.name} />
                 <div className="about">
-                    <UserName>{profile.user.name}</UserName>
+                    <UserName>{user.name}</UserName>
                     <div className="status">
-                        <i className={`zmdi zmdi-circle ${profile.user.online ? ' online' : 'offline'}`} />
-                        { profile.user.online ? 'online' : 'offline' }
+                        <i className={`zmdi zmdi-circle ${user.online ? ' online' : 'offline'}`} />
+                        { user.online ? 'online' : 'offline' }
                     </div>
                 </div>
             </Link>

@@ -5,7 +5,7 @@ import {
     GET_USER_PHOTO,
     ADD_PHOTO,
     REMOVE_PHOTO,
-    GET_PROFILE,
+    PROFILE_LOADED,
     CLEAR_CURRENT_PROFILE,
     PROFILE_LOADING,
     GET_ERRORS,
@@ -21,9 +21,8 @@ import nprogress from "nprogress";
 export const getCurrentProfile = () => async dispatch => {
     try {
         const res = await axios.get('/api/profile/me');
-        console.log(res.data);
         dispatch({
-            type: GET_PROFILE,
+            type: PROFILE_LOADED,
             payload: res.data
         });
     } catch (err) {
@@ -41,13 +40,13 @@ export const getProfileById = id => dispatch => {
   axios.get(`/api/profile/user/${id}`)
     .then(profile => {
       dispatch({
-        type: GET_PROFILE,
+        type: PROFILE_LOADED,
         payload: profile.data
       })
     })
     .catch(() => {
       dispatch({
-        type: GET_PROFILE,
+        type: PROFILE_LOADED,
         payload: {}
       })
     })
@@ -63,13 +62,13 @@ export const getProfileByHangle = handle => dispatch => {
     axios.get(`/api/profile/handle/${handle}`)
         .then(profile => {
             dispatch({
-                type: GET_PROFILE,
+                type: PROFILE_LOADED,
                 payload: profile.data
             })
         })
         .catch(() => {
             dispatch({
-                type: GET_PROFILE,
+                type: PROFILE_LOADED,
                 payload: {}
             })
         })
@@ -195,7 +194,7 @@ export const deleteExp = (id) => dispatch => {
   axios.delete(`/api/profile/experience/${id}`)
     .then(res => {
       dispatch({
-        type: GET_PROFILE,
+        type: PROFILE_LOADED,
         payload: res.data
       })
     })
@@ -225,7 +224,7 @@ export const deleteEdu = (id) => dispatch => {
   axios.delete(`/api/profile/education/${id}`)
     .then(res => {
       dispatch({
-        type: GET_PROFILE,
+        type: PROFILE_LOADED,
         payload: res.data
       })
     })

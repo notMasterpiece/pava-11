@@ -2,11 +2,9 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const GitHubStrategy = require('passport-github').Strategy;
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
-
 const User = require('../../models/Users');
 
 module.exports = passport => {
-
     passport.use(new FacebookStrategy({
             clientID: process.env.FACEBOOK_ID,
             clientSecret: process.env.FACEBOOK_SECRET,
@@ -119,9 +117,6 @@ module.exports = passport => {
         callbackURL: "/api/auth/linkedin/callback",
         scope: ['r_emailaddress', 'r_basicprofile'],
     }, async (accessToken, refreshToken, profile, done) => {
-
-        console.log(profile);
-
         try {
             const res = await User.findOne({provider: profile.provider, providerID: profile.id});
             if (res) {

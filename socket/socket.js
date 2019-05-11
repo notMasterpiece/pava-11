@@ -8,8 +8,6 @@ let globalRoom;
 
 module.exports = io => {
     io.on('connection', socket => {
-        console.log('User connected');
-
         socket.on('USER_CONNECT', user => {
             console.log('CONNECT USER BY ID', user);
 
@@ -29,7 +27,7 @@ module.exports = io => {
 
             Profile
                 .find()
-                .populate('user', ['avatar', 'name', '_id', 'online, updatedAt'])
+                .populate('user')
                 .select('_id user')
                 .then(profiles => {
                     profiles.sort((a, b) => b.user.online - a.user.online);
@@ -69,8 +67,6 @@ module.exports = io => {
             // console.log(myId, 'myID');
             // console.log(userId, 'userID');
 
-
-
             ChatRoom
                 .findOne({ users: { $all: [ myId , userId ] } })
                 .then(room => {
@@ -91,11 +87,9 @@ module.exports = io => {
 
                         PMessage
                             .find({room: globalRoom._id})
-                            .populate('user', ['avatar'])
-                            .select('message user icon createdAt _id')
+                            .populate('user')
                             .sort('createdAt')
                             .then(messages => {
-
                                 if( !messages.length ) return io.to(globalRoom._id).emit('SET_PRIVATE_ROOM_NO_MESSAGES');
 
                                 io.to(globalRoom._id).emit('SET_FIRST_MESSAGES', messages);

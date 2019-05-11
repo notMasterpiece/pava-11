@@ -20,7 +20,6 @@ const addSocketIdtoSession = (req, res, next) => {
 // @desc     Test route
 // @access   Public
 router.get('/', auth, async (req, res, next) => {
-    console.log(req.user, 'user');
     try {
         const user = await User.findById(req.user._id).select('-password');
         res.json(user);
@@ -40,7 +39,7 @@ router.post(
         check('email', 'Please include a valid email').isEmail(),
         check('password', 'Password is required').exists()
     ],
-    async (req, res) => {
+    async (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
@@ -70,8 +69,6 @@ router.post(
                     _id: user._id
                 }
             };
-            console.log(payload, 'payload');
-
             jwt.sign(
                 payload,
                 process.env.AUTH_SEKRET,
@@ -82,8 +79,7 @@ router.post(
                 }
             );
         } catch (err) {
-            console.error(err.message);
-            res.status(500).send('Server error');
+            next(err)
         }
     }
 );
@@ -95,8 +91,6 @@ router.post(
 // @access   Public
 router.get('/facebook', addSocketIdtoSession, passport.authenticate('facebook'));
 router.get('/facebook/callback', passport.authenticate('facebook'), (req, res) => {
-    console.log(req.user);
-    console.log(req.session.socketId);
     const io = req.app.get('io');
     jwt.sign(req.user, process.env.AUTH_SEKRET, {expiresIn: 36000}, (err, token) => {
         if (err) throw err;
@@ -127,9 +121,6 @@ router.get('/google/callback', passport.authenticate('google', {scope: ['profile
 // @access   Public
 router.get('/github', addSocketIdtoSession, passport.authenticate('github'));
 router.get('/github/callback', passport.authenticate('github'), (req, res) => {
-    console.log(req.session.socketId);
-    console.log(req.user);
-
     const io = req.app.get('io');
     jwt.sign(req.user, process.env.AUTH_SEKRET, {expiresIn: 36000}, (err, token) => {
         if (err) throw err;
@@ -146,9 +137,6 @@ router.get('/github/callback', passport.authenticate('github'), (req, res) => {
 // @access   Public
 router.get('/linkedin', addSocketIdtoSession, passport.authenticate('linkedin'));
 router.get('/linkedin/callback', passport.authenticate('linkedin'), (req, res) => {
-    console.log(req.session.socketId);
-    console.log(req.user);
-
     const io = req.app.get('io');
     jwt.sign(req.user, process.env.AUTH_SEKRET, {expiresIn: 36000}, (err, token) => {
         if (err) throw err;

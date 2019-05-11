@@ -5,16 +5,13 @@ const auth = require('../../middleware/auth/auth');
 const CalendarEvent = require('../../models/CalendarEvent');
 
 
-router.get('/', auth, (req, res, next) => {
-
-    CalendarEvent
-        .find({user: req.user.id})
-        .then(tasks => {
-            res.json(tasks);
-        })
-        .catch(err => next(err));
-
-
+router.get('/', auth, async (req, res, next) => {
+    try {
+        const events = await CalendarEvent.find({user: req.user._id});
+        res.json(events);
+    } catch (err) {
+        next(err)
+    }
 });
 
 router.post('/', auth, (req, res, next) => {
@@ -25,7 +22,7 @@ router.post('/', auth, (req, res, next) => {
         name,
         description,
         date,
-        user: req.user.id
+        user: req.user._id
     });
 
     newEvent.save()

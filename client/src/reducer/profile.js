@@ -1,5 +1,5 @@
 import {
-  GET_PROFILE,
+  PROFILE_LOADED,
   PROFILE_ERROR,
   CLEAR_PROFILE,
   UPDATE_PROFILE,
@@ -18,7 +18,7 @@ export default function(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case GET_PROFILE:
+    case PROFILE_LOADED:
     case UPDATE_PROFILE:
       return {
         ...state,
