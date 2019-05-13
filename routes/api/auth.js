@@ -24,6 +24,7 @@ router.get('/', auth, async (req, res, next) => {
         const user = await User.findById(req.user._id).select('-password');
         res.json(user);
     } catch (err) {
+        console.log(err);
         next(err);
     }
 });

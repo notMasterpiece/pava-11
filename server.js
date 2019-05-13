@@ -100,4 +100,4 @@ require('./start-up/mongo')();
 require('./start-up/cron')();
 
 // post
-require('./start-up/port')(server);
+require('./start-up/port')(server, app);
