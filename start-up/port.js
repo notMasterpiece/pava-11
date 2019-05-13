@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
 module.exports = (server, app) => {
     server.listen(PORT, ()=> {
         app.set('port', PORT);
