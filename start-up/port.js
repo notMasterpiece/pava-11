@@ -1,7 +1,6 @@
-const PORT = 8080;
-module.exports = (server, app) => {
+const PORT = 5299;
+module.exports = server => {
     server.listen(PORT, ()=> {
-        app.set('port', PORT);
         console.log(`App start on port ${PORT}`);
     });
 };
