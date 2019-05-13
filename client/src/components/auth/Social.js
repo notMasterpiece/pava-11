@@ -29,7 +29,7 @@ class Social extends Component {
         const width = 600, height = 600;
         const left = (window.innerWidth / 2) - (width / 2);
         const top = (window.innerHeight / 2) - (height / 2);
-        const url = `https://${window.location.hostname}:${process.env.PORT ? process.env.PORT : 5299}/api/auth/${provider}?socketId=${socket.id}`;
+        const url = `https://${window.location.hostname}/api/auth/${provider}?socketId=${socket.id}`;
 
         console.log(window.location.hostname, 'hostname');
         console.log(url, 'url');
