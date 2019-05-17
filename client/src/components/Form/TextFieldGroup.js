@@ -8,6 +8,7 @@ const TextFieldGroup = ({name, placeholder, value, error, info, type, onChange, 
       'has-danger': error
     })}>
       <input
+        autoComplete={'off'}
         type={type}
         className={classnames('form-control form-control-lg', {
           'form-control-danger': error

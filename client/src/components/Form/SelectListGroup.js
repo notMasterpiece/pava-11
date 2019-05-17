@@ -23,6 +23,10 @@ const SelectListGroup = ({value, error, info, options, onChangeSelect }) => {
   );
 };
 
+SelectListGroup.defaultProps = {
+    value: ''
+};
+
 
 
 const SelectWrap = styled.div`

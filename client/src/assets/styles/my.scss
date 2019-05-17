@@ -1549,10 +1549,48 @@ body .jodit_toolbar {
   vertical-align: top;
 }
 
+
+.DayPicker-Day {
+  width: 38px;
+  height: 34px;
+  min-width: 38px;
+}
+
+.DayPickerInput {
+  input {
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #E3E3E3;
+    color: #2c2c2c;
+    line-height: normal;
+    font-size: .93em;
+    -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    box-shadow: none;
+    padding: 10px;
+    min-width: 200px;
+  }
+}
+
+.btn-danger {
+  background-color: #FF3636;
+  color: #fff;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger:active:focus, .btn-danger:active:hover, .btn-danger.active:focus, .btn-danger.active:hover, .show>.btn-danger.dropdown-toggle, .show>.btn-danger.dropdown-toggle:focus, .show>.btn-danger.dropdown-toggle:hover {
+  background-color: #f55;
+  color: #fff;
+  box-shadow: none;
+}
+
 canvas {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.dropdown-menu.show {
+  box-shadow: 0 10px 50px 0 rgba(0,0,0,0.2);
+  font-size: 14px;
 }

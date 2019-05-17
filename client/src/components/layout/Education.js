@@ -1,21 +1,18 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-
 import Moment from 'react-moment';
 
-import {deleteEdu} from '../../actions/profile-action';
-
-import { connect } from 'react-redux';
+const ref = React.createRef();
 
 class Education extends React.Component {
   constructor(props) {
     super(props);
-
+    this.myRef = React.createRef();
     this.state = {
       showMenu: false
-    }
-
+    };
   }
+
 
   showMenuFunc = () => {
     this.setState({
@@ -23,9 +20,33 @@ class Education extends React.Component {
     })
   };
 
-  deleteEducationClick = id => {
-    this.props.deleteEdu(id);
+  deleteEducation = id => {
+    if (window.confirm('Are you really?')) {
+      this.props.deleteEdu(id);
+    }
   };
+
+
+  changeEducation = () => {
+    window.confirm("doesn't work yet")
+  };
+
+
+  hideShowMenu = e => {
+    const {current} = this.myRef;
+    const {showMenu} = this.state;
+    if (showMenu && current && !current.contains(e.target)) {
+      this.setState({ showMenu: false });
+    }
+  };
+
+  componentDidMount() {
+    document.body.addEventListener('click', this.hideShowMenu);
+  }
+
+  componentWillUnmount() {
+    document.body.removeEventListener('click', this.hideShowMenu);
+  }
 
   render() {
     const {school, degree, city, description, from, to, current, _id } = this.props.education;
@@ -39,7 +60,7 @@ class Education extends React.Component {
         return (
           <Fragment>
             {' - '}
-            <span className="m-b-0"><Moment format='YYYY-MM-DD'>{to}</Moment></span>
+            <span className="m-b-0"><Moment format='DD-MM-YYYY'>{to}</Moment></span>
           </Fragment>
         )
       }
@@ -49,14 +70,15 @@ class Education extends React.Component {
     <Fragment>
       <div className="header">
         <ul className="header-dropdown">
-          <li className="dropdown show">
-            <button className="dropdown-toggle 123123123" onClick={this.showMenuFunc}>
+          <li className="dropdown show" ref={this.myRef}>
+            <button className="dropdown-toggle" onClick={this.showMenuFunc}>
               <i className="zmdi zmdi-more" />
             </button>
             {
               showMenu &&
               <ul className="dropdown-menu show">
-                <li><button className='delete-education' onClick={() => this.deleteEducationClick(_id)}>Видалити</button></li>
+                <li><button onClick={() => this.deleteEducation(_id)}>Видалити</button></li>
+                <li><button onClick={() => this.changeEducation(_id)}>Редагувати</button></li>
               </ul>
             }
 
@@ -96,7 +118,7 @@ class Education extends React.Component {
         }
         {
           from &&
-          <span className="m-b-0"><Moment format='YYYY-MM-DD'>{from}</Moment></span>
+          <span className="m-b-0"><Moment format='DD-MM-YYYY'>{from}</Moment></span>
         }
         { showCurrentExp() }
       </div>
@@ -106,8 +128,7 @@ class Education extends React.Component {
 }
 
 Education.propTypes = {
-  education: PropTypes.object.isRequired,
-  deleteEdu: PropTypes.func.isRequired
+  education: PropTypes.object.isRequired
 };
 
-export default connect( null, {deleteEdu})(Education);
+export default Education;

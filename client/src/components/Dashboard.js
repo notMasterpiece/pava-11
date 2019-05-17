@@ -12,7 +12,7 @@ import OflineStatus from './Tools/OflineStatus/OflineStatus';
 import {loadUser} from "../actions/auth-action";
 
 import moment from 'moment';
-moment.locale('ua');
+moment.locale('uk');
 
 
 let internetTimeOut;

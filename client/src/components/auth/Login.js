@@ -11,7 +11,8 @@ import Register from './Register';
 
 import Social from './Social';
 
-const providers = ['google', 'facebook', 'github', 'linkedin'];
+// const providers = ['google', 'facebook', 'github', 'linkedin'];
+const providers = ['google', 'github'];
 
 
 class Login extends Component {
@@ -139,7 +140,7 @@ class Login extends Component {
                                         <NavLink to='forgot' className="link">Забули пароль</NavLink>
 
                                         <div className="social">
-                                            <div className="social_title">Через социальные сети</div>
+                                            <br/>
                                             <div className="social_btn">
                                                 {providers.map(provider =>
                                                     <Social

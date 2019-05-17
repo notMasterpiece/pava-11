@@ -11,7 +11,7 @@ module.exports = passport => {
             callbackURL: '/api/auth/facebook/callback',
             profileFields: ['id', 'name', 'picture.width(500)', 'emails', 'displayName'],
         }, async (accessToken, refreshToken, profile, done) => {
-        try {
+            try {
                 const res = await User.findOne({provider: profile.provider, providerID: profile.id});
                 if (res) {
                     res.email = profile.emails[0].value || '';
@@ -19,18 +19,18 @@ module.exports = passport => {
                     res.avatar = profile.photos[0].value;
 
                     await res.save();
-                    const payload = {user: {_id: res._id }};
+                    const payload = {user: {_id: res._id}};
                     return done(null, payload);
                 }
 
                 const newUser = new User({
-                    name : profile.displayName,
-                    avatar : profile.photos[0].value,
+                    name: profile.displayName,
+                    avatar: profile.photos[0].value,
                     provider: profile.provider
                 });
 
                 const saved = await newUser.save();
-                const payload = {user: {_id: saved._id }};
+                const payload = {user: {_id: saved._id}};
                 return done(null, payload);
 
 
@@ -41,11 +41,10 @@ module.exports = passport => {
     ));
 
 
-
     passport.use(new GitHubStrategy({
             clientID: process.env.GITHUB_ID,
             clientSecret: process.env.GITHUB_SECRET,
-            callbackURL: "/api/auth/github/callback"
+            callbackURL: '/api/auth/github/callback'
         }, async (accessToken, refreshToken, profile, done) => {
             try {
                 const res = await User.findOne({provider: profile.provider, providerID: profile.id});
@@ -53,18 +52,19 @@ module.exports = passport => {
                     res.name = profile.username;
                     res.avatar = profile.photos[0].value;
                     await res.save();
-                    const payload = {user: {_id: res._id }};
+                    const payload = {user: {_id: res._id}};
                     return done(null, payload);
                 }
 
                 const newUser = new User({
-                    name : profile.username,
-                    avatar : profile.photos[0].value,
-                    provider: profile.provider
+                    name: profile.username,
+                    avatar: profile.photos[0].value,
+                    provider: profile.provider,
+                    providerID: profile.id
                 });
 
                 const saved = await newUser.save();
-                const payload = {user: {_id: saved._id }};
+                const payload = {user: {_id: saved._id}};
                 return done(null, payload);
 
 
@@ -82,31 +82,32 @@ module.exports = passport => {
         }, async (accessToken, refreshToken, profile, done) => {
             try {
                 const res = await User.findOne({provider: profile.provider, providerID: profile.id});
-
                 if (res) {
+
                     res.name = profile.displayName;
                     res.avatar = profile.photos[0].value;
 
                     await res.save();
-                    const payload = {user: {_id: res._id }};
+                    const payload = {user: {_id: res._id}};
                     return done(null, payload);
                 }
 
                 const newUser = new User({
-                    name : profile.displayName,
-                    avatar : profile.photos[0].value,
-                    provider: profile.provider
+                    name: profile.displayName,
+                    avatar: profile.photos[0].value,
+                    provider: profile.provider,
+                    providerID: profile.id
                 });
 
                 const saved = await newUser.save();
-                const payload = {user: {_id: saved._id }};
+                const payload = {user: {_id: saved._id}};
                 return done(null, payload);
 
 
             } catch (err) {
                 console.log(err);
             }
-            
+
         }
     ));
 
@@ -124,19 +125,19 @@ module.exports = passport => {
                 res.avatar = profile.photos[0].value;
                 res.email = profile.emails[0].value;
                 await res.save();
-                const payload = {user: {_id: res._id }};
+                const payload = {user: {_id: res._id}};
                 return done(null, payload);
             }
 
             const newUser = new User({
-                name : profile.displayName,
-                avatar : profile.photos[0].value,
-                email : profile.emails[0].value,
+                name: profile.displayName,
+                avatar: profile.photos[0].value,
+                email: profile.emails[0].value,
                 provider: profile.provider
             });
 
             const saved = await newUser.save();
-            const payload = {user: {_id: saved._id }};
+            const payload = {user: {_id: saved._id}};
             return done(null, payload);
 
         } catch (err) {
@@ -145,11 +146,11 @@ module.exports = passport => {
     }));
 
 
-    passport.serializeUser(function(user, done) {
+    passport.serializeUser(function (user, done) {
         done(null, user);
     });
 
-    passport.deserializeUser(function(user, done) {
+    passport.deserializeUser(function (user, done) {
         done(null, user);
     });
 

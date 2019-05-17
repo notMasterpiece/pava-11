@@ -9,6 +9,9 @@ import TextFieldGroup from '../../Form/TextFieldGroup';
 import TextAreaFieldGroup from '../../Form/TextAreaFieldGroup';
 
 import {addEducation} from '../../../actions/profile-action';
+import DayPickerWithYear from "../../Tools/Calendar/YearMonthForm";
+import styled from "styled-components";
+import Button from "../../Tools/LoadingBtn/Button";
 
 class AddEducation extends Component {
   constructor(props) {
@@ -23,7 +26,8 @@ class AddEducation extends Component {
       description : '',
       disabled: false,
       current: false,
-      errors: {}
+      errors: {},
+      loading: false
     }
 
 
@@ -59,6 +63,14 @@ class AddEducation extends Component {
     this.props.addEducation(addEducationData, this.props.history);
   };
 
+  onDayFromChange = e => {
+    this.setState({from: e})
+  };
+  onDayToChange = e => {
+    this.setState({to: e})
+  };
+
+
 
   componentWillReceiveProps(nextProps) {
 
@@ -71,10 +83,10 @@ class AddEducation extends Component {
 
   render() {
 
-    const {school, errors, degree, city, from, to, disabled, current, description} = this.state;
+    const {school, errors, degree, city, disabled, current, description, loading} = this.state;
 
     return (
-          <form onSubmit={this.handleSubmit}>
+          <div>
             <div className="block-header">
               <div className="row">
                 <div className="col-lg-5 col-md-5 col-sm-12">
@@ -82,7 +94,7 @@ class AddEducation extends Component {
                   <br/>
                   <ul className="breadcrumb padding-0">
                     <li className="breadcrumb-item">
-                      <Link to='dashboard'><i className="zmdi zmdi-home"></i></Link>
+                      <Link to='dashboard'><i className="zmdi zmdi-home" /></Link>
                     </li>
                     <li className="breadcrumb-item active">Опишіть де Ви навчалися</li>
                   </ul>
@@ -118,26 +130,20 @@ class AddEducation extends Component {
                         onChange={this.onChange}
                         error={errors.city}
                       />
-                      <h6>З</h6>
-                      <TextFieldGroup
-                        type='date'
-                        name='from'
-                        value={from}
-                        onChange={this.onChange}
-                        error={errors.from}
-                      />
-                      {
-                        !disabled &&
-                        <Fragment>
-                          <h6>По</h6>
-                          <TextFieldGroup
-                            type={'date'}
-                            name='to'
-                            value={to}
-                            onChange={this.onChange}
-                          />
-                        </Fragment>
-                      }
+
+                      <DaysList>
+                        <DaysWrap>
+                          <DayPickerWithYear onChange={this.onDayFromChange} placeholder={'Виберіть початкову дату'}/>
+                        </DaysWrap>
+                        {
+                          !disabled &&
+                          <DaysWrap>
+                            <DaysText> - </DaysText>
+                            <DayPickerWithYear onChange={this.onDayToChange} placeholder={'Виберіть дату закінчення'}/>
+                          </DaysWrap>
+                        }
+                      </DaysList>
+
 
                       <div className="checkbox">
                         <input
@@ -187,13 +193,33 @@ class AddEducation extends Component {
 
           <div className="row clearfix m-b-15">
             <div className="col-lg-12 align-right">
-              <button className="btn btn-primary">Додати</button>
+              <Button
+                  loadingBtn={loading}
+                  text={'Додати'}
+                  onClick={this.handleSubmit}
+              />
             </div>
           </div>
-        </form>
+        </div>
     );
   }
 }
+
+
+const DaysWrap = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+`;
+
+const DaysText = styled.span`
+  margin: 0 15px;
+`;
+
+const DaysList = styled.div`
+  display: flex;
+
+`;
 
 AddEducation.propTypes = {
   addEducation: PropTypes.func.isRequired,

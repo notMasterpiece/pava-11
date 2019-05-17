@@ -12,7 +12,7 @@ import Experience from '../../layout/Experince';
 import Education from '../../layout/Education';
 import UserDescription from './UserDescription';
 
-import {deleteAccount} from '../../../actions/profile-action';
+import {deleteAccount, deleteEdu, deleteExp} from '../../../actions/profile-action';
 
 class ProfileActions extends Component {
     constructor(props) {
@@ -62,8 +62,8 @@ class ProfileActions extends Component {
         const {showGoogleMaps, showUserGallery} = this.state;
         const {profile} = this.props.profile;
         const {status, experience, education} = this.props.profile.profile;
-
         const {name, email, avatar} = this.props.auth.user;
+        const {deleteEdu, deleteExp} = this.props;
 
 
         return (
@@ -122,7 +122,6 @@ class ProfileActions extends Component {
                         />
 
                         <div className="row">
-
                             {
                                 (Object.keys(education).length > 0) &&
                                 <div className="col-lg-6 col-md-12">
@@ -130,14 +129,14 @@ class ProfileActions extends Component {
                                         <div className="header">
                                             <h2><strong>Навчання</strong></h2>
                                         </div>
-                                        {
-                                            education.map(singleEducation => {
-                                                return <Education
-                                                    education={singleEducation}
-                                                    key={singleEducation._id}
+
+                                        { education.map(item => (
+                                                <Education
+                                                    key={item._id}
+                                                    education={item}
+                                                    deleteEdu={deleteEdu}
                                                 />
-                                            })
-                                        }
+                                            ))}
                                     </div>
 
                                 </div>
@@ -152,10 +151,13 @@ class ProfileActions extends Component {
                                             <h2><strong>Досвід роботи</strong></h2>
                                         </div>
                                         {
-                                            experience.map(singleExperience => {
-                                                return <Experience key={singleExperience._id}
-                                                                   experience={singleExperience}/>
-                                            })
+                                            experience.map(item => (
+                                                <Experience
+                                                    key={item._id}
+                                                    experience={item}
+                                                    deleteExp={deleteExp}
+                                                />
+                                            ))
                                         }
                                     </div>
 
@@ -213,4 +215,4 @@ ProfileActions.propTypes = {
 export default connect(state => ({
     profile: state.profile,
     auth: state.auth
-}), {deleteAccount})(ProfileActions);
+}), {deleteAccount, deleteEdu, deleteExp})(ProfileActions);

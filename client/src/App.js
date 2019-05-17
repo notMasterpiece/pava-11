@@ -40,12 +40,4 @@ const App = () => {
     )
 };
 
-// maybe bed
-document.body.addEventListener('click', e => {
-    if( document.body.querySelector('.dropdown-menu.show') && e.target !== document.body.querySelector('.delete-education') ) {
-        const elem = document.querySelector('.dropdown-menu.show li');
-        if( elem ) elem.parentNode.removeChild(elem);
-    }
-});
-
 export default App;

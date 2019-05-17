@@ -250,7 +250,7 @@
 .form-control {
   background-color: rgba(0,0,0,0);
   border: 1px solid #E3E3E3;
-  border-radius: 30px;
+  border-radius: 4px;
   color: #2c2c2c;
   line-height: normal;
   font-size: .93em;
@@ -334,7 +334,7 @@
   display: inline-block;
   position: absolute;
   right: 15px;
-  bottom: 10px;
+  top: 13px;
   color: #18ce0f;
   font-size: 11px
 }
@@ -472,10 +472,6 @@
 
 .input-group-focus.form-group-no-border .input-group-text {
   background-color: rgba(222,222,222,0.5)
-}
-
-.input-group,.form-group {
-  margin-bottom: 10px
 }
 
 .input-group[disabled] .input-group-text {
@@ -5654,12 +5650,14 @@ section small {
 }
 
 .card .header .header-dropdown li .dropdown-menu li {
-  display: block !important
+  display: block !important;
+  cursor: pointer;
 }
 
 .card .header .header-dropdown li .dropdown-menu li button {
   padding: 10px;
-  border-radius: .1875rem
+  border-radius: .1875rem;
+  cursor: pointer;
 }
 
 .theme-black .card .header .dropdown-menu li button:hover {

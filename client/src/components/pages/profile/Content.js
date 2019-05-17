@@ -12,7 +12,6 @@ class Content extends Component {
     render() {
         const {user} = this.props.auth;
         const {profile, loading} = this.props.profile;
-
         if (loading) return <Spinner/>;
 
         if (profile) return <ProfileActions/>;

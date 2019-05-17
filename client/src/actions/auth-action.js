@@ -3,9 +3,11 @@ import {USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, CLEAR_PROFILE, LOGOU
 import axios from 'axios';
 import {getCurrentProfile} from './profile-action';
 import {setAuthToken} from '../helpers/helpers';
+import nprogress from "nprogress";
 
 
 export const loadUser = () => async dispatch => {
+    nprogress.start();
     if (localStorage.token) {
         setAuthToken(localStorage.token);
     }
@@ -18,11 +20,10 @@ export const loadUser = () => async dispatch => {
             payload: res.data
         });
 
-
         dispatch(getCurrentProfile());
-
-
+        nprogress.done();
     } catch (err) {
+        nprogress.done();
         console.log(err);
         dispatch({
             type: AUTH_ERROR
