@@ -29,9 +29,9 @@ const Experince = ({experience, deleteExp}) => {
             }
         };
 
-        document.body.addEventListener('click', e => hideShowMenu(e));
+        document.body.addEventListener('click', hideShowMenu);
         return () => {
-            document.body.removeEventListener('click', e => hideShowMenu(e));
+            document.body.removeEventListener('click', hideShowMenu);
         }
     });
 
