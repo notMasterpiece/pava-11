@@ -6,7 +6,7 @@ import {setAuthToken} from '../helpers/helpers';
 import nprogress from "nprogress";
 
 
-export const loadUser = () => async dispatch => {
+export const loadUser = history => async dispatch => {
     nprogress.start();
     if (localStorage.token) {
         setAuthToken(localStorage.token);
@@ -23,7 +23,9 @@ export const loadUser = () => async dispatch => {
         dispatch(getCurrentProfile());
         nprogress.done();
     } catch (err) {
+        history.push('/login');
         nprogress.done();
+
         console.log(err);
         dispatch({
             type: AUTH_ERROR

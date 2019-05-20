@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Redirect, Switch, Route} from 'react-router-dom';
+import {Redirect, Switch, Route, withRouter} from 'react-router-dom';
 
 import {connect} from 'react-redux';
 
@@ -57,7 +57,10 @@ class Dashboard extends Component {
 
 
     componentDidMount() {
-        this.props.loadUser();
+
+        const {history} = this.props;
+
+        this.props.loadUser(history);
 
         window.addEventListener('online', this.setOnline);
         window.addEventListener('offline', this.setOffline);
@@ -133,4 +136,4 @@ export default connect(state => ({
     dom: state.dom,
     errors: state.errors,
     profile: state.profile
-}),{loadUser} )(Dashboard);
+}),{loadUser} )(withRouter(Dashboard));
