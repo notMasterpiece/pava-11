@@ -1,8 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const http = require('http');
-const https = require('https');
-const fs = require('fs');
 const path = require('path');
 
 const socketIO = require('socket.io');
@@ -20,14 +18,15 @@ const graphqlResolver = require('./graphql/resolves');
 
 const app = express();
 
-// const server = http.createServer(app);
-const server = https.createServer({
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.crt'),
-    ca: fs.readFileSync('server.crt'),
-}, app);
-
+const server = http.createServer(app);
 const io = socketIO(server);
+
+app.use(function(req, res, next) {
+    var reqType = req.headers["x-forwarded-proto"];
+    reqType == 'https' ? next() : res.redirect("https://" + req.headers.host + req.url);
+});
+
+
 app.set('io', io);
 
 // bodyParser MIDD
@@ -74,7 +73,7 @@ if(process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    })
+    });
 }
 
 
