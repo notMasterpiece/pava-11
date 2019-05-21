@@ -22,8 +22,8 @@ const server = http.createServer(app);
 const io = socketIO(server);
 
 app.use(function(req, res, next) {
-    var reqType = req.headers["x-forwarded-proto"];
-    reqType == 'https' ? next() : res.redirect("https://" + req.headers.host + req.url);
+    res.redirect("https://" + req.headers.host + req.url);
+    next();
 });
 
 
