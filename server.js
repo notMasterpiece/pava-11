@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const path = require('path');
+const enforce = require('express-sslify');
 
 const socketIO = require('socket.io');
 
@@ -17,17 +18,14 @@ const graphqlResolver = require('./graphql/resolves');
 
 
 const app = express();
+app.use(enforce.HTTPS());
 
 const server = http.createServer(app);
+
+
 const io = socketIO(server);
-
-app.use(function(req, res, next) {
-    res.redirect("https://" + req.headers.host + req.url);
-    next();
-});
-
-
 app.set('io', io);
+
 
 // bodyParser MIDD
 // parse application/x-www-form-urlencoded
