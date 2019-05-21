@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const http = require('http');
+const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
@@ -18,7 +19,14 @@ const graphqlResolver = require('./graphql/resolves');
 
 
 const app = express();
-const server = http.createServer(app);
+
+// const server = http.createServer(app);
+const server = https.createServer({
+    key: fs.readFileSync('server.key'),
+    cert: fs.readFileSync('server.crt'),
+    ca: fs.readFileSync('server.crt'),
+}, app);
+
 const io = socketIO(server);
 app.set('io', io);
 
