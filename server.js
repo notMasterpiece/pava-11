@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const path = require('path');
-const enforce = require('express-sslify');
 
 const socketIO = require('socket.io');
 
@@ -18,8 +17,6 @@ const graphqlResolver = require('./graphql/resolves');
 
 
 const app = express();
-app.use(enforce.HTTPS());
-
 const server = http.createServer(app);
 
 
