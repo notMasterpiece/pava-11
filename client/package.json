@@ -9,7 +9,7 @@
     "jodit-react": "^1.0.25",
     "jwt-decode": "^2.2.0",
     "moment": "^2.22.2",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
     "query-string": "^6.2.0",
